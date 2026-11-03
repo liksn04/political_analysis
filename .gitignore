@@ -1,0 +1,34 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+dist/
+build/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+
+# 원자료 및 파생물: 이용조건·재현성 검토 후 공개 여부 결정
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/reference/*
+!data/reference/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+outputs/*
+!outputs/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/
