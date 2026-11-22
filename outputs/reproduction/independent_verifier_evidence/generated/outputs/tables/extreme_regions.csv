@@ -1,0 +1,7 @@
+region_code,province,region_name,variable,value,rule,action
+4125000000,경기도,동두천시,turnout,73.4189556332627,min,retain
+5277000000,전북특별자치도,순창군,turnout,86.5448230234866,max,retain
+4159000000,경기도,화성시,aging_rate,13.849699413989946,min,retain
+4773000000,경상북도,의성군,aging_rate,51.513749338974094,max,retain
+3117000000,울산광역시,동구,oldest_share,13.904970347359502,min,retain
+4678000000,전라남도,보성군,oldest_share,36.19485294117647,max,retain

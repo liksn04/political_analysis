@@ -1,0 +1,15 @@
+{
+  "checkout": "/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/m7-independent-verifier-pt6dy5g6/checkout",
+  "operator": "m7_independent_verifier (/root/m7_independent_verifier)",
+  "same_host_separate_ai_agent": true,
+  "bootstrap_host_python": "3.13.3 (v3.13.3:6280bb54784, Apr  8 2025, 10:47:54) [Clang 15.0.0 (clang-1500.3.9.4)]",
+  "host_platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "files_copied": 71,
+  "manifest_sha256": "4a52540265c307bdf22d5d2d66b61baaf845e01c8efbb18d28f982e2d95f08e4",
+  "baseline_plus_patch_matches_current": {
+    "src/political_analysis/pipeline.py": true,
+    "tests/test_exploration.py": true,
+    "tests/test_models.py": true,
+    "tests/test_pipeline.py": true
+  }
+}

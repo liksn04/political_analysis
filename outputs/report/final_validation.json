@@ -1,0 +1,29 @@
+{
+  "gate": "G-M7-02",
+  "status": "DONE",
+  "date_kst": "2026-11-06",
+  "final_report": "outputs/report/FINAL_REPORT.md",
+  "final_report_sha256": "4367f907c892c2c9bd70bb5d4d1708fa74956ae8524e3bb7b301efab09e1fbdc",
+  "revisions": [
+    {
+      "date_kst": "2026-11-10",
+      "gate": "G-POST-02",
+      "change": "appended exploratory appendix (ADR-014); existing 175 lines unchanged; H1/H2 verdicts unchanged",
+      "previous_final_report_sha256": "b424c271f18187e8ad6691c9ea1391619272bf8c7b33831ff40d7fc221b9b20b",
+      "previous_version_preserved_at": "outputs/report/FINAL_REPORT_2026-11-06.md"
+    }
+  ],
+  "m6_reviewed_report_sha256": "aa5e31c162be05b6029b9835db1eb83cb76d86b170162f2e1d1293bb00cd25db",
+  "m7_operator_result_sha256": "20c74a8f38c4f2bb19d58c493bd741fcafbca45cccef7739b89564e1a5ede331",
+  "m7_acceptance_sha256": "a53bb4f3d8824d55a8a3a83e4d435542da191b6f4226e4de1938c4bdd93f902c",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "independence_scope": "same host, separate AI verifier and fresh checkout/virtual environment",
+  "report_tables": 6,
+  "report_figures": 3,
+  "local_links_checked": 33,
+  "replay_snapshot_hashes_verified": 27,
+  "previous_numeric_table_and_citation_review": "preserved",
+  "delivery_format": "local Markdown",
+  "external_publication": false,
+  "completed_gates_with_research_log": 23
+}

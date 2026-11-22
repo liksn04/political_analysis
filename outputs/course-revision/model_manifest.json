@@ -1,0 +1,23 @@
+{
+  "status": "model_outputs_generated",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "quality_sha256": "668916699208c0f52accce0eb91337d5e426e03f412d8aee29eb30f0ddec9ef1",
+  "model_code_sha256": "7f8c2233d62657be47e1a029024963cc376a7009c8bbb477de497c85cb751367",
+  "models": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M4_WLS",
+    "M1_common",
+    "M2_common",
+    "M3_common"
+  ],
+  "artifacts": {
+    "tables/model_coefficients.csv": "246f98e4f056131f5ead4636f861ee72d0d0aaf2565558070eb9ce104cb9c587",
+    "tables/model_summary.csv": "1b1bf0956f240710cae5d73340999a998e47da4085d075df6cbc4f53de4d0a52",
+    "tables/model_samples.csv": "eb99d7aa04ee949787c00d33266ed2b37bb865677cf2daa16e182c843367fd66",
+    "model_notes.txt": "4173bbacd2881c635ba63258cba4563bee992e91be8b122313ae1471d5d9dd71"
+  },
+  "note": "HC3 normal CI; model-specific sample policy and exclusions are reported separately."
+}

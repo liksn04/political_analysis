@@ -1,0 +1,186 @@
+{
+  "status": "actual_model_outputs_independently_checked",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "audit_code_sha256": "9213e0588cf1219dff704f0756d2057b09ac8dfa2fbcc2c725929965b137d3c0",
+  "model_code_sha256": "7f8c2233d62657be47e1a029024963cc376a7009c8bbb477de497c85cb751367",
+  "coefficient_cells_checked": 330,
+  "sample_membership_rows_checked": 1824,
+  "coefficient_tolerance": {
+    "relative": 1e-08,
+    "absolute": 1e-09
+  },
+  "maximum_absolute_errors": {
+    "estimate": 5.596234586846549e-11,
+    "std_error_hc3": 8.530953721219703e-12,
+    "p_value": 6.607270286451694e-12,
+    "ci_low": 5.029221483709989e-11,
+    "ci_high": 7.268852186825825e-11
+  },
+  "models": [
+    {
+      "model": "M1",
+      "n": 228,
+      "parameters": 2,
+      "df_resid": 226,
+      "sample_verified": true
+    },
+    {
+      "model": "M2",
+      "n": 228,
+      "parameters": 3,
+      "df_resid": 225,
+      "sample_verified": true
+    },
+    {
+      "model": "M3",
+      "n": 228,
+      "parameters": 6,
+      "df_resid": 222,
+      "sample_verified": true
+    },
+    {
+      "model": "M4",
+      "n": 226,
+      "parameters": 22,
+      "df_resid": 204,
+      "sample_verified": true
+    },
+    {
+      "model": "M4_WLS",
+      "n": 226,
+      "parameters": 22,
+      "df_resid": 204,
+      "sample_verified": true
+    },
+    {
+      "model": "M1_common",
+      "n": 226,
+      "parameters": 2,
+      "df_resid": 224,
+      "sample_verified": true
+    },
+    {
+      "model": "M2_common",
+      "n": 226,
+      "parameters": 3,
+      "df_resid": 223,
+      "sample_verified": true
+    },
+    {
+      "model": "M3_common",
+      "n": 226,
+      "parameters": 6,
+      "df_resid": 220,
+      "sample_verified": true
+    }
+  ],
+  "ci_distribution": "normal",
+  "actual_research_regression_executed": true,
+  "exploration_artifacts_preserved": true,
+  "source_reconciliation_adjustment_is_independent": false,
+  "robustness_review_complete": false,
+  "text_review": "PASS",
+  "hypothesis_verdicts": [
+    {
+      "model": "M1",
+      "hypothesis": "H1",
+      "term": "aging_rate",
+      "estimate": 0.0465559757226223,
+      "std_error_hc3": 0.0191793034086174,
+      "p_value": 0.0152071843399396,
+      "ci_low": 0.0089652317931659,
+      "ci_high": 0.0841467196520787,
+      "n": 228,
+      "ci_excludes_zero": true,
+      "verdict": "directional_evidence"
+    },
+    {
+      "model": "M2",
+      "hypothesis": "H1",
+      "term": "aging_rate",
+      "estimate": -0.0626772614805061,
+      "std_error_hc3": 0.0321747435505282,
+      "p_value": 0.0514117610913001,
+      "ci_low": -0.1257386000513539,
+      "ci_high": 0.0003840770903415,
+      "n": 228,
+      "ci_excludes_zero": false,
+      "verdict": "direction_uncertain"
+    },
+    {
+      "model": "M2",
+      "hypothesis": "H2",
+      "term": "oldest_share",
+      "estimate": 0.2724218645582776,
+      "std_error_hc3": 0.066823677423312,
+      "p_value": 4.567413957195778e-05,
+      "ci_low": 0.1414498634940637,
+      "ci_high": 0.4033938656224916,
+      "n": 228,
+      "ci_excludes_zero": true,
+      "verdict": "opposite_direction_evidence"
+    },
+    {
+      "model": "M3",
+      "hypothesis": "H1",
+      "term": "aging_rate",
+      "estimate": -0.0569705143715966,
+      "std_error_hc3": 0.0501825360866754,
+      "p_value": 0.2562639888893606,
+      "ci_low": -0.1553264777543621,
+      "ci_high": 0.0413854490111687,
+      "n": 228,
+      "ci_excludes_zero": false,
+      "verdict": "direction_uncertain"
+    },
+    {
+      "model": "M3",
+      "hypothesis": "H2",
+      "term": "oldest_share",
+      "estimate": 0.2763641773991453,
+      "std_error_hc3": 0.0683251051733996,
+      "p_value": 5.2358677545086594e-05,
+      "ci_low": 0.1424494320193707,
+      "ci_high": 0.4102789227789198,
+      "n": 228,
+      "ci_excludes_zero": true,
+      "verdict": "opposite_direction_evidence"
+    },
+    {
+      "model": "M4",
+      "hypothesis": "H1",
+      "term": "aging_rate",
+      "estimate": 0.0627532518127419,
+      "std_error_hc3": 0.0482592381282838,
+      "p_value": 0.1934856419487525,
+      "ci_low": -0.0318331168400365,
+      "ci_high": 0.1573396204655204,
+      "n": 226,
+      "ci_excludes_zero": false,
+      "verdict": "direction_uncertain"
+    },
+    {
+      "model": "M4",
+      "hypothesis": "H2",
+      "term": "oldest_share",
+      "estimate": -0.0700721639591467,
+      "std_error_hc3": 0.0605493170371479,
+      "p_value": 0.2471603406109821,
+      "ci_low": -0.1887466446404542,
+      "ci_high": 0.0486023167221607,
+      "n": 226,
+      "ci_excludes_zero": false,
+      "verdict": "direction_uncertain"
+    }
+  ],
+  "artifacts": {
+    "model_manifest.json": "763d2fb64e6c61ffc94fd8cdf0af69e06f51fa43989cb14955f692657ded98cf",
+    "tables/model_coefficients.csv": "246f98e4f056131f5ead4636f861ee72d0d0aaf2565558070eb9ce104cb9c587",
+    "tables/model_summary.csv": "1b1bf0956f240710cae5d73340999a998e47da4085d075df6cbc4f53de4d0a52",
+    "tables/model_samples.csv": "eb99d7aa04ee949787c00d33266ed2b37bb865677cf2daa16e182c843367fd66",
+    "tables/hypothesis_evaluation.csv": "45bc77e150c991d8bd268bb18f7aea3da4535bc886fd7d91ba7bb25d1ea9e581",
+    "model_notes.txt": "4173bbacd2881c635ba63258cba4563bee992e91be8b122313ae1471d5d9dd71",
+    "hypothesis_results.md": "34bfcea981167e6b9aa6fcedeb29c87cea9f44e03fa1c8089822f25186ead17a"
+  },
+  "text_review_note": "Main and supplemental core coefficients, CI and p checked against CSV; sample and interpretation limits reviewed."
+}

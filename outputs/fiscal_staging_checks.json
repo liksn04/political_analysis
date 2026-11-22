@@ -1,0 +1,25 @@
+{
+  "status": "fiscal_staging_internal_checks_passed",
+  "source_sha256": "2421e2731909ad86f86e04d66c96f909312a7805233a8099f3c7fb6c516c31de",
+  "definition_sha256": "1b6d56b2991135698cd7eb7da7afcee3122c4fa689ea78817c434dfca0d6880f",
+  "crosswalk_sha256": "15cb03ab589a7ce942e6735ca3204ffb47db9dd7efb8df9e5949f2fab5160bd9",
+  "inventory_sha256": "2c151a080e94a16d902427e119c96e62535fe7c4a17d1f6e86181411851d5e7c",
+  "reference_year": "2025",
+  "indicator": "A137 / initial budget / revised definition / general account",
+  "year_evidence": "archived request and definition; blank per-record fyr is not a year claim",
+  "raw_regions": 243,
+  "selected_regions": 228,
+  "excluded_regions": 15,
+  "observed_regions": 228,
+  "missing_regions": 0,
+  "missing_policy": "blank/null/hyphen: omit value row; preserve region in core dataset",
+  "note": "비율 합산·평균·대체 없음. 특수지역의 모형 비교 가능성은 후속 검토.",
+  "output_sha256": "c26f0d03b29ff592d761970dbf85d5f226a18a434f718b0792f31ea5533e2e07",
+  "checks_sha256": "139cbf2afa670e9affe82c87b770ab1d2e7ce41d7d6628a307315690aaf73984",
+  "independent_recalculation": {
+    "method": "stdlib csv and Decimal; exact source-value comparison; amount-ratio check",
+    "source_values_matched": 228,
+    "amount_ratios_within_half_of_0_01_percentage_point": 228,
+    "maximum_absolute_ratio_difference_percentage_points": "0.00497245475196503178658253"
+  }
+}

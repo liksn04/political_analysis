@@ -1,0 +1,14 @@
+{
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "scope": "isolated temporary copy; original source bytes unchanged",
+  "checks": {
+    "isolated_rebuild": "PASS",
+    "raw_source_change_invalidates_existing_true_flag": "PASS",
+    "missing_age_rejected_even_after_hash_claim_updated": "PASS",
+    "same_region_missing_in_both_sources_rejected": "PASS",
+    "restored_copy_certificate_valid": "PASS",
+    "independent_join_and_derived_cells": "PASS"
+  },
+  "independent_cells_checked": 3192,
+  "valid_and_invalid_ballots_equal_counted_voters": 35236497
+}

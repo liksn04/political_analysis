@@ -18,7 +18,7 @@ build/
 .env.*
 !.env.example
 
-# 원자료 및 파생물: 이용조건·재현성 검토 후 공개 여부 결정
+# 이미 공개한 자료는 추적하고 이후 생성되는 원자료와 파생물은 선택적으로 추가
 data/raw/*
 !data/raw/.gitkeep
 data/interim/*
@@ -30,7 +30,7 @@ data/processed/*
 outputs/*
 !outputs/.gitkeep
 
-# 이름·학번이 포함된 연구계획서: 로컬 보관
+# 새 Word 초안은 자동 추가 대상에서 제외
 docs/*.docx
 
 # 작업 진행 기록 도구

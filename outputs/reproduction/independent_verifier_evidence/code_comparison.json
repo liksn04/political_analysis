@@ -1,0 +1,46 @@
+{
+  "src/political_analysis/__init__.py": {
+    "current_sha256": "d1b54d80bccc72b6522e48c6060bdf3adc2e6e4896ab2101d0134db26b563251",
+    "baseline_plus_patch_sha256": "d1b54d80bccc72b6522e48c6060bdf3adc2e6e4896ab2101d0134db26b563251"
+  },
+  "src/political_analysis/exploration.py": {
+    "current_sha256": "58bfae7634012724dd1cb6bb533da132107a182cfc73620dbb427be7b597fcf7",
+    "baseline_plus_patch_sha256": "58bfae7634012724dd1cb6bb533da132107a182cfc73620dbb427be7b597fcf7"
+  },
+  "src/political_analysis/models.py": {
+    "current_sha256": "7f8c2233d62657be47e1a029024963cc376a7009c8bbb477de497c85cb751367",
+    "baseline_plus_patch_sha256": "7f8c2233d62657be47e1a029024963cc376a7009c8bbb477de497c85cb751367"
+  },
+  "src/political_analysis/pipeline.py": {
+    "current_sha256": "aac53a2f006c72c5c768d2f9f055cd57962929b484dc51e3726fab72becfc44b",
+    "baseline_plus_patch_sha256": "aac53a2f006c72c5c768d2f9f055cd57962929b484dc51e3726fab72becfc44b"
+  },
+  "src/political_analysis/reconciliation.py": {
+    "current_sha256": "837897622dbb6a03496aedb339db3d2b9c46696cb799c8ee140c97e441cc9968",
+    "baseline_plus_patch_sha256": "837897622dbb6a03496aedb339db3d2b9c46696cb799c8ee140c97e441cc9968"
+  },
+  "src/political_analysis/staging.py": {
+    "current_sha256": "9e140b60f2cdc4cbe9264b7607867155b6980817a35fffbcc61613ade2c4e820",
+    "baseline_plus_patch_sha256": "9e140b60f2cdc4cbe9264b7607867155b6980817a35fffbcc61613ade2c4e820"
+  },
+  "tests/test_exploration.py": {
+    "current_sha256": "0be9f2135279a19396679099b05d6b00a02e3792da0657894d5f75a127a4417c",
+    "baseline_plus_patch_sha256": "0be9f2135279a19396679099b05d6b00a02e3792da0657894d5f75a127a4417c"
+  },
+  "tests/test_models.py": {
+    "current_sha256": "40d49b7af4737720d16801081bd0a61ccc87045b0d9b9d044f5b978a7508da57",
+    "baseline_plus_patch_sha256": "40d49b7af4737720d16801081bd0a61ccc87045b0d9b9d044f5b978a7508da57"
+  },
+  "tests/test_pipeline.py": {
+    "current_sha256": "cb901bce03329974ed2abe9fd3217235f23cffb0849cfeb92127ed6e3afaef84",
+    "baseline_plus_patch_sha256": "cb901bce03329974ed2abe9fd3217235f23cffb0849cfeb92127ed6e3afaef84"
+  },
+  "tests/test_reconciliation.py": {
+    "current_sha256": "a3befb84b7bff2e7b93ef5ffc00978a5448bda213e0f0c20b2d2987d97174705",
+    "baseline_plus_patch_sha256": "a3befb84b7bff2e7b93ef5ffc00978a5448bda213e0f0c20b2d2987d97174705"
+  },
+  "tests/test_staging.py": {
+    "current_sha256": "c261993ccdbe077b9f8b0e195be8aba9aeb8694d45b646d571d009ac5e9d789c",
+    "baseline_plus_patch_sha256": "c261993ccdbe077b9f8b0e195be8aba9aeb8694d45b646d571d009ac5e9d789c"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "status": "region_reference_structure_verified",
+  "official_election_totals_verified": false,
+  "analysis_regions": 228,
+  "region_types": {
+    "자치구": 69,
+    "군": 82,
+    "특수지역": 2,
+    "시": 75
+  },
+  "mapped_input_rows": {
+    "election": 253,
+    "fiscal": 228,
+    "migration": 228,
+    "population": 228
+  },
+  "all_four_datasets_cover_expected_regions": true,
+  "midyear_selected_rows": 228,
+  "unresolved_source_units": 0,
+  "excluded_by_rule": {
+    "exclude_province_total": 45,
+    "exclude_branch_office": 13,
+    "exclude_special_city_duplicate": 2,
+    "exclude_submunicipal_parent_present": 35,
+    "exclude_jeju_children_parent_present": 4,
+    "exclude_national_total": 1,
+    "exclude_zero_legacy_code_absent_2025": 25
+  },
+  "negative_checks": {
+    "missing_region": "PASS (invalid reference rejected)",
+    "duplicate_source": "PASS (invalid reference rejected)",
+    "duplicate_midyear_region": "PASS (duplicate midyear region rejected)"
+  },
+  "hwaseong_town_partition": {
+    "gap_count": 0,
+    "overlap_count": 0,
+    "original_towns": [
+      19,
+      10
+    ],
+    "official_towns": 29,
+    "publication_printed_pages": [
+      94,
+      95
+    ]
+  },
+  "not_used_for_2025_mapping": "Downloaded statistical classification catalogue labels 20250704 but all 4109 row revision dates are 2026-10-01",
+  "hashes": {
+    "data/reference/expected_regions.csv": "ff406ebe006a07265db0df3dd70cda80b1afa4b174b541685989312458e85c40",
+    "data/reference/region_source_inventory.csv": "2c151a080e94a16d902427e119c96e62535fe7c4a17d1f6e86181411851d5e7c",
+    "data/reference/midyear_region_crosswalk.csv": "809a3b2f1e256a5556550e722b33e9539d765deeae73d0314dc490da8f0fc661",
+    "data/reference/region_crosswalk.csv": "15cb03ab589a7ce942e6735ca3204ffb47db9dd7efb8df9e5949f2fab5160bd9",
+    "data/raw/mois_2025_regions_20241231.pdf": "e0df753e1cd3670513cb23a17fe97b57c2da75fe6bcfe4b6b91d3657838a9e21"
+  },
+  "limitations": [
+    "Name/code/hierarchy reference checks only; no official election count reconciliation yet.",
+    "Independent unit names from MOIS 2025 publication (2024-12-31 reference) are checked against dated 2025-05 population codes.",
+    "Midyear statistical codes and migration administrative codes require separate exact crosswalks; no numeric code conversion rule assumed."
+  ]
+}

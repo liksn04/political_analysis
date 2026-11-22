@@ -1,0 +1,4 @@
+x,y,n,pearson_r,status
+turnout,aging_rate,228,0.1631189172473628,ok
+turnout,oldest_share,228,0.2773778404076064,ok
+aging_rate,oldest_share,228,0.8318898317012948,ok

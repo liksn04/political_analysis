@@ -1,0 +1,6 @@
+term,continuous_only,with_fixed_effects,flag_continuous_only,flag_with_fixed_effects
+aging_rate,6.395621206561293,8.094596731038427,True,True
+oldest_share,3.415660675967022,5.902026415519843,False,True
+fiscal_independence,2.254399915132011,3.2610423964352013,False,False
+net_migration_rate,1.0883729941176916,1.2191324077005052,False,False
+log_population,3.6644494350164605,4.978507045563901,False,False

@@ -1,0 +1,289 @@
+{
+  "baseline_code_commit": "39e4e06021395adb7b2494f456c5e2f09fcb1f1a",
+  "files": {
+    "data/interim/election.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "b2dfc05cdbd8468c5937e91635c0ff0b41b485a692dab55ee3c34e184bda25e5"
+    },
+    "data/interim/fiscal.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "c26f0d03b29ff592d761970dbf85d5f226a18a434f718b0792f31ea5533e2e07"
+    },
+    "data/interim/migration.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "84ceb1ac5fd141bc96101ccb46aebda73b47adddd3461d67a6d6e13fb77b033d"
+    },
+    "data/interim/population.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "9c8cb6dc3e777c4ddc24e46679371d951fd77b76c524c32e215accd93a729b27"
+    },
+    "data/processed/analysis_dataset.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9"
+    },
+    "data/raw/202505_202505_연령별인구현황_월간.csv": {
+      "role": "official_input",
+      "sha256": "3eff2a7faf75907b8cb62148d8f9fcabf06d3f37f7208df8641f69dcfe9bdc22"
+    },
+    "data/raw/lofin365_2025_A137_definition.json": {
+      "role": "official_input",
+      "sha256": "1b6d56b2991135698cd7eb7da7afcee3122c4fa689ea78817c434dfca0d6880f"
+    },
+    "data/raw/lofin365_2025_A137_gov.json": {
+      "role": "official_input",
+      "sha256": "2421e2731909ad86f86e04d66c96f909312a7805233a8099f3c7fb6c516c31de"
+    },
+    "data/raw/mois_2025_regions_20241231.pdf": {
+      "role": "official_input",
+      "sha256": "e0df753e1cd3670513cb23a17fe97b57c2da75fe6bcfe4b6b91d3657838a9e21"
+    },
+    "data/raw/시군구_성_연령_1세_별_주민등록연앙인구_2023__20261103170428.csv": {
+      "role": "official_input",
+      "sha256": "9cd454ab87ba71434640b98d1c3748b86d6b8a1c679fd82681877adde3bfe7c4"
+    },
+    "data/raw/시군구별_이동자수_20261103170549.csv": {
+      "role": "official_input",
+      "sha256": "a16467c3da15380b89b2c9382139fca3dc24dddac8570e69d848df2eaa515af0"
+    },
+    "data/raw/제21대 대통령선거 개표결과.csv": {
+      "role": "official_input",
+      "sha256": "4d1479e549e3ab0f6ae2a5b4436ec085f4326711a6a4163636be12a1a6e39e19"
+    },
+    "data/raw/제21대 대통령선거 투표율 분석.zip": {
+      "role": "official_input",
+      "sha256": "3ae2d63dbad0b30072472cd4ff8a81c10a78c703d6bb53d2e4be17d3e8e7ccc3"
+    },
+    "data/reference/expected_regions.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "ff406ebe006a07265db0df3dd70cda80b1afa4b174b541685989312458e85c40"
+    },
+    "data/reference/midyear_region_crosswalk.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "809a3b2f1e256a5556550e722b33e9539d765deeae73d0314dc490da8f0fc661"
+    },
+    "data/reference/region_crosswalk.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "15cb03ab589a7ce942e6735ca3204ffb47db9dd7efb8df9e5949f2fab5160bd9"
+    },
+    "data/reference/region_source_inventory.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "2c151a080e94a16d902427e119c96e62535fe7c4a17d1f6e86181411851d5e7c"
+    },
+    "docs/REPORT.md": {
+      "role": "reviewed_report",
+      "sha256": "aa5e31c162be05b6029b9835db1eb83cb76d86b170162f2e1d1293bb00cd25db"
+    },
+    "docs/SOURCES.md": {
+      "role": "official_source_inventory",
+      "sha256": "207fe87a229eed42bc7570e8c5fb456d5c7cd94a0ca39ee02ab505e127d1f6aa"
+    },
+    "outputs/data_quality.json": {
+      "role": "report_evidence",
+      "sha256": "7c459fb804c5e354434ac4f7498734d8b3106ad36b4a15dc90acc31d009ef3e3"
+    },
+    "outputs/diagnostics_audit.py": {
+      "role": "replay_tool",
+      "sha256": "62cea62623d7534d22ea39b965145bb79565b54acbe820bace2f7c77fbfb7024"
+    },
+    "outputs/diagnostics_validation.json": {
+      "role": "comparison_baseline",
+      "sha256": "7926a51aa4ff53d53967da51c07d6a7c9a404d693cf8a842108d073741a20d68"
+    },
+    "outputs/election_staging_checks.json": {
+      "role": "local_reference_or_baseline",
+      "sha256": "4244fa08f84a4d0b544407d1f83bfcec94b6ba1c16a9b2c7bf586734ca3db5d3"
+    },
+    "outputs/exploration_audit.py": {
+      "role": "replay_tool",
+      "sha256": "2fab680292a57cf8dd46cc1781314729d66377389708407dfab9b15f1681c2f5"
+    },
+    "outputs/exploration_manifest.json": {
+      "role": "report_evidence",
+      "sha256": "a95f49833d96c81ff99468d756f7440651305b0b18f85bb309688d7172684397"
+    },
+    "outputs/exploration_notes.md": {
+      "role": "comparison_baseline",
+      "sha256": "f720b052af4f55906bbf32dcf146407bcaec574836e3159ade7d089d447c894d"
+    },
+    "outputs/exploration_validation.json": {
+      "role": "comparison_baseline",
+      "sha256": "bce6e5083cc56e50059b4b1317411f87176d66eb9ddb23dbc3db8d08382e09da"
+    },
+    "outputs/figures/m4_influence.png": {
+      "role": "comparison_baseline",
+      "sha256": "65b9ad346588abb2bc8e6db43caf477f46a0125e7ec33e8aeff0ee901126236d"
+    },
+    "outputs/figures/m4_interaction_slopes.png": {
+      "role": "comparison_baseline",
+      "sha256": "f02852aa34625696f265e6690aaadfbbbcc069cd6a4d4dda38515d8d79ce2aab"
+    },
+    "outputs/figures/scatter_aging_turnout.png": {
+      "role": "comparison_baseline",
+      "sha256": "ecbe4f3f8bee4a96402a7f6128c570a21c02979f3c597b26e2b74837fda07d01"
+    },
+    "outputs/fiscal_staging_checks.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "139cbf2afa670e9affe82c87b770ab1d2e7ce41d7d6628a307315690aaf73984"
+    },
+    "outputs/fiscal_staging_checks.json": {
+      "role": "local_reference_or_baseline",
+      "sha256": "966f83bd3d98613b45b6e5af0e5eedbfa65e1bfc06d61f055f92c52a2861627d"
+    },
+    "outputs/hypothesis_results.md": {
+      "role": "comparison_baseline",
+      "sha256": "34bfcea981167e6b9aa6fcedeb29c87cea9f44e03fa1c8089822f25186ead17a"
+    },
+    "outputs/interaction_audit.py": {
+      "role": "replay_tool",
+      "sha256": "57c7671530bfd0d1e705fbb9e6a5f306f3bf7b92ef97d89bfb1202acf66cb563"
+    },
+    "outputs/interaction_validation.json": {
+      "role": "comparison_baseline",
+      "sha256": "b8267fe420017e171c9daa8fce1f89ec4fb7760f44624988c83904cc748a04b8"
+    },
+    "outputs/migration_staging_checks.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "14840889197791bd0da0dd62fd9fbb36b0d20e4717c69089164716800a822d97"
+    },
+    "outputs/migration_staging_checks.json": {
+      "role": "local_reference_or_baseline",
+      "sha256": "687c20c6a0f3e78e497cdcfbf7709b4f834dc0e60eace9273589cea44701fbfb"
+    },
+    "outputs/model_audit.py": {
+      "role": "replay_tool",
+      "sha256": "9213e0588cf1219dff704f0756d2057b09ac8dfa2fbcc2c725929965b137d3c0"
+    },
+    "outputs/model_manifest.json": {
+      "role": "comparison_baseline",
+      "sha256": "763d2fb64e6c61ffc94fd8cdf0af69e06f51fa43989cb14955f692657ded98cf"
+    },
+    "outputs/model_notes.txt": {
+      "role": "comparison_baseline",
+      "sha256": "4173bbacd2881c635ba63258cba4563bee992e91be8b122313ae1471d5d9dd71"
+    },
+    "outputs/model_validation.json": {
+      "role": "comparison_baseline",
+      "sha256": "3fcf5b32e0a33013456a29ca4bf9c85f955de1e6be7fc8d2e0d6ad4dfe1f5bd5"
+    },
+    "outputs/official_reconciliation.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "ca285faad5ba66fd8e0fbb388348d1250f69e54cdab7c87991e52185b7dbcabd"
+    },
+    "outputs/population_staging_checks.csv": {
+      "role": "local_reference_or_baseline",
+      "sha256": "8d3997c5795c970feca742b5f03682d54e814cd712448b647335679157179d51"
+    },
+    "outputs/population_staging_checks.json": {
+      "role": "local_reference_or_baseline",
+      "sha256": "1860eef427b7aa09e4a4174ce0bfee13ea04d9c4bd06edc2568d55acce6cf3f5"
+    },
+    "outputs/pre_m6_audit.md": {
+      "role": "report_evidence",
+      "sha256": "635682e51549e879313e05234c00bfe0677ed108fabf639384847b993e752063"
+    },
+    "outputs/region_mapping_checks.json": {
+      "role": "local_reference_or_baseline",
+      "sha256": "28ba7dcae00a187574f5346df3c2410aed14d172b86cdf27c1dc661ebf95bad1"
+    },
+    "outputs/report/m6_review_validation.json": {
+      "role": "comparison_baseline",
+      "sha256": "769d31b3bb66b77a7f5a592d4ee6bb9dc9cff8f47114cec7baeea343fc032ed2"
+    },
+    "outputs/reproduction/certificate-path.patch": {
+      "role": "replay_tool",
+      "sha256": "d0b6d7a17f938d89cf3fa93d565236013413af56600d62de5203d54381410e10"
+    },
+    "outputs/reproduction/operator_replay.py": {
+      "role": "replay_tool",
+      "sha256": "be3aeeaf4c3c94d5ae4ec9d7f2347cce693a4c1c40e538c37bb243f45fced98c"
+    },
+    "outputs/reproduction/replay.py": {
+      "role": "replay_tool",
+      "sha256": "7679aa75a1b7913d7e1829f1fc2c453ed5d84ed5f04a09ff90520ae1c0843539"
+    },
+    "outputs/reproduction/requirements-macos-arm64.txt": {
+      "role": "replay_tool",
+      "sha256": "69a0364cb3b2bb179ba8fd074dc564b27f5988cbe1bf096ecf4dfb00aa4e30a7"
+    },
+    "outputs/robustness_audit.py": {
+      "role": "replay_tool",
+      "sha256": "5c2933c7640fd7919e75776ec2b445e920c509c3742dd18435025c4adce8f403"
+    },
+    "outputs/robustness_validation.json": {
+      "role": "comparison_baseline",
+      "sha256": "b03d915d9b43aa6487f0033f22d3232f7821c2486337ffc260d79b28e047d3c3"
+    },
+    "outputs/tables/correlation_pairs.csv": {
+      "role": "comparison_baseline",
+      "sha256": "a329def358c5f7bf2f33bd3f3967631a53eb5a455471f5eb2d35488044072168"
+    },
+    "outputs/tables/correlations.csv": {
+      "role": "comparison_baseline",
+      "sha256": "c53e46601e025d59f11a5a95eff2e2fd8a8e145579e7aa9af2d651908bf8a0dd"
+    },
+    "outputs/tables/descriptive_statistics.csv": {
+      "role": "comparison_baseline",
+      "sha256": "dda3fc8e03fcc6231ac0831331517570a66d3c2afebd1f15044457771d03e3af"
+    },
+    "outputs/tables/extreme_regions.csv": {
+      "role": "comparison_baseline",
+      "sha256": "3410106ae2a313fccb9c9ddf581e9db1ac68773b8f31f5d72afa93d5d4b90c99"
+    },
+    "outputs/tables/hypothesis_evaluation.csv": {
+      "role": "comparison_baseline",
+      "sha256": "45bc77e150c991d8bd268bb18f7aea3da4535bc886fd7d91ba7bb25d1ea9e581"
+    },
+    "outputs/tables/m4_cook_exclusions.csv": {
+      "role": "comparison_baseline",
+      "sha256": "b93d8d1e03dde60238d0fcc2f678be91d28bdf3c54d5778d8425187b6f5e95f7"
+    },
+    "outputs/tables/m4_cook_sensitivity.csv": {
+      "role": "comparison_baseline",
+      "sha256": "5d5ca457aac8e46691b9877bec15511367cd8d7fed4a1a4ccf0978fa9df60f32"
+    },
+    "outputs/tables/m4_influence.csv": {
+      "role": "comparison_baseline",
+      "sha256": "b9c8557ea7a86acb50f31364fa4d6eec9fd542c7167443da5a750e99cd232afa"
+    },
+    "outputs/tables/m4_interaction_coefficients.csv": {
+      "role": "comparison_baseline",
+      "sha256": "a133f0d32211710d7bae565f7bd63257686c575dc34b0775b59e27c8b40e087e"
+    },
+    "outputs/tables/m4_interaction_slopes.csv": {
+      "role": "comparison_baseline",
+      "sha256": "b87c7ee671c6bee1690834f97eb4e8c1ce17ec2d2f61c47a71298e5d8c5b2ddd"
+    },
+    "outputs/tables/m4_province_residuals.csv": {
+      "role": "comparison_baseline",
+      "sha256": "790ebc1d832d5fa4f524704962a432afc53cf78a2c2f6f75fcb3556f956ae6d7"
+    },
+    "outputs/tables/m4_vif.csv": {
+      "role": "comparison_baseline",
+      "sha256": "bba0ec80f7512eb8a08abd1b51b7791cf333a32ebe6a96e469f9cf33a16611a2"
+    },
+    "outputs/tables/model_coefficients.csv": {
+      "role": "comparison_baseline",
+      "sha256": "246f98e4f056131f5ead4636f861ee72d0d0aaf2565558070eb9ce104cb9c587"
+    },
+    "outputs/tables/model_samples.csv": {
+      "role": "comparison_baseline",
+      "sha256": "eb99d7aa04ee949787c00d33266ed2b37bb865677cf2daa16e182c843367fd66"
+    },
+    "outputs/tables/model_summary.csv": {
+      "role": "comparison_baseline",
+      "sha256": "1b1bf0956f240710cae5d73340999a998e47da4085d075df6cbc4f53de4d0a52"
+    },
+    "outputs/tables/outlier_candidates.csv": {
+      "role": "comparison_baseline",
+      "sha256": "762f3dcd6fce7f2d2b8df4b5735cb159f06d32dd910a4f8ec8f2a1c66bfa5c26"
+    },
+    "outputs/tables/robustness_comparisons.csv": {
+      "role": "comparison_baseline",
+      "sha256": "533a7c67b08c5be998ce0031798d82c90cd9eff36da557b1f127d7e2822f7cce"
+    },
+    "outputs/tables/source_spot_checks.csv": {
+      "role": "comparison_baseline",
+      "sha256": "a392d25f35aead5852206cd4cd811183a7f19eba340ec72b2b0982940bda4cc8"
+    }
+  }
+}

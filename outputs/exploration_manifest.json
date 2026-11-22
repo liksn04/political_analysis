@@ -1,0 +1,20 @@
+{
+  "status": "exploration_generated",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "quality_sha256": "7c459fb804c5e354434ac4f7498734d8b3106ad36b4a15dc90acc31d009ef3e3",
+  "code_sha256": "58bfae7634012724dd1cb6bb533da132107a182cfc73620dbb427be7b597fcf7",
+  "observations": 228,
+  "scatter_complete_pairs": 228,
+  "scatter_status": "plotted",
+  "pair_status_counts": {
+    "ok": 3
+  },
+  "regression_executed_by_exploration": false,
+  "artifacts": {
+    "tables/descriptive_statistics.csv": "dda3fc8e03fcc6231ac0831331517570a66d3c2afebd1f15044457771d03e3af",
+    "tables/correlations.csv": "c53e46601e025d59f11a5a95eff2e2fd8a8e145579e7aa9af2d651908bf8a0dd",
+    "tables/correlation_pairs.csv": "a329def358c5f7bf2f33bd3f3967631a53eb5a455471f5eb2d35488044072168",
+    "figures/scatter_aging_turnout.png": "ecbe4f3f8bee4a96402a7f6128c570a21c02979f3c597b26e2b74837fda07d01"
+  },
+  "note": "지역 수준 탐색 통계. 인과효과·개인 투표행동·가설 유의성 판단이 아님. 공식 지역별 교부수/개표 범위 조정은 독립 재검증과 구별함."
+}

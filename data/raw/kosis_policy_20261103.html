@@ -1,0 +1,1750 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	
+
+
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=yes" />
+<meta name="description" content="코시스, 국가데이터처가 제공하는 원스톱 통계 서비스, 국가승인통계, 국제통계, 북한통계, e-지방지표, 통계시각화콘텐츠, 온라인간행물 등 제공" />
+
+<title>KOSIS 국가통계포털</title>
+ 
+	<script type="text/javascript" src="/ext/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="/ext/newKosis/js/plug/calendar/jquery-ui.js"></script>
+	<script type="text/javascript" src="/ext/newKosis/js/plug/jquery.nicescroll-3.7.6/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="/ext/newKosis/js/plug/lottie-player.js"></script>
+	<script type="text/javascript" src="/ext/newKosis/js/content.js?ver=1.2"></script>
+	
+	<link rel="stylesheet" href="/ext/newKosis/font/gmarket/font.css" />
+	<link rel="stylesheet" href="/ext/newKosis/font/noto/font.css" />		    
+	
+	<link rel="stylesheet" href="/ext/newKosis/css/layout.css?ver=1.5" />
+	<link rel="stylesheet" href="/ext/newKosis/css/component.css" />
+	<link rel="stylesheet" href="/ext/newKosis/css/content.css?ver=1.8" />	
+	<link rel="stylesheet" href="/ext/newKosis/js/plug/calendar/jquery-ui.css" />
+	
+<!-- 	운영  -->
+	<script src="https://kosis.kr/chatbot/lvchatbot_plugin.js"></script>
+<!-- 		개발 -->
+<!-- 		<script src="https://kosis.kr/chat_dev/lvchatbot_plugin.js"></script> -->
+	<script type="text/javascript">
+
+		$(function(){			
+			$(".menu#gnb>ul>li>ul").css("opacity", "0");
+
+// 			setTimeout(function(){
+	        GNB_AC();//상단 메뉴
+// 		    }, 400);
+
+			$('[data-scroll="yes"]').niceScroll({autohidemode:false, cursorcolor: "grey", cursorwidth:'10px'});
+			main_visual_left_AC();
+			main_visual_right_AC();
+			main_miniboard_AC();
+			main_banner_AC();
+			main_top_banner_AC();
+			countdown();
+			layout_scroll_AC();
+			footer_select_AC();
+			top_search_AC();
+			GNB_Mobile_AC();
+		 	
+//			searchPage_AC()
+			searchContent_AC();
+			Detail_list_AC();
+			st_select_AC();
+			typeBox_AC();		 	
+			topOption_AC();
+			fileList_AC();
+		    
+			if ($("[data-skin='cal']").size() != 0) {
+				setTimeout(function(){
+					dataTime();
+				}, 100);
+			}
+			
+			setTimeout(function() {
+	    		$("body").css("opacity", "1");		// sub		    		
+	    	}, 500)
+		 	
+			/*
+			$.ajax({
+				type : "POST",
+				url : "/index/checkLoginIp.do",
+				dataType : "json",
+				async : false,
+				success : function(data) {
+					if (data.cnt > 0) {
+						runIframeWindowChatbot({
+					    	iconDivId:"chazri"
+				    		, recommendIconHide:true 
+					    	, onClickIconClose:function() {
+					    		$("#chazri").hide();
+					    		$("#botInQuick").removeClass(' hidden');
+					    		$("#chazriIcon").removeClass(' hidden');
+					    		sessionStorage.setItem('chatAt','N');
+					    	}
+					    });
+					}
+				}
+			});
+			*/
+			
+			$("#chazri").show();
+			$("#botInQuick").addClass(' hidden');
+			$("#chazriIcon").addClass(' hidden');
+			sessionStorage.setItem('chatAt','Y');
+
+			try{
+				if(true){
+					runIframeWindowChatbot({
+									iconDivId:"chazri"
+									, recommendIconHide:true 
+									, onClickIconClose:function() {
+										$("#chazri").hide();
+										$("#botInQuick").removeClass(' hidden');
+										$("#chazriIcon").removeClass(' hidden');
+										sessionStorage.setItem('chatAt','N');
+									}
+								});
+				}
+			}catch(e){
+			}	
+
+		    // 통합검색 
+		    if ($("#search-page_head").size() != 0) {
+				$('<link rel="stylesheet" href="/ext/newKosis/css/search.css" />').appendTo($("head"));
+			}
+		});
+
+		/* 전역 변수 H */
+		var LoginServer = "https://kosis.kr";
+		var context = "";
+		
+		var contextPath = '';		// 통합검색 사용
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			var url = window.location.href;
+
+			//파일 마다 각각 나눠져 있어서 공통 부분으로 빼놓음
+			if(true){
+				/*
+				if($('.content-title .h3').text() == "FAQ"){
+					$('.content-title .caption').html("<a href=/ext/kosisGuide/pdf/KOSIS_FAQ.pdf id=faqDownload data-skin=btn data-color=2 data-icon=6 title=새창열림><span>파일다운로드</span></a>");					
+				}else{
+					$('.content-title .caption').html("<a href=# id=showPrint data-skin=btn data-color=2 data-icon=print title=새창열림><span>인쇄</span></a>");
+				} 
+				*/
+				$('.content-title .caption').html("<a href=# id=showPrint data-skin=btn data-color=2 data-icon=print title=새창열림><span>인쇄</span></a>");
+			}
+
+			// Head.jsp의 title값을 DB에서 조회해서 바꿔줌.
+			// var vPathAObj = $("#Center p.Path").find("a");
+			var vPathAObj = $("#title>.layout>strong");
+			var vTitle = "";
+
+			if (vPathAObj.length == 0) {
+				vTitle = "KOSIS 국가통계포털";
+			} else {
+				var vPageTitle = $(vPathAObj[(vPathAObj.length - 1)]).html().replace("&amp;", "&");
+			
+				/* if (location.href.indexOf("List.do") > 0) {
+					vPageTitle = vPageTitle + " 목록";
+				} else if (location.href.indexOf("Detail.do") > 0) {
+					vPageTitle = vPageTitle + " 상세";
+				} else if (location.href.indexOf("Form.do") > 0) {
+					vPageTitle = vPageTitle + " 글쓰기";
+				} */
+			
+				if (vPageTitle.indexOf("복합통계표") != -1) {
+					vPageTitle = "복합통계표";
+				}
+			
+				vTitle = vPageTitle + " | "+$("#contNm")[0].innerText;
+
+				if(url.indexOf("List.do") > -1){
+					vTitle = vTitle+"(목록)";
+				}else if(url.indexOf("Detail.do") > -1 || url.indexOf("View.do") > -1){
+					vTitle = vTitle+"(상세)";
+				}else if(url.indexOf("Form.do") > -1){
+					vTitle = vTitle+"(글쓰기)";
+				}
+
+			}
+
+			document.title = vTitle;
+
+			// 컨트롤러 올리고 주석 풀것 20201209
+			// $(".content-title h3").text($("#contNm").text());
+
+			$($.find("[id='LMenu.M_03_04_10']")).hide();
+		});
+	</script> 
+</head>
+
+<body data-layout="sub">
+	
+		
+	
+
+
+
+
+
+
+<!-- SSO 적용 END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+<!-- SSO 적용 START -->
+
+
+
+
+
+<!-- SSO 적용 END -->
+
+
+<!-- html 마크업 수정 후 -->
+
+<!-- // html 마크업 수정 후 -->
+	
+	<script type="text/javascript" src="/ext/js/common/commScript.js?v2.2" ></script>
+	<script type="text/javascript" src="/ext/js/common/linkScript.js?v2.5" ></script>
+	<script type="text/javascript" src="/ext/js/common/utilScript.js?v1.1" ></script>
+	<script type="text/javascript" src="/ext/js/search/ark.js?v1.1"></script>
+	<script type="text/javascript" src="/ext/js/search/search.js?v1.3"></script>
+
+	
+	<link href="/ext/css/sub_style.css?v4.0" media="all" rel="stylesheet">
+	
+
+	<link href="/ext/css/search2.css?v4.0" media="all" rel="stylesheet">
+	
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		//관심지표 쿠키값으로 선택된 메뉴 표시
+		if("" == "") {
+			$("#jpp_A").addClass("on");
+		} else {
+			 var expdate = new Date();
+			 expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 365); // 365일
+			 setCookie("newKOSISMainJipyoSettingCookie", "", expdate);
+			$("#jpp_").addClass("on");			
+		}
+		
+		var currentUrl = location.href;
+		var tmp = currentUrl = currentUrl.split("");
+		
+		$(".CUR_URL1").val(tmp[1]);
+		
+		$("#showPrint").bind("click", function(){
+
+			$("#Cont").html();
+			var popupUrl = "/common/ui/showPrint.do";
+			var popupOpen = window.open(popupUrl,'print_pop','location=no,directories=no,resizable=no,status=yes,toolbar=no,scrollbars=yes,width=890,height=960,top=0,left=0');
+			return false;
+		});
+		
+		var contextPath =  "https";
+    	contextPath = contextPath  + "://kosis.kr"; 
+		
+		/******************************************************************************************** 
+		통계플랫폼 과에서 요청한 통합검색 로그 수집 기능
+		동일 IP 혹은 SESSION을 기준으로 검색 결과를 확인하는 시간을 측정.
+		기준은 검색 결과 외의 영역을 클릭하거나,  또 다른 검색을 실행할 때까지의 시간 측정,
+		같은 사용자들이 검색한 결과의 시간들의 평균을 구하고 이를 토대로 연간 전체 검색에 소요하는 시간을 도출하는데 사용되는로그
+		tn_weblog table 사용. 20240328 수집 시작, 2개월여 수집 후, 20240711 수집 기능 제거.
+		필요시 주석 해제 하여 사용가능
+		********************************************************************************************/
+		/*
+		$("#header>div>h1>a, #gnb a, #footer .menu a, #goSiteUl a").bind("click", function(){
+			if(window.location.pathname == "/search/search.do"){
+				var menuNm = this.innerText;
+				var href = this.getAttribute("href");
+				if(href == "#" || href == "/common/tech/gatePage.do" || href == "javascript:void(0)"){
+					href = menuNm;
+				}else{
+					href = href.split("/").reverse();
+					href = "/" + href[1] + "/" + href[0];
+				}
+				//alert(href);
+				 $.ajax({ type: "POST"
+					   , url: contextPath + "/search/insertWeblog.do"
+					   , data: {"url":href, "menuNm":menuNm}
+				});
+			}
+		});
+
+		
+		$("#quick a:first, #Quick3_2, #botInQuick").bind("click", function(){
+			if(window.location.pathname == "/search/search.do"){
+				var menuNm = this.innerText;
+				$.ajax({ type: "POST"
+					   , url: contextPath + "/search/insertWeblog.do"
+					   , data: {"url":menuNm, "menuNm":menuNm}
+				});
+			}
+		});
+		*/
+		
+		/**********************
+		 * 내가본통계표 Script Start
+		 **********************/
+		/* $("#Quick3").bind("click", function() {
+			
+			if ($("#quick div.MyStatsTable").attr("class").indexOf("hidden") >= 0) {
+
+				$("#quick div.MyStatsTable").removeClass("hidden");
+			} else {
+				
+				$("#quick div.MyStatsTable").addClass("hidden");
+			}
+
+			fnMyStatisTableListCreate();
+			
+			return false;
+		}); */
+
+//		$("ul#goSiteUl a").focus(function () {
+//			$("#goSiteUl").removeClass("hidden");
+//			return false;
+//		});
+		
+// 		$(":not(ul#goSiteUl a)").focus(function () {
+// 			$("#goSiteUl").addClass("hidden");
+// 			return false;
+// 		});
+		
+// 		$("ul#selColBox a").focus(function () {
+// 			$("#selColBox").removeClass("hidden");
+// 			return false;
+// 		});
+		
+// 		$(":not(ul#selColBox a)").focus(function () {
+// 			$("#selColBox").addClass("hidden");
+// 			return false;
+// 		});
+
+		//인기검색어
+		getPopkeyword();
+		
+		if($('.center').length > 0){
+			setTimeout(function(){
+				$('.center').slick('unslick');
+				reSlides();
+				$('.center').slick('setPosition');
+			}, 500);
+		}
+		  
+		var kosisBanner = "";
+		if(kosisBanner !=""){
+			if(bannerLayerCookieChk()){
+				$("#kosisBanner").removeClass("Hidden");
+				//bannerLayerShow();	
+			}
+		}
+		
+		$($.find("[id='All.M_03_04_10']")).hide();
+
+		// 첫화면 고정 쿠키 셋팅 관련
+		var firstWindowCookie = getCookie("firstWindowChk");
+
+		if (firstWindowCookie == "checked") {
+			$("input:checkbox[id='firstWindow']").prop("checked",true)
+		} else {
+			$("input:checkbox[id='firstWindow']").prop("checked",false)
+		}
+
+		$("#firstWindow").change(function(){
+			var expdate = new Date();
+			expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 365);	// 365일
+			
+			if ($("#firstWindow").is(":checked")) {
+			    setCookie("firstWindowChk", "checked", expdate);
+			    fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_ZTITLE', 'M_01_01', this);
+			} else {
+			    setCookie("firstWindowChk", "unchecked", expdate);
+			}
+		})
+
+	});
+	
+	
+	window.onload = function(){
+		getPopkeyword();
+	};
+	
+	
+	//로그인
+	function fnLogin(cur_url){
+		var memberAuthReturnUrl = "";		//게시판에서 비로그인상태에서 실명인증 페이지에서 로그인시 리턴 URL 적용.
+		if(fnLoginCechk()){		//로그인 여부 확인
+			alert("로그인한 상태에서 접근할 수 없습니다.");
+			return false;
+		} else {
+			if(memberAuthReturnUrl == ""){
+				// return url을 파라미터로 가져오면.
+				if(cur_url == "" || cur_url == null){
+					var currentUrl = location.href;
+					var tmp = currentUrl = currentUrl.split("kosis.kr");
+					$(".CUR_URL1").val(tmp[1]);		//실명인증 페이지 외 로그인시 현재 URL
+				}else{
+					$(".CUR_URL1").val(cur_url);
+				}
+			}else{
+				$(".CUR_URL1").val(memberAuthReturnUrl);		//실명인증 페이지에서의 로그인시 글쓰기 화면.				
+			}			
+			document.form_join.submit();
+		}
+	}
+
+	//로그아웃
+	function fnLogout() {
+		if(fnLoginCechk()){		//로그인 여부 확인
+			document.outForm.submit();
+		}else{
+			alert("로그인 후 이용 가능합니다.");
+		}
+	}
+
+	//회원가입
+	function fnMemberJoin() {
+		if(fnLoginCechk()){
+			alert("로그인한 상태에서 접근할 수 없습니다.");
+			return false;
+		} else {
+			document.joinForm.submit();
+		}
+	}
+
+	//회원정보 수정
+	function fnMemberEditPage() {
+		if(fnLoginCechk()){		//로그인 여부 확인
+			document.editForm.submit();
+		}else{
+			alert("로그인 후 이용 가능합니다.");
+		}
+	}
+
+	//회원탈퇴
+	function fnMemberRemovePage() {
+		if(fnLoginCechk()){		//로그인 여부 확인
+			document.rmForm.submit();
+		}else{
+			alert("로그인 후 이용 가능합니다.");
+		}
+	}	
+	
+	//로그인된 상태라면 true를 리턴, 아니면 false를 리턴.
+	function fnLoginCechk(){
+		var userId = "";
+		if(userId != ""){
+			return true;
+		}
+		return false;
+	}
+
+	/* 비밀번호 재발급 */
+	function fnPasswordReissued() {
+		var name = "UserPWReissued";
+		//var url  = "https://kosis.kr/oneid/cmmn/login/UserPWResissued.do";
+		var url  = location.origin + "/oneid/cmmn/login/UserPWResissued.do";
+		window.open(url, name,'width=800, height=550, menubar=no,location=no,status=no,toolbar=no,resizable=no');		
+	}
+	
+	/* 아이디 찾기 */
+	function fnSearchID() {
+		var name = "UserIDSearch";
+		//var url  = "https://kosis.kr/oneid/cmmn/login/UserIDSearchView.do";
+		var url  = location.origin + "/oneid/cmmn/login/UserIDSearchView.do";
+		window.open(url, name,'width=800, height=500, menubar=no,location=no,status=no,toolbar=no,resizable=no');
+	}	
+	
+	/* 통계표보기 - 하이라이팅 추가(2021.01.20) */
+	function generatorStatsLink(mode, orgId, tblId, tkmjId, tblNm) {
+		$.ajax({
+			dataType : 'json',
+			type : 'POST',
+			url : "/statHtml/selectCustomHighlightStr.do",
+			async : false,
+			data : {
+				'orgId'  : orgId,
+				'tblId'  : tblId,
+				'tkmjId' : tkmjId
+			},
+			success : function(response,status){
+				var highLightStr = response.highLightStr;
+				//var url = "https://kosis.kr/statHtml/statHtml.do";
+				var url = location.origin + "/statHtml/statHtml.do";
+				var openWin = window.open("about:blank", "statHtml");
+				var frm = document.createElement("form");
+				frm.setAttribute("charset", "UTF-8");
+				frm.setAttribute("method", "Post");
+				frm.setAttribute("action", url);
+				
+				var field1 = document.createElement("input");	/* orgId */
+				field1.setAttribute("type", "hidden");
+				field1.setAttribute("name", "orgId");
+				field1.setAttribute("value", orgId);
+				frm.appendChild(field1);
+				var field2 = document.createElement("input");	/* tblId */
+				field2.setAttribute("type", "hidden");
+				field2.setAttribute("name", "tblId");
+				field2.setAttribute("value", tblId);
+				frm.appendChild(field2);
+				var field3 = document.createElement("input");	/* lang_mode */
+				field3.setAttribute("type", "hidden");
+				field3.setAttribute("name", "lang_mode");
+				field3.setAttribute("value", "ko");
+				frm.appendChild(field3);
+				var field6 = document.createElement("input");	/* vw_cd */
+				field6.setAttribute("type", "hidden");
+				field6.setAttribute("name", "vw_cd");
+				field6.setAttribute("value", "MT_ZTITLE");
+				frm.appendChild(field6);
+
+				if(mode == "out") {
+			 		// 하이라이트 값이 없는 경우 markType="" 처리
+			 		// && (tblId != 'DT_11702_N101' && tblId != 'DT_11702_N001' && tblId != 'DT_11702_N018' && tblId != 'DT_1B34E01')
+			 		if(highLightStr.length > 0 ){
+			 			var field4 = document.createElement("input");	/* markType */
+						field4.setAttribute("type", "hidden");
+						field4.setAttribute("name", "markType");
+						field4.setAttribute("value", "C");
+						frm.appendChild(field4);
+						var field5 = document.createElement("input");	/* highLightStr */
+						field5.setAttribute("type", "hidden");
+						field5.setAttribute("name", "highLightStr");
+						field5.setAttribute("value", highLightStr);
+						frm.appendChild(field5);
+			 		}
+			 		document.body.appendChild(frm);
+					frm.target = "statHtml";
+					frm.submit();
+			 	}
+
+				fnKosisMyViewStatisTable (orgId, tblId, tblNm);
+			},
+			error : function(error){
+				// 에러처리
+				//alert( "<pivot:msg code="fail.common.msg"/>" );
+			} 
+		});
+	}
+	
+	/* 보도자료보기 */
+	function mainNewsLink(newsId) {
+		$.ajax({
+			type : "POST",
+			url : context+'/index/getPortalNewsInfo.do',
+			dataType : "json",
+			data : { newsId : newsId  },
+		    xhrFields : { withCredentials : true },
+			success : function(data) {
+				console.log(data);
+				window.open(escapeUrlHtml(decodeURIComponent(data.resultNewsInfo.newsurl)), "newsPop", "");
+			}
+		});
+	}
+	
+	// url 보도자료보기
+	function mainNewsLinkUrl(newsUrl) {
+		window.open(escapeUrlHtml(decodeURIComponent(newsUrl)), "newsPop", "");
+	}
+		
+	/* 관심지표설정 선택 : 등록되어 있는 주제 리스트 보기*/
+	function mainJipyoSelect() {
+		var jipyoPop = $('[data-skin="jipyo-pop"]');
+		if(jipyoPop.is(":hidden")) jipyoPop.show();
+        else jipyoPop.hide();
+		if($('body[data-layout="main"] #visual [data-skin="jipyo-pop"]>.midd>ul>li').length > 5){
+            jipyoPop.find('[data-scroll="yes"]').niceScroll({autohidemode:false,cursorcolor: "grey",cursorwidth:'10px'});
+		    jipyoPop.find('[data-scroll="yes"]').getNiceScroll().resize();	
+        }
+	}
+	
+	function mainJipyoPopClose() {
+		$("#jipyo-pop").hide();
+	}
+	
+	/* 관심지표설정 및 데이터 조회   */
+	function portalMainChange(objId) {
+		var expdate = new Date();
+		expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 365); // 365일
+		
+		setCookie("newKOSISMainJipyoSettingCookie", objId, expdate);
+		
+		var context = "";
+		$.ajax({
+			type : "POST",
+			url : context+'/index/getPortalMainInfoA.do',
+			dataType : "json",
+			data : { listId : objId  },
+		    xhrFields : { withCredentials : true },
+			success : function(data) {
+				$('#visual > .midd > .l>.midd').html("");
+				
+				var tmp1 = "";
+				var tmp2 = "";
+				for(var i = 0; i<data.resultMainInfoA.length; i++){
+					tmp1 += "<span class=\"line\">";
+					tmp1 += "<span>";
+					tmp1 += "    <strong data-js=\"link_tool\" tabindex=\"0\">";
+					tmp1 += escapeHtml(data.resultMainInfoA[i].jipyoNm)+"<span style='letter-spacing:-3px;'>(´</span>"+data.resultMainInfoA[i].prdDe+")";
+						if(data.resultMainInfoA[i].newsLink == null ){
+							tmp1 += "    <span class=\"link_tool one\">";
+							tmp1 += "<a href=\"javascript:tblLinkUrl('"+data.resultMainInfoA[i].orgId+"','"+data.resultMainInfoA[i].tblId+"','"+data.resultMainInfoA[i].vStatJipyoId+"')\"><span>통계표</span></a>";
+						}
+						else{
+							tmp1 += "    <span class=\"link_tool\">";
+							tmp1 += "<a href=\"javascript:tblLinkUrl('"+data.resultMainInfoA[i].orgId+"','"+data.resultMainInfoA[i].tblId+"','"+data.resultMainInfoA[i].vStatJipyoId+"')\"><span>통계표</span></a>";
+							tmp1 += "<a href=\"javascript:mainNewsLinkUrl('"+data.resultMainInfoA[i].newsLink+"')\"><span>보도자료</span></a>";
+						}	
+                    tmp1 += "        </span>"; 
+                   	tmp1 += "    </strong>";
+                    tmp1 += "<span><em><i data-skin=\"count\">"+data.resultMainInfoA[i].valString+"</i><span>"+fnIsNullToStr(data.resultMainInfoA[i].unitNm)+"</span></em></span>";
+                    tmp1 += "</span>";
+                    tmp1 += "</span>";
+				}
+				for(var i = 0;i<(5-data.resultMainInfoA.length);i++){
+					tmp2 += "<span class=\"line\">";
+					tmp2 += "<span>";
+					tmp2 += "    <strong data-js=\"link_tool\" tabindex=\"0\">&nbsp;";
+					tmp2 += "       <span class=\"link_tool\">";
+					tmp2 += "       </span>"; 
+					tmp2 += "    </strong>";
+					tmp2 += "    <span></span>";
+					tmp2 += "</span>";
+                    tmp2 += "</span>";
+				}
+				$('#visual > .midd > .l>.midd').append(tmp1+tmp2);
+				main_visual_left_AC();
+				
+				//관심지표선택화면
+				$('[data-skin="jipyo-pop"]').hide();
+				$('[data-skin="jipyo-pop"]>.midd>ul>li').removeClass("on");
+				$("#jpp_"+objId).addClass("on");
+			}
+		});
+	}
+	
+	function escapeHtml(str) {
+		return str.replace("&apos;","'");
+	}
+	function escapeUrlHtml(str) {
+		return str.replace(/&amp;/gi,"&");
+	}
+	
+	function bannerLayerShow(){
+		$('#popUpLayerForm').append(
+			'<div id="pop_wrap">' +
+				'<div class="pop_top_layer"><button style="border:0;background-color:rgba(0,0,0,0)" onclick="javascript:kosisBannerHide();"><img src="/ext/images/popup/popup_close.png" alt="닫기"/></button></div>' +
+				
+				
+				    '<div class="pop_middle_layer" style="clear:both;"><img src="/ext/images/popup/" id="popupLayerImg" alt="" usemap="#popUpLayerMap" /></div>' +
+				
+				
+				
+				'<div class="pop_bottom_layer">' +
+						'<input type="image" onclick="javascript:kosisBannerHide();" src="/ext/images/popup/btn_close.jpg" alt="닫기" class="close" />' + 
+				'</div>' +
+			'</div>'  
+		) 
+		//20150202 - 팝업레이어 기능 개선으로 인해 소스 수정. 
+		$('#popUpLayerForm').append(
+			'<map name="popUpLayerMap" id="popUpLayerMap"> ' +
+				
+				
+			'</map>'
+		)
+	}
+	
+	 
+	 function newBannerLayerShow(imgAlt, imagename, imagelink1, imagelink2, imagelink3, imagemap1, imagemap2, imagemap3, subject){
+	  $('#popUpLayerForm').empty();
+	  if(imgAlt != null){
+	   $('#popUpLayerForm').append(
+	    '<div id="pop_wrap">' +
+	     '<div class="pop_top_layer"><button style="border:0;background-color:rgba(0,0,0,0)" onclick="javascript:kosisBannerHide();"><img src="/ext/images/popup/popup_close.png" alt="닫기"/></button></div>' +
+	     '<div class="pop_middle_layer" style="clear:both;"><img src="/ext/images/popup/'+imagename+'" id="popupLayerImg" alt="'+imgAlt+'" usemap="#popUpLayerMap" /></div>' +
+	     '<div class="pop_bottom_layer">' +
+	     '<input type="image" onclick="javascript:kosisBannerHide();" src="/ext/images/popup/btn_close.jpg" alt="닫기" class="close" />' + 
+	     '</div>' +
+	    '</div>'  
+	   ) 
+	  }else{
+	   $('#popUpLayerForm').append(
+	    '<div id="pop_wrap">' +
+	     '<div class="pop_top_layer"><button style="border:0;background-color:rgba(0,0,0,0)" onclick="javascript:kosisBannerHide();"><img src="/ext/images/popup/popup_close.png" alt="닫기"/></button></div>' +
+	        '<div class="pop_middle_layer" style="clear:both;"><img src="/ext/images/popup/'+imagename+'" id="popupLayerImg" alt="'+subject+'" usemap="#popUpLayerMap" /></div>' +
+	        '<div class="pop_bottom_layer">' +
+	     '<input type="image" onclick="javascript:kosisBannerHide();" src="/ext/images/popup/btn_close.jpg" alt="닫기" class="close" />' + 
+	    '</div>' +
+	   '</div>'
+	   )
+	  };
+	  //20150202 - 팝업레이어 기능 개선으로 인해 소스 수정.
+	  $('#popUpLayerForm').append(
+	   '<map name="popUpLayerMap" id="popUpLayerMap"> '
+	  )
+	  if(imagelink1 != null){
+	   $('#popUpLayerMap').append(
+	    '<area shape="rect" coords="'+imagemap1+'" href="'+imagelink1+'" alt="새창으로 바로가기" target="_blank"/> '
+	   )
+	  }
+	  if(imagelink2 != null){
+	   $('#popUpLayerMap').append(
+	    '<area shape="rect" coords="'+imagemap2+'" href="'+imagelink2+'" alt="새창으로 바로가기" target="_blank"/> '
+	   )
+	  }
+	  if(imagelink3 != null){
+	   $('#popUpLayerMap').append(
+	    '<area shape="rect" coords="'+imagemap3+'" href="'+imagelink3+'" alt="새창으로 바로가기" target="_blank"/> '
+	   )	   
+	  }
+	  $('#popUpLayerForm').append(
+	   '</map>'
+	  )  
+	 }
+	 
+	function kosisBannerOpen(idx,top_color,bottom_color,imageName,serverChk,imgAlt, imagelink1, imagelink2, imagelink3, imagemap1, imagemap2, imagemap3, subject){
+		$("#popUpLayerForm_bg").show();
+		$("html,body").css({"overflow":"hidden","height":"100%"});
+
+		if($('#popUpLayerForm').is(":hidden")) {
+			//$(".kosis_banner").slideUp(200);
+			//document.cookie = "stateBannerLayer"+idx+ "=Y; path=/;";
+			
+			newBannerLayerShow(imgAlt, imageName, imagelink1, imagelink2, imagelink3, imagemap1, imagemap2, imagemap3, subject);
+			$('#popUpLayerForm').show();	
+				 
+			var top_color = top_color;
+			var bottom_color = bottom_color;
+			var imageName = imageName;
+			var serverChk = serverChk;
+	
+			//서버작업공지 일 경우에 왼쪽에 붙도록 left 값 조정
+			if(serverChk == "Y"){
+				$('#pop_wrap').css('left','0px');
+			}
+			
+			//이미지사이즈 변경
+			bannerLayerSizeModify(imageName);
+			//레이아웃의 상,하단 색상변경
+			bannerLayerbgColorModify(top_color,bottom_color);
+		}
+	}
+	
+	// 쿠키 설정여부체크
+	function bannerLayerCookieChk(){
+		//현재브라우저 유지 체크
+		if ( getCookie("stateBannerLayer") != "Y" ) {
+			if ( getCookie("bannerLayer") != "checked" ) {
+				return true;
+			}else{
+				$(".kosis_banner").slideUp(200);
+				kosisBannerHide();
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
+	function kosisBannerHide() {
+		$("#popUpLayerForm_bg").hide();
+		$("html,body").css({"overflow":"auto","height":"100%"});
+
+		$('#popUpLayerForm').hide();
+		
+		$("#kosisBanner").show();
+	}
+
+	function bannerLayerSizeModify(imgName){
+		var imgsize = new Image();		
+		imgsize.onload = function(){  // 이미지로딩이 완료가 되면
+			var imgX = imgsize.width;
+			if(imgX > 1){
+				$("#pop_wrap").css("width",imgX + "px");
+				$(".pop_middle_layer").css("width", imgX + "px");
+				$("#pop_wrap > .pop_top_layer").css("width",imgX + "px");
+				$("#pop_wrap > .pop_bottom_layer").css("width",imgX + "px");
+				$(".pop_bottom_layer > label").css("left", (imgX*0.1) + "px");
+				$(".pop_bottom_layer > .today").css("left", (imgX*0.1 - 20) + "px");
+			}		
+		};
+	}
+	
+	//상, 하단 레이어 배경색 변경
+	function bannerLayerbgColorModify(top, bottom){
+		$(".pop_top_layer").css("backgroundColor",top);
+		$(".pop_bottom_layer").css("backgroundColor",bottom);
+	}
+	
+  	function bannerBtnClose() {
+  		
+  		if ( $('input:radio[id=today-close]').is(':checked') ){
+			var expdate = new Date();
+			expdate.setHours(23,59,59,999);
+		    setCookie( "bannerLayer", "checked" , expdate );
+		}else if($('input:radio[id=close]').is(':checked')){
+			var expdate = new Date();
+			expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 14); // 14일
+		    setCookie( "bannerLayer", "checked" , expdate );
+		}
+		
+		document.cookie = "stateBannerLayer" + "=Y; path=/;";
+		$(".kosis_banner").slideUp(200);
+	}
+  	
+    //주제관리 1,2 통계표바로가기
+	function tblLinkUrl(orgId, tblId, statId ) {    	
+	    //var url = 'https://kosis.kr/statHtml/statHtml.do?orgId='+orgId+'&tblId='+tblId+'&docId='+statId+'&markType=M';
+	    var url = contextPath+'/statHtml/statHtml.do?orgId='+orgId+'&tblId='+tblId+'&docId='+statId+'&markType=M';
+	    window.open(url, "statHtml","");
+	}
+</script>
+
+
+<!-- html 마크업 수정 전 -->
+
+<!-- 	<body data-layout="main"> -->
+
+<!-- // html 마크업 수정 전 -->
+		
+<!-- 팝업 -->
+<div id="popUpLayerForm_bg"></div>
+<div id="popUpLayerForm"></div>
+<!-- // 팝업 -->  
+
+<!-- Skip S -->
+<div id="skip">		
+	<a href="#gnb">상단메뉴 바로가기</a>
+	<!-- 국내통계, 국제, 북한통계 제외하고 본문 바로가기 contnet-group에 가도록 수정 -->              
+	
+		        
+		
+		
+			<a href="#content">본문 바로가기</a>
+		        	
+	
+</div>
+<!-- Skip E -->
+<div class="nurizip">
+    <span>이 누리집은 대한민국 공식 전자정부 누리집입니다.</span>
+</div>
+ 
+<div id="kosisBanner" class="kosis_banner Hidden">
+	<div class="banner_content purple">
+		<div class="move">
+			<ul>
+				
+			</ul>
+		</div>
+		<div class="control">
+			<div class="banner_control">
+				<span>1/0</span>
+				<a href="javascript:void(0)"  class="btn_prev"><span>이전</span></a>
+				<a href="javascript:void(0)"  class="btn_next"><span>다음</span></a>
+				<a href="javascript:void(0)"  class="btn_stop"><span>정지</span></a>
+				<a href="javascript:void(0)"  class="btn_play" style="display: none;"><span>재생</span></a>
+			</div>
+			<div class="date_control">
+				<div class="today_chkbox">
+					<input type="radio" id="today-close" name="chkbox" value="day1">
+					<label for="today-close">하루 동안 열지않기</label>
+				</div>
+				<div class="close_chkbox">
+					<input type="radio" id="close" name="chkbox" value="day2">
+					<label for="close">다시 열지않기</label>
+				</div>
+				<button type="button" class="banner_close" onclick="javascript:bannerBtnClose();">팝업닫기</button>
+			</div>
+		</div>
+	</div>
+</div> 	
+
+<div id="wrap">
+	
+		<form id="searchForm" name="searchForm" action="/search/search.do" method="post">
+			<input type="hidden" id="query" name="query" value=""/>
+			<input type="hidden" id="statIdList"	name="statIdList"	value="" />
+			<input type="hidden" id="collection" name="collection" value="ALL" />
+			<input type="hidden" id="detailTempQuery" name="detailTempQuery" value="" />
+			<input type="hidden" id="resultCount" name="resultCount" value="3" />
+			<input type="hidden" id="startDate" name="startDate" value="" />
+			<input type="hidden" id="endDate" name="endDate" value="" />
+			<input type="hidden" id="startYear" name="startYear" value="" />
+			<input type="hidden" id="endYear" name="endYear" value="" />
+			<input type="hidden" id="ts_title"	name="ts_title"	value="N" />
+			<input type="hidden" id="ts_content"	name="ts_content"	value="N" />
+			<input type="hidden" id="ts_location"	name="ts_location"	value="N" />
+			<input type="hidden" id="ts_item01"	name="ts_item01"	value="N" />
+			<input type="hidden" id="ts_item02"	name="ts_item02"	value="N" />
+			<input type="hidden" id="ts_item03"	name="ts_item03"	value="N" />
+			<input type="hidden" id="ts_all"	name="ts_all"	value="Y" />
+			
+			<!-- 2021국가통계포털 개선사업 통합 검색관련 파라미터 추가  2021.02.21 장성현-->
+			<input type="hidden" id="orgAll" name="orgAll" value="" />
+			<input type="hidden" id="stateAdmin" name="stateAdmin" value="" />
+			<input type="hidden" id="localGov" name="localGov" value="" />
+			<input type="hidden" id="localGovD" name="localGovD" value="" />
+			<input type="hidden" id="orgOther" name="orgOther" value="" />
+			<input type="hidden" id="detailViewStatus" name="detailViewStatus" value="" />
+			<input type="hidden" id="gbn" name="gbn" value="" />
+			
+			<input type="hidden" id="reQuery" name="reQuery" value="" />
+			<input type="hidden" id="reSearchYn" name="reSearchYn" value="N" />
+			<input type="hidden" id="a7" name="a7" value="N" />
+		</form>
+	
+
+	<form id="fileDownForm" name="fileDownForm" action="/cmm/fms/FileDown.do" >
+		<input type="hidden" id="atchFileId" name="atchFileId" value=""/>
+		<input type="hidden" id="sotreType" name="sotreType" value=""/>
+		<input type="hidden" id="streFileNm" name="streFileNm" value="streFileNm"/>
+	</form>
+
+	<div id="topbg">
+		<div class="bg"></div>
+		<div class="bg2"></div>
+	</div>   
+
+	<!-- Header S -->
+	<div id="header">
+		<div class="layout">
+			<h1><a href="/index/index.do"><img src="/ext/newKosis/img/layout/logo.png" alt="KOSIS 국가통계포털- KOrean Statistical Information Service"></a></h1>
+				<!-- <p class="slogan">다시 대한민국! 새로운 국민의 나라</p> -->
+
+			<div class="menu" id="gnb">
+				<ul>
+								<li><a id="GNB.M_01" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_ZTITLE', 'M_01_01', this); return false;"><span>국내통계</span></a>
+				<ul>
+					<li ><a id="GNB.M_01_01" href="javascript:void(0)"  onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_ZTITLE', 'M_01_01', this); return false;" ><span>주제별 통계</span></a></li>
+					<li ><a id="GNB.M_01_02" href="javascript:void(0)"  onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_OTITLE', 'M_01_02', this); return false;" ><span>기관별 통계</span></a></li>
+					<li ><a id="GNB.M_01_03" href="javascript:void(0)"  onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_GTITLE01', 'M_01_03_01', this); return false;" ><span>e-지방지표(통계표)</span></a></li>
+					<li ><a id="GNB.M_01_05" href="javascript:void(0)"  onclick="javascript:fneRegionJipyo(); return false;"  target="_blank" class="newwindow" title=새창열림><span>e-지방지표(시각화)</span></a></li>
+					<li ><a id="GNB.M_01_04" href="javascript:void(0)"  onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_CHOSUN_TITLE', 'M_01_04_01', this); return false;" ><span>과거ㆍ중지통계</span></a></li>
+					<li ><a id="GNB.M_01_06" href="javascript:void(0)"  onclick="javascript:experimentStatistical(); return false;"  target="_blank" class="newwindow" title=새창열림><span>실험적통계</span></a></li>
+					</ul>
+				</li>
+				<li><a id="GNB.M_02" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_RTITLE', 'M_02_01', this); return false;"><span>국제ㆍ북한통계</span></a>
+				<ul>
+					<li ><a id="GNB.M_02_01" href="javascript:void(0)"  onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_RTITLE', 'M_02_01', this); return false;" ><span>국제통계</span></a></li>
+					<li ><a id="GNB.M_02_03" href="javascript:void(0)"  onclick="javascript:fnPopupKoreaWorld(); return false;"  target="_blank" class="newwindow" title=새창열림><span>세계속의 한국</span></a></li>
+					<li ><a id="GNB.M_02_04" href="javascript:void(0)"  onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_RTITLE01', 'M_02_04', this); return false;" ><span>국제지역통계</span></a></li>
+					<li ><a id="GNB.M_02_02" href="javascript:void(0)"  onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_BUKHAN', 'M_02_02', this); return false;" ><span>북한통계</span></a></li>
+					</ul>
+				</li>
+				<li><a id="GNB.M_03" href="http://kosis.kr/easyViewStatis/customStatisIndex.do?vwcd=MT_TM1_TITLE&menuId=M_03_01"><span>쉽게 보는 통계</span></a>
+				<ul>
+					<li ><a id="GNB.M_03_01" href="http://kosis.kr/easyViewStatis/customStatisIndex.do?vwcd=MT_TM1_TITLE&menuId=M_03_01"><span>대상별 접근</span></a></li>
+					<li ><a id="GNB.M_03_02" href="http://kosis.kr/easyViewStatis/customStatisIndex.do?vwcd=MT_TM2_TITLE&menuId=M_03_02"><span>이슈별 접근</span></a></li>
+					<li ><a id="GNB.M_03_04" href="http://kosis.kr/easyViewStatis/visualizationIndex.do"><span>통계시각화콘텐츠</span></a></li>
+					</ul>
+				</li>
+				<li><a id="GNB.M_04" href="http://kosis.kr/publication/publicationThema.do"><span>온라인간행물</span></a>
+				<ul>
+					<li ><a id="GNB.M_04_01" href="http://kosis.kr/publication/publicationThema.do"><span>주제별</span></a></li>
+					<li ><a id="GNB.M_04_02" href="http://kosis.kr/publication/publicationWord.do"><span>명칭별</span></a></li>
+					<li ><a id="GNB.M_04_03" href="http://kosis.kr/publication/publicationStat.do"><span>기획간행물</span></a></li>
+					</ul>
+				</li>
+				<li><a id="GNB.M_05" href="http://kosis.kr/civilComplaint/faqList.do"><span>민원안내</span></a>
+				<ul>
+					<li ><a id="GNB.M_05_01" href="http://kosis.kr/civilComplaint/faqList.do"><span>FAQ</span></a></li>
+					<li ><a id="GNB.M_05_02" href="http://kosis.kr/civilComplaint/qnaList.do"><span>Q&amp;A</span></a></li>
+					<li ><a id="GNB.M_05_03" href="http://kosis.kr/civilComplaint/kosisGuideIndex.do"><span>KOSIS 길라잡이</span></a></li>
+					<li ><a id="GNB.M_05_04" href="http://kosis.kr/civilComplaint/siteRequestList.do"><span>홈페이지 개선의견</span></a></li>
+					<li ><a id="GNB.M_05_05" href="http://kosis.kr/civilComplaint/kosisEduIndex.do"><span>찾아가는 KOSIS</span></a></li>
+					</ul>
+				</li>
+				<li><a id="GNB.M_06" href="http://kosis.kr/serviceInfo/kosisIntroduce.do"><span class="on">서비스 소개</span></a>
+				<ul>
+					<li ><a id="GNB.M_06_01" href="http://kosis.kr/serviceInfo/kosisIntroduce.do"><span>국가통계포털 소개</span></a></li>
+					<li ><a id="GNB.M_06_02" href="http://kosis.kr/serviceInfo/statisInstitution.do"><span>국가통계현황</span></a></li>
+					<li ><a id="GNB.M_06_03" href="http://kosis.kr/serviceInfo/statisPublicationList.do"><span>국가통계 공표일정</span></a></li>
+					<li ><a id="GNB.M_06_04" href="http://kosis.kr/serviceInfo/noticeList.do"><span>새소식</span></a></li>
+					<li ><a id="GNB.M_06_07" href="http://kosis.kr/serviceInfo/factCheckList.do"><span>팩트체크 서비스</span></a></li>
+					<li ><a id="GNB.M_06_05" href="http://kosis.kr/serviceInfo/useGuide.do"><span>서비스정책</span></a></li>
+					<li ><a id="GNB.M_06_06" href="http://kosis.kr/serviceInfo/openAPIGuide.do"><span>공유서비스<small>(OpenAPI)</small></span></a></li>
+					</ul>
+				</li>
+                	
+				    
+					    
+						
+							
+							
+							
+								<li class="search" id="searchId2"><a href="#" data-btn="search-top"><span>통합검색</span></a></li>
+							        	
+						
+					
+				
+				</ul>   
+			</div>
+
+		                    	
+			                  	 	
+				<a href="#" data-btn="search-top"><span>통합검색</span></a>                           	
+			
+			<!-- 상단-내가본 통계표 -->
+			<a href="#Quick3" data-btn="look" id="Quick3" class="quick_btn"><span>내가본통계표</span></a>
+		
+
+		<!-- search :s -->
+		  
+			   
+				<div id="searchbox">
+					<div class="layout">
+						<div class="in">
+							
+							<input id="seSearchQuery" name="seSearchQuery" type="text" value=""  onKeypress="javascript:pressCheck((event), this);"  placeholder="검색어를 입력해주세요." title="검색어를 입력해주세요."/>
+							<label for="seSearchQuery" class="Hidden">검색어를 입력해주세요</label>
+							<input id="btnSearchQuery" type="submit" value="검색" onclick="javascript:doSearch()"/>
+							<label for="btnSearchQuery" class="Hidden">검색</label>
+							
+							<a href="#" class="close"><span>닫기</span></a>
+						</div>
+					</div>
+				</div>
+			
+		
+		<!-- search :e -->
+
+		<div id="etc">
+			<ul>
+				
+					<li><a href="javascript:void(0)" onclick="javascript:fnLogin(); return false;"><span>로그인</span></a></li>
+					<li><a href="javascript:void(0)" onclick="javascript:fnMemberJoin(); return false;"><span>회원가입</span></a></li>
+					<li><a href="https://kosis.kr/eng" target="_blank" title="새창열림"><span>English</span></a></li>
+					<li><a href="https://kosis.kr/edu" target="_blank" title="새창열림"><span>어린이</span></a></li>
+					
+					<li>
+						<form name="form_join" method="post" action="https://kosis.kr/oneid/cmmn/login/LoginView.do" >
+							<input type="hidden" id="SYS_CD1" 		name="SYS_CD" 		value="K" />
+							<input type="hidden" id="CUR_URL1" 		name="CUR_URL" 		class="CUR_URL1"	value="https://kosis.kr/common/login/Login.do" />
+							<input type="hidden" id="SYS_URL" 		name="SYS_URL" 		value="https://kosis.kr/common/login/Login.do" />
+							<input type="hidden" id="SID_IP_ADDR1" 	name="SID_IP_ADDR" 	value="" />
+							<input type="hidden" id="SSN_INFO"		name="SSN_INFO" 	value="" />
+						</form>	
+
+						<form name="joinForm" id="joinForm" method="post" action="https://kosis.kr/oneid/cmmn/login/MemberType.do" >
+							<input type="hidden"  name="SYS_CD" 		value="K" />
+							<input type="hidden"  name="CUR_URL" 		value="https://kosis.kr/common/login/Login.do" />
+							<input type="hidden"  name="SYS_URL" 		value="https://kosis.kr/common/login/Login.do" />
+							<input type="hidden"  name="SID_IP_ADDR" 	value="" />
+							<input type="hidden"  name="SSN_INFO" 		value="" />		
+						</form>
+					</li>
+				
+
+				
+				<li>
+					<!--<form name="outForm" id="outForm" method="post" action="/oneid/cmmn/login/ActionLogout.do" >-->
+					<form name="outForm" id="outForm" method="post" action="https://kosis.kr/oneid/cmmn/login/ssoActionLogout.do" >
+						<input type="hidden" name="SYS_CD" 		value="K" />
+						<input type="hidden" name="USR_SN" 		value="" />
+						<input type="hidden" name="USR_ID" 		value="" />
+						<input type="hidden" name="USR_PW" 		value="" />
+						<input type="hidden" name="LOGIN_YN" 	value=""  />
+						<input type="hidden" name="CUR_URL" 	class="CUR_URL"	 value="/index/index.do" /> 
+						<input type="hidden" name="SYS_URL" 	value="https://kosis.kr/common/login/Logout.do" />
+						<input type="hidden" name="SID_IP_ADDR" value="" />
+						<input type="hidden" name="SSN_INFO" 	value="" />
+					</form>	
+
+					<!-- EDIT -->
+					<form name="editForm" id="editForm" method="post" action="https://kosis.kr/oneid/cmmn/login/GoToMemberPwChk.do" >
+						<input type="hidden" name="SYS_CD"  value="K" />
+						<input type="hidden" name="CUR_URL"  value="/index/index.do" /> 
+						<input type="hidden" name="SYS_URL"  value="https://kosis.kr/common/login/Login.do" />
+						<input type="hidden" name="SID_IP_ADDR"  value="" />
+						<input type="hidden" name="SSN_INFO"  value="" />
+						<input type="hidden" name="USR_GUBUN"  value="" />   
+						<input type="hidden" name="USR_SN"  value="" />
+						<input type="hidden" name="LOGIN_YN"  value="" />
+						<input type="hidden" name="USR_ID"  value="" />
+					</form>			
+
+					<!-- REMOVE -->
+					<form id="rmForm" name="rmForm" method="post" action="https://kosis.kr/oneid/cmmn/login/GoToMemberDrop.do" >
+						<input type="hidden"  name="LOGIN_YN"  value="" />
+						<input type="hidden"  name="SYS_CD"  value="K" />
+						<input type="hidden"  name="USR_ID"  value="" />
+						<input type="hidden"  name="CUR_URL"  value="/index/index.do" /> 
+						<input type="hidden"  name="SYS_URL"  value="/common/login/RemoveUser.do" />
+						<input type="hidden"  name="SID_IP_ADDR"  value="" />
+						<input type="hidden"  name="SSN_INFO"  value="null" />
+						<input type="hidden"  name="USR_SN"  value="" />
+					</form>	
+				</li>	
+			</ul>
+		</div>
+		
+					        	
+			
+			
+				<a href="#none" id="menuall2" data-btn="all"><span>전체메뉴</span></a>
+			        	
+		
+		</div>
+	</div>
+	<!-- Header E -->
+
+	<!-- 전체메뉴 :s -->
+	<div id="sitemap">
+		<div class="in">        	
+			<div class="head">
+				<strong>메뉴전체보기</strong>
+			</div>
+		<div class="midd">
+
+
+			<a href="javascript:void(0)" class="deps_1"><span>1뎁스</span></a>
+			<a href="javascript:void(0)" class="deps_2"><span>2뎁스</span></a>
+				<div class="menu">
+					<ul>
+									<li><a id="All.M_01" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_ZTITLE', 'M_01_01', this); return false;"><span>국내통계</span></a>
+					<ul data-scroll='yes'>
+						<li><a id="All.M_01_01" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_ZTITLE', 'M_01_01', this); return false;"><span>주제별 통계</span></a><span class='firstbox'><label for='firstWindow'>첫화면 고정</label><input type='checkbox' id='firstWindow' name='chkbox' class='today' /></span></li>
+						<li><a id="All.M_01_02" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_OTITLE', 'M_01_02', this); return false;"><span>기관별 통계</span></a></li>
+						<li><a id="All.M_01_03" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_GTITLE01', 'M_01_03_01', this); return false;"><span>e-지방지표(통계표)</span></a>
+							<ul>
+								<li><a id="All.M_01_03_01" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_GTITLE01', 'M_01_03_01', this); return false;"><span>주제별</span></a></li>
+								<li><a id="All.M_01_03_02" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_GTITLE02', 'M_01_03_02', this); return false;"><span>지역별</span></a></li>
+								<li><a id="All.M_01_03_03" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_GTITLE03', 'M_01_03_03', this); return false;"><span>테마별</span></a></li>
+							</ul>
+						</li>
+						<li><a id="All.M_01_05" href="" target="_blank" onclick="javascript:fneRegionJipyo(); return false;" title=새창열림><span>e-지방지표(시각화)</span></a></li>
+						<li><a id="All.M_01_04" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_CHOSUN_TITLE', 'M_01_04_01', this); return false;"><span>과거ㆍ중지통계</span></a>
+							<ul>
+								<li><a id="All.M_01_04_01" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_CHOSUN_TITLE', 'M_01_04_01', this); return false;"><span>광복이전통계</span></a></li>
+								<li><a id="All.M_01_04_02" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_HANKUK_TITLE', 'M_01_04_02', this); return false;"><span>대한민국통계연감</span></a></li>
+								<li><a id="All.M_01_04_03" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_STOP_TITLE', 'M_01_04_03', this); return false;"><span>작성중지통계</span></a></li>
+							</ul>
+						</li>
+						<li><a id="All.M_01_06" href="" target="_blank" onclick="javascript:experimentStatistical(); return false;" title=새창열림><span>실험적통계</span></a></li>
+					</ul>
+			</li>
+				<li><a id="All.M_02" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_RTITLE', 'M_02_01', this); return false;"><span>국제ㆍ북한통계</span></a>
+					<ul data-scroll='yes'>
+						<li><a id="All.M_02_01" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_RTITLE', 'M_02_01', this); return false;"><span>국제통계</span></a></li>
+						<li><a id="All.M_02_03" href="" target="_blank" onclick="javascript:fnPopupKoreaWorld(); return false;" title=새창열림><span>세계속의 한국</span></a></li>
+						<li><a id="All.M_02_04" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_RTITLE01', 'M_02_04', this); return false;"><span>국제지역통계</span></a></li>
+						<li><a id="All.M_02_02" href="javascript:void(0)" onclick="javascript:fnStatisticsList('/statisticsList/statisticsListIndex.do', 'MT_BUKHAN', 'M_02_02', this); return false;"><span>북한통계</span></a></li>
+					</ul>
+			</li>
+				<li><a id="All.M_03" href="http://kosis.kr/easyViewStatis/customStatisIndex.do?vwcd=MT_TM1_TITLE&menuId=M_03_01"><span>쉽게 보는 통계</span></a>
+					<ul data-scroll='yes'>
+						<li><a id="All.M_03_01" href="http://kosis.kr/easyViewStatis/customStatisIndex.do?vwcd=MT_TM1_TITLE&menuId=M_03_01"><span>대상별 접근</span></a></li>
+						<li><a id="All.M_03_02" href="http://kosis.kr/easyViewStatis/customStatisIndex.do?vwcd=MT_TM2_TITLE&menuId=M_03_02"><span>이슈별 접근</span></a></li>
+						<li><a id="All.M_03_04" href="http://kosis.kr/easyViewStatis/visualizationIndex.do"><span>통계시각화콘텐츠</span></a>
+							<ul>
+								<li><a id="All.M_03_04_01" href="" target="_blank" onclick="statPopupOpen(','); return false;" title=새창열림><span>KOSIS 100대 지표</span></a></li>
+								<li><a id="All.M_03_04_20" href="" target="_blank" onclick="javascript:fnDataVisualExp(); return false;" title=새창열림><span>데이터 시각화 체험하기</span></a></li>
+								<li><a id="All.M_03_04_03" href="" target="_blank" onclick="javascript:fnPopupPopulation(); return false;" title=새창열림><span>인구로 보는 대한민국</span></a></li>
+								<li><a id="All.M_03_04_17" href="" target="_blank" onclick="javascript:fneRegionJipyo(); return false;" title=새창열림><span>e-지방지표(시각화)</span></a></li>
+								<li><a id="All.M_03_04_07" href="" target="_blank" onclick="javascript:fnPopupKoreaWorld(); return false;" title=새창열림><span>세계속의 한국</span></a></li>
+								<li><a id="All.M_03_04_06" href="" target="_blank" onclick="javascript:fnPopupEconomyBoard(); return false;" title=새창열림><span>경제상황판</span></a></li>
+								<li><a id="All.M_03_04_18" href="" target="_blank" onclick="javascript:fnPopupSocialStat(); return false;" title=새창열림><span>국민생활 돋보기</span></a></li>
+								<li><a id="All.M_03_04_19" href="" target="_blank" onclick="javascript:fnKosisEdu(); return false;" title=새창열림><span>통계놀이터</span></a></li>
+								<li><a id="All.M_03_04_05" href="" target="_blank" onclick="javascript:fnPopupStatisPortrait(); return false;" title=새창열림><span>통계로 보는 자화상</span></a></li>
+								<li><a id="All.M_03_04_16" href="http://kosis.kr/easyViewStatis/dynamicChartList.do"><span>세상을 그리는 통계</span></a></li>
+								<li><a id="All.M_03_04_09" href="" target="_blank" onclick="javascript:fnPopupBubble(); return false;" title=새창열림><span>버블차트로 보는 통계</span></a></li>
+								<li><a id="All.M_03_04_14" href="" target="_blank" onclick="javascript:fnPopupTimeTour(); return false;" title=새창열림><span>통계로 시간여행</span></a></li>
+								<li><a id="All.M_03_04_04" href="" target="_blank" onclick="javascript:fnPopupmyPrice(); return false;" title=새창열림><span>나의 물가 체험하기</span></a></li>
+								<li><a id="All.M_03_04_11" href="http://kosis.kr/easyViewStatis/webtoonList.do"><span>통계웹툰</span></a></li>
+								<li><a id="All.M_03_04_13" href="http://kosis.kr/easyViewStatis/cardNewsList.do"><span>카드뉴스</span></a></li>
+								<li><a id="All.M_03_04_08" href="" target="_blank" onclick="javascript:fnPopupBcc(); return false;" title=새창열림><span>경기순환시계</span></a></li>
+								<li><a id="All.M_03_04_12" href="http://kosis.kr/easyViewStatis/uccList.do"><span>내가 말하는 통계</span></a></li>
+								<li><a id="All.M_03_04_02" href="" target="_blank" onclick="javascript:fnPopupManAndWoman(); return false;" title=새창열림><span>해·석·남·녀</span></a></li>
+								<li><a id="All.M_03_04_10" href="" target="_blank" onclick="javascript:fnPopupStatisEduVideo(1); return false;" title=새창열림><span>통계교육동영상</span></a></li>
+							</ul>
+						</li>
+					</ul>
+			</li>
+				<li><a id="All.M_04" href="http://kosis.kr/publication/publicationThema.do"><span>온라인간행물</span></a>
+					<ul data-scroll='yes'>
+						<li><a id="All.M_04_01" href="http://kosis.kr/publication/publicationThema.do"><span>주제별</span></a></li>
+						<li><a id="All.M_04_02" href="http://kosis.kr/publication/publicationWord.do"><span>명칭별</span></a></li>
+						<li><a id="All.M_04_03" href="http://kosis.kr/publication/publicationStat.do"><span>기획간행물</span></a></li>
+					</ul>
+			</li>
+				<li><a id="All.M_05" href="http://kosis.kr/civilComplaint/faqList.do"><span>민원안내</span></a>
+					<ul data-scroll='yes'>
+						<li><a id="All.M_05_01" href="http://kosis.kr/civilComplaint/faqList.do"><span>FAQ</span></a></li>
+						<li><a id="All.M_05_02" href="http://kosis.kr/civilComplaint/qnaList.do"><span>Q&amp;A</span></a></li>
+						<li><a id="All.M_05_03" href="http://kosis.kr/civilComplaint/kosisGuideIndex.do"><span>KOSIS 길라잡이</span></a></li>
+						<li><a id="All.M_05_04" href="http://kosis.kr/civilComplaint/siteRequestList.do"><span>홈페이지 개선의견</span></a></li>
+						<li><a id="All.M_05_05" href="http://kosis.kr/civilComplaint/kosisEduIndex.do"><span>찾아가는 KOSIS</span></a>
+							<ul>
+								<li><a id="All.M_05_05_01" href="http://kosis.kr/civilComplaint/kosisEduIndex.do"><span>교육안내</span></a></li>
+								<li><a id="All.M_05_05_02" href="http://kosis.kr/civilComplaint/kosisEduApply.do"><span>교육신청</span></a></li>
+								<li><a id="All.M_05_05_03" href="http://kosis.kr/civilComplaint/kosisEduApplyConfirm.do"><span>신청확인</span></a></li>
+							</ul>
+						</li>
+					</ul>
+			</li>
+				<li><a id="All.M_06" href="http://kosis.kr/serviceInfo/kosisIntroduce.do"><span>서비스 소개</span></a>
+					<ul data-scroll='yes'>
+						<li><a id="All.M_06_01" href="http://kosis.kr/serviceInfo/kosisIntroduce.do"><span>국가통계포털 소개</span></a>
+							<ul>
+								<li><a id="All.M_06_01_01" href="http://kosis.kr/serviceInfo/kosisIntroduce.do"><span>국가통계포털이란?</span></a></li>
+								<li><a id="All.M_06_01_02" href="http://kosis.kr/serviceInfo/kosisHistory.do"><span>국가통계포털 연혁</span></a></li>
+								<li><a id="All.M_06_01_03" href="http://kosis.kr/serviceInfo/kosisIntroduceMove.do"><span>KOSIS 소개 영상</span></a></li>
+							</ul>
+						</li>
+						<li><a id="All.M_06_02" href="http://kosis.kr/serviceInfo/statisInstitution.do"><span>국가통계현황</span></a>
+							<ul>
+								<li><a id="All.M_06_02_01" href="http://kosis.kr/serviceInfo/statisInstitution.do"><span>국가통계제도</span></a></li>
+								<li><a id="All.M_06_02_02" href="http://kosis.kr/serviceInfo/statisWriteStatus.do"><span>국내통계 작성현황</span></a></li>
+							</ul>
+						</li>
+						<li><a id="All.M_06_03" href="http://kosis.kr/serviceInfo/statisPublicationList.do"><span>국가통계 공표일정</span></a></li>
+						<li><a id="All.M_06_04" href="http://kosis.kr/serviceInfo/noticeList.do"><span>새소식</span></a>
+							<ul>
+								<li><a id="All.M_06_04_01" href="http://kosis.kr/serviceInfo/noticeList.do"><span>공지사항</span></a></li>
+								<li><a id="All.M_06_04_02" href="http://kosis.kr/serviceInfo/newContrainDataList.do"><span>최근수록자료</span></a></li>
+								<li><a id="All.M_06_04_03" href="" target="_blank" onclick="javascript:fnPressReleases(); return false;" title=새창열림><span>보도자료</span></a></li>
+							</ul>
+						</li>
+						<li><a id="All.M_06_07" href="http://kosis.kr/serviceInfo/factCheckList.do"><span>팩트체크 서비스</span></a></li>
+						<li><a id="All.M_06_05" href="http://kosis.kr/serviceInfo/useGuide.do"><span>서비스정책</span></a>
+							<ul>
+								<li><a id="All.M_06_05_01" href="http://kosis.kr/serviceInfo/useGuide.do"><span>통계정보 이용지침</span></a></li>
+								<li><a id="All.M_06_05_02" href="http://kosis.kr/serviceInfo/useClause.do"><span>사이트 이용약관</span></a></li>
+								<li><a id="All.M_06_05_03" href="http://kosis.kr/serviceInfo/applicationClause.do"><span>통계정보 활용약관</span></a></li>
+								<li><a id="All.M_06_05_04" href="http://kosis.kr/serviceInfo/privacy_policy.do"><span>개인정보처리방침</span></a></li>
+								<li><a id="All.M_06_05_05" href="http://kosis.kr/serviceInfo/emailCollectClause.do"><span>이메일무단수집거부</span></a></li>
+							</ul>
+						</li>
+						<li><a id="All.M_06_06" href="http://kosis.kr/serviceInfo/openAPIGuide.do"><span>공유서비스<small>(OpenAPI)</small></span></a></li>
+					</ul>
+			</li>
+				<li><a id="All.M_07" href="http://kosis.kr/multiStatNew/multiStatIndex.do"><span>복합통계표</span></a>
+			</li>
+				<li><a id="All.M_08" href="http://kosis.kr/myPage/myStatisList.do"><span>마이페이지</span></a>
+					<ul data-scroll='yes'>
+						<li><a id="All.M_08_01" href="http://kosis.kr/myPage/myStatisList.do"><span>나의 통계</span></a></li>
+						<li><a id="All.M_08_02" href="http://kosis.kr/myPage/qnaList.do"><span>나의 질문/의견</span></a>
+							<ul>
+								<li><a id="All.M_08_02_01" href="http://kosis.kr/myPage/qnaList.do"><span>Q&amp;A</span></a></li>
+								<li><a id="All.M_08_02_02" href="http://kosis.kr/myPage/siteRequestList.do"><span>홈페이지 개선의견</span></a></li>
+							</ul>
+						</li>
+						<li><a id="All.M_08_03" href="" target="_blank" onclick="javascript:fnMemberEditPage();return false;" title=새창열림><span>회원정보수정</span></a></li>
+						<li><a id="All.M_08_04" href="" target="_blank" onclick="javascript:fnMemberRemovePage();return false;" title=새창열림><span>회원탈퇴</span></a></li>
+					</ul>
+			</li>
+				<li><a id="All.M_09" href="javascript:void(0)" onclick="javascript:fnLogin();return false;"><span>회원정보</span></a>
+					<ul data-scroll='yes'>
+						<li><a id="All.M_09_01" href="" target="_blank" onclick="javascript:fnLogin();return false;" title=새창열림><span>로그인</span></a></li>
+						<li><a id="All.M_09_02" href="" target="_blank" onclick="javascript:fnMemberJoin();return false;" title=새창열림><span>회원가입</span></a></li>
+						<li><a id="All.M_09_03" href="" target="_blank" onclick="javascript:fnSearchID();return false;" title=새창열림><span>아이디찾기</span></a></li>
+						<li><a id="All.M_09_04" href="" target="_blank" onclick="javascript:fnPasswordReissued();return false;" title=새창열림><span>비밀번호 재발급</span></a></li>
+					</ul>
+			</li>
+				<li><a id="All.M_10" href="javascript:void(0)" onclick="return false;"><span>관련사이트</span></a>
+					<ul data-scroll='yes'>
+						<li><a id="All.M_10_01" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=meta','linkWin'); return false;" title=새창열림><span>통계설명자료</span></a></li>
+						<li><a id="All.M_10_02" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=openapi','linkWin'); return false;" title=새창열림><span>공유서비스</span></a></li>
+						<li><a id="All.M_10_03" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=mods','linkWin'); return false;" title=새창열림><span>국가데이터처홈페이지</span></a></li>
+						<li><a id="All.M_10_04" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=edu','linkWin'); return false;" title=새창열림><span>KOSIS 통계놀이터</span></a></li>
+						<li><a id="All.M_10_05" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=shi','linkWin'); return false;" title=새창열림><span>국가데이터인재개발원 홈페이지</span></a></li>
+						<li><a id="All.M_10_06" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=sri','linkWin'); return false;" title=새창열림><span>국가데이터연구원 홈페이지</span></a></li>
+						<li><a id="All.M_10_07" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=gis','linkWin'); return false;" title=새창열림><span>SGIS 통계지리정보서비스</span></a></li>
+						<li><a id="All.M_10_08" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=mdis','linkWin'); return false;" title=새창열림><span>MDIS 마이크로데이터</span></a></li>
+						<li><a id="All.M_10_09" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=index','linkWin'); return false;" title=새창열림><span>지표누리</span></a></li>
+						<li><a id="All.M_10_10" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=sdc','linkWin'); return false;" title=새창열림><span>SDC 통계데이터센터</span></a></li>
+						<li><a id="All.M_10_11" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=big','linkWin'); return false;" title=새창열림><span>빅데이터통계서비스</span></a></li>
+						<li><a id="All.M_10_12" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=bukhan','linkWin'); return false;" title=새창열림><span>북한통계</span></a></li>
+						<li><a id="All.M_10_13" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=kssc','linkWin'); return false;" title=새창열림><span>통계분류포털</span></a></li>
+						<li><a id="All.M_10_14" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=tong','linkWin'); return false;" title=새창열림><span>통그라미</span></a></li>
+						<li><a id="All.M_10_15" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=offer','linkWin'); return false;" title=새창열림><span>통계제공기관</span></a></li>
+						<li><a id="All.M_10_16" href="" target="_blank" onclick="popupWin('/common/tech/gatePage.do?pageid=nsist','linkWin'); return false;" title=새창열림><span>통계DB통합관리시스템</span></a></li>
+					</ul>
+			</li>
+
+					</ul>
+				</div>
+		</div>
+		<!-- 모바일 root 하단메뉴 S -->
+		<div class="foot">
+			<ul>
+				
+					<li><a href="javascript:void(0)" onclick="javascript:fnLogin(); return false;"><span>로그인</span></a></li>
+					<li><a href="javascript:void(0)" onclick="javascript:fnMemberJoin(); return false;"><span>회원가입</span></a></li>
+				
+				
+				<li><a href="https://kosis.kr/eng" target="_blank" title="새창열림"><span>English</span></a></li>
+				
+			</ul>
+		</div>
+		<!-- 모바일 root 하단메뉴 E -->
+		<a href="#" class="close"><span>닫기</span></a>
+		</div>
+	</div>
+	<!-- 전체메뉴 :e -->	
+	
+	<!-- Side S -->
+
+	<!-- Side E -->
+	
+	
+	<!-- Center S -->
+	<div id="container">
+		<!-- title :s -->
+		
+			<div id="title">
+				<div class="layout">
+					<strong>서비스 소개</strong>
+					<ul class="breadcrumbs">
+                        <li><a href="/index/index.do">메인</a></li>
+                         <li><a href="/serviceInfo/kosisIntroduce.do">서비스 소개</a></li><li><a href="/serviceInfo/useGuide.do">서비스정책</a></li><li><a href="/serviceInfo/useGuide.do">통계정보 이용지침</a></li>
+                    </ul>
+					
+					
+					
+				</div>
+				<div id="contNm" class="hidden">통계정보 이용지침</div>
+			</div>
+		
+		
+
+		
+			<div id="content-group">			
+				
+				
+
+				<div class="layout" id="framebox">
+				<!--                     <iframe src="" title="클릭한 통계목록 화면"></iframe> -->
+				</div>
+				<div class="layout">
+				<!-- remote :s -->
+					<div id="remote">
+						<div class="menu" id="lnb">			
+										
+							
+											<ul>
+				<li ><a id="LMenu.M_06_01" href="http://kosis.kr/serviceInfo/kosisIntroduce.do"><span>국가통계포털 소개</span></a>
+					<ul> 						<li ><a id="LMenu.M_06_01_01" href="http://kosis.kr/serviceInfo/kosisIntroduce.do"><span>국가통계포털이란?</span></a></li>
+						<li ><a id="LMenu.M_06_01_02" href="http://kosis.kr/serviceInfo/kosisHistory.do"><span>국가통계포털 연혁</span></a></li>
+						<li ><a id="LMenu.M_06_01_03" href="http://kosis.kr/serviceInfo/kosisIntroduceMove.do"><span>KOSIS 소개 영상</span></a></li>
+					</ul>
+				</li>
+				<li ><a id="LMenu.M_06_02" href="http://kosis.kr/serviceInfo/statisInstitution.do"><span>국가통계현황</span></a>
+					<ul> 						<li ><a id="LMenu.M_06_02_01" href="http://kosis.kr/serviceInfo/statisInstitution.do"><span>국가통계제도</span></a></li>
+						<li ><a id="LMenu.M_06_02_02" href="http://kosis.kr/serviceInfo/statisWriteStatus.do"><span>국내통계 작성현황</span></a></li>
+					</ul>
+				</li>
+				<li ><a id="LMenu.M_06_03" href="http://kosis.kr/serviceInfo/statisPublicationList.do"><span>국가통계 공표일정</span></a></li>
+				<li ><a id="LMenu.M_06_04" href="http://kosis.kr/serviceInfo/noticeList.do"><span>새소식</span></a>
+					<ul> 						<li ><a id="LMenu.M_06_04_01" href="http://kosis.kr/serviceInfo/noticeList.do"><span>공지사항</span></a></li>
+						<li ><a id="LMenu.M_06_04_02" href="http://kosis.kr/serviceInfo/newContrainDataList.do"><span>최근수록자료</span></a></li>
+						<li ><a id="LMenu.M_06_04_03" href="javascript:void(0)" onclick="javascript:fnPressReleases(); return false;" target='_blank' title='새창열림'><span>보도자료</span></a></li>
+					</ul>
+				</li>
+				<li ><a id="LMenu.M_06_07" href="http://kosis.kr/serviceInfo/factCheckList.do"><span>팩트체크 서비스</span></a></li>
+				<li class="on"><a id="LMenu.M_06_05" href="http://kosis.kr/serviceInfo/useGuide.do"><span>서비스정책</span></a>
+					<ul>
+						<li class="on"><a id="LMenu.M_06_05_01" href="http://kosis.kr/serviceInfo/useGuide.do"><span>통계정보 이용지침</span></a></li>
+						<li ><a id="LMenu.M_06_05_02" href="http://kosis.kr/serviceInfo/useClause.do"><span>사이트 이용약관</span></a></li>
+						<li ><a id="LMenu.M_06_05_03" href="http://kosis.kr/serviceInfo/applicationClause.do"><span>통계정보 활용약관</span></a></li>
+						<li ><a id="LMenu.M_06_05_04" href="http://kosis.kr/serviceInfo/privacy_policy.do"><span>개인정보처리방침</span></a></li>
+						<li ><a id="LMenu.M_06_05_05" href="http://kosis.kr/serviceInfo/emailCollectClause.do"><span>이메일무단수집거부</span></a></li>
+					</ul>
+				</li>
+				<li ><a id="LMenu.M_06_06" href="http://kosis.kr/serviceInfo/openAPIGuide.do"><span>공유서비스<small>(OpenAPI)</small></span></a></li>
+			</ul>
+	
+							
+								                        	                        	
+						</div>
+						<!-- 메뉴 타입이 SL일경우 start -->
+						
+						<!-- 메뉴 타입이 SL일경우 end -->
+						<!-- 메뉴 ID가  M_03_01 start -->
+						
+						<!-- 메뉴 ID가  M_03_01 일 경우 end -->
+						<!-- 메뉴 ID가  M_03_02 일 경우 start -->
+						
+						<!-- 메뉴 ID가  M_03_02 일 경우 end -->
+					</div>   
+					<div id="content">
+		
+	
+			<!-- quick :s -->
+			<!-- Center E -->
+			<!-- Footer S -->
+			
+		<!-- 내용 S -->
+		<div id="txt">
+			<div class="content-title"> 
+				<h3 class="h3">통계정보 이용지침</h3>
+				<div class="caption">
+				</div>
+			</div>
+			<div class="cont_txt">
+				<div class="box_sum">
+					<p>이 지침은 국가데이터처에서 운영하는 국가통계포털(KOSIS, 이하 ‘KOSIS'라 함)에서 제공하는 통계정보를 이용하는 방법과 절차 등 제반 사항을 안내하고자 합니다.</p>
+				</div>
+				<h4>저작권 관련 안내</h4>
+				<div class="no_bul">
+					<p>KOSIS에서 제공하는 각종 콘텐츠(웹문서, DB자료, 첨부 파일, 동영상 등)는 저작권법에 의하여 보호받는 저작물로서 별도의 저작권 표시를 명시한 경우를 제외하고는 원칙적으로 국가데이터처에 저작권이 있습니다.<br>
+				그러나 아래의 통계정보 이용방법을 준수한다면 KOSIS 통계정보에 대해서는 누구라도 자유롭게 이용할 수 있습니다.</p>
+				</div>
+				<dl class="box_bg">
+					<dt>공공데이터 이용정책 관련 근거</dt>
+					<dd>
+						<div data-skin="text-list" data-icon="2">
+							<ul>
+								<li>공공데이터법 제1조, 제3조에 근거하여 국가통계포털(KOSIS)에서 제공하는 공공데이터는 누구나 이용 가능하고, 영리 목적의 이용을 포함한 자유로운 활용이 보장됩니다.</li>
+								<li>단, 공공데이터법 제17조에 명시되어 있는 정보공개법 제9조의 비공개대상정보와 저작권법 및 그 밖의 다른 법령에서 보호하고 있는 제3자의 권리가 포함된 것으로 해당 법령에 따른 정당한 이용허락을 받지 아니한 정보는 제공 대상에서 제외됩니다.</li>
+								<li>더 많은 관련 정보는 <strong>국가법령정보센터</strong>(<a href="http://www.law.go.kr/" target="_blank" title="새창열림">http://www.law.go.kr/</a>)를 이용하시기 바랍니다.</li>
+							</ul>
+						</div>
+					</dd>
+					<dd class="cont_btn"><a href="https://www.law.go.kr/법령/공공데이터법" target="_blank" title="새창이동">공공데이터법 바로가기</a><a href="https://www.law.go.kr/법령/정보공개법" target="_blank" title="새창이동">정보공개법 바로가기</a><a href="http://www.law.go.kr/법령/저작권법" target="_blank" title="새창이동">저작권법 바로가기</a></dd>
+				</dl>
+				<h4>KOSIS 통계정보란?(이하 ‘통계정보’라 함)</h4>
+				<p>KOSIS 통계정보는 국가데이터처 및 통계작성기관에서 생산한 국가승인통계 중 국가통계통합DB에 수록된 통계자료(macro data)로서 아래 메뉴로 국한합니다.</p>
+				<h5>KOSIS 콘텐츠 중 해당 메뉴</h5>
+				<div data-skin="text-list" data-icon="2">
+					<ul>
+						<li>국내통계 : 주제별통계, 기관별통계, e지방지표(통계표), 과거·중지통계</li>
+						<li>국제·북한통계 :국제통계, 북한통계</li>
+						<li>쉽게 보는 통계 : 대상별 접근, 이슈별 접근</li>
+						<li>온라인간행물 : 주제별, 명칭별, 기획간행물</li>
+					</ul>
+				</div>
+				<h4>통계정보 이용방법</h4>
+				<h5>비용 무료</h5>
+				<p>KOSIS에서 제공하는 통계정보는 무료로 이용할 수 있습니다.</p>
+				<h5>활용범위</h5>
+				<p>이용자는 KOSIS 통계정보를 자유롭게 사용, 재사용 및 재배포할 수 있으며 통계정보의 비상업적 또는 상업적 활용이 모두 가능합니다.<br>단, 예외사항은 아래 규정을 참고하시기 바랍니다.</p>
+				<dl class="box_bg type02">
+					<dt>예외사항</dt>
+					<dd>
+						<div data-skin="text-list" data-icon="2">
+							<ul>
+									<li>국제통계 및 북한통계는 비상업적 목적으로만 사용하여야 하며 이 경우에도 재배포는 금지됩니다.</li>
+									<li>간행물은 공공누리 유형 안내에 따라 사용하여야 합니다.</li>
+									<li>KOSIS 통계정보를 별도의 가공절차 없이 유료로 판매하는 행위는 금지됩니다.</li>
+							</ul>
+						</div>
+					</dd>
+					<dt>상업적 활용 사례</dt>
+					<dd>
+						<div data-skin="text-list" data-icon="2">
+							<ul>
+								<li>KOSIS에서 다운로드 받은 통계표를 다른 정보와 융합하여 자체적으로 DB를 구축한 후 비용을 받고 서비스하는 경우는 상업적 활용에 해당</li>
+								<li>유료 블로그나 유료 카페에 KOSIS에서 다운로드 받은 통계표를 등재하는 경우는 상업적 활용에 해당. 다만, KOSIS에서 다운로드 받은 그대로 등재하여 개별적으로 유료로 서비스하는 행위는 금지함<br>
+								* 개인이 작성한 논문이 유료로 판매되는 유료사이트에 등재되어 판매되는 경우는 상업적 활용에 해당되지 않음</li>
+							</ul>
+						</div>
+					</dd>
+				</dl>
+				<h5>출처명시</h5>
+				<p>통계정보를 이용할 때는 반드시 출처를 명시해야 합니다. 아래 출처 정보를 참고하여 자료를 제출하는 곳의 인용지침에 맞춰 이용하실 수 있습니다.</p>
+				<dl class="box_bg">
+					<dt>출처 정보</dt>
+					<dd>
+						<div data-skin="text-list" data-icon="2">
+							<div>
+								<div data-skin="text-list" data-icon="1">
+									<ul>
+										<li>작성기관명 : 통계를 생산하는 기관으로 작성부서를 포함할 수 있음</li>
+										<li>조사명 : 통계가 생산된 조사명칭</li>
+										<li>작성시점 : 통계를 조사하여 작성한 최종 시점</li>
+										<li>참조일자 : KOSIS에서 통계자료를 조회 또는 다운로드한 날짜(YYYY.MM.DD)</li>
+										<li>통계표명 : 통계가 수록된 통계표의 제목</li>
+										<li>URL (상세사이트)</li>
+									</ul>
+								</div>
+								<ul>
+									<li>출처 정보 확인방법(통계표)</li>
+								</ul>
+								<div data-skin="text-list" data-icon="1"> 
+										<img src="/ext/newKosis/img/layout/adressSource.png" alt="주소/출처 화면">
+								</div>
+							</div>
+						</div>
+					</dd>
+				</dl>
+				<h5>이용시 준수사항</h5>
+				<div data-skin="text-list" data-icon="2">
+					<ul>
+						<li>통계정보를 임의로 변경하거나 왜곡하지 않아야 합니다.</li>
+						<li>통계정보나 통계정보의 출처를 잘못 기재하지 않아야 합니다.</li>
+						<li>관련 법률을 침해하거나 위반하지 않는 범위 내에서 활용해야 합니다.</li>
+						<li>개인, 사업체, 특정조직을 식별할 목적으로 다른 정보와 연결하거나 링크하지 않아야 합니다.</li>
+					</ul>
+				</div>
+				<h5>책임과 한계</h5>
+				<div data-skin="text-list" data-icon="2">
+					<ul>
+						<li>국가데이터처는 정확하고 시의적절한 통계정보를 제공하기 위해 모든 노력을 기울이고 있습니다.</li>
+						<li>KOSIS에 수록된 통계정보는 이용자에게 통보 없이 추가, 변경, 개선, 업데이트될 수 있습니다.</li>
+						<li>국가데이터처는 KOSIS에 수록된 통계정보에 포함된 오류, 누락 등 정보의 품질 또는 정보의 활용으로 인한 손해·손실에 대한 책임을 부담하지 않습니다.</li>
+						<li>또한, 서비스 장애 등으로 발생한 활용자의 손해에 대한 책임을 지지 않습니다.</li>
+						<li>국가데이터처는 KOSIS 통계정보를 매개로 제3자와 발생한 분쟁에 대하여 개입할 의무가 없음을 알려드립니다.</li>
+						<li>KOSIS 통계정보(통계수치와 의미)를 임의로 변경하여 이용하거나 배포할 경우에는 형사처벌을 받을 수 있습니다.</li>
+						<li>KOSIS 통계정보의 이용에 대한 책임은 전적으로 이용자에게 있음을 알려드립니다.</li>
+					</ul>
+				</div>
+	        </div>
+	    </div>    
+		<!-- 내용 E -->
+	
+
+
+
+
+
+
+<!-- SSO 적용 END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+			<!-- quick :s -->
+			<!-- Center E -->
+			<!-- Footer S -->
+			
+				
+					
+						
+					
+
+
+
+
+
+
+
+					</div>
+				</div>
+				<div id="quick" class="quick_sub">
+					<ul>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" onclick="popupWin('/common/tech/gatePage.do?pageid=meta', 'linkWin'); return false;"><span>통계설명자료</span></a></li>
+						<li><a href="#Quick3" data-btn="look" id="Quick3_1" ><span>내가본통계표</span></a></li>
+					</ul>
+					<!-- 내가 본 통계표 :s -->
+					<div id="look">
+						<div class="head">
+							<!--2021 국가통계포털 개선사업 내가찾은 검색어 공통사용을 위한 ID 추가 2022.02.24-->
+							<strong id="boxTitle">내가 본 통계표</strong>
+							<span id="subscribe">최근 본 통계표 10개가 저장됩니다.</span>
+							<!--<strong>내가 본 통계표</strong>
+							<span>최근 본 통계표 25개가 저장됩니다.</span>-->
+						</div>
+						<div class="midd">
+							<ul>
+							</ul>
+						</div>
+						<a href="#" class="close"><span>닫기</span></a>
+					</div>
+					<!-- 내가 본 통계표 :e -->
+					<!-- D: 메뉴 선택시 아래 div Hidden 삭제 -->
+					<!-- 						<div class="MyStatsTable hidden"> -->
+					<!-- 							<h3>내가 본 통계표</h3> -->
+					<!-- 							<p class="info">최근 본 통계표 25개가 저장됩니다.</p>  -->
+					<!-- 							<div style="height:100%; max-height:100%;"> -->
+					<!-- 								<ul class="List" id="MyStatsTableListUl"> -->
+					<!-- 									<li>내가 본 통계표 리스트가 없습니다.</li> -->
+					<!-- 								</ul> -->
+					<!-- 							</div> -->
+					<!-- 							<button id="btnMyStatisTableListAllDelete" class="btn_delete_all" type="button">전체삭제</button> -->
+					<!-- 							<button id="btnMyStatsTableClose" class="btn_close" type="button">닫기</button> -->
+					<!-- 						</div> -->
+					<!-- 차즈리 취소 버튼 -->
+					<a href="javascript:void(0)" class="top" id='botInQuick' ><span><img id="botInQuickImg" src="/ext/newKosis/img/layout/quickBot.png" alt="코봇 아이콘"> <span>코봇</span> </span></a>
+					<!-- 내가본통계표 E -->
+					<a href="#header" class="top"><span>위로</span></a>
+				</div>
+				<!-- quick :e -->
+
+				<!-- 차즈리 :s -->
+				<div id="chazri">
+				</div>
+
+				<div id="chazriIcon" class=' hidden'>
+					<img id="botInQuickMimg" src="/ext/newKosis/img/layout/quickBot.png" alt="코봇 아이콘">
+				</div>
+				<!-- 차즈리 :e -->
+
+				<!-- Content :e -->
+				
+			
+			</div>
+			
+	</div>
+	
+	<div id="footer">
+		<div class="layout">
+			<div class="line_1">
+				<div class="menu">
+					<ul>
+						<li><a href="/serviceInfo/useGuide.do"><span>이용지침</span></a></li>
+						<li class="privacy_policy"><a href="/serviceInfo/privacy_policy.do"><strong>개인정보처리방침</strong></a></li>
+						<li><a href="/serviceInfo/emailCollectClause.do"><span>이메일무단수집거부</span></a></li>
+						<li><a href="#" target="_blank" title="새창열림" onclick="fnRssPopupOpen(); return false;"><span>RSS</span></a></li>
+						<li><a href="/serviceInfo/openAPIGuide.do"><span>OpenAPI</span></a></li>
+						<li><a href="#" target="_blank" title="새창열림" onclick="fnOfferPopupOpen(); return false;"><span>통계제공기관</span></a></li>
+					</ul>
+				</div>
+				
+				<div data-js="select">
+					<a href="/common/tech/gatePage.do"><strong>관련사이트 바로가기</strong></a>
+					<input type="hidden" id="hidGoSitePageid" name="hidGoSitePageid">
+					<ul id="goSiteUl" data-scroll="yes">
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="meta"><span>통계설명자료</span></a></li> 
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="openapi"><span>KOSIS 공유서비스</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="mods"><span>국가데이터처홈페이지</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="edu"><span>KOSIS 통계놀이터</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="shi"><span>국가데이터인재개발원 홈페이지</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="sri"><span>국가데이터연구원 홈페이지</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="gis"><span>SGIS 통계지리정보서비스</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="mdis"><span>MDIS 마이크로데이터</span></a></li>					
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="index"><span>지표누리</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="sdc"><span>SDC 통계데이터센터</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="big"><span>빅데이터통계서비스</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="bukhan"><span>북한통계 홈페이지</span></a></li>					
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="kssc"><span>통계분류포털</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="tong"><span>통그라미</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="offer"><span>통계제공기관</span></a></li>
+						<li><a href="/common/tech/gatePage.do" title="새창열림" class="nsist"><span>통계DB관리시스템</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="line_2">
+				<strong>국가데이터처</strong>
+				<address>(35208) 대전광역시 서구 청사로 189 (둔산동, 정부대전청사 3동)
+			    	<span>콜센터 <a href="tel:0220129114" class="tel-link">02-2012-9114</a>(국번없이 <a href="tel:110" class="tel-link">110</a>)</span>
+				</address>
+				<p class="copy">Copyright Ministry of Data and Statistics. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+<!-- Footer E -->
+</div>
+	<iframe id="pageLodding" name="pageLodding" class="hidden" title="페이지 이용현황을 위한 IFRAME"></iframe>
+	<iframe id="fileDownLoad" name="fileDownLoad" class="hidden" title="파일다운로드를 위한 IfRAME"></iframe>
+	<script type="text/javascript">
+		//iframe에서 전송하는 메시지를 받을 리스너를 생성 (iframe과 동일한 노드에 현재 스크립트가 있어야함)
+		//리스너 이벤트 전송자와, 명령어가 동일할경우 수행 
+		function receiveMessage(event){
+			if(event.data === "closed" && event.origin === "https://kosis.kr"){
+				alert("30분동안 미사용으로 로그아웃되었습니다.");
+				fnLogout(); //기존 로그아웃 수행 함수를 추가 
+			}
+		}
+		window.addEventListener("message", receiveMessage);  //현재창에 메세지 이벤트 리스너를 추가 
+		
+		function fnChatbotPopupClose () {
+			$("#chatArea").css("display",'none');
+		}
+	    
+		var chatRandom = Math.random();
+		var chatNum = Math.floor(chatRandom*4+1);  
+		
+		$("#botInQuickImg").attr("src", "/ext/newKosis/img/layout/quickBot"+chatNum+".gif");
+		$("#botInQuickImg").attr("class", "quickBot"+chatNum);
+		//span 태그에 대체 텍스트 있어서 중복 이라 제거 
+		$("#botInQuickImg").attr("alt","");
+		$("#botInQuickMimg").attr("src", "/ext/newKosis/img/layout/quickBot"+chatNum+".gif");
+		$("#botInQuickMimg").attr("class", "MquickBot"+chatNum);
+		if($(location).attr('href').indexOf("publication") >= 0){
+			$("#chazriIcon").css("bottom", "1900px");  
+		}
+		
+		var usrYn = '';
+		window.onload = function() {
+			if(usrYn == ""){
+				document.getElementById('ssoIframe').src = "https://kosis.kr/include/ssoTokenGet2.jsp";
+			}
+		}
+
+
+// 	    $("#chatArea").draggable();
+	</script>
+	
+    <iframe id="ssoIframe" name="ssoIframe" title="세션체크를 위한 프레임" src="about:blank" width="0" height="0" tabindex="-1" class="hidden"></iframe>
+ 	<iframe id="sessionCheck" name="sessionCheck" class="hidden" title="세션체크를 위한 프레임" src="https://kosis.kr/oneid/auth/oneidAllLogout.jsp"></iframe>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "command": [
+    ".m7-bootstrap/bin/python",
+    "outputs/reproduction/operator_replay.py",
+    "--operator",
+    "m7_independent_verifier (/root/m7_independent_verifier; same-host separate AI agent)"
+  ],
+  "cwd": "/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/m7-independent-verifier-pt6dy5g6/checkout",
+  "env_overrides": {
+    "UV_HTTP_TIMEOUT": "12",
+    "UV_HTTP_RETRIES": "1",
+    "UV_NATIVE_TLS": "true",
+    "TMPDIR": "/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/m7-independent-verifier-pt6dy5g6/replay-temp"
+  },
+  "pid": 43994,
+  "started_at": "2026-11-06T01:44:31.667453+00:00",
+  "completed_at": "2026-11-06T01:45:41.566629+00:00",
+  "exit_code": 0,
+  "generated_workdirs": [
+    "/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/m7-independent-verifier-pt6dy5g6/replay-temp/political-m7-5s03t6_1"
+  ],
+  "evidence_note": "Read-only observer copied generated artifacts during execution before replay TemporaryDirectory cleanup. Snapshot hashes require matching operator result before use."
+}

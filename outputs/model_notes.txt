@@ -1,0 +1,12 @@
+2025 presidential election / cross-sectional regional association
+M1/M2: 기초표본, M3: 통제변수 관측 가능 지역
+M4: 지역유형·시도 고정효과, 특수지역 제외
+M4_WLS: 선거인수 가중치·HC3, 특수지역 제외
+M1_common~M3_common: M4와 동일한 완전 사례 표본
+모든 회귀분석: HC3 표준오차, 정규근사 양측 95% CI (use_t=False)
+모형별 포함/제외 명단·사유는 model_samples.csv, 설계·기준범주는 model_summary.csv
+모형별 관측치(n)는 model_summary.csv에서 확인
+이 통계는 인과효과 또는 개인별 투표행동을 입증하지 않음.
+시도 고정효과가 모든 미측정 지역특성을 통제하지 않음.
+공식 대조 범위는 data_quality.json 참조; 지역별 범위 조정은 독립 재검증과 구별함.
+VIF·영향점·공간의존성 및 가중치 감도분석은 별도 검토 필요.

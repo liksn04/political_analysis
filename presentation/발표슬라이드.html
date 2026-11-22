@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고령화와 투표율 발표</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'">
+<style>
+:root{
+  --bg:#F4F1EA; --bg2:#EAE5D9; --card:#FFFDF8; --ink:#1B2130; --ink2:#434B5C; --muted:#666D7C;
+  --line:#D9D3C5; --grid:#E3DDD0; --young:#D4CEC1; --dot:#8B94A4;
+  --age:#2D63A6; --age-bg:#E2EAF4; --old:#D56A1F; --old-ink:#A9500F; --old-bg:#F8E5D5;
+  --pa:#7A52BE; --pb:#15785A; --warn-bg:#FAE8D9; --on-accent:#FFFFFF;
+  --shadow:0 1px 0 rgba(27,33,48,.04),0 10px 28px rgba(27,33,48,.06);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12161E; --bg2:#1A202B; --card:#1D2330; --ink:#ECEEF2; --ink2:#C3C9D4; --muted:#949BAA;
+    --line:#323A4A; --grid:#252C39; --young:#394152; --dot:#7E889A;
+    --age:#6EA1E4; --age-bg:#1C2A40; --old:#F0904A; --old-ink:#F3A468; --old-bg:#3A2619;
+    --pa:#A98BE8; --pb:#45BF92; --warn-bg:#352419; --on-accent:#0E1219;
+    --shadow:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12161E; --bg2:#1A202B; --card:#1D2330; --ink:#ECEEF2; --ink2:#C3C9D4; --muted:#949BAA;
+  --line:#323A4A; --grid:#252C39; --young:#394152; --dot:#7E889A;
+  --age:#6EA1E4; --age-bg:#1C2A40; --old:#F0904A; --old-ink:#F3A468; --old-bg:#3A2619;
+  --pa:#A98BE8; --pb:#45BF92; --warn-bg:#352419; --on-accent:#0E1219;
+  --shadow:none; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);overflow:hidden}
+body{font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+p,h1,h2,h3,dl,dd,dt,ol,ul,li{margin:0;padding:0}
+ol,ul{list-style:none}
+b{font-weight:800}
+
+/* ---------- stage ---------- */
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;background:var(--bg);user-select:none;-webkit-user-select:none}
+.slide{position:absolute;inset:0;background:var(--bg);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.active{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--bg2)}
+.instant,.instant *{transition:none!important}
+
+.hd{position:absolute;left:128px;right:128px;top:84px}
+.kick{display:flex;justify-content:space-between;align-items:center;height:44px;font-size:28px;font-weight:800;color:var(--age);letter-spacing:.01em}
+.hd h2{font-size:60px;font-weight:800;letter-spacing:-.025em;line-height:1.15;margin-top:12px}
+.content{position:absolute;left:128px;right:128px;top:262px;bottom:128px}
+.foot{position:absolute;left:128px;right:128px;bottom:50px;display:flex;justify-content:space-between;gap:40px;font-size:24px;color:var(--muted)}
+.pg{font-variant-numeric:tabular-nums;font-weight:700}
+.c-age{color:var(--age)} .c-old{color:var(--old-ink)}
+.num{font-variant-numeric:tabular-nums}
+
+/* builds */
+.st{opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease}
+.st.on{opacity:1;transform:none}
+
+/* stepper (section 5) */
+.stepper{display:flex;gap:10px;font-size:24px;font-weight:700}
+.stepper li{padding:6px 18px;border-radius:999px;color:var(--muted);border:2px solid var(--line)}
+.stepper li.cur{color:var(--on-accent);background:var(--age);border-color:var(--age)}
+
+/* swatches */
+.sw{display:inline-block;width:22px;height:22px;border-radius:50%;vertical-align:-3px;margin-right:10px}
+.sw.young{background:var(--young)} .sw.age{background:var(--age)} .sw.old{background:var(--old)}
+.sw.pa{background:var(--pa)} .sw.pb{background:var(--pb)}
+
+/* waffle */
+.waffle .wd{fill:var(--young);transition:fill .45s ease;transition-delay:calc(var(--i) * 14ms)}
+.waffle .w65{fill:var(--age)}
+.waffle.show80 .w80,.slide.at-1 .waffle.reveal80 .w80{fill:var(--old)}
+.waffle.show80 .wd{transform-box:fill-box;transform-origin:center}
+.slide.active .waffle.show80 .wd{animation:popin .45s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 7ms)}
+@keyframes popin{from{opacity:0;transform:scale(.3)}}
+
+/* ---------- 0 title ---------- */
+.s-title{display:grid;grid-template-columns:1fr 440px;align-items:center;gap:96px;padding:0 128px}
+.s-title .eyebrow{font-size:30px;font-weight:800;color:var(--age)}
+.s-title h1{font-size:96px;font-weight:800;line-height:1.16;letter-spacing:-.035em;margin:28px 0 32px}
+.s-title .sub{font-size:34px;color:var(--ink2);font-weight:500}
+.s-title .by{font-size:34px;font-weight:800;margin-top:64px}
+.s-title .waffle{width:440px;height:440px}
+.s-title .wlegend{font-size:24px;color:var(--muted);margin-top:20px;text-align:center}
+.keys{position:absolute;left:128px;bottom:50px;font-size:24px;color:var(--muted)}
+.keys kbd{font-family:inherit;font-weight:800;color:var(--ink2);border:2px solid var(--line);border-radius:8px;padding:0 8px;margin:0 4px 0 0}
+
+/* ---------- 1 age chart ---------- */
+#age{width:1664px;height:560px;display:block;overflow:visible}
+#age .bar{fill:var(--young)} #age .b70{fill:var(--age)} #age .b80{fill:var(--old)}
+#age .grow,#age .b80{transform-box:fill-box;transform-origin:50% 100%}
+.slide.active #age .grow{animation:grow .75s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms)}
+@keyframes grow{from{transform:scaleY(0)}}
+#age .b80{transform:scaleY(0);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.slide.at-1 #age .b80{transform:scaleY(1)}
+#age .val{font-size:28px;font-weight:700;fill:var(--muted);text-anchor:middle}
+#age .val.big{font-size:52px;font-weight:800}
+#age .v70{fill:var(--age)} #age .v80{fill:var(--old-ink);opacity:0;transition:opacity .4s ease .55s}
+.slide.at-1 #age .v80{opacity:1}
+#age .cat{font-size:30px;font-weight:700;fill:var(--ink2);text-anchor:middle}
+#age .cat.c70{fill:var(--age);font-weight:800} #age .cat.c80{fill:var(--old-ink);font-weight:800}
+#age .base{stroke:var(--ink2);stroke-width:2}
+#age .ph80{transition:opacity .3s ease}
+#age .ph80 rect{fill:none;stroke:var(--muted);stroke-width:3;stroke-dasharray:12 10}
+#age .ph80 text{font-size:110px;font-weight:800;fill:var(--muted);text-anchor:middle}
+.slide.at-1 #age .ph80{opacity:0}
+#age .gap{opacity:0;transition:opacity .4s ease .75s}
+.slide.at-1 #age .gap{opacity:1}
+#age .gap .ref{stroke:var(--muted);stroke-width:2;stroke-dasharray:8 8}
+#age .gap .arr{stroke:var(--old);stroke-width:5}
+#age .gap .arrh{fill:var(--old)}
+#age .gap text{font-size:46px;font-weight:800;fill:var(--old-ink)}
+.s1 .question{margin-top:26px;font-size:54px;font-weight:800;letter-spacing:-.02em}
+
+/* ---------- 2 two regions ---------- */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.rcard{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px 40px;box-shadow:var(--shadow)}
+.rname b{font-size:52px}
+.rname span{font-size:28px;color:var(--muted);font-weight:700;margin-left:16px}
+.rbody{display:flex;gap:48px;align-items:center;margin-top:20px}
+.rbody .waffle{width:320px;height:320px;flex:none}
+.rstats{display:flex;flex-direction:column;gap:14px}
+.rstats dt{font-size:26px;color:var(--muted);font-weight:700}
+.rstats dd{font-size:56px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.turn .v{display:none}
+.slide.at-2 .turn .q{display:none}
+.slide.at-2 .turn .v{display:inline;animation:pop .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.92)}}
+.turn .q{color:var(--muted)}
+.klegend{display:flex;gap:28px;align-items:center;font-size:24px;font-weight:700;color:var(--ink2)}
+.klegend .muted{color:var(--muted);font-weight:500}
+.why{margin-top:24px}
+.why .wq{font-size:32px;font-weight:800;margin-bottom:12px}
+.wrow{display:grid;grid-template-columns:470px 600px 1fr;gap:20px;align-items:stretch}
+.wopt{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 24px;font-size:30px;font-weight:800;line-height:1.4}
+.wopt .wn{margin-right:10px;color:var(--age)}
+.wopt small{display:block;font-size:24px;font-weight:600;color:var(--muted);margin-top:6px}
+.wend{background:var(--warn-bg);border-radius:18px;padding:18px 24px;font-size:28px;font-weight:700;color:var(--old-ink);line-height:1.4}
+.wend b{display:block;font-size:30px;color:var(--ink)}
+
+/* ---------- 3 RQ ---------- */
+.qrow{display:grid;grid-template-columns:740px 76px 1fr;align-items:stretch}
+.qrow+.qrow{margin-top:28px}
+.qcard,.hcard{border-radius:24px;padding:28px 36px}
+.qcard{background:var(--card);border:1px solid var(--line)}
+.hcard{display:flex;flex-direction:column;gap:6px}
+.hcard.h1{background:var(--age-bg)} .hcard.h2{background:var(--old-bg)}
+.tag{display:inline-block;align-self:flex-start;font-size:24px;font-weight:800;padding:4px 16px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.qcard p{font-size:40px;font-weight:800;line-height:1.35;margin-top:14px;letter-spacing:-.015em}
+.hcard .pre{font-size:28px;color:var(--ink2);font-weight:700;margin-top:8px}
+.hcard .hf{font-size:46px;font-weight:800;letter-spacing:-.015em}
+.hcard .why{font-size:27px;color:var(--ink2);margin-top:4px}
+.arrow{display:grid;place-items:center;font-size:56px;font-weight:800;color:var(--muted)}
+
+/* ---------- 4a data ---------- */
+.s4a{display:grid;grid-template-columns:600px 1fr;gap:64px;align-items:center;height:100%}
+.big228 .n{font-size:280px;font-weight:800;line-height:.9;color:var(--age);letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.big228 .u{font-size:56px;font-weight:800;margin-top:12px}
+.big228 .sub{font-size:32px;color:var(--ink2);font-weight:700;margin-top:30px}
+.big228 .mini{font-size:26px;color:var(--muted);margin-top:12px}
+.srcgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.src{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+.src .ag{font-size:26px;color:var(--muted);font-weight:700}
+.src b{font-size:52px;letter-spacing:-.02em}
+.src .dt{font-size:26px;color:var(--ink2)}
+
+/* ---------- 4b merge ---------- */
+.s4b{display:grid;grid-template-columns:1fr 640px;gap:56px;height:100%;align-items:start}
+.panelbox{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:36px 40px;box-shadow:var(--shadow)}
+.ptitle{font-size:32px;font-weight:800;margin-bottom:24px}
+.sw-all{display:flex;justify-content:space-between;align-items:baseline;background:var(--age-bg);border-radius:18px;padding:22px 28px}
+.sw-all b,.sw-all span{font-size:40px}
+.sw-all span{font-weight:800;font-variant-numeric:tabular-nums}
+.sw-eq{text-align:center;font-size:28px;color:var(--muted);font-weight:800;margin:14px 0}
+.sw-gu{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sw-gu div{background:var(--age-bg);border-radius:16px;padding:18px 12px;text-align:center}
+.sw-gu b,.sw-gu span{display:block;font-size:30px}
+.sw-gu span{font-weight:700;margin-top:4px;font-variant-numeric:tabular-nums}
+.dup{margin-top:26px;background:var(--warn-bg);color:var(--old-ink);border-radius:18px;padding:20px 28px;font-size:32px;font-weight:700}
+.dup b{font-size:40px;font-variant-numeric:tabular-nums}
+.flow{display:flex;flex-direction:column;gap:18px}
+.flow li{display:flex;align-items:center;gap:22px;font-size:34px;font-weight:800}
+.flow li i{flex:none;width:56px;height:56px;border-radius:50%;background:var(--age);color:var(--on-accent);display:grid;place-items:center;font-style:normal;font-size:30px}
+.out{margin-top:26px;background:var(--age-bg);border-radius:18px;padding:20px 26px;font-size:32px;font-weight:800;color:var(--age)}
+.ai{margin-top:18px;font-size:26px;color:var(--muted);font-weight:500}
+
+/* ---------- scatter ---------- */
+.scatter{display:block;width:100%;height:auto;overflow:visible}
+.scatter .grid line{stroke:var(--grid);stroke-width:2}
+.scatter .tick{font-size:24px;fill:var(--muted)}
+.scatter .axl{font-size:26px;font-weight:700;fill:var(--ink2)}
+.scatter .dot{fill:var(--dot);opacity:.6;transition:opacity .5s ease,fill .5s ease;cursor:default}
+.scatter .dot:hover{opacity:1;stroke:var(--ink);stroke-width:2.5}
+.slide.active .scatter .dot{animation:fadein .6s ease both;animation-delay:calc(var(--d) * 1ms)}
+@keyframes fadein{from{opacity:0}}
+.scatter .ring{fill:none;stroke:var(--ink);stroke-width:4;pointer-events:none}
+.scatter .hl{fill:var(--ink);pointer-events:none}
+.scatter .lab{font-size:30px;font-weight:800;fill:var(--ink);paint-order:stroke;stroke:var(--bg);stroke-width:9px;stroke-linejoin:round;pointer-events:none}
+.scatter .mline{opacity:0;transition:opacity .5s ease .35s;pointer-events:none}
+.slide.at-1 .scatter .mline{opacity:1}
+.scatter .mline line{stroke-width:4;stroke-dasharray:14 8}
+.scatter .mline .la{stroke:var(--pa)} .scatter .mline .lb{stroke:var(--pb)}
+.scatter .mline text{font-size:26px;font-weight:800;paint-order:stroke;stroke:var(--bg);stroke-width:8px;stroke-linejoin:round}
+.scatter .mline .ta{fill:var(--pa)} .scatter .mline .tb{fill:var(--pb)}
+.slide.at-1 .sc-fe .dot{opacity:.13}
+.slide.at-1 .sc-fe .dot.pa{fill:var(--pa);opacity:.95}
+.slide.at-1 .sc-fe .dot.pb{fill:var(--pb);opacity:.95}
+.scatter .ring,.scatter .hl{transition:stroke .5s ease,fill .5s ease}
+.slide.at-1 .sc-fe .ring.pa{stroke:var(--pa)} .slide.at-1 .sc-fe .hl.pa{fill:var(--pa)}
+.slide.at-1 .sc-fe .ring.pb{stroke:var(--pb)} .slide.at-1 .sc-fe .hl.pb{fill:var(--pb)}
+
+/* ---------- 5a ---------- */
+.s5a{display:grid;grid-template-columns:1060px 1fr;gap:48px;height:100%}
+.side{display:flex;flex-direction:column;gap:28px;padding-top:8px}
+.stepbox{display:flex;gap:22px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 30px}
+.stepbox .n{flex:none;width:56px;height:56px;border-radius:50%;background:var(--age);color:var(--on-accent);display:grid;place-items:center;font-size:30px;font-weight:800}
+.stepbox b{display:block;font-size:36px;letter-spacing:-.015em;line-height:1.25}
+.stepbox p{font-size:28px;color:var(--ink2);margin-top:10px;line-height:1.4}
+.formula{display:inline-block;background:var(--age-bg);border-radius:14px;padding:8px 18px;font-weight:800;color:var(--ink)!important}
+.hint{font-size:24px;color:var(--muted);margin-top:auto}
+
+/* ---------- 5b ---------- */
+.s5b{display:grid;grid-template-columns:1fr 1000px;gap:48px;height:100%}
+.eq .lhs{font-size:44px;font-weight:800}
+.terms{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.terms li{font-size:36px;font-weight:800;line-height:1.3;padding-left:54px;position:relative}
+.terms li .plus{position:absolute;left:12px;color:var(--muted)}
+.terms li.fe span.t{background:linear-gradient(90deg,var(--pa),var(--pb));-webkit-background-clip:text;background-clip:text;color:transparent}
+.badge{display:inline-block;margin-top:18px;font-size:26px;font-weight:800;padding:6px 18px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.within{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+.within p{font-size:30px;font-weight:800}
+.within .note{font-size:26px;font-weight:600;color:var(--ink2);background:var(--bg2);border-radius:16px;padding:14px 20px;margin-top:8px;line-height:1.4}
+
+/* ---------- 5c ---------- */
+.s5c{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px}
+.cpanel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:20px 24px 18px;box-shadow:var(--shadow)}
+.cpanel svg{display:block;width:100%;height:auto}
+.cpanel .cap{font-size:30px;font-weight:800;margin-top:6px;letter-spacing:-.01em}
+.mtag{font-size:24px;font-weight:800;color:var(--muted);border:2px solid var(--line);border-radius:999px;padding:2px 14px;display:inline-block}
+.checks{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.chk{background:var(--bg2);border-radius:20px;padding:20px 28px;display:flex;gap:20px;align-items:flex-start}
+.chk b{flex:none;font-size:24px;background:var(--ink);color:var(--bg);border-radius:999px;padding:4px 14px;margin-top:2px}
+.chk span{font-size:30px;font-weight:700;line-height:1.35}
+#funnel .ax{stroke:var(--ink2);stroke-width:2}
+#funnel .fit{stroke:var(--age);stroke-width:5}
+#funnel .res{stroke:var(--old);stroke-width:4}
+#funnel .pt{fill:var(--ink)}
+#funnel text,#ci text{font-size:24px;fill:var(--muted);font-weight:700}
+#funnel .lg{fill:var(--ink2)}
+#ci .ci0{stroke:var(--muted);stroke-width:6;stroke-linecap:round}
+#ci .ci1{stroke:var(--age);stroke-width:9;stroke-linecap:round}
+#ci .est{fill:var(--ink)}
+#ci .keep{stroke:var(--ink);stroke-width:2;stroke-dasharray:6 6}
+#ci .rl{font-size:26px;fill:var(--muted)}
+#ci .rl.hc{fill:var(--age);font-weight:800}
+#ci .kl{fill:var(--ink2);font-size:24px}
+#ci .ci1g{transform-box:fill-box;transform-origin:center;transition:transform .7s cubic-bezier(.2,.7,.2,1) .2s}
+.cpanel:not(.on) #ci .ci1g{transform:scaleX(.62)}
+
+/* ---------- 6a ---------- */
+.s6a{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;height:100%;align-items:start}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow)}
+.pcard .nb{width:64px;height:64px;border-radius:50%;background:var(--age);color:var(--on-accent);font-size:34px;font-weight:800;display:grid;place-items:center}
+.pcard h3{font-size:48px;font-weight:800;letter-spacing:-.02em}
+.pcard p{font-size:32px;line-height:1.45;color:var(--ink2)}
+.pcard .ex{background:var(--old-bg);border-radius:18px;padding:20px 24px;font-size:27px;line-height:1.5;color:var(--ink)}
+.mini{display:block;width:100%;height:auto;background:var(--bg);border-radius:16px}
+.mini .zero{stroke:var(--ink2);stroke-width:2;stroke-dasharray:6 6}
+.mini .ia{stroke:var(--ink2);stroke-width:8;stroke-linecap:round}
+.mini .ib{stroke:var(--old);stroke-width:10;stroke-linecap:round}
+.mini circle{fill:var(--ink)}
+.mini text{font-size:24px;font-weight:800;fill:var(--ink2)}
+.mini .tb{fill:var(--old-ink)}
+
+/* ---------- 6b ---------- */
+.s6b{display:flex;flex-direction:column;justify-content:center;height:100%;gap:0}
+.lim{display:grid;grid-template-columns:540px 1fr;gap:56px;align-items:center;padding:48px 0}
+.lim+.lim{border-top:2px solid var(--line)}
+.lim .big{font-size:100px;font-weight:800;letter-spacing:-.035em;white-space:nowrap}
+.lim .big span{color:var(--old)}
+.lim .ex{font-size:38px;line-height:1.5;color:var(--ink2)}
+.lim .ex b{color:var(--ink)}
+
+/* ---------- 7 ---------- */
+.s7{display:grid;grid-template-columns:1fr 420px;gap:96px;align-items:center;height:100%}
+.msg .kq{font-size:30px;color:var(--muted);font-weight:800}
+.msg .m{font-size:64px;font-weight:800;line-height:1.25;letter-spacing:-.025em;margin-top:18px}
+.msg .plus{font-size:56px;font-weight:800;color:var(--muted);margin-top:10px;line-height:1}
+.msg .thanks{font-size:72px;font-weight:800;margin-top:64px;color:var(--age)}
+.s7 .waffle{width:420px;height:420px}
+
+/* ---------- chrome ---------- */
+#bar{position:fixed;left:0;bottom:0;height:5px;background:var(--age);width:0;transition:width .35s ease;z-index:5;opacity:.85}
+#ctl{position:fixed;right:16px;bottom:16px;display:flex;gap:8px;z-index:6;opacity:0;transition:opacity .3s ease}
+body.mouse #ctl{opacity:1}
+#ctl button{font:inherit;font-size:15px;font-weight:700;color:var(--ink2);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer}
+#ctl button:hover{color:var(--ink);border-color:var(--ink2)}
+#tip{position:fixed;z-index:9;pointer-events:none;background:var(--ink);color:var(--bg);border-radius:10px;padding:10px 14px;font-size:15px;line-height:1.45;opacity:0;transition:opacity .12s ease;max-width:300px}
+#tip b{font-size:17px}
+#notes{position:fixed;left:16px;right:16px;bottom:16px;z-index:8;background:rgba(17,21,29,.94);color:#F1F3F6;border-radius:14px;padding:16px 22px;max-height:38vh;overflow:auto;font-size:19px;line-height:1.6}
+#notes[hidden]{display:none}
+#notes .nh{display:flex;justify-content:space-between;font-size:14px;color:#A9B1BF;font-weight:700;margin-bottom:6px;font-variant-numeric:tabular-nums}
+#notes .nn{font-size:15px;color:#A9B1BF;margin-top:8px}
+#toast{position:fixed;left:50%;top:20px;transform:translateX(-50%);z-index:10;background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:10px;font-size:15px;font-weight:700;opacity:0;transition:opacity .25s ease;pointer-events:none}
+#black{position:fixed;inset:0;background:#000;z-index:20;display:none}
+#black.on{display:block}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important}
+}
+</style>
+</head>
+<body>
+<div id="stage" aria-live="polite">
+
+<!-- 0 · title -->
+<section class="slide s-title" data-steps="0" data-end="0:00" aria-label="표지">
+  <div>
+    <p class="eyebrow">정치분석 · 연구계획 발표</p>
+    <h1>지역의 고령화 수준과<br>선거 투표율의 관계</h1>
+    <p class="sub">제21대 대통령선거(2025. 6. 3.) · 전국 228개 지역</p>
+    <p class="by">2023010460 김준모</p>
+  </div>
+  <div>
+    <svg class="waffle show80" data-n65="43" data-n80="15" viewBox="0 0 352 352" aria-label="성인 100명 중 65세 이상 43명, 그중 80세 이상 15명"></svg>
+    <p class="wlegend"><span class="sw age"></span>65세 이상 <span class="sw old" style="margin-left:18px"></span>그중 80세 이상</p>
+  </div>
+  <p class="keys"><kbd>→</kbd>다음 · <kbd>←</kbd>이전 · <kbd>F</kbd>전체화면 · <kbd>N</kbd>원고 · <kbd>P</kbd>발표자 창</p>
+</section>
+
+<!-- 1 · intro -->
+<section class="slide s1" data-steps="2" data-end="0:30" aria-label="도입">
+  <header class="hd"><div class="kick"><span>1 · 도입</span></div><h2>연령대별 투표율 · 제21대 대통령선거</h2></header>
+  <div class="content">
+    <svg id="age" viewBox="0 0 1664 560" aria-label="연령대별 투표율 막대그래프"></svg>
+    <p class="question st" data-step="2">그렇다면 노인이 많이 사는 지역은 투표율이 <span class="c-age">높을까</span>, <span class="c-old">낮을까</span>?</p>
+  </div>
+  <footer class="foot"><span>자료: 중앙선거관리위원회, 제21대 대통령선거 투표율 분석(표본)</span><span class="pg"></span></footer>
+</section>
+
+<!-- 2 · two regions -->
+<section class="slide s2" data-steps="4" data-end="1:10" aria-label="실제 지역 비교">
+  <header class="hd"><div class="kick"><span>2 · 실제 지역 비교</span><span class="klegend"><span><i class="sw young"></i>18~64세</span><span><i class="sw age"></i>65세 이상</span><span class="st" data-step="1"><i class="sw old"></i>그중 80세 이상</span><span class="muted">점 하나 = 성인 1명</span></span></div><h2>고령화 수준이 거의 같은 두 지역</h2></header>
+  <div class="content">
+    <div class="pair">
+      <article class="rcard">
+        <p class="rname"><b>단양군</b><span>충청북도</span></p>
+        <div class="rbody">
+          <svg class="waffle reveal80" data-n65="43" data-n80="11" viewBox="0 0 352 352" aria-label="단양군 성인 100명 중 65세 이상 43명, 그중 80세 이상 11명"></svg>
+          <dl class="rstats">
+            <div><dt>65세 이상</dt><dd class="c-age">43%</dd></div>
+            <div class="st" data-step="1"><dt>그중 80세 이상</dt><dd class="c-old">26%</dd></div>
+            <div class="st" data-step="1"><dt>투표율</dt><dd class="turn"><span class="q">?</span><span class="v">79.6%</span></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="rcard">
+        <p class="rname"><b>순창군</b><span>전북특별자치도</span></p>
+        <div class="rbody">
+          <svg class="waffle reveal80" data-n65="43" data-n80="15" viewBox="0 0 352 352" aria-label="순창군 성인 100명 중 65세 이상 43명, 그중 80세 이상 15명"></svg>
+          <dl class="rstats">
+            <div><dt>65세 이상</dt><dd class="c-age">43%</dd></div>
+            <div class="st" data-step="1"><dt>그중 80세 이상</dt><dd class="c-old">34%</dd></div>
+            <div class="st" data-step="1"><dt>투표율</dt><dd class="turn"><span class="q">?</span><span class="v">86.5%</span></dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <div class="why st" data-step="3">
+      <p class="wq">이 차이는 무엇 때문일까?</p>
+      <div class="wrow">
+        <div class="wopt"><span class="wn">①</span>고령층의 연령구성 때문?</div>
+        <div class="wopt"><span class="wn">②</span>두 지역이 가진 다른 특성 때문?<small>예: 속한 도, 재정 여건, 인구이동</small></div>
+        <div class="wend st" data-step="4">두 지역의 숫자만으로는 알 수 없음<b>→ 전국 지역에서 다른 조건과 함께 고려</b></div>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span>자료: 행정안전부 주민등록 연령별 인구(2025년 5월), 중앙선거관리위원회 개표결과</span><span class="pg"></span></footer>
+</section>
+
+<!-- 3 · RQ & hypotheses -->
+<section class="slide s3" data-steps="2" data-end="1:45" aria-label="연구질문과 가설">
+  <header class="hd"><div class="kick"><span>3 · 연구질문과 가설</span></div><h2>두 가지 질문, 두 가지 예상</h2></header>
+  <div class="content">
+    <div class="qrow">
+      <div class="qcard"><span class="tag">질문 1</span><p>고령인구가 많은 지역일수록 투표율도 높은가?</p></div>
+      <div class="arrow st" data-step="1">→</div>
+      <div class="hcard h1 st" data-step="1"><span class="tag">가설 1</span><p class="hf" style="margin-top:14px"><span class="c-age">고령화 수준 ↑</span> → 투표율 ↑</p><p class="why">근거 · 오랜 선거 경험과 투표 습관</p></div>
+    </div>
+    <div class="qrow">
+      <div class="qcard"><span class="tag">질문 2</span><p>고령화 수준이 비슷하더라도 80세 이상 비율에 따라 투표율이 달라지는가?</p></div>
+      <div class="arrow st" data-step="2">→</div>
+      <div class="hcard h2 st" data-step="2"><span class="tag">가설 2</span><p class="pre">고령화 수준이 같다면</p><p class="hf"><span class="c-old">80세 이상 비율 ↑</span> → 투표율 ↓</p><p class="why">근거 · 초고령기의 건강·이동의 어려움</p></div>
+    </div>
+  </div>
+  <footer class="foot"><span>고령화 수준 = 18세 이상 중 65세 이상 비율 · 80세 이상 비율 = 65세 이상 중 80세 이상 비율</span><span class="pg"></span></footer>
+</section>
+
+<!-- 4a · data -->
+<section class="slide s4a-wrap" data-steps="2" data-end="2:25" aria-label="분석 대상과 자료">
+  <header class="hd"><div class="kick"><span>4 · 자료와 Python 활용</span></div><h2>분석 대상과 자료</h2></header>
+  <div class="content">
+    <div class="s4a">
+      <div class="big228">
+        <p class="n">228</p>
+        <p class="u">개 지역</p>
+        <p class="sub">226개 기초자치단체 + 세종 · 제주</p>
+        <p class="mini">시 75 · 군 82 · 자치구 69 · 세종·제주 2</p>
+      </div>
+      <div class="srcgrid">
+        <div class="src st" data-step="1"><span class="ag">중앙선거관리위원회</span><b>투표율</b><span class="dt">제21대 대통령선거 개표결과</span></div>
+        <div class="src st" data-step="1"><span class="ag">행정안전부</span><b>연령별 인구</b><span class="dt">주민등록 인구 · 2025년 5월</span></div>
+        <div class="src st" data-step="2"><span class="ag">지방재정365</span><b>재정자립도</b><span class="dt">지역의 재정 여건</span></div>
+        <div class="src st" data-step="2"><span class="ag">통계청</span><b>인구이동</b><span class="dt">전입·전출로 본 순이동</span></div>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span></span><span class="pg"></span></footer>
+</section>
+
+<!-- 4b · merging -->
+<section class="slide" data-steps="2" data-end="2:25" aria-label="자료를 같은 기준으로 맞추기">
+  <header class="hd"><div class="kick"><span>4 · 자료와 Python 활용</span></div><h2>기관마다 다른 자료를 같은 기준으로</h2></header>
+  <div class="content">
+    <div class="s4b">
+      <div class="panelbox">
+        <p class="ptitle">같은 지역, 다른 단위</p>
+        <div class="sw-all"><b>수원시 전체</b><span>1,191,227명</span></div>
+        <p class="sw-eq">= 같은 사람들 =</p>
+        <div class="sw-gu">
+          <div><b>장안구</b><span>273,033</span></div>
+          <div><b>권선구</b><span>361,518</span></div>
+          <div><b>팔달구</b><span>193,596</span></div>
+          <div><b>영통구</b><span>363,080</span></div>
+        </div>
+        <p class="dup st" data-step="1">그대로 합치면 <b>2,382,454명</b> → 같은 사람을 두 번 셈</p>
+      </div>
+      <div class="panelbox st" data-step="2">
+        <p class="ptitle">그래서 Python으로</p>
+        <ol class="flow">
+          <li><i>1</i>지역을 같은 기준으로 정리</li>
+          <li><i>2</i>투표율 계산</li>
+          <li><i>3</i>공식 통계와 대조</li>
+        </ol>
+        <p class="out">→ 228개 지역 · 하나의 분석표</p>
+        <p class="ai">분석 프로그램은 AI의 도움을 받아 구축</p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span>인구: 행정안전부 주민등록 연령별 인구(2025년 5월)</span><span class="pg"></span></footer>
+</section>
+
+<!-- 5a · simple comparison -->
+<section class="slide" data-steps="1" data-end="3:45" aria-label="분석 방법: 단순 비교">
+  <header class="hd"><div class="kick"><span>5 · 분석 방법</span><ol class="stepper"><li class="cur">① 단순 비교</li><li>② 다른 조건 고려</li><li>③ 불확실성 확인</li></ol></div><h2>전국 228개 지역을 그래프로</h2></header>
+  <div class="content">
+    <div class="s5a">
+      <svg id="sc1" class="scatter" viewBox="0 0 1060 660" aria-label="228개 지역의 고령화 수준과 투표율 산점도"></svg>
+      <div class="side">
+        <div class="stepbox"><span class="n">1</span><div><b>그래프로 살펴보기</b><p>점 하나 = 지역 하나</p></div></div>
+        <div class="stepbox st" data-step="1"><span class="n">2</span><div><b>고령화 수준만으로 분석</b><p><span class="formula">투표율 ← <span class="c-age">고령화 수준</span></span></p></div></div>
+        <p class="hint">점에 마우스를 올리면 지역 이름이 보입니다</p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span>자료: 행정안전부 주민등록 연령별 인구(2025년 5월), 중앙선거관리위원회 개표결과</span><span class="pg"></span></footer>
+</section>
+
+<!-- 5b · controls + FE -->
+<section class="slide" data-steps="2" data-end="3:45" aria-label="분석 방법: 다른 조건 고려">
+  <header class="hd"><div class="kick"><span>5 · 분석 방법</span><ol class="stepper"><li>① 단순 비교</li><li class="cur">② 다른 조건 고려</li><li>③ 불확실성 확인</li></ol></div><h2>다중회귀분석과 시도 고정효과</h2></header>
+  <div class="content">
+    <div class="s5b">
+      <div class="eq">
+        <p class="lhs">투표율 ←</p>
+        <ul class="terms">
+          <li class="c-age">고령화 수준</li>
+          <li><span class="plus">+</span><span class="c-old">80세 이상 비율</span></li>
+          <li><span class="plus">+</span>재정자립도</li>
+          <li><span class="plus">+</span>인구이동</li>
+          <li><span class="plus">+</span>인구규모</li>
+          <li class="fe st" data-step="1"><span class="plus">+</span><span class="t">시도 고정효과</span></li>
+        </ul>
+        <span class="badge">다중회귀분석</span>
+        <div class="within st" data-step="2">
+          <p><i class="sw pa"></i>단양 ↔ 충북의 다른 지역들</p>
+          <p><i class="sw pb"></i>순창 ↔ 전북의 다른 지역들</p>
+          <p class="note">같은 도 안에서도 지역마다 다른 조건은 남아 있음</p>
+        </div>
+      </div>
+      <svg id="sc2" class="scatter sc-fe" viewBox="0 0 1000 660" aria-label="충청북도와 전북특별자치도 지역을 강조한 산점도"></svg>
+    </div>
+  </div>
+  <footer class="foot"><span>평균선은 각 도에 속한 지역 투표율의 단순 평균</span><span class="pg"></span></footer>
+</section>
+
+<!-- 5c · uncertainty -->
+<section class="slide" data-steps="2" data-end="3:45" aria-label="분석 방법: 불확실성 확인">
+  <header class="hd"><div class="kick"><span>5 · 분석 방법</span><ol class="stepper"><li>① 단순 비교</li><li>② 다른 조건 고려</li><li class="cur">③ 불확실성 확인</li></ol></div><h2>HC3 표준오차와 95% 신뢰구간</h2></header>
+  <div class="content">
+    <div class="s5c">
+      <div class="cpanel">
+        <span class="mtag">개념도</span>
+        <svg id="funnel" viewBox="0 0 760 320" aria-label="지역마다 예측이 빗나가는 정도가 다른 모습의 개념도"></svg>
+        <p class="cap">지역마다 예측이 빗나가는 정도가 다를 수 있다</p>
+      </div>
+      <div class="cpanel st" data-step="1">
+        <span class="mtag">개념도</span>
+        <svg id="ci" viewBox="0 0 760 320" aria-label="추정값은 그대로이고 신뢰구간만 다시 계산되는 개념도">
+          <text class="rl" x="40" y="100">오차가 모든 지역에서</text>
+          <text class="rl" x="40" y="132">같다고 가정</text>
+          <line class="ci0" x1="460" y1="112" x2="660" y2="112"/>
+          <line class="ci0" x1="460" y1="96" x2="460" y2="128"/><line class="ci0" x1="660" y1="96" x2="660" y2="128"/>
+          <text class="rl hc" x="40" y="230">HC3 · 지역마다</text>
+          <text class="rl hc" x="40" y="262">다를 수 있다고 보고 계산</text>
+          <g class="ci1g">
+            <line class="ci1" x1="410" y1="242" x2="710" y2="242"/>
+            <line class="ci1" x1="410" y1="224" x2="410" y2="260"/><line class="ci1" x1="710" y1="224" x2="710" y2="260"/>
+          </g>
+          <line class="keep" x1="560" y1="80" x2="560" y2="272"/>
+          <circle class="est" cx="560" cy="112" r="13"/>
+          <circle class="est" cx="560" cy="242" r="13"/>
+          <text class="kl" x="40" y="308">점(추정된 계수)은 그대로, 막대(불확실성 범위)만 다시 계산</text>
+        </svg>
+        <p class="cap">HC3로 표준오차를 계산해 95% 신뢰구간 제시</p>
+      </div>
+      <div class="checks st" data-step="2">
+        <div class="chk"><b>점검 1</b><span>두 고령화 지표가 서로 너무 비슷하게 움직이지 않는가</span></div>
+        <div class="chk"><b>점검 2</b><span>선거인 수가 많은 지역에 더 큰 비중을 주면 결과가 달라지는가</span></div>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span>개념도는 원리를 보여 주기 위한 그림이며 실제 분석값이 아닙니다</span><span class="pg"></span></footer>
+</section>
+
+<!-- 6a · unexpected results -->
+<section class="slide" data-steps="2" data-end="4:35" aria-label="예상과 다른 결과">
+  <header class="hd"><div class="kick"><span>6 · 예상과 다른 결과</span></div><h2>결과가 가설과 다르게 나온다면</h2></header>
+  <div class="content">
+    <div class="s6a">
+      <div class="pcard"><span class="nb">1</span><h3>가설 유지</h3><p>결과에 맞춰 가설을 바꾸지 않고 그대로 보고합니다</p></div>
+      <div class="pcard st" data-step="1"><span class="nb">2</span><h3>분석조건 비교</h3><p>다른 조건을 고려하기 <b>전</b>과 <b>후</b>를 비교합니다</p><div class="ex">예) 80세 이상 비중이 높은 지역의 투표율이 오히려 높다면 → 정치적·사회경제적 조건을 고려한 뒤에도 그 관계가 유지되는가?</div></div>
+      <div class="pcard st" data-step="2"><span class="nb">3</span><h3>신뢰구간 확인</h3>
+        <svg class="mini" viewBox="0 0 448 220" aria-label="0을 넘지 않는 신뢰구간과 0을 포함하는 신뢰구간 비교">
+          <line class="zero" x1="140" y1="22" x2="140" y2="176"/>
+          <text x="140" y="206" text-anchor="middle">0</text>
+          <line class="ia" x1="170" y1="62" x2="300" y2="62"/><circle cx="235" cy="62" r="10"/>
+          <text x="314" y="70">방향 확인</text>
+          <line class="ib" x1="70" y1="132" x2="260" y2="132"/><circle cx="165" cy="132" r="10"/>
+          <text class="tb" x="272" y="140">판단 불가</text>
+        </svg>
+        <p>0이 포함되면 방향이 확인됐다고 말하지 않습니다</p></div>
+    </div>
+  </div>
+  <footer class="foot"><span></span><span class="pg"></span></footer>
+</section>
+
+<!-- 6b · limits -->
+<section class="slide alt" data-steps="1" data-end="4:35" aria-label="해석의 한계">
+  <header class="hd"><div class="kick"><span>6 · 예상과 다른 결과</span></div><h2>해석의 한계</h2></header>
+  <div class="content">
+    <div class="s6b">
+      <div class="lim"><p class="big">지역 <span>≠</span> 개인</p><p class="ex">지역의 투표율이 높다고 그 지역 80세 이상 주민 <b>개개인</b>이 투표를 더 많이 했다고 해석할 수 없습니다</p></div>
+      <div class="lim st" data-step="1"><p class="big">관계 <span>≠</span> 원인</p><p class="ex">지역 간 <b>관계</b>를 관찰할 뿐, 고령화가 투표율 변화의 <b>원인</b>이라고 증명하는 연구는 아닙니다</p></div>
+    </div>
+  </div>
+  <footer class="foot"><span></span><span class="pg"></span></footer>
+</section>
+
+<!-- 7 · closing -->
+<section class="slide" data-steps="1" data-end="4:50" aria-label="마무리">
+  <header class="hd"><div class="kick"><span>7 · 마무리</span></div><h2>고령화 수준 + 고령층 내부의 연령구성</h2></header>
+  <div class="content">
+    <div class="s7">
+      <div class="msg">
+        <p class="kq">이 연구가 확인하려는 것</p>
+        <p class="m"><span class="c-age">65세 이상</span>이 얼마나 많은가</p>
+        <p class="plus">+</p>
+        <p class="m">그 안에서 <span class="c-old">80세 이상</span>이 차지하는 비율</p>
+        <p class="thanks st" data-step="1">감사합니다</p>
+      </div>
+      <svg class="waffle show80" data-n65="43" data-n80="15" viewBox="0 0 352 352" aria-label="성인 100명 중 65세 이상 43명, 그중 80세 이상 15명"></svg>
+    </div>
+  </div>
+  <footer class="foot"><span></span><span class="pg"></span></footer>
+</section>
+
+</div>
+
+<div id="bar"></div>
+<div id="ctl"><button type="button" data-a="prev" aria-label="이전">‹ 이전</button><button type="button" data-a="next" aria-label="다음">다음 ›</button><button type="button" data-a="notes">원고 N</button><button type="button" data-a="presenter">발표자 창 P</button><button type="button" data-a="fs">전체화면 F</button></div>
+<div id="tip"></div>
+<div id="notes" hidden><div class="nh"><span id="nPos"></span><span id="nTime"></span></div><p id="nText"></p><p class="nn" id="nNext"></p></div>
+<div id="toast"></div>
+<div id="black"></div>
+
+<script>
+(function(){
+'use strict';
+const REGIONS = [["종로구","서울",23.9,27.0,78.8],["중구","서울",24.4,25.5,79.1],["용산구","서울",21.5,26.0,78.3],["성동구","서울",21.3,23.7,80.3],["광진구","서울",20.2,22.1,79.7],["동대문구","서울",22.9,24.0,80.0],["중랑구","서울",25.0,21.5,78.2],["성북구","서울",22.7,24.8,80.3],["강북구","서울",28.2,24.7,76.8],["도봉구","서울",27.8,23.5,79.3],["노원구","서울",23.8,23.4,81.4],["은평구","서울",24.3,23.9,79.2],["서대문구","서울",22.6,26.2,80.4],["마포구","서울",18.9,26.0,81.1],["양천구","서울",22.3,19.6,81.4],["강서구","서울",22.3,20.4,79.7],["구로구","서울",24.3,21.3,80.8],["금천구","서울",23.4,21.1,78.2],["영등포구","서울",20.9,23.5,81.0],["동작구","서울",22.0,23.7,81.5],["관악구","서울",20.1,23.1,78.5],["서초구","서울",20.2,21.7,81.2],["강남구","서울",19.7,20.8,79.1],["송파구","서울",20.7,18.8,81.6],["강동구","서울",22.0,18.2,81.7],["중구","부산",34.9,24.0,74.3],["서구","부산",33.4,24.5,77.1],["동구","부산",33.1,25.3,76.6],["영도구","부산",37.3,24.0,74.9],["부산진구","부산",26.0,22.2,77.7],["동래구","부산",26.5,21.0,80.6],["남구","부산",28.1,22.7,79.3],["북구","부산",27.4,19.2,79.9],["해운대구","부산",26.2,22.0,78.6],["사하구","부산",28.8,19.8,77.0],["금정구","부산",30.4,22.5,79.5],["강서구","부산",19.4,17.9,79.3],["연제구","부산",27.0,21.7,80.1],["수영구","부산",29.1,22.7,77.7],["사상구","부산",27.9,17.6,77.4],["기장군","부산",24.3,22.4,77.2],["중구","대구",21.4,27.0,80.6],["동구","대구",27.4,23.8,80.3],["서구","대구",31.2,22.3,77.7],["남구","대구",30.6,26.3,76.9],["북구","대구",22.3,22.9,80.2],["수성구","대구",23.4,24.5,82.1],["달서구","대구",22.8,20.8,80.6],["달성군","대구",20.8,20.4,79.2],["군위군","대구",50.6,30.9,82.9],["중구","인천",18.8,22.1,75.7],["동구","인천",31.0,24.7,79.0],["미추홀구","인천",23.6,22.7,74.5],["연수구","인천",16.3,20.1,80.8],["남동구","인천",22.4,20.6,77.6],["부평구","인천",22.0,21.5,77.9],["계양구","인천",21.4,20.4,78.3],["서구","인천",16.5,18.9,78.2],["강화군","인천",43.5,28.5,76.7],["옹진군","인천",37.3,23.9,78.7],["동구","광주",27.4,26.9,84.0],["서구","광주",21.5,23.0,83.4],["남구","광주",25.8,24.1,84.6],["북구","광주",22.4,22.6,83.9],["광산구","광주",15.0,22.3,83.8],["동구","대전",26.5,24.0,76.3],["중구","대전",27.2,24.9,77.8],["서구","대전",19.7,21.2,78.4],["유성구","대전",15.4,19.9,81.7],["대덕구","대전",24.4,22.0,77.6],["중구","울산",24.2,18.4,80.5],["남구","울산",19.9,16.3,80.1],["동구","울산",22.3,13.9,79.2],["북구","울산",15.0,17.4,81.1],["울주군","울산",23.4,20.8,79.2],["세종특별자치시","세종",15.2,21.9,82.9],["수원시","경기",16.9,21.5,80.4],["성남시","경기",21.0,22.2,81.7],["의정부시","경기",22.3,23.5,77.3],["안양시","경기",20.7,20.6,82.9],["부천시","경기",22.1,19.4,79.7],["광명시","경기",21.1,20.5,83.4],["평택시","경기",16.8,23.4,75.4],["동두천시","경기",29.8,27.7,73.4],["안산시","경기",18.0,21.1,76.6],["고양시","경기",20.6,25.5,80.0],["과천시","경기",19.0,23.4,85.7],["구리시","경기",21.0,21.1,80.3],["남양주시","경기",21.6,22.6,78.4],["오산시","경기",15.0,21.2,75.8],["시흥시","경기",15.5,20.2,78.4],["군포시","경기",21.5,22.8,81.9],["의왕시","경기",21.8,20.7,83.4],["하남시","경기",19.1,18.3,81.3],["용인시","경기",19.6,25.0,81.3],["파주시","경기",19.9,25.5,77.7],["이천시","경기",21.1,23.1,76.2],["안성시","경기",24.6,24.8,75.2],["김포시","경기",19.8,21.5,79.1],["화성시","경기",13.8,20.6,80.2],["광주시","경기",21.0,19.3,77.6],["양주시","경기",21.3,23.3,76.8],["포천시","경기",30.1,24.2,75.1],["여주시","경기",30.8,24.4,75.9],["연천군","경기",36.9,28.0,77.5],["가평군","경기",36.1,24.6,77.6],["양평군","경기",35.8,23.6,78.7],["청주시","충북",20.1,23.0,77.4],["충주시","충북",28.4,26.3,77.2],["제천시","충북",31.7,24.9,77.9],["보은군","충북",45.4,31.0,79.1],["옥천군","충북",40.0,27.9,78.4],["영동군","충북",42.7,29.4,77.9],["증평군","충북",25.6,24.8,75.2],["진천군","충북",23.4,26.6,75.3],["괴산군","충북",45.4,27.8,79.6],["음성군","충북",29.9,25.6,74.4],["단양군","충북",42.7,25.9,79.6],["천안시","충남",17.0,22.3,75.7],["공주시","충남",35.4,28.5,77.0],["보령시","충남",36.2,27.7,77.2],["아산시","충남",18.5,24.7,75.8],["서산시","충남",26.7,28.3,75.3],["논산시","충남",36.5,29.3,75.1],["계룡시","충남",19.1,21.5,82.1],["당진시","충남",25.9,27.7,74.9],["금산군","충남",41.1,29.3,76.3],["부여군","충남",45.8,32.0,77.0],["서천군","충남",46.7,32.6,76.0],["청양군","충남",45.0,32.8,77.0],["홍성군","충남",32.1,30.0,76.3],["예산군","충남",39.5,30.3,75.8],["태안군","충남",41.9,28.2,76.1],["목포시","전남",25.5,23.2,81.5],["여수시","전남",28.1,23.7,82.9],["순천시","전남",23.4,25.5,84.4],["나주시","전남",29.6,30.1,84.4],["광양시","전남",19.7,23.5,82.6],["담양군","전남",40.0,31.6,84.3],["곡성군","전남",44.2,36.1,83.8],["구례군","전남",43.9,34.8,85.6],["고흥군","전남",49.8,35.0,84.1],["보성군","전남",48.0,36.2,83.8],["화순군","전남",35.1,33.1,83.9],["장흥군","전남",43.6,35.0,84.3],["강진군","전남",44.2,34.3,84.3],["해남군","전남",42.3,32.1,84.9],["영암군","전남",34.8,32.3,81.8],["무안군","전남",25.7,28.1,84.8],["함평군","전남",45.5,35.0,84.6],["영광군","전남",36.6,31.7,82.7],["장성군","전남",38.3,32.5,84.1],["완도군","전남",42.4,33.4,85.5],["진도군","전남",42.6,34.4,84.6],["신안군","전남",43.2,32.1,83.8],["포항시","경북",26.7,20.0,79.0],["경주시","경북",31.6,25.8,79.5],["김천시","경북",32.2,27.6,79.5],["안동시","경북",32.8,28.9,79.4],["구미시","경북",16.1,20.6,76.8],["영주시","경북",36.7,28.8,79.3],["영천시","경북",38.1,27.5,79.4],["상주시","경북",41.6,31.1,80.1],["문경시","경북",40.9,30.0,79.7],["경산시","경북",24.2,23.8,78.3],["의성군","경북",51.5,32.6,81.5],["청송군","경북",47.5,31.6,82.7],["영양군","경북",46.8,33.8,82.0],["영덕군","경북",47.6,34.0,80.3],["청도군","경북",48.2,29.2,80.1],["고령군","경북",41.9,28.8,79.8],["성주군","경북",42.9,26.3,82.8],["칠곡군","경북",24.1,26.3,75.5],["예천군","경북",39.7,33.4,81.8],["봉화군","경북",48.1,31.9,80.3],["울진군","경북",36.7,32.5,79.4],["울릉군","경북",32.9,23.5,79.8],["창원시","경남",23.1,19.3,79.8],["진주시","경남",24.9,24.0,79.9],["통영시","경남",30.3,22.1,77.4],["사천시","경남",30.3,27.1,77.5],["김해시","경남",18.5,20.1,77.5],["밀양시","경남",39.2,25.5,77.0],["거제시","경남",19.5,19.0,76.2],["양산시","경남",21.8,20.7,78.0],["의령군","경남",46.8,33.6,78.2],["함안군","경남",36.5,27.5,78.1],["창녕군","경남",42.9,29.0,76.5],["고성군","경남",42.0,29.6,77.6],["남해군","경남",47.4,34.3,78.8],["하동군","경남",45.6,32.3,80.2],["산청군","경남",46.6,32.2,79.7],["함양군","경남",44.3,33.5,79.0],["거창군","경남",37.3,31.5,79.1],["합천군","경남",49.5,34.2,77.5],["제주특별자치도","제주",22.9,26.0,74.6],["춘천시","강원",25.3,27.0,78.7],["원주시","강원",22.9,24.4,77.0],["강릉시","강원",30.3,26.2,76.4],["동해시","강원",29.5,24.9,76.3],["태백시","강원",35.7,24.2,77.8],["속초시","강원",28.3,23.4,75.0],["삼척시","강원",34.5,28.5,79.2],["홍천군","강원",38.2,25.6,77.8],["횡성군","강원",41.6,25.5,78.8],["영월군","강원",40.4,26.6,79.1],["평창군","강원",39.4,24.9,78.1],["정선군","강원",39.2,25.4,78.6],["철원군","강원",33.1,28.8,76.5],["화천군","강원",32.4,29.9,78.6],["양구군","강원",31.5,28.9,79.0],["인제군","강원",29.9,26.3,79.1],["고성군","강원",38.0,28.8,79.1],["양양군","강원",39.5,28.2,78.7],["전주시","전북",22.3,23.7,83.1],["군산시","전북",27.4,23.8,80.8],["익산시","전북",28.2,25.7,81.4],["정읍시","전북",36.5,32.0,81.9],["남원시","전북",37.7,31.8,83.1],["김제시","전북",39.4,32.1,82.1],["완주군","전북",29.8,27.4,83.5],["진안군","전북",44.4,32.1,84.4],["무주군","전북",42.5,33.3,83.2],["장수군","전북",45.0,32.2,84.0],["임실군","전북",46.3,34.9,83.8],["순창군","전북",42.6,34.4,86.5],["고창군","전북",44.5,34.0,83.5],["부안군","전북",43.0,31.6,81.7]];
+
+/* 발표 원고(사용자 대본) — 슬라이드별, 클릭 단계별 */
+const NOTES = [
+  ['안녕하세요. 김준모입니다.'],
+  ['2025년 대통령선거에서 70대의 투표율은 87.8%였습니다. 그렇다면 80세 이상은 몇 퍼센트였을까요? [잠깐 멈춤, 클릭]',
+   '65.8%였습니다. 70대와 비교하면 22%포인트나 낮습니다.',
+   '그렇다면 노인이 많이 사는 지역은 투표율이 높을까요? 아니면 오히려 낮을까요? 저는 이 질문에서 연구를 시작했습니다.'],
+  ['충북 단양군과 전북 순창군을 보겠습니다. 두 지역 모두 성인 인구 중 약 43%가 65세 이상입니다. 고령화 수준은 거의 같습니다.',
+   '그런데 고령층 중 80세 이상이 차지하는 비율은 단양이 26%, 순창이 34%로 차이가 납니다. 그렇다면 두 지역의 투표율도 차이가 날까요? [클릭]',
+   '단양은 79.6%, 순창은 86.5%였습니다.',
+   '여기서 한 가지 의문이 생깁니다. 이 차이는 고령층의 연령구성 때문일까요? 아니면 두 지역이 가진 다른 특성 때문일까요?',
+   '두 지역의 숫자만으로는 알 수 없습니다. 그래서 이번 연구에서는 전국 지역을 대상으로 다른 조건들을 함께 고려해 보려고 합니다.'],
+  ['연구질문은 두 가지입니다. 첫째, 고령인구가 많은 지역일수록 투표율도 높은가? 둘째, 고령화 수준이 비슷하더라도 80세 이상 인구의 비율에 따라 투표율이 달라지는가?',
+   '첫 번째 가설은 노인이 많은 지역일수록 투표율이 높을 것이라는 예상입니다. 오랜 선거 경험과 투표 습관을 근거로 합니다.',
+   '두 번째 가설은 고령화 수준이 같다면, 80세 이상이 많은 지역의 투표율은 낮을 것이라는 예상입니다. 초고령기에 건강이나 이동의 어려움이 투표참여와 관련될 가능성을 고려한 것입니다.'],
+  ['연구 대상은 전국 228개 지역입니다. 226개 기초자치단체에 세종과 제주를 별도의 분석단위로 포함했습니다.',
+   '선거관리위원회에서 투표율 자료를, 행정안전부에서 연령별 인구자료를 확보합니다.',
+   '여기에 재정자립도와 인구이동 자료도 추가합니다.'],
+  ['문제는 기관마다 자료의 형식과 지역 구분이 다르다는 점입니다. 예를 들어 한 자료에는 수원시 전체가 나오고, 다른 자료에는 수원시의 네 개 구가 따로 나올 수 있습니다.',
+   '이것을 그대로 합치면 인구나 투표수를 중복 계산할 위험이 있습니다.',
+   '그래서 Python을 사용합니다. 분석 프로그램은 AI의 도움을 받아 구축했습니다. 지역을 같은 기준으로 정리하고, 투표율을 계산한 뒤, 공식 통계와 대조하는 절차를 마련했습니다.'],
+  ['분석은 세 단계로 진행합니다. 먼저 전국 지역의 고령화 수준과 투표율을 그래프로 살펴봅니다.',
+   '그다음 고령화 수준만으로 투표율과의 관계를 분석합니다.'],
+  ['마지막으로 80세 이상 인구비율을 추가하고, 재정자립도와 인구이동, 인구규모처럼 투표율과 관련될 수 있는 조건들을 함께 고려합니다. 이를 다중회귀분석이라고 합니다.',
+   '여기서 중요한 방법이 시도 고정효과입니다. 앞서 단양과 순창은 서로 다른 도에 속한다고 말씀드렸습니다. 시도 고정효과는 이런 광역시도 간의 공통적인 차이를 고려하는 방법입니다.',
+   '그러면 단양은 주로 충북의 다른 지역들과, 순창은 전북의 다른 지역들과 비교하는 방식으로 관계를 추정하게 됩니다. 물론 같은 도 안에서도 지역마다 다른 조건은 남아 있습니다.'],
+  ['분석 결과가 얼마나 불확실한지도 확인합니다. 지역마다 회귀모형의 예측이 빗나가는 정도가 다를 수 있기 때문에, [클릭]',
+   'HC3라는 방법으로 표준오차를 계산하고 95% 신뢰구간을 제시합니다. 쉽게 말해, 추정된 관계가 어느 정도의 불확실성을 갖는지 확인하는 절차입니다. HC3는 회귀계수 자체를 바꾸지는 않습니다.',
+   '아울러 두 고령화 지표가 서로 너무 비슷하게 움직이는 문제, 그리고 선거인 수가 많은 지역에 더 큰 비중을 주었을 때 결과가 달라지는지도 점검합니다.'],
+  ['그렇다면 분석 결과가 가설과 다르게 나오면 어떻게 해야 할까요? 우선 가설을 결과에 맞춰 바꾸지 않고 그대로 보고하겠습니다.',
+   '그리고 다른 조건을 고려하기 전과 후에 결과가 어떻게 달라졌는지 비교하겠습니다. 예를 들어 80세 이상 비중이 높은 지역의 투표율이 오히려 높게 나타난다면, 지역의 정치적·사회경제적 조건을 고려한 뒤에도 그런 관계가 유지되는지 확인하는 것입니다.',
+   '이때 신뢰구간에 0이 포함된다면 관계의 방향이 명확하게 확인됐다고 말하지 않겠습니다.'],
+  ['또한 이번 연구는 지역을 분석하는 연구입니다. 어떤 지역의 투표율이 높다고 해서 그 지역에 사는 80세 이상 주민 개개인이 투표를 더 많이 했다고 해석할 수는 없습니다.',
+   '지역 간 관계를 관찰하는 것이지, 고령화가 투표율 변화의 원인이라고 증명하는 연구는 아닙니다.'],
+  ['이번 연구를 통해 확인하고 싶은 것은 고령화와 투표율 사이의 관계입니다. 특히 65세 이상 인구가 얼마나 많은지만 살펴보는 것으로 충분한지, 그 안에서 80세 이상이 차지하는 비율도 고려해야 하는지 알아보고자 합니다.',
+   '이상으로 발표를 마치겠습니다. 감사합니다.']
+];
+
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, parent){
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function txt(e, s){ e.textContent = s; return e; }
+
+/* ---------- waffles ---------- */
+document.querySelectorAll('svg.waffle').forEach(svg => {
+  const n65 = +svg.dataset.n65, n80 = +svg.dataset.n80, s = 28, g = 8;
+  for (let i = 0; i < 100; i++){
+    const r = Math.floor(i / 10), c = i % 10;
+    const cls = 'wd' + (i < n65 ? ' w65' : '') + (i < n80 ? ' w80' : '');
+    const d = el('circle', {cx: c*(s+g) + s/2, cy: r*(s+g) + s/2, r: s/2, class: cls}, svg);
+    d.style.setProperty('--i', i);
+  }
+});
+
+/* ---------- age chart ---------- */
+(function(){
+  const svg = document.getElementById('age');
+  const AGE = [['18~19세',76.3],['20대',74.5],['30대',75.0],['40대',76.4],['50대',81.8],['60대',87.3],['70대',87.8],['80세 이상',65.8]];
+  const base = 480, k = 4, slot = 175, bw = 120;
+  el('line', {x1: 0, y1: base, x2: 1400, y2: base, class: 'base'}, svg);
+  AGE.forEach(([lab, v], i) => {
+    const x = i*slot + (slot-bw)/2, h = v*k, y = base - h, cx = x + bw/2;
+    const cls = i === 6 ? 'bar b70 grow' : i === 7 ? 'bar b80' : 'bar grow';
+    const r = el('rect', {x, y, width: bw, height: h, rx: 6, class: cls}, svg);
+    r.style.setProperty('--i', i);
+    txt(el('text', {x: cx, y: y - 16, class: 'val num' + (i === 6 ? ' big v70' : i === 7 ? ' big v80' : '')}, svg), v.toFixed(1) + '%');
+    txt(el('text', {x: cx, y: base + 46, class: 'cat' + (i === 6 ? ' c70' : i === 7 ? ' c80' : '')}, svg), lab);
+  });
+  const x7 = 7*slot + (slot-bw)/2, h70 = 87.8*k, y70 = base - 87.8*k, y80 = base - 65.8*k;
+  const ph = el('g', {class: 'ph80'}, svg);
+  el('rect', {x: x7, y: base - h70, width: bw, height: h70, rx: 6}, ph);
+  txt(el('text', {x: x7 + bw/2, y: base - h70/2 + 38}, ph), '?');
+  const g = el('g', {class: 'gap'}, svg);
+  const xr = 6*slot + (slot+bw)/2, ax = 1412;
+  el('line', {x1: xr + 8, y1: y70, x2: ax + 14, y2: y70, class: 'ref'}, g);
+  el('line', {x1: x7 + bw + 8, y1: y80, x2: ax + 14, y2: y80, class: 'ref'}, g);
+  el('line', {x1: ax, y1: y70 + 6, x2: ax, y2: y80 - 18, class: 'arr'}, g);
+  el('polygon', {points: `${ax-11},${y80-20} ${ax+11},${y80-20} ${ax},${y80-2}`, class: 'arrh'}, g);
+  txt(el('text', {x: ax + 26, y: (y70 + y80)/2 + 16, class: 'num'}, g), '−22.0%p');
+})();
+
+/* ---------- scatter ---------- */
+function buildScatter(svg, W, H, fe){
+  const m = {l: 110, r: 24, t: 20, b: 84};
+  const xa = 10, xb = 55, ya = 72, yb = 88;
+  const X = v => m.l + (v - xa)/(xb - xa)*(W - m.l - m.r);
+  const Y = v => H - m.b - (v - ya)/(yb - ya)*(H - m.t - m.b);
+  const g = el('g', {class: 'grid'}, svg);
+  [10,20,30,40,50].forEach(v => {
+    el('line', {x1: X(v), y1: m.t, x2: X(v), y2: H - m.b}, g);
+    txt(el('text', {x: X(v), y: H - m.b + 34, class: 'tick', 'text-anchor': 'middle'}, svg), v + '%');
+  });
+  [72,76,80,84,88].forEach(v => {
+    el('line', {x1: m.l, y1: Y(v), x2: W - m.r, y2: Y(v)}, g);
+    txt(el('text', {x: m.l - 14, y: Y(v) + 8, class: 'tick', 'text-anchor': 'end'}, svg), v + '%');
+  });
+  txt(el('text', {x: W - m.r, y: H - 8, class: 'axl', 'text-anchor': 'end'}, svg), '고령화 수준 (18세 이상 중 65세 이상 비율) →');
+  txt(el('text', {x: 0, y: 0, class: 'axl', 'text-anchor': 'middle', transform: `translate(26 ${(m.t + H - m.b)/2}) rotate(-90)`}, svg), '투표율 →');
+  const pc = r => r[1] === '충북' ? ' pa' : r[1] === '전북' ? ' pb' : '';
+  const dots = el('g', {}, svg);
+  REGIONS.forEach((r, i) => {
+    const c = el('circle', {cx: X(r[2]), cy: Y(r[4]), r: 7.5, class: 'dot' + pc(r), 'data-i': i}, dots);
+    c.style.setProperty('--d', (i*53) % 450);
+  });
+  if (fe){
+    const ml = el('g', {class: 'mline'}, svg);
+    [['충북', 'a'], ['전북', 'b']].forEach(([p, s]) => {
+      const rs = REGIONS.filter(r => r[1] === p);
+      const xs = rs.map(r => r[2]), mean = rs.reduce((a, r) => a + r[4], 0)/rs.length;
+      const x1 = X(Math.min(...xs)), x2 = X(Math.max(...xs)), y = Y(mean);
+      el('line', {x1, y1: y, x2, y2: y, class: 'l' + s}, ml);
+      txt(el('text', {x: x1, y: y - 16, class: 't' + s}, ml), `${p} 평균 ${mean.toFixed(1)}% · ${rs.length}곳`);
+    });
+  }
+  ['단양군', '순창군'].forEach(n => {
+    const r = REGIONS.find(q => q[0] === n);
+    el('circle', {cx: X(r[2]), cy: Y(r[4]), r: 15, class: 'ring' + pc(r)}, svg);
+    el('circle', {cx: X(r[2]), cy: Y(r[4]), r: 7.5, class: 'hl' + pc(r)}, svg);
+    txt(el('text', {x: X(r[2]) + 24, y: Y(r[4]) + 10, class: 'lab'}, svg), n.slice(0, 2));
+  });
+}
+buildScatter(document.getElementById('sc1'), 1060, 660, false);
+buildScatter(document.getElementById('sc2'), 1000, 660, true);
+
+/* ---------- funnel (concept) ---------- */
+(function(){
+  const svg = document.getElementById('funnel');
+  el('line', {x1: 50, y1: 286, x2: 740, y2: 286, class: 'ax'}, svg);
+  el('line', {x1: 50, y1: 70, x2: 50, y2: 286, class: 'ax'}, svg);
+  const L = x => 262 - (x - 60)*(170/680);
+  const sg = [1,-1,1,1,-1,-1,1,-1,1,-1,-1,1,-1,1], jt = [1,.6,.9,.45,1,.7,.85,1,.5,.95,1,.6,.8,1];
+  for (let i = 0; i < 14; i++){
+    const x = 92 + i*47, yh = L(x), mg = (5 + i*4.3)*jt[i];
+    const y = Math.max(74, Math.min(280, yh - sg[i]*mg));
+    el('line', {x1: x, y1: yh, x2: x, y2: y, class: 'res'}, svg);
+    el('circle', {cx: x, cy: y, r: 8, class: 'pt'}, svg);
+  }
+  el('line', {x1: 60, y1: L(60), x2: 740, y2: L(740), class: 'fit'}, svg);
+  el('line', {x1: 70, y1: 34, x2: 112, y2: 34, class: 'fit'}, svg);
+  txt(el('text', {x: 124, y: 42, class: 'lg'}, svg), '예측');
+  el('line', {x1: 214, y1: 20, x2: 214, y2: 48, class: 'res'}, svg);
+  txt(el('text', {x: 228, y: 42, class: 'lg'}, svg), '예측이 빗나간 정도');
+  el('circle', {cx: 468, cy: 34, r: 8, class: 'pt'}, svg);
+  txt(el('text', {x: 484, y: 42, class: 'lg'}, svg), '실제 지역');
+  txt(el('text', {x: 60, y: 314}, svg), '빗나감 작음');
+  txt(el('text', {x: 740, y: 314, 'text-anchor': 'end'}, svg), '빗나감 큼');
+})();
+
+/* ---------- tooltip ---------- */
+const tip = document.getElementById('tip');
+document.querySelectorAll('.scatter').forEach(svg => {
+  svg.addEventListener('pointermove', e => {
+    const t = e.target;
+    if (t.classList && t.classList.contains('dot')){
+      const r = REGIONS[+t.dataset.i];
+      tip.innerHTML = `<b>${r[0]}</b> · ${r[1]}<br>고령화 수준 ${r[2].toFixed(1)}% · 80세 이상 ${r[3].toFixed(1)}%<br>투표율 <b>${r[4].toFixed(1)}%</b>`;
+      const w = tip.offsetWidth, h = tip.offsetHeight;
+      let x = e.clientX + 16, y = e.clientY + 16;
+      if (x + w > innerWidth - 8) x = e.clientX - w - 16;
+      if (y + h > innerHeight - 8) y = e.clientY - h - 16;
+      tip.style.left = x + 'px'; tip.style.top = y + 'px'; tip.style.opacity = 1;
+    } else tip.style.opacity = 0;
+  });
+  svg.addEventListener('pointerleave', () => { tip.style.opacity = 0; });
+});
+
+/* ---------- deck engine ---------- */
+const stage = document.getElementById('stage');
+const slides = [...document.querySelectorAll('.slide')];
+const N = slides.length;
+const maxStep = i => +slides[i].dataset.steps || 0;
+let cur = 0, step = 0, last = -1, t0 = null;
+
+slides.forEach((s, i) => {
+  const pg = s.querySelector('.pg');
+  if (pg) pg.textContent = i + ' / ' + (N - 1);
+  if (NOTES[i].length !== maxStep(i) + 1) console.warn('notes/steps mismatch on slide', i);
+});
+
+function fit(){
+  const sc = Math.min(innerWidth/1920, innerHeight/1080);
+  stage.style.transform = `scale(${sc})`;
+  stage.style.left = (innerWidth - 1920*sc)/2 + 'px';
+  stage.style.top = (innerHeight - 1080*sc)/2 + 'px';
+}
+addEventListener('resize', fit); fit();
+
+function render(){
+  const s = slides[cur];
+  const entering = cur !== last;
+  if (entering) s.classList.add('instant');
+  slides.forEach((x, i) => { const a = i === cur; x.classList.toggle('active', a); x.setAttribute('aria-hidden', a ? 'false' : 'true'); });
+  for (let k = 1; k <= 6; k++) s.classList.toggle('at-' + k, step >= k);
+  s.querySelectorAll('[data-step]').forEach(e => e.classList.toggle('on', +e.dataset.step <= step));
+  if (entering){ void s.offsetWidth; requestAnimationFrame(() => s.classList.remove('instant')); }
+  last = cur;
+  if (cur > 0 && t0 === null) t0 = Date.now();
+  document.getElementById('bar').style.width = (100*(cur + step/(maxStep(cur) + 1))/(N - 1)) + '%';
+  try { history.replaceState(null, '', '#' + cur + (step ? '.' + step : '')); } catch (_) {}
+  tip.style.opacity = 0;
+  updateNotes();
+}
+function go(i, k){ cur = Math.max(0, Math.min(N - 1, i)); step = Math.max(0, Math.min(maxStep(cur), k)); render(); }
+function next(){ if (step < maxStep(cur)) step++; else if (cur < N - 1){ cur++; step = 0; } else return; render(); }
+function prev(){ if (step > 0) step--; else if (cur > 0){ cur--; step = maxStep(cur); } else return; render(); }
+
+/* ---------- timer + notes ---------- */
+const fmt = s => Math.floor(s/60) + ':' + String(s % 60).padStart(2, '0');
+const elapsed = () => t0 === null ? 0 : Math.floor((Date.now() - t0)/1000);
+function nextCue(){
+  if (step < maxStep(cur)) return '다음 클릭: ' + NOTES[cur][step + 1];
+  if (cur < N - 1) return '다음 슬라이드: ' + NOTES[cur + 1][0];
+  return '마지막 화면입니다.';
+}
+function posText(){ return `슬라이드 ${cur} / ${N - 1} · 단계 ${step + 1} / ${maxStep(cur) + 1} · ${slides[cur].getAttribute('aria-label')}`; }
+function timeText(){ const e = slides[cur].dataset.end; return `경과 ${fmt(elapsed())}` + (cur > 0 ? ` · 이 구간 목표 ~${e}` : '') + ' · 목표 5:00'; }
+function updateNotes(){
+  const nt = document.getElementById('notes');
+  if (!nt.hidden){
+    document.getElementById('nPos').textContent = posText();
+    document.getElementById('nTime').textContent = timeText();
+    document.getElementById('nText').textContent = NOTES[cur][step];
+    document.getElementById('nNext').textContent = nextCue();
+  }
+  updatePresenter();
+}
+setInterval(() => {
+  const nt = document.getElementById('notes');
+  if (!nt.hidden) document.getElementById('nTime').textContent = timeText();
+  if (pw && !pw.closed){ const d = pw.document.getElementById('pTime'); if (d) d.textContent = fmt(elapsed()); }
+}, 500);
+
+/* ---------- presenter window ---------- */
+let pw = null;
+const PRES = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>발표자 화면</title><style>
+body{margin:0;background:#12161E;color:#ECEEF2;font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;word-break:keep-all;padding:28px 34px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+#pTime{font-size:64px;font-weight:800;font-variant-numeric:tabular-nums}
+#pPos{font-size:18px;color:#A9B1BF;font-weight:700}#pGoal{font-size:20px;color:#F3A468;font-weight:800;margin-top:4px}
+#pNow{font-size:34px;line-height:1.6;margin:26px 0;font-weight:600}
+#pNext{font-size:20px;line-height:1.55;color:#A9B1BF;border-top:1px solid #323A4A;padding-top:16px}
+.btns{display:flex;gap:10px;margin-top:22px}button{font:inherit;font-size:18px;font-weight:800;padding:12px 20px;border-radius:12px;border:1px solid #323A4A;background:#1D2330;color:#ECEEF2;cursor:pointer}
+</style></head><body><div class="top"><div><div id="pPos"></div><div id="pGoal"></div></div><div id="pTime">0:00</div></div>
+<p id="pNow"></p><p id="pNext"></p><div class="btns"><button id="pPrev">‹ 이전</button><button id="pNext2">다음 ›</button><button id="pReset">타이머 다시 시작</button></div></body></html>`;
+function openPresenter(){
+  if (pw && !pw.closed){ pw.focus(); return; }
+  try {
+    pw = window.open('', 'aging-turnout-presenter', 'width=1000,height=720');
+    if (!pw){ toast('팝업이 차단되어 발표자 창을 열 수 없습니다'); return; }
+    const d = pw.document; d.open(); d.write(PRES); d.close();
+    d.addEventListener('keydown', onKey);
+    d.getElementById('pPrev').onclick = prev;
+    d.getElementById('pNext2').onclick = next;
+    d.getElementById('pReset').onclick = resetTimer;
+    updatePresenter();
+  } catch (err){ pw = null; toast('이 환경에서는 발표자 창을 열 수 없습니다. N 키로 원고를 보세요'); }
+}
+function updatePresenter(){
+  if (!pw || pw.closed) return;
+  try {
+    const d = pw.document;
+    d.getElementById('pPos').textContent = posText();
+    d.getElementById('pGoal').textContent = cur > 0 ? '이 구간 목표 ~' + slides[cur].dataset.end + ' · 전체 목표 5:00' : '첫 화면에서 넘어가면 타이머가 시작됩니다';
+    d.getElementById('pNow').textContent = NOTES[cur][step];
+    d.getElementById('pNext').textContent = nextCue();
+    d.getElementById('pTime').textContent = fmt(elapsed());
+  } catch (_) {}
+}
+function resetTimer(){ t0 = cur > 0 ? Date.now() : null; toast('타이머를 다시 시작했습니다'); updateNotes(); }
+
+/* ---------- misc ---------- */
+let toastT;
+function toast(m){ const t = document.getElementById('toast'); t.textContent = m; t.style.opacity = 1; clearTimeout(toastT); toastT = setTimeout(() => t.style.opacity = 0, 2200); }
+function toggleNotes(){ const nt = document.getElementById('notes'); nt.hidden = !nt.hidden; updateNotes(); }
+function toggleFS(){ if (!document.fullscreenElement) document.documentElement.requestFullscreen && document.documentElement.requestFullscreen().catch(() => {}); else document.exitFullscreen(); }
+function toggleTheme(){ const r = document.documentElement; r.dataset.theme = r.dataset.theme === 'dark' ? 'light' : 'dark'; }
+function onKey(e){
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key;
+  if (['ArrowRight','ArrowDown','PageDown','Enter',' '].includes(k)){ e.shiftKey && k === ' ' ? prev() : next(); }
+  else if (['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(k)) prev();
+  else if (k === 'Home') go(0, 0);
+  else if (k === 'End') go(N - 1, maxStep(N - 1));
+  else if (k === 'f' || k === 'F') toggleFS();
+  else if (k === 'n' || k === 'N') toggleNotes();
+  else if (k === 'p' || k === 'P') openPresenter();
+  else if (k === 't' || k === 'T') resetTimer();
+  else if (k === 'd' || k === 'D') toggleTheme();
+  else if (k === 'b' || k === 'B' || k === '.') document.getElementById('black').classList.toggle('on');
+  else return;
+  e.preventDefault();
+}
+document.addEventListener('keydown', onKey);
+
+let px = null;
+stage.addEventListener('pointerdown', e => { px = e.clientX; });
+stage.addEventListener('pointerup', e => {
+  if (px === null) return;
+  const dx = e.clientX - px; px = null;
+  if (Math.abs(dx) > 60){ dx < 0 ? next() : prev(); return; }
+  if (e.button === 0) next();
+});
+document.getElementById('black').addEventListener('click', e => e.currentTarget.classList.remove('on'));
+document.getElementById('ctl').addEventListener('click', e => {
+  const a = e.target.closest('button'); if (!a) return;
+  ({prev, next, notes: toggleNotes, presenter: openPresenter, fs: toggleFS})[a.dataset.a]();
+  a.blur();
+});
+let mt;
+addEventListener('mousemove', () => { document.body.classList.add('mouse'); clearTimeout(mt); mt = setTimeout(() => document.body.classList.remove('mouse'), 1800); });
+
+/* start (restore position from #slide.step) */
+const h = /^#(\d+)(?:\.(\d+))?$/.exec(location.hash);
+if (h) go(+h[1], +(h[2] || 0)); else render();
+})();
+</script>
+</body>
+</html>

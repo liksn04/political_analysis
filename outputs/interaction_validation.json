@@ -1,0 +1,23 @@
+{
+  "gate": "G-M5-03",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "m4_validation_sha256": "3fcf5b32e0a33013456a29ca4bf9c85f955de1e6be7fc8d2e0d6ad4dfe1f5bd5",
+  "code_sha256": "57c7671530bfd0d1e705fbb9e6a5f306f3bf7b92ef97d89bfb1202acf66cb563",
+  "formula": "turnout ~ aging_centered * oldest_centered + fiscal_independence + net_migration_rate + log_population + C(region_type) + C(province)",
+  "n": 226,
+  "rank": 23,
+  "centers": {
+    "aging_rate": 30.429803054988678,
+    "oldest_share": 25.796546368752036
+  },
+  "oldest_share_range": [
+    13.904970347359502,
+    36.19485294117647
+  ],
+  "synthetic_and_contrast_checks": "PASS",
+  "artifacts": {
+    "tables/m4_interaction_coefficients.csv": "a133f0d32211710d7bae565f7bd63257686c575dc34b0775b59e27c8b40e087e",
+    "tables/m4_interaction_slopes.csv": "b87c7ee671c6bee1690834f97eb4e8c1ce17ec2d2f61c47a71298e5d8c5b2ddd",
+    "figures/m4_interaction_slopes.png": "f02852aa34625696f265e6690aaadfbbbcc069cd6a4d4dda38515d8d79ce2aab"
+  }
+}

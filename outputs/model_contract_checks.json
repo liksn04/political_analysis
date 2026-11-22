@@ -1,0 +1,106 @@
+{
+  "status": "synthetic_model_contract_checks_passed",
+  "kind": "synthetic numerical verification, not research findings",
+  "synthetic_input_rows": 144,
+  "model_count": 8,
+  "coefficient_numeric_cells_compared": 220,
+  "sample_membership_rows": 1152,
+  "tolerance": {
+    "relative": 1e-08,
+    "absolute": 1e-09
+  },
+  "matrix_method": "normal equations; HC3 from residuals/(1-h); weighted whitening; normal CI and erfc two-sided p",
+  "maximum_absolute_errors": {
+    "estimate": 8.029132914089132e-12,
+    "std_error_hc3": 3.694822225952521e-13,
+    "p_value": 1.6587842210924464e-12,
+    "ci_low": 7.887024366937112e-12,
+    "ci_high": 8.171241461241152e-12
+  },
+  "models": [
+    {
+      "model": "M1",
+      "n": 144,
+      "parameters": 2,
+      "rank": 2,
+      "df_resid": 142.0,
+      "region_type_reference": "",
+      "province_reference": "",
+      "sample_match": true
+    },
+    {
+      "model": "M2",
+      "n": 144,
+      "parameters": 3,
+      "rank": 3,
+      "df_resid": 141.0,
+      "region_type_reference": "",
+      "province_reference": "",
+      "sample_match": true
+    },
+    {
+      "model": "M3",
+      "n": 143,
+      "parameters": 6,
+      "rank": 6,
+      "df_resid": 137.0,
+      "region_type_reference": "",
+      "province_reference": "",
+      "sample_match": true
+    },
+    {
+      "model": "M4",
+      "n": 142,
+      "parameters": 11,
+      "rank": 11,
+      "df_resid": 131.0,
+      "region_type_reference": "군",
+      "province_reference": "가상도1",
+      "sample_match": true
+    },
+    {
+      "model": "M4_WLS",
+      "n": 141,
+      "parameters": 11,
+      "rank": 11,
+      "df_resid": 130.0,
+      "region_type_reference": "군",
+      "province_reference": "가상도1",
+      "sample_match": true
+    },
+    {
+      "model": "M1_common",
+      "n": 142,
+      "parameters": 2,
+      "rank": 2,
+      "df_resid": 140.0,
+      "region_type_reference": "",
+      "province_reference": "",
+      "sample_match": true
+    },
+    {
+      "model": "M2_common",
+      "n": 142,
+      "parameters": 3,
+      "rank": 3,
+      "df_resid": 139.0,
+      "region_type_reference": "",
+      "province_reference": "",
+      "sample_match": true
+    },
+    {
+      "model": "M3_common",
+      "n": 142,
+      "parameters": 6,
+      "rank": 6,
+      "df_resid": 136.0,
+      "region_type_reference": "",
+      "province_reference": "",
+      "sample_match": true
+    }
+  ],
+  "actual_research_regression_executed": false,
+  "actual_dataset_sha256_unchanged": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "model_code_sha256": "7f8c2233d62657be47e1a029024963cc376a7009c8bbb477de497c85cb751367",
+  "test_code_sha256": "6a6046d64f63c2921b621de0a2c29bebce1c5e7339483f9fa25c810ef6ac023b"
+}

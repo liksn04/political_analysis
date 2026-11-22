@@ -1,0 +1,25 @@
+{
+  "gate": "G-M5-01",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "m4_validation_sha256": "3fcf5b32e0a33013456a29ca4bf9c85f955de1e6be7fc8d2e0d6ad4dfe1f5bd5",
+  "audit_code_sha256": "5c2933c7640fd7919e75776ec2b445e920c509c3742dd18435025c4adce8f403",
+  "comparison_table_sha256": "533a7c67b08c5be998ce0031798d82c90cd9eff36da557b1f127d7e2822f7cce",
+  "same_id_set_n": 226,
+  "weight_min": 8412,
+  "weight_max": 1026640,
+  "wls_hc3_values_rechecked": 88,
+  "special_excluded_ids": [
+    "3600000000",
+    "5000000000"
+  ],
+  "m4_including_special": {
+    "status": "NOT_APPLICABLE",
+    "n": 228,
+    "rank": 24,
+    "design_columns": 25,
+    "singleton_provinces": [
+      "세종특별자치시",
+      "제주특별자치도"
+    ]
+  }
+}

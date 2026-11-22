@@ -1,0 +1,26 @@
+{
+  "gate": "G-M6-01",
+  "code_commit": "39e4e06021395adb7b2494f456c5e2f09fcb1f1a",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "draft_path": "docs/REPORT.md",
+  "draft_sha256": "4eaea562f29c2c0e4d8b701e85b176436e7991216fcac5bb89788172a6a57dbe",
+  "source_manifest_checks": [
+    "exploration_manifest.json",
+    "exploration_validation.json",
+    "model_manifest.json",
+    "model_validation.json",
+    "robustness_validation.json",
+    "diagnostics_validation.json",
+    "interaction_validation.json"
+  ],
+  "generated_numeric_tables": 5,
+  "narrative_numeric_checks": 23,
+  "local_links_checked": 30,
+  "figures": {
+    "../outputs/figures/scatter_aging_turnout.png": "ecbe4f3f8bee4a96402a7f6128c570a21c02979f3c597b26e2b74837fda07d01",
+    "../outputs/figures/m4_influence.png": "65b9ad346588abb2bc8e6db43caf477f46a0125e7ec33e8aeff0ee901126236d",
+    "../outputs/figures/m4_interaction_slopes.png": "f02852aa34625696f265e6690aaadfbbbcc069cd6a4d4dda38515d8d79ce2aab"
+  },
+  "literature_followup": "G-M6-02",
+  "figure_visual_review": "PASS"
+}

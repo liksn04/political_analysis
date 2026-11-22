@@ -1,0 +1,110 @@
+{
+  "status": "exploration_review_checks_passed",
+  "audit_code_sha256": "2fab680292a57cf8dd46cc1781314729d66377389708407dfab9b15f1681c2f5",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "observations": 228,
+  "missing_cells": 0,
+  "descriptive_cells_independently_checked": 126,
+  "statistic_tolerance": {
+    "relative": 1e-12,
+    "absolute": 1e-10
+  },
+  "pearson_absolute_tolerance": 1e-12,
+  "independent_pairs": [
+    {
+      "x": "turnout",
+      "y": "aging_rate",
+      "n": 228,
+      "pearson_r": 0.16311891724735975
+    },
+    {
+      "x": "turnout",
+      "y": "oldest_share",
+      "n": 228,
+      "pearson_r": 0.27737784040760344
+    },
+    {
+      "x": "aging_rate",
+      "y": "oldest_share",
+      "n": 228,
+      "pearson_r": 0.8318898317012946
+    }
+  ],
+  "candidate_rule": "six declared continuous variables; q(p) linear at (n-1)*p; strict outside Q1-1.5IQR/Q3+1.5IQR; core extrema also inspected",
+  "iqr_thresholds": {
+    "turnout": {
+      "q1": 77.51381187597171,
+      "q3": 81.46305442271208,
+      "low": 71.58994805586116,
+      "high": 87.38691824282262,
+      "candidate_count": 0
+    },
+    "aging_rate": {
+      "q1": 22.0666010866846,
+      "q3": 39.1862071791034,
+      "low": -3.612808051943599,
+      "high": 64.8656163177316,
+      "candidate_count": 0
+    },
+    "oldest_share": {
+      "q1": 22.28649159064905,
+      "q3": 28.948008074475787,
+      "low": 12.294216864908943,
+      "high": 38.9402828002159,
+      "candidate_count": 0
+    },
+    "fiscal_independence": {
+      "q1": 10.8975,
+      "q3": 24.16,
+      "low": -8.996249999999996,
+      "high": 44.053749999999994,
+      "candidate_count": 8
+    },
+    "net_migration_rate": {
+      "q1": -0.8963073734985916,
+      "q3": 0.2484993329896677,
+      "low": -2.6135174332309807,
+      "high": 1.9657093927220566,
+      "candidate_count": 17
+    },
+    "log_population": {
+      "q1": 10.786702244951666,
+      "q3": 12.74030757154156,
+      "low": 7.856294255066825,
+      "high": 15.670715561426402,
+      "candidate_count": 0
+    }
+  },
+  "iqr_candidate_flags": 25,
+  "unique_iqr_regions": 23,
+  "core_extreme_flags": 6,
+  "unique_regions_raw_rechecked": 28,
+  "raw_numeric_fields_rechecked": 392,
+  "regions_removed": 0,
+  "source_recheck_is_independent_official_reverification": false,
+  "regression_executed": false,
+  "visual_review": "PASS",
+  "artifacts": {
+    "tables/descriptive_statistics.csv": "dda3fc8e03fcc6231ac0831331517570a66d3c2afebd1f15044457771d03e3af",
+    "tables/correlations.csv": "c53e46601e025d59f11a5a95eff2e2fd8a8e145579e7aa9af2d651908bf8a0dd",
+    "tables/correlation_pairs.csv": "a329def358c5f7bf2f33bd3f3967631a53eb5a455471f5eb2d35488044072168",
+    "figures/scatter_aging_turnout.png": "ecbe4f3f8bee4a96402a7f6128c570a21c02979f3c597b26e2b74837fda07d01",
+    "tables/outlier_candidates.csv": "762f3dcd6fce7f2d2b8df4b5735cb159f06d32dd910a4f8ec8f2a1c66bfa5c26",
+    "tables/extreme_regions.csv": "3410106ae2a313fccb9c9ddf581e9db1ac68773b8f31f5d72afa93d5d4b90c99",
+    "tables/source_spot_checks.csv": "a392d25f35aead5852206cd4cd811183a7f19eba340ec72b2b0982940bda4cc8",
+    "exploration_notes.md": "f720b052af4f55906bbf32dcf146407bcaec574836e3159ade7d089d447c894d"
+  },
+  "note": "Independent arithmetic implementation; raw-source checks reuse the same archived inputs.",
+  "visual_review_details": {
+    "date_kst": "2026-11-03",
+    "figure": "figures/scatter_aging_turnout.png",
+    "checks": [
+      "title",
+      "adult denominator label",
+      "turnout percent unit",
+      "visible marks",
+      "no clipping",
+      "no regression line"
+    ]
+  }
+}

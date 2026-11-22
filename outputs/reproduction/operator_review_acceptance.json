@@ -1,0 +1,67 @@
+{
+  "gate": "G-M7-01",
+  "status": "DONE",
+  "reviewed_at": "2026-11-06T10:49:40.782953+09:00",
+  "reviewer": "/root",
+  "operator": "m7_independent_verifier (/root/m7_independent_verifier; same-host separate AI agent)",
+  "independence_scope": "별도 AI 검증자가 동일 호스트의 새 체크아웃·가상환경에서 직접 실행. 다른 사람·기기·독립 실증자료의 검증은 아님.",
+  "acceptance_criteria": {
+    "AC-1": "PASS",
+    "AC-2": "PASS",
+    "AC-3": "PASS"
+  },
+  "evidence_sha256": {
+    "outputs/reproduction/operator_replay_result.json": "20c74a8f38c4f2bb19d58c493bd741fcafbca45cccef7739b89564e1a5ede331",
+    "outputs/reproduction/operator_run.log": "8812cb1897abf78ba5524e8dc0eda1a4022e982e7d504e1f6a47a9035d7fb558",
+    "outputs/reproduction/independent_verifier_review.md": "39274796fe3f8adc9c9d77d01dd09c730ee8c2f1cdc6a1361eaa6f9022971ade",
+    "outputs/reproduction/handoff_manifest.json": "4a52540265c307bdf22d5d2d66b61baaf845e01c8efbb18d28f982e2d95f08e4",
+    "outputs/reproduction/independent_verifier_evidence/execution.json": "c1651bdbdb868992cd9923375c5cfc2c9a8bc173e913e7e228322c3fc37fb14a",
+    "outputs/reproduction/independent_verifier_evidence/postcheck.json": "5c2eb75d3ae3ee0c40b7b8d8c48ee44685967951a9232ab349de0d08789dde5f",
+    "outputs/reproduction/independent_verifier_evidence/code_comparison.json": "239fabcf83f37b48b885958eef6bd45c68cacb05f88815bfddbd62dab9f2c5ef",
+    "outputs/reproduction/independent_verifier_evidence/preflight.json": "88844e8eb599f51c90867bd03475885cb0511f03d279c1ab79d71583a5d0c44a"
+  },
+  "observed_checks": {
+    "operator_exit_code": 0,
+    "handoff_files": 71,
+    "commands": 20,
+    "tests_passed": 141,
+    "ruff": "PASS",
+    "compile": "PASS",
+    "copied_certificate_rejected": true,
+    "replay_certificate_paths": 29,
+    "data_reconciliation_files_identical": 6,
+    "tables_identical": 18,
+    "figures_identical": 3,
+    "numeric_cells_compared_by_verifier": 6503,
+    "maximum_absolute_difference": 0.0,
+    "snapshot_hashes_rechecked_by_parent": 27,
+    "m6_report_source_dataset_hashes": "PASS",
+    "preexisting_code_tests_and_unrelated_documents_preserved": "PASS",
+    "git_diff_check": "PASS",
+    "visual_review": "PASS: verifier inspected generated images; parent inspected identical baseline images",
+    "final_document_validation": {
+      "status": "PASS",
+      "local_links": 25,
+      "gates": 23,
+      "done": 22,
+      "draft": 1,
+      "changed_baseline_files": [
+        "README.md",
+        "docs/RESEARCH_LOG.md",
+        "docs/ROADMAP.md"
+      ]
+    }
+  },
+  "inherited_review": "M6 본문·인용 검수와 hypothesis_results.md는 해시가 같은 기존 검수본을 승계. 이번 검증에서 새 본문·문헌 검수로 계산하지 않음.",
+  "out_of_scope": [
+    "다른 OS/CPU 재실행",
+    "외부 인간 검증자",
+    "공식 자료 재취득 및 독립 실증자료",
+    "G-M7-02 최종본·공유범위 확정",
+    "커밋·푸시·외부 업로드"
+  ],
+  "next_gate": {
+    "id": "G-M7-02",
+    "status": "DRAFT"
+  }
+}

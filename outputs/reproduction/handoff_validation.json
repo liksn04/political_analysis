@@ -1,0 +1,8 @@
+{
+  "handoff_manifest_sha256": "4a52540265c307bdf22d5d2d66b61baaf845e01c8efbb18d28f982e2d95f08e4",
+  "checked_files": 71,
+  "isolated_checkout_preflight": "PASS",
+  "missing_official_input_rejected": true,
+  "changed_comparison_baseline_rejected": true,
+  "independent_operator_execution": "pending"
+}

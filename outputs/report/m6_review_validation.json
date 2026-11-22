@@ -1,0 +1,25 @@
+{
+  "gate": "G-M6-02",
+  "code_commit": "39e4e06021395adb7b2494f456c5e2f09fcb1f1a",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "report_sha256": "aa5e31c162be05b6029b9835db1eb83cb76d86b170162f2e1d1293bb00cd25db",
+  "source_log_sha256": "207fe87a229eed42bc7570e8c5fb456d5c7cd94a0ca39ee02ab505e127d1f6aa",
+  "numeric_table_rows_checked": 21,
+  "local_links_checked": 30,
+  "figure_hashes_match_visual_review": {
+    "../outputs/figures/scatter_aging_turnout.png": "ecbe4f3f8bee4a96402a7f6128c570a21c02979f3c597b26e2b74837fda07d01",
+    "../outputs/figures/m4_influence.png": "65b9ad346588abb2bc8e6db43caf477f46a0125e7ec33e8aeff0ee901126236d",
+    "../outputs/figures/m4_interaction_slopes.png": "f02852aa34625696f265e6690aaadfbbbcc069cd6a4d4dda38515d8d79ce2aab"
+  },
+  "cited_studies_full_text_sections_checked": [
+    "Lee and Suh (2024)",
+    "Engelman et al. (2022)",
+    "Lahtinen and Martikainen (2024)"
+  ],
+  "park_and_chung_2026": {
+    "verified_page_range": "223–259",
+    "full_text_checked": false,
+    "cited_in_report": false
+  },
+  "next_gate": "G-M7-01"
+}

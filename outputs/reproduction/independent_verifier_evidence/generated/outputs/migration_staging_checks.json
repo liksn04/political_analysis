@@ -1,0 +1,20 @@
+{
+  "status": "migration_staging_internal_checks_passed",
+  "reference_year": "2024",
+  "source_sha256": "a16467c3da15380b89b2c9382139fca3dc24dddac8570e69d848df2eaa515af0",
+  "midyear_source_sha256": "9cd454ab87ba71434640b98d1c3748b86d6b8a1c679fd82681877adde3bfe7c4",
+  "crosswalk_sha256": "15cb03ab589a7ce942e6735ca3204ffb47db9dd7efb8df9e5949f2fab5160bd9",
+  "inventory_sha256": "2c151a080e94a16d902427e119c96e62535fe7c4a17d1f6e86181411851d5e7c",
+  "midyear_crosswalk_sha256": "809a3b2f1e256a5556550e722b33e9539d765deeae73d0314dc490da8f0fc661",
+  "raw_migration_regions": 272,
+  "raw_midyear_regions": 282,
+  "selected_regions": 228,
+  "missing_regions": 0,
+  "net_migrants_total": 0,
+  "midyear_population_total": 51037252.5,
+  "negative_net_regions": 147,
+  "zero_net_regions": 0,
+  "note": "순이동 부호·연앙인구 원값 보존. 거주자 기준 연앙인구 사용; 원본 비율 평균 없음.",
+  "output_sha256": "84ceb1ac5fd141bc96101ccb46aebda73b47adddd3461d67a6d6e13fb77b033d",
+  "checks_sha256": "14840889197791bd0da0dd62fd9fbb36b0d20e4717c69089164716800a822d97"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "election_staging_internal_checks_passed",
+  "official_election_totals_verified": false,
+  "source_sha256": "4d1479e549e3ab0f6ae2a5b4436ec085f4326711a6a4163636be12a1a6e39e19",
+  "crosswalk_sha256": "15cb03ab589a7ce942e6735ca3204ffb47db9dd7efb8df9e5949f2fab5160bd9",
+  "raw_rows": 169749,
+  "voting_contexts": 18861,
+  "staged_source_regions": 253,
+  "electors": 44391871,
+  "voters": 35236497,
+  "note": "원본 집계항목·투표구 중복과 코드 범위 검사. 공식 합계 대조는 미완료.",
+  "output_sha256": "b2dfc05cdbd8468c5937e91635c0ff0b41b485a692dab55ee3c34e184bda25e5"
+}

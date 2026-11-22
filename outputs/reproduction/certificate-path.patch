@@ -1,0 +1,180 @@
+diff --git a/src/political_analysis/pipeline.py b/src/political_analysis/pipeline.py
+index 8182ab8..a9c4e5b 100644
+--- a/src/political_analysis/pipeline.py
++++ b/src/political_analysis/pipeline.py
+@@ -21,6 +21,7 @@ from political_analysis.reconciliation import (
+ )
+ 
+ DATASETS = ("election", "population", "fiscal", "migration")
++CERTIFICATE_CODE_FILES = ("pipeline.py", "reconciliation.py", "staging.py")
+ CROSSWALK_COLUMNS = (
+     "dataset",
+     "source_region_code",
+@@ -213,9 +214,15 @@ def verify_dataset_certificate(data_path: Path, quality_path: Path) -> dict:
+         raise ValueError("입력 계약 또는 공식 선거 합계 검증이 미완료입니다.")
+     if hashlib.sha256(data_path.read_bytes()).hexdigest() != quality.get("dataset_sha256"):
+         raise ValueError("분석 데이터가 검증된 버전과 다릅니다.")
+-    if not quality.get("verified_files"):
++    files = quality.get("verified_files")
++    if not isinstance(files, dict) or not files:
+         raise ValueError("입력·원본 파일의 해시 증거가 없습니다.")
+-    verify_file_hashes(quality["verified_files"])
++    if files.get(str(data_path.resolve())) != quality["dataset_sha256"]:
++        raise ValueError("현재 분석 데이터 경로의 검증 증거가 없습니다. 인증서를 다시 생성하세요.")
++    code_dir = Path(__file__).resolve().parent
++    if any(str(code_dir / name) not in files for name in CERTIFICATE_CODE_FILES):
++        raise ValueError("현재 실행 코드의 검증 증거가 없습니다. 인증서를 다시 생성하세요.")
++    verify_file_hashes(files)
+     return quality
+ 
+ 
+@@ -412,7 +419,7 @@ def build_dataset(
+         lineage[str(official_election_zip.resolve())] = reconciliation["official_zip_sha256"]
+         lineage[str(reconciliation_output_path.resolve())] = reconciliation["reconciliation_sha256"]
+     if lineage:
+-        for name in ["pipeline.py", "reconciliation.py", "staging.py"]:
++        for name in CERTIFICATE_CODE_FILES:
+             path = Path(__file__).with_name(name).resolve()
+             lineage[str(path)] = hashlib.sha256(path.read_bytes()).hexdigest()
+     report = {
+diff --git a/tests/test_exploration.py b/tests/test_exploration.py
+index deacbb8..5a2a80c 100644
+--- a/tests/test_exploration.py
++++ b/tests/test_exploration.py
+@@ -2,6 +2,7 @@
+ 
+ import hashlib
+ import json
++from pathlib import Path
+ 
+ import numpy as np
+ import pandas as pd
+@@ -13,6 +14,8 @@ from political_analysis.exploration import exploration_tables, run_exploration
+ @pytest.fixture
+ def certified_example(tmp_path):
+     """실행 경계용 인공 인증서. 공식 수치 검증 증거로 사용하지 않는다."""
++    from political_analysis import pipeline
++
+     data = tmp_path / "data.csv"
+     pd.DataFrame(
+         {
+@@ -25,13 +28,18 @@ def certified_example(tmp_path):
+     raw = tmp_path / "source.txt"
+     raw.write_text("synthetic source")
+     quality = tmp_path / "quality.json"
++    code_dir = Path(pipeline.__file__).parent
++    certified_files = [raw, data, *(code_dir / name for name in pipeline.CERTIFICATE_CODE_FILES)]
+     quality.write_text(
+         json.dumps(
+             {
+                 "input_contract_verified": True,
+                 "official_election_totals_verified": True,
+                 "dataset_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
+-                "verified_files": {str(raw): hashlib.sha256(raw.read_bytes()).hexdigest()},
++                "verified_files": {
++                    str(path.resolve()): hashlib.sha256(path.read_bytes()).hexdigest()
++                    for path in certified_files
++                },
+             }
+         )
+     )
+@@ -144,6 +152,7 @@ def test_zero_complete_scatter_pairs_produces_explicit_empty_plot(certified_exam
+     frame.to_csv(data, index=False)
+     record = json.loads(quality.read_text())
+     record["dataset_sha256"] = hashlib.sha256(data.read_bytes()).hexdigest()
++    record["verified_files"][str(data.resolve())] = record["dataset_sha256"]
+     quality.write_text(json.dumps(record))
+     result = run_exploration(data, out, quality)
+     assert result["scatter_status"] == "no_complete_pairs"
+diff --git a/tests/test_models.py b/tests/test_models.py
+index 09d7adc..02486dc 100644
+--- a/tests/test_models.py
++++ b/tests/test_models.py
+@@ -1,5 +1,7 @@
+ """회귀모형은 인공 데이터만 사용해 계산 경로를 검사한다."""
+ 
++from pathlib import Path
++
+ import numpy as np
+ import pandas as pd
+ import pytest
+@@ -329,6 +331,7 @@ def test_file_entry_writes_sample_and_manifest_without_real_research_fit(tmp_pat
+     import hashlib
+     import json
+ 
++    from political_analysis import pipeline
+     from political_analysis.models import run_analysis
+ 
+     frame = synthetic_model_frame()
+@@ -337,13 +340,18 @@ def test_file_entry_writes_sample_and_manifest_without_real_research_fit(tmp_pat
+     raw = tmp_path / "synthetic_source.txt"
+     raw.write_text("test-only source")
+     quality = tmp_path / "synthetic_quality.json"
++    code_dir = Path(pipeline.__file__).parent
++    certified_files = [raw, data, *(code_dir / name for name in pipeline.CERTIFICATE_CODE_FILES)]
+     quality.write_text(
+         json.dumps(
+             {
+                 "input_contract_verified": True,
+                 "official_election_totals_verified": True,
+                 "dataset_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
+-                "verified_files": {str(raw): hashlib.sha256(raw.read_bytes()).hexdigest()},
++                "verified_files": {
++                    str(path.resolve()): hashlib.sha256(path.read_bytes()).hexdigest()
++                    for path in certified_files
++                },
+             }
+         )
+     )
+diff --git a/tests/test_pipeline.py b/tests/test_pipeline.py
+index 14f42a8..edb3311 100644
+--- a/tests/test_pipeline.py
++++ b/tests/test_pipeline.py
+@@ -321,6 +321,7 @@ def test_source_change_invalidates_existing_true_certificate(tmp_path):
+     import hashlib
+     import json
+ 
++    from political_analysis import pipeline
+     from political_analysis.pipeline import verify_dataset_certificate
+ 
+     source = tmp_path / "raw.txt"
+@@ -328,17 +329,38 @@ def test_source_change_invalidates_existing_true_certificate(tmp_path):
+     data = tmp_path / "data.csv"
+     data.write_text("a,b\n1,2\n")
+     quality = tmp_path / "quality.json"
++    code_dir = Path(pipeline.__file__).parent
++    certified_files = [source, data, *(code_dir / name for name in pipeline.CERTIFICATE_CODE_FILES)]
+     quality.write_text(
+         json.dumps(
+             {
+                 "input_contract_verified": True,
+                 "official_election_totals_verified": True,
+                 "dataset_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
+-                "verified_files": {str(source): hashlib.sha256(source.read_bytes()).hexdigest()},
++                "verified_files": {
++                    str(path.resolve()): hashlib.sha256(path.read_bytes()).hexdigest()
++                    for path in certified_files
++                },
+             }
+         )
+     )
+     verify_dataset_certificate(data, quality)
++    copied = tmp_path / "copy"
++    copied.mkdir()
++    copied_data = copied / data.name
++    copied_report = copied / quality.name
++    copied_data.write_bytes(data.read_bytes())
++    copied_report.write_bytes(quality.read_bytes())
++    with pytest.raises(ValueError, match="경로"):
++        verify_dataset_certificate(copied_data, copied_report)
++
++    unbound_code = json.loads(quality.read_text())
++    current = str(Path(pipeline.__file__).resolve())
++    foreign = str(copied / "pipeline.py")
++    unbound_code["verified_files"][foreign] = unbound_code["verified_files"].pop(current)
++    copied_report.write_text(json.dumps(unbound_code))
++    with pytest.raises(ValueError, match="실행 코드"):
++        verify_dataset_certificate(data, copied_report)
+     source.write_text("changed")
+     with pytest.raises(ValueError, match="해시"):
+         verify_dataset_certificate(data, quality)

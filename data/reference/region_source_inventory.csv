@@ -1,0 +1,1063 @@
+dataset,source_region_code,source_label,region_code,disposition
+population,1100000000,서울특별시,,exclude_province_total
+population,1111000000,서울특별시 종로구,1111000000,municipality
+population,1114000000,서울특별시 중구,1114000000,municipality
+population,1117000000,서울특별시 용산구,1117000000,municipality
+population,1120000000,서울특별시 성동구,1120000000,municipality
+population,1121500000,서울특별시 광진구,1121500000,municipality
+population,1123000000,서울특별시 동대문구,1123000000,municipality
+population,1126000000,서울특별시 중랑구,1126000000,municipality
+population,1129000000,서울특별시 성북구,1129000000,municipality
+population,1130500000,서울특별시 강북구,1130500000,municipality
+population,1132000000,서울특별시 도봉구,1132000000,municipality
+population,1135000000,서울특별시 노원구,1135000000,municipality
+population,1138000000,서울특별시 은평구,1138000000,municipality
+population,1141000000,서울특별시 서대문구,1141000000,municipality
+population,1144000000,서울특별시 마포구,1144000000,municipality
+population,1147000000,서울특별시 양천구,1147000000,municipality
+population,1150000000,서울특별시 강서구,1150000000,municipality
+population,1153000000,서울특별시 구로구,1153000000,municipality
+population,1154500000,서울특별시 금천구,1154500000,municipality
+population,1156000000,서울특별시 영등포구,1156000000,municipality
+population,1159000000,서울특별시 동작구,1159000000,municipality
+population,1162000000,서울특별시 관악구,1162000000,municipality
+population,1165000000,서울특별시 서초구,1165000000,municipality
+population,1168000000,서울특별시 강남구,1168000000,municipality
+population,1171000000,서울특별시 송파구,1171000000,municipality
+population,1174000000,서울특별시 강동구,1174000000,municipality
+population,2600000000,부산광역시,,exclude_province_total
+population,2611000000,부산광역시 중구,2611000000,municipality
+population,2614000000,부산광역시 서구,2614000000,municipality
+population,2617000000,부산광역시 동구,2617000000,municipality
+population,2620000000,부산광역시 영도구,2620000000,municipality
+population,2623000000,부산광역시 부산진구,2623000000,municipality
+population,2626000000,부산광역시 동래구,2626000000,municipality
+population,2629000000,부산광역시 남구,2629000000,municipality
+population,2632000000,부산광역시 북구,2632000000,municipality
+population,2635000000,부산광역시 해운대구,2635000000,municipality
+population,2638000000,부산광역시 사하구,2638000000,municipality
+population,2641000000,부산광역시 금정구,2641000000,municipality
+population,2644000000,부산광역시 강서구,2644000000,municipality
+population,2647000000,부산광역시 연제구,2647000000,municipality
+population,2650000000,부산광역시 수영구,2650000000,municipality
+population,2653000000,부산광역시 사상구,2653000000,municipality
+population,2671000000,부산광역시 기장군,2671000000,municipality
+population,2700000000,대구광역시,,exclude_province_total
+population,2711000000,대구광역시 중구,2711000000,municipality
+population,2714000000,대구광역시 동구,2714000000,municipality
+population,2717000000,대구광역시 서구,2717000000,municipality
+population,2720000000,대구광역시 남구,2720000000,municipality
+population,2723000000,대구광역시 북구,2723000000,municipality
+population,2726000000,대구광역시 수성구,2726000000,municipality
+population,2729000000,대구광역시 달서구,2729000000,municipality
+population,2771000000,대구광역시 달성군,2771000000,municipality
+population,2772000000,대구광역시 군위군,2772000000,municipality
+population,2800000000,인천광역시,,exclude_province_total
+population,2811000000,인천광역시 중구,2811000000,municipality
+population,2811400000,인천광역시 중구영종출장소,,exclude_branch_office
+population,2811800000,인천광역시 중구용유출장소,,exclude_branch_office
+population,2814000000,인천광역시 동구,2814000000,municipality
+population,2817700000,인천광역시 미추홀구,2817700000,municipality
+population,2818500000,인천광역시 연수구,2818500000,municipality
+population,2820000000,인천광역시 남동구,2820000000,municipality
+population,2823700000,인천광역시 부평구,2823700000,municipality
+population,2824500000,인천광역시 계양구,2824500000,municipality
+population,2826000000,인천광역시 서구,2826000000,municipality
+population,2826500000,인천광역시 서구검단출장소,,exclude_branch_office
+population,2871000000,인천광역시 강화군,2871000000,municipality
+population,2872000000,인천광역시 옹진군,2872000000,municipality
+population,2900000000,광주광역시,,exclude_province_total
+population,2911000000,광주광역시 동구,2911000000,municipality
+population,2914000000,광주광역시 서구,2914000000,municipality
+population,2915500000,광주광역시 남구,2915500000,municipality
+population,2917000000,광주광역시 북구,2917000000,municipality
+population,2920000000,광주광역시 광산구,2920000000,municipality
+population,3000000000,대전광역시,,exclude_province_total
+population,3011000000,대전광역시 동구,3011000000,municipality
+population,3014000000,대전광역시 중구,3014000000,municipality
+population,3017000000,대전광역시 서구,3017000000,municipality
+population,3020000000,대전광역시 유성구,3020000000,municipality
+population,3023000000,대전광역시 대덕구,3023000000,municipality
+population,3100000000,울산광역시,,exclude_province_total
+population,3111000000,울산광역시 중구,3111000000,municipality
+population,3114000000,울산광역시 남구,3114000000,municipality
+population,3117000000,울산광역시 동구,3117000000,municipality
+population,3120000000,울산광역시 북구,3120000000,municipality
+population,3171000000,울산광역시 울주군,3171000000,municipality
+population,3600000000,세종특별자치시,3600000000,special_province
+population,3611000000,세종특별자치시,,exclude_special_city_duplicate
+population,4100000000,경기도,,exclude_province_total
+population,4110500000,북부출장소,,exclude_branch_office
+population,4111000000,경기도 수원시,4111000000,municipality
+population,4111100000,경기도 수원시 장안구,,exclude_submunicipal_parent_present
+population,4111300000,경기도 수원시 권선구,,exclude_submunicipal_parent_present
+population,4111500000,경기도 수원시 팔달구,,exclude_submunicipal_parent_present
+population,4111700000,경기도 수원시 영통구,,exclude_submunicipal_parent_present
+population,4113000000,경기도 성남시,4113000000,municipality
+population,4113100000,경기도 성남시 수정구,,exclude_submunicipal_parent_present
+population,4113300000,경기도 성남시 중원구,,exclude_submunicipal_parent_present
+population,4113500000,경기도 성남시 분당구,,exclude_submunicipal_parent_present
+population,4115000000,경기도 의정부시,4115000000,municipality
+population,4117000000,경기도 안양시,4117000000,municipality
+population,4117100000,경기도 안양시 만안구,,exclude_submunicipal_parent_present
+population,4117300000,경기도 안양시 동안구,,exclude_submunicipal_parent_present
+population,4119000000,경기도 부천시,4119000000,municipality
+population,4119200000,경기도 부천시 원미구,,exclude_submunicipal_parent_present
+population,4119400000,경기도 부천시 소사구,,exclude_submunicipal_parent_present
+population,4119600000,경기도 부천시 오정구,,exclude_submunicipal_parent_present
+population,4121000000,경기도 광명시,4121000000,municipality
+population,4122000000,경기도 평택시,4122000000,municipality
+population,4122200000,경기도 송탄출장소,,exclude_branch_office
+population,4122400000,경기도 안중출장소,,exclude_branch_office
+population,4125000000,경기도 동두천시,4125000000,municipality
+population,4127000000,경기도 안산시,4127000000,municipality
+population,4127100000,경기도 안산시 상록구,,exclude_submunicipal_parent_present
+population,4127300000,경기도 안산시 단원구,,exclude_submunicipal_parent_present
+population,4128000000,경기도 고양시,4128000000,municipality
+population,4128100000,경기도 고양시 덕양구,,exclude_submunicipal_parent_present
+population,4128500000,경기도 고양시 일산동구,,exclude_submunicipal_parent_present
+population,4128700000,경기도 고양시 일산서구,,exclude_submunicipal_parent_present
+population,4129000000,경기도 과천시,4129000000,municipality
+population,4131000000,경기도 구리시,4131000000,municipality
+population,4136000000,경기도 남양주시,4136000000,municipality
+population,4136200000,경기도 풍양출장소,,exclude_branch_office
+population,4137000000,경기도 오산시,4137000000,municipality
+population,4139000000,경기도 시흥시,4139000000,municipality
+population,4141000000,경기도 군포시,4141000000,municipality
+population,4143000000,경기도 의왕시,4143000000,municipality
+population,4145000000,경기도 하남시,4145000000,municipality
+population,4146000000,경기도 용인시,4146000000,municipality
+population,4146100000,경기도 용인시 처인구,,exclude_submunicipal_parent_present
+population,4146300000,경기도 용인시 기흥구,,exclude_submunicipal_parent_present
+population,4146500000,경기도 용인시 수지구,,exclude_submunicipal_parent_present
+population,4148000000,경기도 파주시,4148000000,municipality
+population,4150000000,경기도 이천시,4150000000,municipality
+population,4155000000,경기도 안성시,4155000000,municipality
+population,4157000000,경기도 김포시,4157000000,municipality
+population,4159000000,경기도 화성시,4159000000,municipality
+population,4159200000,경기도 화성시동부출장소,,exclude_branch_office
+population,4159400000,경기도 화성시동탄출장소,,exclude_branch_office
+population,4161000000,경기도 광주시,4161000000,municipality
+population,4163000000,경기도 양주시,4163000000,municipality
+population,4165000000,경기도 포천시,4165000000,municipality
+population,4167000000,경기도 여주시,4167000000,municipality
+population,4180000000,경기도 연천군,4180000000,municipality
+population,4182000000,경기도 가평군,4182000000,municipality
+population,4183000000,경기도 양평군,4183000000,municipality
+population,5100000000,강원특별자치도,,exclude_province_total
+population,5110500000,동해출장소,,exclude_branch_office
+population,5111000000,강원특별자치도 춘천시,5111000000,municipality
+population,5113000000,강원특별자치도 원주시,5113000000,municipality
+population,5115000000,강원특별자치도 강릉시,5115000000,municipality
+population,5117000000,강원특별자치도 동해시,5117000000,municipality
+population,5119000000,강원특별자치도 태백시,5119000000,municipality
+population,5121000000,강원특별자치도 속초시,5121000000,municipality
+population,5123000000,강원특별자치도 삼척시,5123000000,municipality
+population,5172000000,강원특별자치도 홍천군,5172000000,municipality
+population,5173000000,강원특별자치도 횡성군,5173000000,municipality
+population,5175000000,강원특별자치도 영월군,5175000000,municipality
+population,5176000000,강원특별자치도 평창군,5176000000,municipality
+population,5177000000,강원특별자치도 정선군,5177000000,municipality
+population,5178000000,강원특별자치도 철원군,5178000000,municipality
+population,5179000000,강원특별자치도 화천군,5179000000,municipality
+population,5180000000,강원특별자치도 양구군,5180000000,municipality
+population,5181000000,강원특별자치도 인제군,5181000000,municipality
+population,5182000000,강원특별자치도 고성군,5182000000,municipality
+population,5183000000,강원특별자치도 양양군,5183000000,municipality
+population,4300000000,충청북도,,exclude_province_total
+population,4311000000,충청북도 청주시,4311000000,municipality
+population,4311100000,충청북도 청주시 상당구,,exclude_submunicipal_parent_present
+population,4311200000,충청북도 청주시 서원구,,exclude_submunicipal_parent_present
+population,4311300000,충청북도 청주시 흥덕구,,exclude_submunicipal_parent_present
+population,4311400000,충청북도 청주시 청원구,,exclude_submunicipal_parent_present
+population,4313000000,충청북도 충주시,4313000000,municipality
+population,4315000000,충청북도 제천시,4315000000,municipality
+population,4372000000,충청북도 보은군,4372000000,municipality
+population,4373000000,충청북도 옥천군,4373000000,municipality
+population,4374000000,충청북도 영동군,4374000000,municipality
+population,4374500000,충청북도 증평군,4374500000,municipality
+population,4375000000,충청북도 진천군,4375000000,municipality
+population,4376000000,충청북도 괴산군,4376000000,municipality
+population,4377000000,충청북도 음성군,4377000000,municipality
+population,4380000000,충청북도 단양군,4380000000,municipality
+population,4400000000,충청남도,,exclude_province_total
+population,4413000000,충청남도 천안시,4413000000,municipality
+population,4413100000,충청남도 천안시 동남구,,exclude_submunicipal_parent_present
+population,4413300000,충청남도 천안시 서북구,,exclude_submunicipal_parent_present
+population,4415000000,충청남도 공주시,4415000000,municipality
+population,4418000000,충청남도 보령시,4418000000,municipality
+population,4420000000,충청남도 아산시,4420000000,municipality
+population,4421000000,충청남도 서산시,4421000000,municipality
+population,4423000000,충청남도 논산시,4423000000,municipality
+population,4425000000,충청남도 계룡시,4425000000,municipality
+population,4427000000,충청남도 당진시,4427000000,municipality
+population,4471000000,충청남도 금산군,4471000000,municipality
+population,4476000000,충청남도 부여군,4476000000,municipality
+population,4477000000,충청남도 서천군,4477000000,municipality
+population,4479000000,충청남도 청양군,4479000000,municipality
+population,4480000000,충청남도 홍성군,4480000000,municipality
+population,4481000000,충청남도 예산군,4481000000,municipality
+population,4482500000,충청남도 태안군,4482500000,municipality
+population,5200000000,전북특별자치도,,exclude_province_total
+population,5211000000,전북특별자치도 전주시,5211000000,municipality
+population,5211100000,전북특별자치도 전주시 완산구,,exclude_submunicipal_parent_present
+population,5211300000,전북특별자치도 전주시 덕진구,,exclude_submunicipal_parent_present
+population,5213000000,전북특별자치도 군산시,5213000000,municipality
+population,5214000000,전북특별자치도 익산시,5214000000,municipality
+population,5218000000,전북특별자치도 정읍시,5218000000,municipality
+population,5219000000,전북특별자치도 남원시,5219000000,municipality
+population,5221000000,전북특별자치도 김제시,5221000000,municipality
+population,5271000000,전북특별자치도 완주군,5271000000,municipality
+population,5272000000,전북특별자치도 진안군,5272000000,municipality
+population,5273000000,전북특별자치도 무주군,5273000000,municipality
+population,5274000000,전북특별자치도 장수군,5274000000,municipality
+population,5275000000,전북특별자치도 임실군,5275000000,municipality
+population,5277000000,전북특별자치도 순창군,5277000000,municipality
+population,5279000000,전북특별자치도 고창군,5279000000,municipality
+population,5280000000,전북특별자치도 부안군,5280000000,municipality
+population,4600000000,전라남도,,exclude_province_total
+population,4611000000,전라남도 목포시,4611000000,municipality
+population,4613000000,전라남도 여수시,4613000000,municipality
+population,4615000000,전라남도 순천시,4615000000,municipality
+population,4617000000,전라남도 나주시,4617000000,municipality
+population,4623000000,전라남도 광양시,4623000000,municipality
+population,4671000000,전라남도 담양군,4671000000,municipality
+population,4672000000,전라남도 곡성군,4672000000,municipality
+population,4673000000,전라남도 구례군,4673000000,municipality
+population,4677000000,전라남도 고흥군,4677000000,municipality
+population,4678000000,전라남도 보성군,4678000000,municipality
+population,4679000000,전라남도 화순군,4679000000,municipality
+population,4680000000,전라남도 장흥군,4680000000,municipality
+population,4681000000,전라남도 강진군,4681000000,municipality
+population,4682000000,전라남도 해남군,4682000000,municipality
+population,4683000000,전라남도 영암군,4683000000,municipality
+population,4684000000,전라남도 무안군,4684000000,municipality
+population,4686000000,전라남도 함평군,4686000000,municipality
+population,4687000000,전라남도 영광군,4687000000,municipality
+population,4688000000,전라남도 장성군,4688000000,municipality
+population,4689000000,전라남도 완도군,4689000000,municipality
+population,4690000000,전라남도 진도군,4690000000,municipality
+population,4691000000,전라남도 신안군,4691000000,municipality
+population,4700000000,경상북도,,exclude_province_total
+population,4711000000,경상북도 포항시,4711000000,municipality
+population,4711100000,경상북도 포항시 남구,,exclude_submunicipal_parent_present
+population,4711300000,경상북도 포항시 북구,,exclude_submunicipal_parent_present
+population,4713000000,경상북도 경주시,4713000000,municipality
+population,4715000000,경상북도 김천시,4715000000,municipality
+population,4717000000,경상북도 안동시,4717000000,municipality
+population,4719000000,경상북도 구미시,4719000000,municipality
+population,4721000000,경상북도 영주시,4721000000,municipality
+population,4723000000,경상북도 영천시,4723000000,municipality
+population,4725000000,경상북도 상주시,4725000000,municipality
+population,4728000000,경상북도 문경시,4728000000,municipality
+population,4729000000,경상북도 경산시,4729000000,municipality
+population,4773000000,경상북도 의성군,4773000000,municipality
+population,4775000000,경상북도 청송군,4775000000,municipality
+population,4776000000,경상북도 영양군,4776000000,municipality
+population,4777000000,경상북도 영덕군,4777000000,municipality
+population,4782000000,경상북도 청도군,4782000000,municipality
+population,4783000000,경상북도 고령군,4783000000,municipality
+population,4784000000,경상북도 성주군,4784000000,municipality
+population,4785000000,경상북도 칠곡군,4785000000,municipality
+population,4790000000,경상북도 예천군,4790000000,municipality
+population,4792000000,경상북도 봉화군,4792000000,municipality
+population,4793000000,경상북도 울진군,4793000000,municipality
+population,4794000000,경상북도 울릉군,4794000000,municipality
+population,4800000000,경상남도,,exclude_province_total
+population,4812000000,경상남도 창원시,4812000000,municipality
+population,4812100000,경상남도 창원시 의창구,,exclude_submunicipal_parent_present
+population,4812300000,경상남도 창원시 성산구,,exclude_submunicipal_parent_present
+population,4812500000,경상남도 창원시 마산합포구,,exclude_submunicipal_parent_present
+population,4812700000,경상남도 창원시 마산회원구,,exclude_submunicipal_parent_present
+population,4812900000,경상남도 창원시 진해구,,exclude_submunicipal_parent_present
+population,4817000000,경상남도 진주시,4817000000,municipality
+population,4822000000,경상남도 통영시,4822000000,municipality
+population,4824000000,경상남도 사천시,4824000000,municipality
+population,4824500000,경상남도 사천남양출장소,,exclude_branch_office
+population,4825000000,경상남도 김해시,4825000000,municipality
+population,4825200000,경상남도 장유출장소,,exclude_branch_office
+population,4827000000,경상남도 밀양시,4827000000,municipality
+population,4831000000,경상남도 거제시,4831000000,municipality
+population,4833000000,경상남도 양산시,4833000000,municipality
+population,4833200000,경상남도 양산시웅상출장소,,exclude_branch_office
+population,4872000000,경상남도 의령군,4872000000,municipality
+population,4873000000,경상남도 함안군,4873000000,municipality
+population,4874000000,경상남도 창녕군,4874000000,municipality
+population,4882000000,경상남도 고성군,4882000000,municipality
+population,4884000000,경상남도 남해군,4884000000,municipality
+population,4885000000,경상남도 하동군,4885000000,municipality
+population,4886000000,경상남도 산청군,4886000000,municipality
+population,4887000000,경상남도 함양군,4887000000,municipality
+population,4888000000,경상남도 거창군,4888000000,municipality
+population,4889000000,경상남도 합천군,4889000000,municipality
+population,5000000000,제주특별자치도,5000000000,special_province
+population,5011000000,제주특별자치도 제주시,,exclude_jeju_children_parent_present
+population,5013000000,제주특별자치도 서귀포시,,exclude_jeju_children_parent_present
+election,강원특별자치도|강릉시,강원특별자치도 강릉시,5115000000,municipality
+election,강원특별자치도|고성군,강원특별자치도 고성군,5182000000,municipality
+election,강원특별자치도|동해시,강원특별자치도 동해시,5117000000,municipality
+election,강원특별자치도|삼척시,강원특별자치도 삼척시,5123000000,municipality
+election,강원특별자치도|속초시,강원특별자치도 속초시,5121000000,municipality
+election,강원특별자치도|양구군,강원특별자치도 양구군,5180000000,municipality
+election,강원특별자치도|양양군,강원특별자치도 양양군,5183000000,municipality
+election,강원특별자치도|영월군,강원특별자치도 영월군,5175000000,municipality
+election,강원특별자치도|원주시,강원특별자치도 원주시,5113000000,municipality
+election,강원특별자치도|인제군,강원특별자치도 인제군,5181000000,municipality
+election,강원특별자치도|정선군,강원특별자치도 정선군,5177000000,municipality
+election,강원특별자치도|철원군,강원특별자치도 철원군,5178000000,municipality
+election,강원특별자치도|춘천시,강원특별자치도 춘천시,5111000000,municipality
+election,강원특별자치도|태백시,강원특별자치도 태백시,5119000000,municipality
+election,강원특별자치도|평창군,강원특별자치도 평창군,5176000000,municipality
+election,강원특별자치도|홍천군,강원특별자치도 홍천군,5172000000,municipality
+election,강원특별자치도|화천군,강원특별자치도 화천군,5179000000,municipality
+election,강원특별자치도|횡성군,강원특별자치도 횡성군,5173000000,municipality
+election,경기도|가평군,경기도 가평군,4182000000,municipality
+election,경기도|고양시덕양구,경기도 고양시덕양구,4128000000,submunicipal
+election,경기도|고양시일산동구,경기도 고양시일산동구,4128000000,submunicipal
+election,경기도|고양시일산서구,경기도 고양시일산서구,4128000000,submunicipal
+election,경기도|과천시,경기도 과천시,4129000000,municipality
+election,경기도|광명시,경기도 광명시,4121000000,municipality
+election,경기도|광주시,경기도 광주시,4161000000,municipality
+election,경기도|구리시,경기도 구리시,4131000000,municipality
+election,경기도|군포시,경기도 군포시,4141000000,municipality
+election,경기도|김포시,경기도 김포시,4157000000,municipality
+election,경기도|남양주시,경기도 남양주시,4136000000,municipality
+election,경기도|동두천시,경기도 동두천시,4125000000,municipality
+election,경기도|부천시소사구,경기도 부천시소사구,4119000000,submunicipal
+election,경기도|부천시오정구,경기도 부천시오정구,4119000000,submunicipal
+election,경기도|부천시원미구,경기도 부천시원미구,4119000000,submunicipal
+election,경기도|성남시분당구,경기도 성남시분당구,4113000000,submunicipal
+election,경기도|성남시수정구,경기도 성남시수정구,4113000000,submunicipal
+election,경기도|성남시중원구,경기도 성남시중원구,4113000000,submunicipal
+election,경기도|수원시권선구,경기도 수원시권선구,4111000000,submunicipal
+election,경기도|수원시영통구,경기도 수원시영통구,4111000000,submunicipal
+election,경기도|수원시장안구,경기도 수원시장안구,4111000000,submunicipal
+election,경기도|수원시팔달구,경기도 수원시팔달구,4111000000,submunicipal
+election,경기도|시흥시,경기도 시흥시,4139000000,municipality
+election,경기도|안산시단원구,경기도 안산시단원구,4127000000,submunicipal
+election,경기도|안산시상록구,경기도 안산시상록구,4127000000,submunicipal
+election,경기도|안성시,경기도 안성시,4155000000,municipality
+election,경기도|안양시동안구,경기도 안양시동안구,4117000000,submunicipal
+election,경기도|안양시만안구,경기도 안양시만안구,4117000000,submunicipal
+election,경기도|양주시,경기도 양주시,4163000000,municipality
+election,경기도|양평군,경기도 양평군,4183000000,municipality
+election,경기도|여주시,경기도 여주시,4167000000,municipality
+election,경기도|연천군,경기도 연천군,4180000000,municipality
+election,경기도|오산시,경기도 오산시,4137000000,municipality
+election,경기도|용인시기흥구,경기도 용인시기흥구,4146000000,submunicipal
+election,경기도|용인시수지구,경기도 용인시수지구,4146000000,submunicipal
+election,경기도|용인시처인구,경기도 용인시처인구,4146000000,submunicipal
+election,경기도|의왕시,경기도 의왕시,4143000000,municipality
+election,경기도|의정부시,경기도 의정부시,4115000000,municipality
+election,경기도|이천시,경기도 이천시,4150000000,municipality
+election,경기도|파주시,경기도 파주시,4148000000,municipality
+election,경기도|평택시,경기도 평택시,4122000000,municipality
+election,경기도|포천시,경기도 포천시,4165000000,municipality
+election,경기도|하남시,경기도 하남시,4145000000,municipality
+election,경기도|화성시갑,경기도 화성시갑,4159000000,hwaseong_commission_partition_verified_29_towns
+election,경기도|화성시을,경기도 화성시을,4159000000,hwaseong_commission_partition_verified_29_towns
+election,경상남도|거제시,경상남도 거제시,4831000000,municipality
+election,경상남도|거창군,경상남도 거창군,4888000000,municipality
+election,경상남도|고성군,경상남도 고성군,4882000000,municipality
+election,경상남도|김해시,경상남도 김해시,4825000000,municipality
+election,경상남도|남해군,경상남도 남해군,4884000000,municipality
+election,경상남도|밀양시,경상남도 밀양시,4827000000,municipality
+election,경상남도|사천시,경상남도 사천시,4824000000,municipality
+election,경상남도|산청군,경상남도 산청군,4886000000,municipality
+election,경상남도|양산시,경상남도 양산시,4833000000,municipality
+election,경상남도|의령군,경상남도 의령군,4872000000,municipality
+election,경상남도|진주시,경상남도 진주시,4817000000,municipality
+election,경상남도|창녕군,경상남도 창녕군,4874000000,municipality
+election,경상남도|창원시마산합포구,경상남도 창원시마산합포구,4812000000,submunicipal
+election,경상남도|창원시마산회원구,경상남도 창원시마산회원구,4812000000,submunicipal
+election,경상남도|창원시성산구,경상남도 창원시성산구,4812000000,submunicipal
+election,경상남도|창원시의창구,경상남도 창원시의창구,4812000000,submunicipal
+election,경상남도|창원시진해구,경상남도 창원시진해구,4812000000,submunicipal
+election,경상남도|통영시,경상남도 통영시,4822000000,municipality
+election,경상남도|하동군,경상남도 하동군,4885000000,municipality
+election,경상남도|함안군,경상남도 함안군,4873000000,municipality
+election,경상남도|함양군,경상남도 함양군,4887000000,municipality
+election,경상남도|합천군,경상남도 합천군,4889000000,municipality
+election,경상북도|경산시,경상북도 경산시,4729000000,municipality
+election,경상북도|경주시,경상북도 경주시,4713000000,municipality
+election,경상북도|고령군,경상북도 고령군,4783000000,municipality
+election,경상북도|구미시,경상북도 구미시,4719000000,municipality
+election,경상북도|김천시,경상북도 김천시,4715000000,municipality
+election,경상북도|문경시,경상북도 문경시,4728000000,municipality
+election,경상북도|봉화군,경상북도 봉화군,4792000000,municipality
+election,경상북도|상주시,경상북도 상주시,4725000000,municipality
+election,경상북도|성주군,경상북도 성주군,4784000000,municipality
+election,경상북도|안동시,경상북도 안동시,4717000000,municipality
+election,경상북도|영덕군,경상북도 영덕군,4777000000,municipality
+election,경상북도|영양군,경상북도 영양군,4776000000,municipality
+election,경상북도|영주시,경상북도 영주시,4721000000,municipality
+election,경상북도|영천시,경상북도 영천시,4723000000,municipality
+election,경상북도|예천군,경상북도 예천군,4790000000,municipality
+election,경상북도|울릉군,경상북도 울릉군,4794000000,municipality
+election,경상북도|울진군,경상북도 울진군,4793000000,municipality
+election,경상북도|의성군,경상북도 의성군,4773000000,municipality
+election,경상북도|청도군,경상북도 청도군,4782000000,municipality
+election,경상북도|청송군,경상북도 청송군,4775000000,municipality
+election,경상북도|칠곡군,경상북도 칠곡군,4785000000,municipality
+election,경상북도|포항시남구,경상북도 포항시남구,4711000000,submunicipal
+election,경상북도|포항시북구,경상북도 포항시북구,4711000000,submunicipal
+election,광주광역시|광산구,광주광역시 광산구,2920000000,municipality
+election,광주광역시|남구,광주광역시 남구,2915500000,municipality
+election,광주광역시|동구,광주광역시 동구,2911000000,municipality
+election,광주광역시|북구,광주광역시 북구,2917000000,municipality
+election,광주광역시|서구,광주광역시 서구,2914000000,municipality
+election,대구광역시|군위군,대구광역시 군위군,2772000000,municipality
+election,대구광역시|남구,대구광역시 남구,2720000000,municipality
+election,대구광역시|달서구,대구광역시 달서구,2729000000,municipality
+election,대구광역시|달성군,대구광역시 달성군,2771000000,municipality
+election,대구광역시|동구,대구광역시 동구,2714000000,municipality
+election,대구광역시|북구,대구광역시 북구,2723000000,municipality
+election,대구광역시|서구,대구광역시 서구,2717000000,municipality
+election,대구광역시|수성구,대구광역시 수성구,2726000000,municipality
+election,대구광역시|중구,대구광역시 중구,2711000000,municipality
+election,대전광역시|대덕구,대전광역시 대덕구,3023000000,municipality
+election,대전광역시|동구,대전광역시 동구,3011000000,municipality
+election,대전광역시|서구,대전광역시 서구,3017000000,municipality
+election,대전광역시|유성구,대전광역시 유성구,3020000000,municipality
+election,대전광역시|중구,대전광역시 중구,3014000000,municipality
+election,부산광역시|강서구,부산광역시 강서구,2644000000,municipality
+election,부산광역시|금정구,부산광역시 금정구,2641000000,municipality
+election,부산광역시|기장군,부산광역시 기장군,2671000000,municipality
+election,부산광역시|남구,부산광역시 남구,2629000000,municipality
+election,부산광역시|동구,부산광역시 동구,2617000000,municipality
+election,부산광역시|동래구,부산광역시 동래구,2626000000,municipality
+election,부산광역시|부산진구,부산광역시 부산진구,2623000000,municipality
+election,부산광역시|북구,부산광역시 북구,2632000000,municipality
+election,부산광역시|사상구,부산광역시 사상구,2653000000,municipality
+election,부산광역시|사하구,부산광역시 사하구,2638000000,municipality
+election,부산광역시|서구,부산광역시 서구,2614000000,municipality
+election,부산광역시|수영구,부산광역시 수영구,2650000000,municipality
+election,부산광역시|연제구,부산광역시 연제구,2647000000,municipality
+election,부산광역시|영도구,부산광역시 영도구,2620000000,municipality
+election,부산광역시|중구,부산광역시 중구,2611000000,municipality
+election,부산광역시|해운대구,부산광역시 해운대구,2635000000,municipality
+election,서울특별시|강남구,서울특별시 강남구,1168000000,municipality
+election,서울특별시|강동구,서울특별시 강동구,1174000000,municipality
+election,서울특별시|강북구,서울특별시 강북구,1130500000,municipality
+election,서울특별시|강서구,서울특별시 강서구,1150000000,municipality
+election,서울특별시|관악구,서울특별시 관악구,1162000000,municipality
+election,서울특별시|광진구,서울특별시 광진구,1121500000,municipality
+election,서울특별시|구로구,서울특별시 구로구,1153000000,municipality
+election,서울특별시|금천구,서울특별시 금천구,1154500000,municipality
+election,서울특별시|노원구,서울특별시 노원구,1135000000,municipality
+election,서울특별시|도봉구,서울특별시 도봉구,1132000000,municipality
+election,서울특별시|동대문구,서울특별시 동대문구,1123000000,municipality
+election,서울특별시|동작구,서울특별시 동작구,1159000000,municipality
+election,서울특별시|마포구,서울특별시 마포구,1144000000,municipality
+election,서울특별시|서대문구,서울특별시 서대문구,1141000000,municipality
+election,서울특별시|서초구,서울특별시 서초구,1165000000,municipality
+election,서울특별시|성동구,서울특별시 성동구,1120000000,municipality
+election,서울특별시|성북구,서울특별시 성북구,1129000000,municipality
+election,서울특별시|송파구,서울특별시 송파구,1171000000,municipality
+election,서울특별시|양천구,서울특별시 양천구,1147000000,municipality
+election,서울특별시|영등포구,서울특별시 영등포구,1156000000,municipality
+election,서울특별시|용산구,서울특별시 용산구,1117000000,municipality
+election,서울특별시|은평구,서울특별시 은평구,1138000000,municipality
+election,서울특별시|종로구,서울특별시 종로구,1111000000,municipality
+election,서울특별시|중구,서울특별시 중구,1114000000,municipality
+election,서울특별시|중랑구,서울특별시 중랑구,1126000000,municipality
+election,세종특별자치시|세종특별자치시,세종특별자치시 세종특별자치시,3600000000,municipality
+election,울산광역시|남구,울산광역시 남구,3114000000,municipality
+election,울산광역시|동구,울산광역시 동구,3117000000,municipality
+election,울산광역시|북구,울산광역시 북구,3120000000,municipality
+election,울산광역시|울주군,울산광역시 울주군,3171000000,municipality
+election,울산광역시|중구,울산광역시 중구,3111000000,municipality
+election,인천광역시|강화군,인천광역시 강화군,2871000000,municipality
+election,인천광역시|계양구,인천광역시 계양구,2824500000,municipality
+election,인천광역시|남동구,인천광역시 남동구,2820000000,municipality
+election,인천광역시|동구,인천광역시 동구,2814000000,municipality
+election,인천광역시|미추홀구,인천광역시 미추홀구,2817700000,municipality
+election,인천광역시|부평구,인천광역시 부평구,2823700000,municipality
+election,인천광역시|서구,인천광역시 서구,2826000000,municipality
+election,인천광역시|연수구,인천광역시 연수구,2818500000,municipality
+election,인천광역시|옹진군,인천광역시 옹진군,2872000000,municipality
+election,인천광역시|중구,인천광역시 중구,2811000000,municipality
+election,전라남도|강진군,전라남도 강진군,4681000000,municipality
+election,전라남도|고흥군,전라남도 고흥군,4677000000,municipality
+election,전라남도|곡성군,전라남도 곡성군,4672000000,municipality
+election,전라남도|광양시,전라남도 광양시,4623000000,municipality
+election,전라남도|구례군,전라남도 구례군,4673000000,municipality
+election,전라남도|나주시,전라남도 나주시,4617000000,municipality
+election,전라남도|담양군,전라남도 담양군,4671000000,municipality
+election,전라남도|목포시,전라남도 목포시,4611000000,municipality
+election,전라남도|무안군,전라남도 무안군,4684000000,municipality
+election,전라남도|보성군,전라남도 보성군,4678000000,municipality
+election,전라남도|순천시,전라남도 순천시,4615000000,municipality
+election,전라남도|신안군,전라남도 신안군,4691000000,municipality
+election,전라남도|여수시,전라남도 여수시,4613000000,municipality
+election,전라남도|영광군,전라남도 영광군,4687000000,municipality
+election,전라남도|영암군,전라남도 영암군,4683000000,municipality
+election,전라남도|완도군,전라남도 완도군,4689000000,municipality
+election,전라남도|장성군,전라남도 장성군,4688000000,municipality
+election,전라남도|장흥군,전라남도 장흥군,4680000000,municipality
+election,전라남도|진도군,전라남도 진도군,4690000000,municipality
+election,전라남도|함평군,전라남도 함평군,4686000000,municipality
+election,전라남도|해남군,전라남도 해남군,4682000000,municipality
+election,전라남도|화순군,전라남도 화순군,4679000000,municipality
+election,전북특별자치도|고창군,전북특별자치도 고창군,5279000000,municipality
+election,전북특별자치도|군산시,전북특별자치도 군산시,5213000000,municipality
+election,전북특별자치도|김제시,전북특별자치도 김제시,5221000000,municipality
+election,전북특별자치도|남원시,전북특별자치도 남원시,5219000000,municipality
+election,전북특별자치도|무주군,전북특별자치도 무주군,5273000000,municipality
+election,전북특별자치도|부안군,전북특별자치도 부안군,5280000000,municipality
+election,전북특별자치도|순창군,전북특별자치도 순창군,5277000000,municipality
+election,전북특별자치도|완주군,전북특별자치도 완주군,5271000000,municipality
+election,전북특별자치도|익산시,전북특별자치도 익산시,5214000000,municipality
+election,전북특별자치도|임실군,전북특별자치도 임실군,5275000000,municipality
+election,전북특별자치도|장수군,전북특별자치도 장수군,5274000000,municipality
+election,전북특별자치도|전주시덕진구,전북특별자치도 전주시덕진구,5211000000,submunicipal
+election,전북특별자치도|전주시완산구,전북특별자치도 전주시완산구,5211000000,submunicipal
+election,전북특별자치도|정읍시,전북특별자치도 정읍시,5218000000,municipality
+election,전북특별자치도|진안군,전북특별자치도 진안군,5272000000,municipality
+election,제주특별자치도|서귀포시,제주특별자치도 서귀포시,5000000000,jeju_administrative_city
+election,제주특별자치도|제주시,제주특별자치도 제주시,5000000000,jeju_administrative_city
+election,충청남도|계룡시,충청남도 계룡시,4425000000,municipality
+election,충청남도|공주시,충청남도 공주시,4415000000,municipality
+election,충청남도|금산군,충청남도 금산군,4471000000,municipality
+election,충청남도|논산시,충청남도 논산시,4423000000,municipality
+election,충청남도|당진시,충청남도 당진시,4427000000,municipality
+election,충청남도|보령시,충청남도 보령시,4418000000,municipality
+election,충청남도|부여군,충청남도 부여군,4476000000,municipality
+election,충청남도|서산시,충청남도 서산시,4421000000,municipality
+election,충청남도|서천군,충청남도 서천군,4477000000,municipality
+election,충청남도|아산시,충청남도 아산시,4420000000,municipality
+election,충청남도|예산군,충청남도 예산군,4481000000,municipality
+election,충청남도|천안시동남구,충청남도 천안시동남구,4413000000,submunicipal
+election,충청남도|천안시서북구,충청남도 천안시서북구,4413000000,submunicipal
+election,충청남도|청양군,충청남도 청양군,4479000000,municipality
+election,충청남도|태안군,충청남도 태안군,4482500000,municipality
+election,충청남도|홍성군,충청남도 홍성군,4480000000,municipality
+election,충청북도|괴산군,충청북도 괴산군,4376000000,municipality
+election,충청북도|단양군,충청북도 단양군,4380000000,municipality
+election,충청북도|보은군,충청북도 보은군,4372000000,municipality
+election,충청북도|영동군,충청북도 영동군,4374000000,municipality
+election,충청북도|옥천군,충청북도 옥천군,4373000000,municipality
+election,충청북도|음성군,충청북도 음성군,4377000000,municipality
+election,충청북도|제천시,충청북도 제천시,4315000000,municipality
+election,충청북도|증평군,충청북도 증평군,4374500000,municipality
+election,충청북도|진천군,충청북도 진천군,4375000000,municipality
+election,충청북도|청주시상당구,충청북도 청주시상당구,4311000000,submunicipal
+election,충청북도|청주시서원구,충청북도 청주시서원구,4311000000,submunicipal
+election,충청북도|청주시청원구,충청북도 청주시청원구,4311000000,submunicipal
+election,충청북도|청주시흥덕구,충청북도 청주시흥덕구,4311000000,submunicipal
+election,충청북도|충주시,충청북도 충주시,4313000000,municipality
+fiscal,서울본청,서울본청,,exclude_province_total
+fiscal,서울종로구,서울종로구,1111000000,municipality
+fiscal,서울중구,서울중구,1114000000,municipality
+fiscal,서울용산구,서울용산구,1117000000,municipality
+fiscal,서울성동구,서울성동구,1120000000,municipality
+fiscal,서울광진구,서울광진구,1121500000,municipality
+fiscal,서울동대문구,서울동대문구,1123000000,municipality
+fiscal,서울중랑구,서울중랑구,1126000000,municipality
+fiscal,서울성북구,서울성북구,1129000000,municipality
+fiscal,서울강북구,서울강북구,1130500000,municipality
+fiscal,서울도봉구,서울도봉구,1132000000,municipality
+fiscal,서울노원구,서울노원구,1135000000,municipality
+fiscal,서울은평구,서울은평구,1138000000,municipality
+fiscal,서울서대문구,서울서대문구,1141000000,municipality
+fiscal,서울마포구,서울마포구,1144000000,municipality
+fiscal,서울양천구,서울양천구,1147000000,municipality
+fiscal,서울강서구,서울강서구,1150000000,municipality
+fiscal,서울구로구,서울구로구,1153000000,municipality
+fiscal,서울금천구,서울금천구,1154500000,municipality
+fiscal,서울영등포구,서울영등포구,1156000000,municipality
+fiscal,서울동작구,서울동작구,1159000000,municipality
+fiscal,서울관악구,서울관악구,1162000000,municipality
+fiscal,서울서초구,서울서초구,1165000000,municipality
+fiscal,서울강남구,서울강남구,1168000000,municipality
+fiscal,서울송파구,서울송파구,1171000000,municipality
+fiscal,서울강동구,서울강동구,1174000000,municipality
+fiscal,부산본청,부산본청,,exclude_province_total
+fiscal,부산중구,부산중구,2611000000,municipality
+fiscal,부산서구,부산서구,2614000000,municipality
+fiscal,부산동구,부산동구,2617000000,municipality
+fiscal,부산영도구,부산영도구,2620000000,municipality
+fiscal,부산부산진구,부산부산진구,2623000000,municipality
+fiscal,부산동래구,부산동래구,2626000000,municipality
+fiscal,부산남구,부산남구,2629000000,municipality
+fiscal,부산북구,부산북구,2632000000,municipality
+fiscal,부산해운대구,부산해운대구,2635000000,municipality
+fiscal,부산사하구,부산사하구,2638000000,municipality
+fiscal,부산금정구,부산금정구,2641000000,municipality
+fiscal,부산강서구,부산강서구,2644000000,municipality
+fiscal,부산연제구,부산연제구,2647000000,municipality
+fiscal,부산수영구,부산수영구,2650000000,municipality
+fiscal,부산사상구,부산사상구,2653000000,municipality
+fiscal,부산기장군,부산기장군,2671000000,municipality
+fiscal,대구본청,대구본청,,exclude_province_total
+fiscal,대구중구,대구중구,2711000000,municipality
+fiscal,대구동구,대구동구,2714000000,municipality
+fiscal,대구서구,대구서구,2717000000,municipality
+fiscal,대구남구,대구남구,2720000000,municipality
+fiscal,대구북구,대구북구,2723000000,municipality
+fiscal,대구수성구,대구수성구,2726000000,municipality
+fiscal,대구달서구,대구달서구,2729000000,municipality
+fiscal,대구달성군,대구달성군,2771000000,municipality
+fiscal,대구군위군,대구군위군,2772000000,municipality
+fiscal,인천본청,인천본청,,exclude_province_total
+fiscal,인천중구,인천중구,2811000000,municipality
+fiscal,인천동구,인천동구,2814000000,municipality
+fiscal,인천미추홀구,인천미추홀구,2817700000,municipality
+fiscal,인천연수구,인천연수구,2818500000,municipality
+fiscal,인천남동구,인천남동구,2820000000,municipality
+fiscal,인천부평구,인천부평구,2823700000,municipality
+fiscal,인천계양구,인천계양구,2824500000,municipality
+fiscal,인천서구,인천서구,2826000000,municipality
+fiscal,인천강화군,인천강화군,2871000000,municipality
+fiscal,인천옹진군,인천옹진군,2872000000,municipality
+fiscal,광주본청,광주본청,,exclude_province_total
+fiscal,광주동구,광주동구,2911000000,municipality
+fiscal,광주서구,광주서구,2914000000,municipality
+fiscal,광주남구,광주남구,2915500000,municipality
+fiscal,광주북구,광주북구,2917000000,municipality
+fiscal,광주광산구,광주광산구,2920000000,municipality
+fiscal,대전본청,대전본청,,exclude_province_total
+fiscal,대전동구,대전동구,3011000000,municipality
+fiscal,대전중구,대전중구,3014000000,municipality
+fiscal,대전서구,대전서구,3017000000,municipality
+fiscal,대전유성구,대전유성구,3020000000,municipality
+fiscal,대전대덕구,대전대덕구,3023000000,municipality
+fiscal,울산본청,울산본청,,exclude_province_total
+fiscal,울산중구,울산중구,3111000000,municipality
+fiscal,울산남구,울산남구,3114000000,municipality
+fiscal,울산동구,울산동구,3117000000,municipality
+fiscal,울산북구,울산북구,3120000000,municipality
+fiscal,울산울주군,울산울주군,3171000000,municipality
+fiscal,세종본청,세종본청,3600000000,special_province
+fiscal,경기본청,경기본청,,exclude_province_total
+fiscal,경기수원시,경기수원시,4111000000,municipality
+fiscal,경기성남시,경기성남시,4113000000,municipality
+fiscal,경기고양시,경기고양시,4128000000,municipality
+fiscal,경기용인시,경기용인시,4146000000,municipality
+fiscal,경기부천시,경기부천시,4119000000,municipality
+fiscal,경기안산시,경기안산시,4127000000,municipality
+fiscal,경기안양시,경기안양시,4117000000,municipality
+fiscal,경기남양주시,경기남양주시,4136000000,municipality
+fiscal,경기화성시,경기화성시,4159000000,municipality
+fiscal,경기평택시,경기평택시,4122000000,municipality
+fiscal,경기의정부시,경기의정부시,4115000000,municipality
+fiscal,경기시흥시,경기시흥시,4139000000,municipality
+fiscal,경기파주시,경기파주시,4148000000,municipality
+fiscal,경기광명시,경기광명시,4121000000,municipality
+fiscal,경기김포시,경기김포시,4157000000,municipality
+fiscal,경기군포시,경기군포시,4141000000,municipality
+fiscal,경기광주시,경기광주시,4161000000,municipality
+fiscal,경기이천시,경기이천시,4150000000,municipality
+fiscal,경기양주시,경기양주시,4163000000,municipality
+fiscal,경기오산시,경기오산시,4137000000,municipality
+fiscal,경기구리시,경기구리시,4131000000,municipality
+fiscal,경기안성시,경기안성시,4155000000,municipality
+fiscal,경기포천시,경기포천시,4165000000,municipality
+fiscal,경기의왕시,경기의왕시,4143000000,municipality
+fiscal,경기하남시,경기하남시,4145000000,municipality
+fiscal,경기여주시,경기여주시,4167000000,municipality
+fiscal,경기동두천시,경기동두천시,4125000000,municipality
+fiscal,경기과천시,경기과천시,4129000000,municipality
+fiscal,경기양평군,경기양평군,4183000000,municipality
+fiscal,경기가평군,경기가평군,4182000000,municipality
+fiscal,경기연천군,경기연천군,4180000000,municipality
+fiscal,강원본청,강원본청,,exclude_province_total
+fiscal,강원춘천시,강원춘천시,5111000000,municipality
+fiscal,강원원주시,강원원주시,5113000000,municipality
+fiscal,강원강릉시,강원강릉시,5115000000,municipality
+fiscal,강원동해시,강원동해시,5117000000,municipality
+fiscal,강원태백시,강원태백시,5119000000,municipality
+fiscal,강원속초시,강원속초시,5121000000,municipality
+fiscal,강원삼척시,강원삼척시,5123000000,municipality
+fiscal,강원홍천군,강원홍천군,5172000000,municipality
+fiscal,강원횡성군,강원횡성군,5173000000,municipality
+fiscal,강원영월군,강원영월군,5175000000,municipality
+fiscal,강원평창군,강원평창군,5176000000,municipality
+fiscal,강원정선군,강원정선군,5177000000,municipality
+fiscal,강원철원군,강원철원군,5178000000,municipality
+fiscal,강원화천군,강원화천군,5179000000,municipality
+fiscal,강원양구군,강원양구군,5180000000,municipality
+fiscal,강원인제군,강원인제군,5181000000,municipality
+fiscal,강원고성군,강원고성군,5182000000,municipality
+fiscal,강원양양군,강원양양군,5183000000,municipality
+fiscal,충북본청,충북본청,,exclude_province_total
+fiscal,충북청주시,충북청주시,4311000000,municipality
+fiscal,충북충주시,충북충주시,4313000000,municipality
+fiscal,충북제천시,충북제천시,4315000000,municipality
+fiscal,충북보은군,충북보은군,4372000000,municipality
+fiscal,충북옥천군,충북옥천군,4373000000,municipality
+fiscal,충북영동군,충북영동군,4374000000,municipality
+fiscal,충북증평군,충북증평군,4374500000,municipality
+fiscal,충북진천군,충북진천군,4375000000,municipality
+fiscal,충북괴산군,충북괴산군,4376000000,municipality
+fiscal,충북음성군,충북음성군,4377000000,municipality
+fiscal,충북단양군,충북단양군,4380000000,municipality
+fiscal,충남본청,충남본청,,exclude_province_total
+fiscal,충남천안시,충남천안시,4413000000,municipality
+fiscal,충남공주시,충남공주시,4415000000,municipality
+fiscal,충남보령시,충남보령시,4418000000,municipality
+fiscal,충남아산시,충남아산시,4420000000,municipality
+fiscal,충남서산시,충남서산시,4421000000,municipality
+fiscal,충남논산시,충남논산시,4423000000,municipality
+fiscal,충남계룡시,충남계룡시,4425000000,municipality
+fiscal,충남당진시,충남당진시,4427000000,municipality
+fiscal,충남금산군,충남금산군,4471000000,municipality
+fiscal,충남부여군,충남부여군,4476000000,municipality
+fiscal,충남서천군,충남서천군,4477000000,municipality
+fiscal,충남청양군,충남청양군,4479000000,municipality
+fiscal,충남홍성군,충남홍성군,4480000000,municipality
+fiscal,충남예산군,충남예산군,4481000000,municipality
+fiscal,충남태안군,충남태안군,4482500000,municipality
+fiscal,전북본청,전북본청,,exclude_province_total
+fiscal,전북전주시,전북전주시,5211000000,municipality
+fiscal,전북군산시,전북군산시,5213000000,municipality
+fiscal,전북익산시,전북익산시,5214000000,municipality
+fiscal,전북정읍시,전북정읍시,5218000000,municipality
+fiscal,전북남원시,전북남원시,5219000000,municipality
+fiscal,전북김제시,전북김제시,5221000000,municipality
+fiscal,전북완주군,전북완주군,5271000000,municipality
+fiscal,전북진안군,전북진안군,5272000000,municipality
+fiscal,전북무주군,전북무주군,5273000000,municipality
+fiscal,전북장수군,전북장수군,5274000000,municipality
+fiscal,전북임실군,전북임실군,5275000000,municipality
+fiscal,전북순창군,전북순창군,5277000000,municipality
+fiscal,전북고창군,전북고창군,5279000000,municipality
+fiscal,전북부안군,전북부안군,5280000000,municipality
+fiscal,전남본청,전남본청,,exclude_province_total
+fiscal,전남목포시,전남목포시,4611000000,municipality
+fiscal,전남여수시,전남여수시,4613000000,municipality
+fiscal,전남순천시,전남순천시,4615000000,municipality
+fiscal,전남나주시,전남나주시,4617000000,municipality
+fiscal,전남광양시,전남광양시,4623000000,municipality
+fiscal,전남담양군,전남담양군,4671000000,municipality
+fiscal,전남곡성군,전남곡성군,4672000000,municipality
+fiscal,전남구례군,전남구례군,4673000000,municipality
+fiscal,전남고흥군,전남고흥군,4677000000,municipality
+fiscal,전남보성군,전남보성군,4678000000,municipality
+fiscal,전남화순군,전남화순군,4679000000,municipality
+fiscal,전남장흥군,전남장흥군,4680000000,municipality
+fiscal,전남강진군,전남강진군,4681000000,municipality
+fiscal,전남해남군,전남해남군,4682000000,municipality
+fiscal,전남영암군,전남영암군,4683000000,municipality
+fiscal,전남무안군,전남무안군,4684000000,municipality
+fiscal,전남함평군,전남함평군,4686000000,municipality
+fiscal,전남영광군,전남영광군,4687000000,municipality
+fiscal,전남장성군,전남장성군,4688000000,municipality
+fiscal,전남완도군,전남완도군,4689000000,municipality
+fiscal,전남진도군,전남진도군,4690000000,municipality
+fiscal,전남신안군,전남신안군,4691000000,municipality
+fiscal,경북본청,경북본청,,exclude_province_total
+fiscal,경북포항시,경북포항시,4711000000,municipality
+fiscal,경북경주시,경북경주시,4713000000,municipality
+fiscal,경북김천시,경북김천시,4715000000,municipality
+fiscal,경북안동시,경북안동시,4717000000,municipality
+fiscal,경북구미시,경북구미시,4719000000,municipality
+fiscal,경북영주시,경북영주시,4721000000,municipality
+fiscal,경북영천시,경북영천시,4723000000,municipality
+fiscal,경북상주시,경북상주시,4725000000,municipality
+fiscal,경북문경시,경북문경시,4728000000,municipality
+fiscal,경북경산시,경북경산시,4729000000,municipality
+fiscal,경북의성군,경북의성군,4773000000,municipality
+fiscal,경북청송군,경북청송군,4775000000,municipality
+fiscal,경북영양군,경북영양군,4776000000,municipality
+fiscal,경북영덕군,경북영덕군,4777000000,municipality
+fiscal,경북청도군,경북청도군,4782000000,municipality
+fiscal,경북고령군,경북고령군,4783000000,municipality
+fiscal,경북성주군,경북성주군,4784000000,municipality
+fiscal,경북칠곡군,경북칠곡군,4785000000,municipality
+fiscal,경북예천군,경북예천군,4790000000,municipality
+fiscal,경북봉화군,경북봉화군,4792000000,municipality
+fiscal,경북울진군,경북울진군,4793000000,municipality
+fiscal,경북울릉군,경북울릉군,4794000000,municipality
+fiscal,경남본청,경남본청,,exclude_province_total
+fiscal,경남창원시,경남창원시,4812000000,municipality
+fiscal,경남진주시,경남진주시,4817000000,municipality
+fiscal,경남통영시,경남통영시,4822000000,municipality
+fiscal,경남사천시,경남사천시,4824000000,municipality
+fiscal,경남김해시,경남김해시,4825000000,municipality
+fiscal,경남밀양시,경남밀양시,4827000000,municipality
+fiscal,경남거제시,경남거제시,4831000000,municipality
+fiscal,경남양산시,경남양산시,4833000000,municipality
+fiscal,경남의령군,경남의령군,4872000000,municipality
+fiscal,경남함안군,경남함안군,4873000000,municipality
+fiscal,경남창녕군,경남창녕군,4874000000,municipality
+fiscal,경남고성군,경남고성군,4882000000,municipality
+fiscal,경남남해군,경남남해군,4884000000,municipality
+fiscal,경남하동군,경남하동군,4885000000,municipality
+fiscal,경남산청군,경남산청군,4886000000,municipality
+fiscal,경남함양군,경남함양군,4887000000,municipality
+fiscal,경남거창군,경남거창군,4888000000,municipality
+fiscal,경남합천군,경남합천군,4889000000,municipality
+fiscal,제주본청,제주본청,5000000000,special_province
+migration,00,전국,,exclude_national_total
+migration,11,서울특별시,,exclude_province_total
+migration,11110,서울특별시 종로구,1111000000,municipality
+migration,11140,서울특별시 중구,1114000000,municipality
+migration,11170,서울특별시 용산구,1117000000,municipality
+migration,11200,서울특별시 성동구,1120000000,municipality
+migration,11215,서울특별시 광진구,1121500000,municipality
+migration,11230,서울특별시 동대문구,1123000000,municipality
+migration,11260,서울특별시 중랑구,1126000000,municipality
+migration,11290,서울특별시 성북구,1129000000,municipality
+migration,11305,서울특별시 강북구,1130500000,municipality
+migration,11320,서울특별시 도봉구,1132000000,municipality
+migration,11350,서울특별시 노원구,1135000000,municipality
+migration,11380,서울특별시 은평구,1138000000,municipality
+migration,11410,서울특별시 서대문구,1141000000,municipality
+migration,11440,서울특별시 마포구,1144000000,municipality
+migration,11470,서울특별시 양천구,1147000000,municipality
+migration,11500,서울특별시 강서구,1150000000,municipality
+migration,11530,서울특별시 구로구,1153000000,municipality
+migration,11545,서울특별시 금천구,1154500000,municipality
+migration,11560,서울특별시 영등포구,1156000000,municipality
+migration,11590,서울특별시 동작구,1159000000,municipality
+migration,11620,서울특별시 관악구,1162000000,municipality
+migration,11650,서울특별시 서초구,1165000000,municipality
+migration,11680,서울특별시 강남구,1168000000,municipality
+migration,11710,서울특별시 송파구,1171000000,municipality
+migration,11740,서울특별시 강동구,1174000000,municipality
+migration,26,부산광역시,,exclude_province_total
+migration,26110,부산광역시 중구,2611000000,municipality
+migration,26140,부산광역시 서구,2614000000,municipality
+migration,26170,부산광역시 동구,2617000000,municipality
+migration,26200,부산광역시 영도구,2620000000,municipality
+migration,26230,부산광역시 부산진구,2623000000,municipality
+migration,26260,부산광역시 동래구,2626000000,municipality
+migration,26290,부산광역시 남구,2629000000,municipality
+migration,26320,부산광역시 북구,2632000000,municipality
+migration,26350,부산광역시 해운대구,2635000000,municipality
+migration,26380,부산광역시 사하구,2638000000,municipality
+migration,26410,부산광역시 금정구,2641000000,municipality
+migration,26440,부산광역시 강서구,2644000000,municipality
+migration,26470,부산광역시 연제구,2647000000,municipality
+migration,26500,부산광역시 수영구,2650000000,municipality
+migration,26530,부산광역시 사상구,2653000000,municipality
+migration,26710,부산광역시 기장군,2671000000,municipality
+migration,27,대구광역시,,exclude_province_total
+migration,27110,대구광역시 중구,2711000000,municipality
+migration,27140,대구광역시 동구,2714000000,municipality
+migration,27170,대구광역시 서구,2717000000,municipality
+migration,27200,대구광역시 남구,2720000000,municipality
+migration,27230,대구광역시 북구,2723000000,municipality
+migration,27260,대구광역시 수성구,2726000000,municipality
+migration,27290,대구광역시 달서구,2729000000,municipality
+migration,27710,대구광역시 달성군,2771000000,municipality
+migration,27720,대구광역시 군위군,2772000000,municipality
+migration,28,인천광역시,,exclude_province_total
+migration,28110,인천광역시 중구,2811000000,municipality
+migration,28140,인천광역시 동구,2814000000,municipality
+migration,28170,남구,,exclude_zero_legacy_code_absent_2025
+migration,28177,인천광역시 미추홀구,2817700000,municipality
+migration,28185,인천광역시 연수구,2818500000,municipality
+migration,28200,인천광역시 남동구,2820000000,municipality
+migration,28237,인천광역시 부평구,2823700000,municipality
+migration,28245,인천광역시 계양구,2824500000,municipality
+migration,28260,인천광역시 서구,2826000000,municipality
+migration,28710,인천광역시 강화군,2871000000,municipality
+migration,28720,인천광역시 옹진군,2872000000,municipality
+migration,29,광주광역시,,exclude_province_total
+migration,29110,광주광역시 동구,2911000000,municipality
+migration,29140,광주광역시 서구,2914000000,municipality
+migration,29155,광주광역시 남구,2915500000,municipality
+migration,29170,광주광역시 북구,2917000000,municipality
+migration,29200,광주광역시 광산구,2920000000,municipality
+migration,30,대전광역시,,exclude_province_total
+migration,30110,대전광역시 동구,3011000000,municipality
+migration,30140,대전광역시 중구,3014000000,municipality
+migration,30170,대전광역시 서구,3017000000,municipality
+migration,30200,대전광역시 유성구,3020000000,municipality
+migration,30230,대전광역시 대덕구,3023000000,municipality
+migration,31,울산광역시,,exclude_province_total
+migration,31110,울산광역시 중구,3111000000,municipality
+migration,31140,울산광역시 남구,3114000000,municipality
+migration,31170,울산광역시 동구,3117000000,municipality
+migration,31200,울산광역시 북구,3120000000,municipality
+migration,31710,울산광역시 울주군,3171000000,municipality
+migration,36,세종특별자치시,3600000000,special_province
+migration,36110,세종특별자치시,,exclude_special_city_duplicate
+migration,41,경기도,,exclude_province_total
+migration,41110,경기도 수원시,4111000000,municipality
+migration,41130,경기도 성남시,4113000000,municipality
+migration,41150,경기도 의정부시,4115000000,municipality
+migration,41170,경기도 안양시,4117000000,municipality
+migration,41190,경기도 부천시,4119000000,municipality
+migration,41210,경기도 광명시,4121000000,municipality
+migration,41220,경기도 평택시,4122000000,municipality
+migration,41250,경기도 동두천시,4125000000,municipality
+migration,41270,경기도 안산시,4127000000,municipality
+migration,41280,경기도 고양시,4128000000,municipality
+migration,41290,경기도 과천시,4129000000,municipality
+migration,41310,경기도 구리시,4131000000,municipality
+migration,41360,경기도 남양주시,4136000000,municipality
+migration,41370,경기도 오산시,4137000000,municipality
+migration,41390,경기도 시흥시,4139000000,municipality
+migration,41410,경기도 군포시,4141000000,municipality
+migration,41430,경기도 의왕시,4143000000,municipality
+migration,41450,경기도 하남시,4145000000,municipality
+migration,41460,경기도 용인시,4146000000,municipality
+migration,41480,경기도 파주시,4148000000,municipality
+migration,41500,경기도 이천시,4150000000,municipality
+migration,41550,경기도 안성시,4155000000,municipality
+migration,41570,경기도 김포시,4157000000,municipality
+migration,41590,경기도 화성시,4159000000,municipality
+migration,41610,경기도 광주시,4161000000,municipality
+migration,41630,경기도 양주시,4163000000,municipality
+migration,41650,경기도 포천시,4165000000,municipality
+migration,41670,경기도 여주시,4167000000,municipality
+migration,41710,양주군,,exclude_zero_legacy_code_absent_2025
+migration,41730,여주군,,exclude_zero_legacy_code_absent_2025
+migration,41750,화성군,,exclude_zero_legacy_code_absent_2025
+migration,41770,파주군,,exclude_zero_legacy_code_absent_2025
+migration,41790,광주군,,exclude_zero_legacy_code_absent_2025
+migration,41800,경기도 연천군,4180000000,municipality
+migration,41810,포천군,,exclude_zero_legacy_code_absent_2025
+migration,41820,경기도 가평군,4182000000,municipality
+migration,41830,경기도 양평군,4183000000,municipality
+migration,41840,이천군,,exclude_zero_legacy_code_absent_2025
+migration,41850,용인군,,exclude_zero_legacy_code_absent_2025
+migration,41860,안성군,,exclude_zero_legacy_code_absent_2025
+migration,41870,김포군,,exclude_zero_legacy_code_absent_2025
+migration,51,강원특별자치도,,exclude_province_total
+migration,51110,강원특별자치도 춘천시,5111000000,municipality
+migration,51130,강원특별자치도 원주시,5113000000,municipality
+migration,51150,강원특별자치도 강릉시,5115000000,municipality
+migration,51170,강원특별자치도 동해시,5117000000,municipality
+migration,51190,강원특별자치도 태백시,5119000000,municipality
+migration,51210,강원특별자치도 속초시,5121000000,municipality
+migration,51230,강원특별자치도 삼척시,5123000000,municipality
+migration,51720,강원특별자치도 홍천군,5172000000,municipality
+migration,51730,강원특별자치도 횡성군,5173000000,municipality
+migration,51750,강원특별자치도 영월군,5175000000,municipality
+migration,51760,강원특별자치도 평창군,5176000000,municipality
+migration,51770,강원특별자치도 정선군,5177000000,municipality
+migration,51780,강원특별자치도 철원군,5178000000,municipality
+migration,51790,강원특별자치도 화천군,5179000000,municipality
+migration,51800,강원특별자치도 양구군,5180000000,municipality
+migration,51810,강원특별자치도 인제군,5181000000,municipality
+migration,51820,강원특별자치도 고성군,5182000000,municipality
+migration,51830,강원특별자치도 양양군,5183000000,municipality
+migration,43,충청북도,,exclude_province_total
+migration,43110,충청북도 청주시,4311000000,municipality
+migration,43130,충청북도 충주시,4313000000,municipality
+migration,43150,충청북도 제천시,4315000000,municipality
+migration,43710,청원군,,exclude_zero_legacy_code_absent_2025
+migration,43720,충청북도 보은군,4372000000,municipality
+migration,43730,충청북도 옥천군,4373000000,municipality
+migration,43740,충청북도 영동군,4374000000,municipality
+migration,43745,충청북도 증평군,4374500000,municipality
+migration,43750,충청북도 진천군,4375000000,municipality
+migration,43760,충청북도 괴산군,4376000000,municipality
+migration,43770,충청북도 음성군,4377000000,municipality
+migration,43800,충청북도 단양군,4380000000,municipality
+migration,44,충청남도,,exclude_province_total
+migration,44130,충청남도 천안시,4413000000,municipality
+migration,44150,충청남도 공주시,4415000000,municipality
+migration,44180,충청남도 보령시,4418000000,municipality
+migration,44200,충청남도 아산시,4420000000,municipality
+migration,44210,충청남도 서산시,4421000000,municipality
+migration,44230,충청남도 논산시,4423000000,municipality
+migration,44250,충청남도 계룡시,4425000000,municipality
+migration,44270,충청남도 당진시,4427000000,municipality
+migration,44710,충청남도 금산군,4471000000,municipality
+migration,44730,연기군,,exclude_zero_legacy_code_absent_2025
+migration,44750,논산군,,exclude_zero_legacy_code_absent_2025
+migration,44760,충청남도 부여군,4476000000,municipality
+migration,44770,충청남도 서천군,4477000000,municipality
+migration,44790,충청남도 청양군,4479000000,municipality
+migration,44800,충청남도 홍성군,4480000000,municipality
+migration,44810,충청남도 예산군,4481000000,municipality
+migration,44825,충청남도 태안군,4482500000,municipality
+migration,44830,당진군,,exclude_zero_legacy_code_absent_2025
+migration,52,전북특별자치도,,exclude_province_total
+migration,52110,전북특별자치도 전주시,5211000000,municipality
+migration,52130,전북특별자치도 군산시,5213000000,municipality
+migration,52140,전북특별자치도 익산시,5214000000,municipality
+migration,52180,전북특별자치도 정읍시,5218000000,municipality
+migration,52190,전북특별자치도 남원시,5219000000,municipality
+migration,52210,전북특별자치도 김제시,5221000000,municipality
+migration,52710,전북특별자치도 완주군,5271000000,municipality
+migration,52720,전북특별자치도 진안군,5272000000,municipality
+migration,52730,전북특별자치도 무주군,5273000000,municipality
+migration,52740,전북특별자치도 장수군,5274000000,municipality
+migration,52750,전북특별자치도 임실군,5275000000,municipality
+migration,52770,전북특별자치도 순창군,5277000000,municipality
+migration,52790,전북특별자치도 고창군,5279000000,municipality
+migration,52800,전북특별자치도 부안군,5280000000,municipality
+migration,46,전라남도,,exclude_province_total
+migration,46110,전라남도 목포시,4611000000,municipality
+migration,46130,전라남도 여수시,4613000000,municipality
+migration,46150,전라남도 순천시,4615000000,municipality
+migration,46170,전라남도 나주시,4617000000,municipality
+migration,46190,여천시,,exclude_zero_legacy_code_absent_2025
+migration,46230,전라남도 광양시,4623000000,municipality
+migration,46710,전라남도 담양군,4671000000,municipality
+migration,46720,전라남도 곡성군,4672000000,municipality
+migration,46730,전라남도 구례군,4673000000,municipality
+migration,46750,여천군,,exclude_zero_legacy_code_absent_2025
+migration,46770,전라남도 고흥군,4677000000,municipality
+migration,46780,전라남도 보성군,4678000000,municipality
+migration,46790,전라남도 화순군,4679000000,municipality
+migration,46800,전라남도 장흥군,4680000000,municipality
+migration,46810,전라남도 강진군,4681000000,municipality
+migration,46820,전라남도 해남군,4682000000,municipality
+migration,46830,전라남도 영암군,4683000000,municipality
+migration,46840,전라남도 무안군,4684000000,municipality
+migration,46860,전라남도 함평군,4686000000,municipality
+migration,46870,전라남도 영광군,4687000000,municipality
+migration,46880,전라남도 장성군,4688000000,municipality
+migration,46890,전라남도 완도군,4689000000,municipality
+migration,46900,전라남도 진도군,4690000000,municipality
+migration,46910,전라남도 신안군,4691000000,municipality
+migration,47,경상북도,,exclude_province_total
+migration,47110,경상북도 포항시,4711000000,municipality
+migration,47130,경상북도 경주시,4713000000,municipality
+migration,47150,경상북도 김천시,4715000000,municipality
+migration,47170,경상북도 안동시,4717000000,municipality
+migration,47190,경상북도 구미시,4719000000,municipality
+migration,47210,경상북도 영주시,4721000000,municipality
+migration,47230,경상북도 영천시,4723000000,municipality
+migration,47250,경상북도 상주시,4725000000,municipality
+migration,47280,경상북도 문경시,4728000000,municipality
+migration,47290,경상북도 경산시,4729000000,municipality
+migration,47720,군위군,,exclude_zero_legacy_code_absent_2025
+migration,47730,경상북도 의성군,4773000000,municipality
+migration,47750,경상북도 청송군,4775000000,municipality
+migration,47760,경상북도 영양군,4776000000,municipality
+migration,47770,경상북도 영덕군,4777000000,municipality
+migration,47820,경상북도 청도군,4782000000,municipality
+migration,47830,경상북도 고령군,4783000000,municipality
+migration,47840,경상북도 성주군,4784000000,municipality
+migration,47850,경상북도 칠곡군,4785000000,municipality
+migration,47900,경상북도 예천군,4790000000,municipality
+migration,47920,경상북도 봉화군,4792000000,municipality
+migration,47930,경상북도 울진군,4793000000,municipality
+migration,47940,경상북도 울릉군,4794000000,municipality
+migration,48,경상남도,,exclude_province_total
+migration,48110,창원시,,exclude_zero_legacy_code_absent_2025
+migration,48120,경상남도 창원시,4812000000,municipality
+migration,48130,울산시,,exclude_zero_legacy_code_absent_2025
+migration,48160,마산시,,exclude_zero_legacy_code_absent_2025
+migration,48170,경상남도 진주시,4817000000,municipality
+migration,48190,진해시,,exclude_zero_legacy_code_absent_2025
+migration,48220,경상남도 통영시,4822000000,municipality
+migration,48240,경상남도 사천시,4824000000,municipality
+migration,48250,경상남도 김해시,4825000000,municipality
+migration,48270,경상남도 밀양시,4827000000,municipality
+migration,48310,경상남도 거제시,4831000000,municipality
+migration,48330,경상남도 양산시,4833000000,municipality
+migration,48720,경상남도 의령군,4872000000,municipality
+migration,48730,경상남도 함안군,4873000000,municipality
+migration,48740,경상남도 창녕군,4874000000,municipality
+migration,48760,양산군,,exclude_zero_legacy_code_absent_2025
+migration,48820,경상남도 고성군,4882000000,municipality
+migration,48840,경상남도 남해군,4884000000,municipality
+migration,48850,경상남도 하동군,4885000000,municipality
+migration,48860,경상남도 산청군,4886000000,municipality
+migration,48870,경상남도 함양군,4887000000,municipality
+migration,48880,경상남도 거창군,4888000000,municipality
+migration,48890,경상남도 합천군,4889000000,municipality
+migration,50,제주특별자치도,5000000000,special_province
+migration,50110,제주특별자치도 제주시,,exclude_jeju_children_parent_present
+migration,50130,제주특별자치도 서귀포시,,exclude_jeju_children_parent_present
+migration,50910,북제주군,,exclude_zero_legacy_code_absent_2025
+migration,50920,남제주군,,exclude_zero_legacy_code_absent_2025

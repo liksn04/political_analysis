@@ -1,0 +1,24 @@
+{
+  "gate": "G-POST-02",
+  "status": "decomposition_independently_recomputed",
+  "method": "stdlib XML/CSV parser and numpy normal equations; no production module or statsmodels",
+  "independence_scope": "same raw inputs, separate code; not an independent data source",
+  "audit_code_sha256": "a462956ce92a4f387cb3ce32188b9d792ccd7e2969c4f5863f4683aadd54d1b5",
+  "manifest_sha256": "156a184260818c3c14449ceb80ff5a47d33731919cb55b1e7ac38da8e470f053",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "tolerance": {
+    "relative": 1e-08,
+    "absolute": 1e-09
+  },
+  "age_table_rows_checked": 270,
+  "region_cells_checked": 2052,
+  "coefficient_cells_checked": 660,
+  "province_cells_checked": 51,
+  "maximum_absolute_errors": {
+    "estimate": 1.0177814147027675e-10,
+    "std_error_hc3": 2.3861801423663564e-11,
+    "ci_low": 1.4736656339664478e-10,
+    "ci_high": 1.1083045592386043e-10
+  },
+  "maximum_additivity_error": 8.970602038971265e-14
+}

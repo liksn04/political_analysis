@@ -1,0 +1,47 @@
+{
+  "gate": "G-POST-02",
+  "decision": "ADR-014",
+  "status": "decomposition_outputs_generated",
+  "exploratory_not_preregistered": true,
+  "hypothesis_verdicts_changed": false,
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "quality_sha256": "668916699208c0f52accce0eb91337d5e426e03f412d8aee29eb30f0ddec9ef1",
+  "code_sha256": "c4636a2281d340274d5eb658775481306f198ff03615c5904fc961fa78149d66",
+  "gaps": {
+    "regions": 228,
+    "regions_80plus_below_70s": 228,
+    "median": -22.296263954728264,
+    "min": -31.663970308336488,
+    "max": -12.183702568686286,
+    "regions_upper_bound_below_zero_by_design_effect": {
+      "1": 228,
+      "2": 228,
+      "4": 228
+    }
+  },
+  "variance": {
+    "regions": 228,
+    "sd_actual": 2.779735584802465,
+    "sd_composition": 0.5782440963135842,
+    "sd_within_age": 2.8645027024551712,
+    "sd_direct_standardized": 3.3121970684011166,
+    "corr_composition_actual": -0.044818542793636104,
+    "province_r_squared_within_age_226": 0.6209218285720628,
+    "sample_turnout_mean_abs_difference": 0.45526296906590485,
+    "sample_turnout_max_abs_difference": 2.306578942890667,
+    "sample_fraction_min": 0.03962652083598287,
+    "sample_fraction_median": 0.10322339273191067,
+    "sample_fraction_max": 0.4419876367094627,
+    "sample_electors_80plus_min": 197
+  },
+  "artifacts": {
+    "tables/decomposition_regions.csv": "76ae97b2676e0637e110e0f637c7072001829f6e51fb25d17f2342fa83bc30ae",
+    "tables/decomposition_national_rates.csv": "e36a0afd079c84753786dc54b7895e6a1faf80da3792114916f02fe5ff4d95fa",
+    "tables/decomposition_coefficients.csv": "bea8ba1cef7f12917cbd235d8554342a1b975b3f4fa649d59196b64439e9e267",
+    "tables/decomposition_sensitivity.csv": "16f6eb32ae4dfa781b34ba953ccfcee1c842efb02e51825bf6f06537943f1608",
+    "tables/decomposition_sign_checks.csv": "5399aeeeeab07a1ffe6381604781a96380cf5b42f12f5129ee882f605f4f36b7",
+    "tables/decomposition_provinces.csv": "1f74638c0a7531f4380388c5a4e8d98fe325798b88c0e483eedddfb2cb93f698",
+    "figures/decomposition_m4.png": "bf1909572ddccbd430c8cdc80b2eea2db81efcf6cd6c9741496bedb6fadbe58e",
+    "figures/decomposition_expected_actual.png": "9bbcf1323d3562b3e72d82109f51f5af5a71610ccff1b5fd192a02375c1c1e25"
+  }
+}

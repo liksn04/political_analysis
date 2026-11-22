@@ -1,0 +1,200 @@
+{
+  "gate": "G-M7-01",
+  "baseline_code_commit": "39e4e06021395adb7b2494f456c5e2f09fcb1f1a",
+  "report_sha256": "aa5e31c162be05b6029b9835db1eb83cb76d86b170162f2e1d1293bb00cd25db",
+  "dataset_sha256": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+  "certificate_path_patch_sha256": "d0b6d7a17f938d89cf3fa93d565236013413af56600d62de5203d54381410e10",
+  "requirements_sha256": "69a0364cb3b2bb179ba8fd074dc564b27f5988cbe1bf096ecf4dfb00aa4e30a7",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "fresh_environment": {
+    "python": "3.12.12",
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "statsmodels": "0.15.0",
+    "matplotlib": "3.11.2"
+  },
+  "tolerances": {
+    "atol": 1e-09,
+    "rtol": 1e-08
+  },
+  "certificate_paths_bound_to_replay": 29,
+  "foreign_certificate_rejected": true,
+  "audit_scripts": {
+    "exploration": "2fab680292a57cf8dd46cc1781314729d66377389708407dfab9b15f1681c2f5",
+    "model": "9213e0588cf1219dff704f0756d2057b09ac8dfa2fbcc2c725929965b137d3c0",
+    "robustness": "5c2933c7640fd7919e75776ec2b445e920c509c3742dd18435025c4adce8f403",
+    "diagnostics": "62cea62623d7534d22ea39b965145bb79565b54acbe820bace2f7c77fbfb7024",
+    "interaction": "57c7671530bfd0d1e705fbb9e6a5f306f3bf7b92ef97d89bfb1202acf66cb563"
+  },
+  "input_hashes": {
+    "data/reference/region_crosswalk.csv": "15cb03ab589a7ce942e6735ca3204ffb47db9dd7efb8df9e5949f2fab5160bd9",
+    "data/reference/expected_regions.csv": "ff406ebe006a07265db0df3dd70cda80b1afa4b174b541685989312458e85c40",
+    "outputs/election_staging_checks.json": "4244fa08f84a4d0b544407d1f83bfcec94b6ba1c16a9b2c7bf586734ca3db5d3",
+    "data/interim/election.csv": "b2dfc05cdbd8468c5937e91635c0ff0b41b485a692dab55ee3c34e184bda25e5",
+    "data/raw/제21대 대통령선거 개표결과.csv": "4d1479e549e3ab0f6ae2a5b4436ec085f4326711a6a4163636be12a1a6e39e19",
+    "outputs/population_staging_checks.json": "8130c00def8a04993f34293facab142c26b6be3c5a76b231dffe639e77bb688b",
+    "data/interim/population.csv": "9c8cb6dc3e777c4ddc24e46679371d951fd77b76c524c32e215accd93a729b27",
+    "data/raw/202505_202505_연령별인구현황_월간.csv": "3eff2a7faf75907b8cb62148d8f9fcabf06d3f37f7208df8641f69dcfe9bdc22",
+    "data/reference/region_source_inventory.csv": "2c151a080e94a16d902427e119c96e62535fe7c4a17d1f6e86181411851d5e7c",
+    "outputs/population_staging_checks.csv": "8d3997c5795c970feca742b5f03682d54e814cd712448b647335679157179d51",
+    "outputs/fiscal_staging_checks.json": "fafcd947d3b0ad13d2682bf41d37079693b037ef8065d21d2a7846a4f4ae8a7c",
+    "data/interim/fiscal.csv": "c26f0d03b29ff592d761970dbf85d5f226a18a434f718b0792f31ea5533e2e07",
+    "data/raw/lofin365_2025_A137_gov.json": "2421e2731909ad86f86e04d66c96f909312a7805233a8099f3c7fb6c516c31de",
+    "data/raw/lofin365_2025_A137_definition.json": "1b6d56b2991135698cd7eb7da7afcee3122c4fa689ea78817c434dfca0d6880f",
+    "outputs/fiscal_staging_checks.csv": "139cbf2afa670e9affe82c87b770ab1d2e7ce41d7d6628a307315690aaf73984",
+    "outputs/migration_staging_checks.json": "de9e160feb77a956deed4a31aed392341d35f1ced138aa2406db82df4c7b0c75",
+    "data/interim/migration.csv": "84ceb1ac5fd141bc96101ccb46aebda73b47adddd3461d67a6d6e13fb77b033d",
+    "data/raw/시군구별_이동자수_20261103170549.csv": "a16467c3da15380b89b2c9382139fca3dc24dddac8570e69d848df2eaa515af0",
+    "data/raw/시군구_성_연령_1세_별_주민등록연앙인구_2023__20261103170428.csv": "9cd454ab87ba71434640b98d1c3748b86d6b8a1c679fd82681877adde3bfe7c4",
+    "data/reference/midyear_region_crosswalk.csv": "809a3b2f1e256a5556550e722b33e9539d765deeae73d0314dc490da8f0fc661",
+    "outputs/migration_staging_checks.csv": "14840889197791bd0da0dd62fd9fbb36b0d20e4717c69089164716800a822d97",
+    "outputs/region_mapping_checks.json": "28ba7dcae00a187574f5346df3c2410aed14d172b86cdf27c1dc661ebf95bad1",
+    "data/raw/mois_2025_regions_20241231.pdf": "e0df753e1cd3670513cb23a17fe97b57c2da75fe6bcfe4b6b91d3657838a9e21",
+    "data/raw/제21대 대통령선거 투표율 분석.zip": "3ae2d63dbad0b30072472cd4ff8a81c10a78c703d6bb53d2e4be17d3e8e7ccc3",
+    "outputs/official_reconciliation.csv": "ca285faad5ba66fd8e0fbb388348d1250f69e54cdab7c87991e52185b7dbcabd",
+    "src/political_analysis/pipeline.py": "aac53a2f006c72c5c768d2f9f055cd57962929b484dc51e3726fab72becfc44b",
+    "src/political_analysis/reconciliation.py": "837897622dbb6a03496aedb339db3d2b9c46696cb799c8ee140c97e441cc9968",
+    "src/political_analysis/staging.py": "9e140b60f2cdc4cbe9264b7607867155b6980817a35fffbcc61613ade2c4e820",
+    "data/processed/analysis_dataset.csv": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9"
+  },
+  "identical_stage_dataset_reconciliation": {
+    "data/processed/analysis_dataset.csv": "9e3e2087e431245c661dc2714d9377a1a089ebbf0b3e817a8136884202531cd9",
+    "outputs/official_reconciliation.csv": "ca285faad5ba66fd8e0fbb388348d1250f69e54cdab7c87991e52185b7dbcabd",
+    "data/interim/election.csv": "b2dfc05cdbd8468c5937e91635c0ff0b41b485a692dab55ee3c34e184bda25e5",
+    "data/interim/population.csv": "9c8cb6dc3e777c4ddc24e46679371d951fd77b76c524c32e215accd93a729b27",
+    "data/interim/fiscal.csv": "c26f0d03b29ff592d761970dbf85d5f226a18a434f718b0792f31ea5533e2e07",
+    "data/interim/migration.csv": "84ceb1ac5fd141bc96101ccb46aebda73b47adddd3461d67a6d6e13fb77b033d"
+  },
+  "output_comparisons": {
+    "outputs/tables/correlation_pairs.csv": {
+      "baseline_sha256": "a329def358c5f7bf2f33bd3f3967631a53eb5a455471f5eb2d35488044072168",
+      "replay_sha256": "a329def358c5f7bf2f33bd3f3967631a53eb5a455471f5eb2d35488044072168",
+      "byte_identical": true
+    },
+    "outputs/tables/correlations.csv": {
+      "baseline_sha256": "c53e46601e025d59f11a5a95eff2e2fd8a8e145579e7aa9af2d651908bf8a0dd",
+      "replay_sha256": "c53e46601e025d59f11a5a95eff2e2fd8a8e145579e7aa9af2d651908bf8a0dd",
+      "byte_identical": true
+    },
+    "outputs/tables/descriptive_statistics.csv": {
+      "baseline_sha256": "dda3fc8e03fcc6231ac0831331517570a66d3c2afebd1f15044457771d03e3af",
+      "replay_sha256": "dda3fc8e03fcc6231ac0831331517570a66d3c2afebd1f15044457771d03e3af",
+      "byte_identical": true
+    },
+    "outputs/tables/extreme_regions.csv": {
+      "baseline_sha256": "3410106ae2a313fccb9c9ddf581e9db1ac68773b8f31f5d72afa93d5d4b90c99",
+      "replay_sha256": "3410106ae2a313fccb9c9ddf581e9db1ac68773b8f31f5d72afa93d5d4b90c99",
+      "byte_identical": true
+    },
+    "outputs/tables/hypothesis_evaluation.csv": {
+      "baseline_sha256": "45bc77e150c991d8bd268bb18f7aea3da4535bc886fd7d91ba7bb25d1ea9e581",
+      "replay_sha256": "45bc77e150c991d8bd268bb18f7aea3da4535bc886fd7d91ba7bb25d1ea9e581",
+      "byte_identical": true
+    },
+    "outputs/tables/m4_cook_exclusions.csv": {
+      "baseline_sha256": "b93d8d1e03dde60238d0fcc2f678be91d28bdf3c54d5778d8425187b6f5e95f7",
+      "replay_sha256": "b93d8d1e03dde60238d0fcc2f678be91d28bdf3c54d5778d8425187b6f5e95f7",
+      "byte_identical": true
+    },
+    "outputs/tables/m4_cook_sensitivity.csv": {
+      "baseline_sha256": "5d5ca457aac8e46691b9877bec15511367cd8d7fed4a1a4ccf0978fa9df60f32",
+      "replay_sha256": "5d5ca457aac8e46691b9877bec15511367cd8d7fed4a1a4ccf0978fa9df60f32",
+      "byte_identical": true
+    },
+    "outputs/tables/m4_influence.csv": {
+      "baseline_sha256": "b9c8557ea7a86acb50f31364fa4d6eec9fd542c7167443da5a750e99cd232afa",
+      "replay_sha256": "b9c8557ea7a86acb50f31364fa4d6eec9fd542c7167443da5a750e99cd232afa",
+      "byte_identical": true
+    },
+    "outputs/tables/m4_interaction_coefficients.csv": {
+      "baseline_sha256": "a133f0d32211710d7bae565f7bd63257686c575dc34b0775b59e27c8b40e087e",
+      "replay_sha256": "a133f0d32211710d7bae565f7bd63257686c575dc34b0775b59e27c8b40e087e",
+      "byte_identical": true
+    },
+    "outputs/tables/m4_interaction_slopes.csv": {
+      "baseline_sha256": "b87c7ee671c6bee1690834f97eb4e8c1ce17ec2d2f61c47a71298e5d8c5b2ddd",
+      "replay_sha256": "b87c7ee671c6bee1690834f97eb4e8c1ce17ec2d2f61c47a71298e5d8c5b2ddd",
+      "byte_identical": true
+    },
+    "outputs/tables/m4_province_residuals.csv": {
+      "baseline_sha256": "790ebc1d832d5fa4f524704962a432afc53cf78a2c2f6f75fcb3556f956ae6d7",
+      "replay_sha256": "790ebc1d832d5fa4f524704962a432afc53cf78a2c2f6f75fcb3556f956ae6d7",
+      "byte_identical": true
+    },
+    "outputs/tables/m4_vif.csv": {
+      "baseline_sha256": "bba0ec80f7512eb8a08abd1b51b7791cf333a32ebe6a96e469f9cf33a16611a2",
+      "replay_sha256": "bba0ec80f7512eb8a08abd1b51b7791cf333a32ebe6a96e469f9cf33a16611a2",
+      "byte_identical": true
+    },
+    "outputs/tables/model_coefficients.csv": {
+      "baseline_sha256": "246f98e4f056131f5ead4636f861ee72d0d0aaf2565558070eb9ce104cb9c587",
+      "replay_sha256": "246f98e4f056131f5ead4636f861ee72d0d0aaf2565558070eb9ce104cb9c587",
+      "byte_identical": true
+    },
+    "outputs/tables/model_samples.csv": {
+      "baseline_sha256": "eb99d7aa04ee949787c00d33266ed2b37bb865677cf2daa16e182c843367fd66",
+      "replay_sha256": "eb99d7aa04ee949787c00d33266ed2b37bb865677cf2daa16e182c843367fd66",
+      "byte_identical": true
+    },
+    "outputs/tables/model_summary.csv": {
+      "baseline_sha256": "1b1bf0956f240710cae5d73340999a998e47da4085d075df6cbc4f53de4d0a52",
+      "replay_sha256": "1b1bf0956f240710cae5d73340999a998e47da4085d075df6cbc4f53de4d0a52",
+      "byte_identical": true
+    },
+    "outputs/tables/outlier_candidates.csv": {
+      "baseline_sha256": "762f3dcd6fce7f2d2b8df4b5735cb159f06d32dd910a4f8ec8f2a1c66bfa5c26",
+      "replay_sha256": "762f3dcd6fce7f2d2b8df4b5735cb159f06d32dd910a4f8ec8f2a1c66bfa5c26",
+      "byte_identical": true
+    },
+    "outputs/tables/robustness_comparisons.csv": {
+      "baseline_sha256": "533a7c67b08c5be998ce0031798d82c90cd9eff36da557b1f127d7e2822f7cce",
+      "replay_sha256": "533a7c67b08c5be998ce0031798d82c90cd9eff36da557b1f127d7e2822f7cce",
+      "byte_identical": true
+    },
+    "outputs/tables/source_spot_checks.csv": {
+      "baseline_sha256": "a392d25f35aead5852206cd4cd811183a7f19eba340ec72b2b0982940bda4cc8",
+      "replay_sha256": "a392d25f35aead5852206cd4cd811183a7f19eba340ec72b2b0982940bda4cc8",
+      "byte_identical": true
+    },
+    "outputs/figures/m4_influence.png": {
+      "baseline_sha256": "65b9ad346588abb2bc8e6db43caf477f46a0125e7ec33e8aeff0ee901126236d",
+      "replay_sha256": "65b9ad346588abb2bc8e6db43caf477f46a0125e7ec33e8aeff0ee901126236d",
+      "byte_identical": true
+    },
+    "outputs/figures/m4_interaction_slopes.png": {
+      "baseline_sha256": "f02852aa34625696f265e6690aaadfbbbcc069cd6a4d4dda38515d8d79ce2aab",
+      "replay_sha256": "f02852aa34625696f265e6690aaadfbbbcc069cd6a4d4dda38515d8d79ce2aab",
+      "byte_identical": true
+    },
+    "outputs/figures/scatter_aging_turnout.png": {
+      "baseline_sha256": "ecbe4f3f8bee4a96402a7f6128c570a21c02979f3c597b26e2b74837fda07d01",
+      "replay_sha256": "ecbe4f3f8bee4a96402a7f6128c570a21c02979f3c597b26e2b74837fda07d01",
+      "byte_identical": true
+    }
+  },
+  "commands": [
+    "git apply '/Users/liksn04/Desktop/정치분석연구/political_analysis/outputs/reproduction/certificate-path.patch'",
+    "uv venv --python /Users/liksn04/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3.12 .venv",
+    "uv --no-cache pip sync --python /private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python '/Users/liksn04/Desktop/정치분석연구/political_analysis/outputs/reproduction/requirements-macos-arm64.txt'",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -c 'import json,sys,numpy,pandas,statsmodels,matplotlib; print(json.dumps(dict(python=sys.version.split()[0], numpy=numpy.__version__, pandas=pandas.__version__, statsmodels=statsmodels.__version__, matplotlib=matplotlib.__version__)))'",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m pytest",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m ruff check src tests",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m compileall -q src",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m political_analysis.exploration",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m political_analysis.staging --dataset election --source 'data/raw/제21대 대통령선거 개표결과.csv'",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m political_analysis.staging --dataset population --source 'data/raw/202505_202505_연령별인구현황_월간.csv'",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m political_analysis.staging --dataset fiscal --source data/raw/lofin365_2025_A137_gov.json",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m political_analysis.staging --dataset migration --source 'data/raw/시군구별_이동자수_20261103170549.csv' --midyear-source 'data/raw/시군구_성_연령_1세_별_주민등록연앙인구_2023__20261103170428.csv'",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m political_analysis.pipeline",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m political_analysis.exploration",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python -m political_analysis.models",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python outputs/exploration_audit.py",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python outputs/model_audit.py",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python outputs/robustness_audit.py",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python outputs/diagnostics_audit.py",
+    "/private/var/folders/v9/dpzwrlw96l55_trc9c5llkgh0000gn/T/political-m7-9wc36d1n/.venv/bin/python outputs/interaction_audit.py"
+  ],
+  "third_party_replay": "pending",
+  "replay_script_sha256": "7679aa75a1b7913d7e1829f1fc2c453ed5d84ed5f04a09ff90520ae1c0843539",
+  "run_log_sha256": "d10b54329571eea44af651face4fdbb1484b6727f49f67123e17f8e36343cd24"
+}

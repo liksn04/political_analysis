@@ -34,7 +34,7 @@ X1은 일반적으로 말하는 **전체 인구 중 65세 이상 비중**이 아
 - [x] 최종 보고서·공유범위·인계 확정 (G-M7-02)
 - [x] 사전 계획 외 탐색 분석: 나이 구성과 같은 나이대 차이의 분해 (G-POST-02)
 
-> **중요:** 이 저장소에 포함된 `data/templates/`는 **헤더만 있는 양식**입니다. Git 추적 대상에는 실제 원자료·지역 대응표·분석 산출물 파일을 포함하지 않습니다. 현재 로컬에는 확보 원본과 검수된 지역 참조자료가 별도로 보존되어 있습니다. 코드 작성 완료와 데이터 검증 완료는 다릅니다.
+제출한 연구계획서와 발표 자료, 공식 원자료, 지역 대응표, 정제 데이터, 분석 결과 및 재현 기록을 이 저장소에 보관합니다. `data/templates/`는 헤더가 있는 입력 양식입니다.
 
 ## 개발환경
 
@@ -77,7 +77,7 @@ make audit-decomposition        # 분해 결과를 별개 코드로 재계산
 
 인증서는 발급 시점의 분석 데이터와 실행 코드 경로에 연결됩니다. 다른 체크아웃으로 이동하거나 검증에 연결된 코드가 바뀌면 해당 경로에서 `make build`로 새 인증서를 발급한 뒤 탐색·분석을 실행합니다.
 
-입력/결과 CSV는 개인정보가 없더라도 우선 Git 추적에서 제외합니다. 자료의 라이선스와 재배포 조건 확인 후 공개 여부를 별도 결정합니다.
+자료 출처와 조회 조건은 [출처 대장](docs/SOURCES.md)에 기록했습니다. 새로 수집하거나 재실행한 파일은 자료에 맞춰 선택적으로 추가합니다.
 
 ## 보관본과 현재 실행
 
@@ -88,19 +88,16 @@ make audit-decomposition        # 분해 결과를 별개 코드로 재계산
 - 인자 없이 `python -m political_analysis.pipeline`을 실행하면 기본값인 보관본 경로에 덮어씁니다. 모듈을 직접 실행할 때는 출력 경로를 지정합니다.
 - 스테이징 모듈을 기본값으로 실행하면 `data/interim/`과 `outputs/*_staging_checks.*`를 덮어쓰고, 검사 보고서에 별도로 기록한 재계산 증거가 사라집니다. 이 폴더에서는 `--output`·`--report`·`--checks`로 다른 경로를 지정합니다.
 
-## Git만으로 재현할 수 있는 범위
+## 연구 자료와 재실행
 
-Git에는 코드·테스트·문서·입력 양식만 추적됩니다. `git clone`만으로는 인공 자료 테스트까지 실행할 수 있고, 보고서의 수치를 다시 만들 수는 없습니다.
+- [제출한 연구계획서](docs/2023010460_%EA%B9%80%EC%A4%80%EB%AA%A8_%EC%97%B0%EA%B5%AC%EA%B3%84%ED%9A%8D%EC%84%9C.docx) · [계획서 초안](docs/PROPOSAL_DRAFT_SKELETON.md)
+- [발표 슬라이드](presentation/발표슬라이드.html) · [발표 원고](presentation/발표원고.md)
+- [원자료](data/raw/) · [지역 대응표](data/reference/) · [정제 데이터](data/processed/) · [분석 결과](outputs/)
+- [개정 보고서](docs/COURSE_REPORT_REVISED.md) · [개정 분석 재실행](docs/COURSE_REPRODUCTION.md) · [기존 재현 검증 기록](outputs/reproduction/README.md)
 
-| 필요한 것 | 위치 | 확보 방법 |
-|---|---|---|
-| 공식 원본 | `data/raw/` | [출처 대장](docs/SOURCES.md)의 경로·조회 조건으로 다시 받고 해시를 대조 |
-| 지역 참조자료 4종 | `data/reference/` | 생성 스크립트가 없음. 전달받거나 [코드북](docs/CODEBOOK.md)의 G-M2-01 규칙으로 다시 작성 |
-| 스테이징 검사 보고서 | `outputs/*_staging_checks.*` | 스테이징 실행으로 생성 |
-| 지역 대응 검사 기록 | `outputs/region_mapping_checks.json` | 생성 스크립트가 없음. 전달받아야 함 |
-| 강건성·진단·상호작용 코드 | `outputs/*_audit.py` | 전달받아야 함 |
+새 체크아웃에서 분석을 다시 실행하려면 [행정안전부의 2025년 지방자치단체 행정구역 및 인구 현황 PDF](https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000055&nttId=118777)를 받아 `data/raw/mois_2025_regions_20241231.pdf`로 저장합니다. 이 PDF는 지역 자료 검증의 입력입니다. [2024년 국내인구이동 보도자료 통계표 XLS](https://mods.go.kr/board.es?act=view&bid=205&list_no=434904&mid=a10301020400)는 참고용입니다. 두 첨부 원본은 기관 게시물에서 제공하며 [출처 대장](docs/SOURCES.md)에 파일 해시가 있습니다.
 
-2026-11-06 재실행도 이 파일들을 전달받아 수행했습니다. 필요한 71개 파일의 목록과 해시는 로컬 `outputs/reproduction/handoff_manifest.json`에 있습니다. 분해 분석의 코드와 재계산 스크립트는 Git에 포함되지만, 실행에는 위의 원본과 참조자료가 필요합니다.
+`data/raw/제21대 대통령선거 투표율 분석.zip`의 출처는 중앙선거관리위원회(2025)의 「제21대 대통령선거 투표율 분석」입니다. [공공데이터포털 원문](https://www.data.go.kr/data/15156333/fileData.do) · [공공누리 제1유형](https://www.kogl.or.kr/info/licenseType1.do)
 
 ## 프로젝트 문서
 
