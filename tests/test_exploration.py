@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -13,6 +14,8 @@ from political_analysis.exploration import exploration_tables, run_exploration
 @pytest.fixture
 def certified_example(tmp_path):
     """실행 경계용 인공 인증서. 공식 수치 검증 증거로 사용하지 않는다."""
+    from political_analysis import pipeline
+
     data = tmp_path / "data.csv"
     pd.DataFrame(
         {
@@ -25,13 +28,18 @@ def certified_example(tmp_path):
     raw = tmp_path / "source.txt"
     raw.write_text("synthetic source")
     quality = tmp_path / "quality.json"
+    code_dir = Path(pipeline.__file__).parent
+    certified_files = [raw, data, *(code_dir / name for name in pipeline.CERTIFICATE_CODE_FILES)]
     quality.write_text(
         json.dumps(
             {
                 "input_contract_verified": True,
                 "official_election_totals_verified": True,
                 "dataset_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
-                "verified_files": {str(raw): hashlib.sha256(raw.read_bytes()).hexdigest()},
+                "verified_files": {
+                    str(path.resolve()): hashlib.sha256(path.read_bytes()).hexdigest()
+                    for path in certified_files
+                },
             }
         )
     )
@@ -144,6 +152,7 @@ def test_zero_complete_scatter_pairs_produces_explicit_empty_plot(certified_exam
     frame.to_csv(data, index=False)
     record = json.loads(quality.read_text())
     record["dataset_sha256"] = hashlib.sha256(data.read_bytes()).hexdigest()
+    record["verified_files"][str(data.resolve())] = record["dataset_sha256"]
     quality.write_text(json.dumps(record))
     result = run_exploration(data, out, quality)
     assert result["scatter_status"] == "no_complete_pairs"

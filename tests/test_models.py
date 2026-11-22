@@ -1,5 +1,7 @@
 """회귀모형은 인공 데이터만 사용해 계산 경로를 검사한다."""
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import pytest
@@ -329,6 +331,7 @@ def test_file_entry_writes_sample_and_manifest_without_real_research_fit(tmp_pat
     import hashlib
     import json
 
+    from political_analysis import pipeline
     from political_analysis.models import run_analysis
 
     frame = synthetic_model_frame()
@@ -337,13 +340,18 @@ def test_file_entry_writes_sample_and_manifest_without_real_research_fit(tmp_pat
     raw = tmp_path / "synthetic_source.txt"
     raw.write_text("test-only source")
     quality = tmp_path / "synthetic_quality.json"
+    code_dir = Path(pipeline.__file__).parent
+    certified_files = [raw, data, *(code_dir / name for name in pipeline.CERTIFICATE_CODE_FILES)]
     quality.write_text(
         json.dumps(
             {
                 "input_contract_verified": True,
                 "official_election_totals_verified": True,
                 "dataset_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
-                "verified_files": {str(raw): hashlib.sha256(raw.read_bytes()).hexdigest()},
+                "verified_files": {
+                    str(path.resolve()): hashlib.sha256(path.read_bytes()).hexdigest()
+                    for path in certified_files
+                },
             }
         )
     )

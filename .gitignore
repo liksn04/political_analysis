@@ -30,5 +30,11 @@ data/processed/*
 outputs/*
 !outputs/.gitkeep
 
+# 이름·학번이 포함된 연구계획서: 로컬 보관
+docs/*.docx
+
+# 작업 진행 기록 도구
+.fablize/
+
 # Jupyter
 .ipynb_checkpoints/

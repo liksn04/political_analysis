@@ -115,3 +115,15 @@ M1 완료는 원본·정의·기준시점·코드체계 차이·이용조건을 
 - 전국·시도 직접 대조와, 같은 원본의 사전투표 개표수를 재사용한 지역별 범위 조정을 분리했다. 지역별 조정 후 잔차 0명을 완전한 독립 재검증으로 표현하지 않는다. 자료 오류·임의 보정으로 기록하지 않는다.
 
 시트·원본 행 위치, 원래 값과 기준 차이, 조정 후 잔차는 `outputs/official_reconciliation.csv`, 사용 ZIP·대조표·분석 데이터의 해시는 `outputs/data_quality.json`에 연결되어 있다. 데이터 생성 시 코드 해시도 함께 고정한다.
+
+## 2026-11-04 G-M6-02 본문 인용과 주장 대조
+
+| 문헌·자료 | 확인 범위 | 본문에 반영한 범위 |
+|---|---|---|
+| 이신행·서찬석(2024), *조사연구*, 25(3), 55–80 | 학회 PDF 64쪽의 변수 정의와 67~69쪽의 표 2·3 및 결과를 대조했다. 투표 지표는 국회의원·대통령·지방선거의 개인 자기보고 참여를 합산한 값이다. [학회 원문](https://kasr.skyd.co.kr/survey_SR/25_3_3) · [KCI 서지](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003111529) | 개인 연령과 다회 선거 참여의 관계로 인용했다. |
+| Engelman 외(2022), *The Journals of Gerontology: Series B*, 77(4), 827–837 | 공개 원문 XML의 Data와 Discussion에서 위스콘신 종단조사, 유권자 등록기록에 근거한 투표 이력, 건강·자산 관련 결과의 범위를 확인했다. [원문 XML](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8974326/fullTextXML) · [출판사 DOI](https://doi.org/10.1093/geronb/gbab191) | 특정 코호트의 노년기 투표 연구로 인용했다. |
+| Lahtinen·Martikainen(2024), *Electoral Studies*, 88, 102775 | 헬싱키대 저장소의 출판본 PDF에서 연구자료와 분석방법을 확인했다. 1999년 핀란드 의회선거 당시 65세 이상 유권자의 참여기록을 장기 사망 추적과 연결한 연구다. [저장소 서지](https://researchportal.helsinki.fi/en/publications/time-to-death-explains-the-chronological-decline-of-voter-turnout/) · [출판본 PDF](https://helda.helsinki.fi/server/api/core/bitstreams/3c629613-a7c9-4b7c-953b-ec3fd0f39ec4/content) | 연령과 남은 생애를 함께 고려한 국외 개인자료 연구로 인용했다. |
+| 대통령 파면과 선거일 | 헌법재판소 결정과 중앙선관위 공지를 대조했다. [파면 결정](https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4253958&cbIdx=1106) · [선거일 공지](https://img.nec.go.kr/common/board/Download.do?bcIdx=268737&cbIdx=1090&streFileNm=1e900dd0-23bf-4ef3-947b-e5ecbb4b4fd0.pdf) | 조기선거라는 분석 맥락을 설명했다. |
+| 박준희·정일환(2026), *국가정책연구*, 40(3), 223–259 | KCI 상세 화면에는 시작 쪽이 09로 표시되지만 한국연구재단 KOAJ의 인용 내보내기와 KISS·earticle 유통 서지는 223–259로 일치한다. 초록은 확인했고 원문은 확보하지 못했다. [KOAJ 서지](https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART003392759) · [KISS 서지](https://kiss.kstudy.com/Detail/Ar?key=4280619) | 계획서 문헌으로 기록했다. 현 검수본의 가설·결론은 이 문헌을 인용하지 않는다. |
+
+본문의 건강·이동성 논의는 이론적 배경으로 한정했다. 이 연구에서 측정한 X2는 지역의 연령 구성이다. 선거·인구·재정·이동 수치와 집계 시점은 위 공식 원본 대장, 코드북 및 로컬 검증 산출물로 연결한다.

@@ -10,7 +10,7 @@
 |---|---|---|
 | source_region_code | 원자료 지역코드 | 같은 집계 수준에서 고유 |
 | electors | 해당 원본 지역의 선거인수 | 양의 정수 |
-| voters | 해당 지역 투표자수 | 0 이상, 선거인수 이하 |
+| voters | 해당 지역 투표수(개표 기준, 유효·무효 포함). 사전투표용지 교부수가 아님 | 0 이상, 선거인수 이하 |
 | reported_turnout | 원본에 제공된 투표율(선택) | 0~100, 합산에 사용 안 함 |
 
 `reported_turnout`은 열 자체를 생략하거나 빈 필드(공백만 있는 필드 포함)로 둘 수 있습니다. 비어 있지 않은 `NA`, `NaN`, `null`, 일반 문자열은 결측으로 간주하지 않고 오류로 처리합니다. 무한대와 0~100 밖 수치도 거부합니다. 원본의 결측기호는 출처별 변환 단계에서 확인한 뒤 빈 필드로 정규화합니다.
@@ -64,7 +64,7 @@
 | 필드 | 의미 / 계산 |
 |---|---|
 | region_code, region_name, province, region_type | 지역 식별 및 범주 |
-| electors, voters | 선거 집계 계수 |
+| electors, voters | 선거 집계 계수(voters는 개표 기준 투표수) |
 | turnout | 100 × voters / electors |
 | population_total | 2025-05 주민등록 전체 인구 |
 | population_18plus | 18세 이상 |
@@ -103,6 +103,18 @@
 
 `python -m political_analysis.staging --source "data/raw/제21대 대통령선거 개표결과.csv"`로 원본의 선거인수·투표수 항목을 표준 election.csv로 변환한다. 원본 문맥은 시도·구시군·읍면동·투표구로 식별하며 같은 문맥/항목의 중복이나 한쪽 계수 누락은 실패한다. 투표구명 없는 행은 실제 확인한 거소·선상투표/관외사전투표/재외투표/잘못 투입·구분된 투표지만 허용한다. 선거구별 원본 키를 보존하고 시 통합은 이후 파이프라인에서 한다. 산출물은 data/interim/election.csv 및 outputs/election_staging_checks.json이며 공식 검증 플래그는 아직 False다.
 
+**투표 유형별 귀속.** 원본의 모든 선거인수·투표수 행은 `시도명|구시군명`에 속한다. 거소·선상투표, 관외사전투표, 재외투표도 해당 구시군의 계수로 합산하므로 지역 투표율의 분자와 분모에 함께 들어간다. 전국 합계는 다음과 같다(2026-11-10 원본 재집계).
+
+| 유형 | 선거인수 | 투표수 |
+|---|---:|---:|
+| 일반투표구 | 28,622,921 | 19,526,170 |
+| 관내사전투표 | 11,131,211 | 11,131,003 |
+| 관외사전투표 | 4,292,396 | 4,291,593 |
+| 재외투표 | 258,254 | 205,268 |
+| 거소·선상투표 | 87,089 | 82,184 |
+| 잘못 투입·구분된 투표지 | 0 | 279 |
+| 합계 | 44,391,871 | 35,236,497 |
+
 ### 인구 원본 변환 실행 (G-M2-03)
 
 `python -m political_analysis.staging --dataset population --source "data/raw/202505_202505_연령별인구현황_월간.csv"`로 CP949 원본을 표준 `source_region_code,age,population`의 UTF-8 CSV로 변환한다. 기본 산출물은 `data/interim/population.csv`, 지역별 검사표 `outputs/population_staging_checks.csv`, 해시·범위 보고서 `outputs/population_staging_checks.json`이다. 기존 선거 명령은 `--dataset`을 생략해도 유지된다.
@@ -137,9 +149,11 @@ python -m political_analysis.staging --dataset migration \
 
 `make build`는 기본적으로 독립 기대 지역 명부, 4종 스테이징 보고서의 원본/출력/참조 해시, 선언된 연령 목록을 확인한다. 핵심 원본 구역 누락, 양쪽 자료에서 같은 지역 누락, 지역 메타데이터 상충, 선언 연령 누락·추가·중복, 비유한 파생변수를 차단한다. 원본·표준 CSV·참조자료·검사표 또는 데이터 생성 코드가 바뀌면 기존 검증을 재사용하지 않는다.
 
-결과는 `data/processed/analysis_dataset.csv`, `outputs/data_quality.json`, `outputs/official_reconciliation.csv`다. 분석 데이터는 228지역·18필드이며 개표 기준 voters는 원본 그대로 유지한다. 선택/집계/비율은 기존 프로토콜을 따른다. source 보고서 경로와 원본 경로는 연구 디렉터리 구조에 따라 연결한다.
+2026-11-03 실행의 결과(보관본)는 `data/processed/analysis_dataset.csv`, `outputs/data_quality.json`, `outputs/official_reconciliation.csv`다. 2026-11-10부터 `make build`의 기본 출력은 `outputs/current/`다(ADR-013). 분석 데이터는 228지역·18필드이며 개표 기준 voters는 원본 그대로 유지한다. 선택/집계/비율은 기존 프로토콜을 따른다. source 보고서 경로와 원본 경로는 연구 디렉터리 구조에 따라 연결한다.
 
 공식 대조표는 전국 1·시도 17·원본 선거구역 253·연구 분석단위 228행, 총 499행이다. 서로 중첩되는 집계 수준이므로 모든 행을 합산하지 않는다. 전국·시도는 실제투표율 표의 실제 결과와 직접 비교한다. 원본/연구 지역 행에는 원래 값·사전투표 교부수/개표수 차이·조정값·조정 전후 잔차·비교 종류·원본 시트/행을 기록한다. 지역별 조정은 개표자료를 재사용하므로 독립적인 재검증이 아니다.
+
+`early_ballots_issued`·`early_ballots_counted` 열은 전국·시도 행이 비어 있어 실수형으로 저장되므로 `47739.0`처럼 표기된다. 값은 모두 정수다. 연구 단위 행의 표시 투표율 열은 비어 있다.
 
 표시 투표율은 소수 첫째 자리 계약으로 확인하고 기존 0.11%p 상수는 폐기했다. 출력의 계산 투표율은 반올림하지 않는다. 품질보고서의 `official_election_totals_verified=True`는 직접 전국·시도 대조 및 주석에 따른 지역 범위 조정을 통과했다는 뜻이며 지역별 완전 독립 재검증을 뜻하지 않는다.
 
@@ -149,7 +163,7 @@ python -m political_analysis.staging --dataset migration \
 
 ### 독립 탐색 실행 (G-M3-01)
 
-`make explore` 또는 `python -m political_analysis.exploration --data data/processed/analysis_dataset.csv --quality-report outputs/data_quality.json --output-dir outputs`를 사용한다. 실제 입력/원본/참조/생성 코드와 데이터 해시를 인증서와 대조한 뒤 실행한다. 생략·미완료·변경된 인증서를 허용하는 우회 옵션은 없다. 파일 기반 회귀 진입점 make analyze도 같은 인증서를 먼저 요구한다.
+`make explore`를 사용한다(기본 출력 `outputs/current/`). 모듈을 직접 실행할 때는 `--data`·`--quality-report`·`--output-dir`에 같은 실행 폴더의 경로를 지정한다. 실제 입력/원본/참조/생성 코드와 데이터 해시를 인증서와 대조한 뒤 실행한다. 생략·미완료·변경된 인증서를 허용하는 우회 옵션은 없다. 파일 기반 회귀 진입점 make analyze도 같은 인증서를 먼저 요구한다.
 
 탐색은 회귀를 호출하지 않고 숫자형 변수 기술통계·결측 수, Y/X1/X2 피어슨 상관행렬, 쌍별 유효 n·상태와 산점도를 생성한다. 식별자 region_code는 숫자형으로 주어져도 기술통계에서 제외한다. n<2 또는 상수 변수로 계산할 수 없는 상관은 NaN을 유지하고 insufficient_pairs/constant_variable로 표시한다. 점도표에는 회귀선을 넣지 않는다. 완전한 x/y 관측쌍이 없으면 이를 명시한 그림을 새로 생성해 오래된 그림과 구별한다.
 
@@ -157,7 +171,7 @@ exploration_manifest.json은 입력·품질보고서·탐색 코드·출력 해�
 
 ### 정식 탐색 검수 (G-M3-02)
 
-탐색 결과는 `outputs/exploration_notes.md`, 검수 증거는 `outputs/exploration_validation.json`에 고정했다. 감사 재현은 make explore 후 `.venv/bin/python outputs/exploration_audit.py`로 실행한다. 수치 재계산은 csv/statistics/math, 원본 후보 대조는 보존 원본·확정 대응표를 사용한다. 감사 스크립트와 QA 표는 기존 outputs 비추적 정책 안에서 보존하므로 M7 재현/공유 패키지에서 함께 취급한다.
+탐색 결과는 `outputs/exploration_notes.md`, 검수 증거는 `outputs/exploration_validation.json`에 고정했다. 당시 감사는 make explore 후 `.venv/bin/python outputs/exploration_audit.py`로 실행했다. 지금 다시 실행하는 방법은 아래 ‘보관본과 현재 실행의 경로’ 절을 따른다. 수치 재계산은 csv/statistics/math, 원본 후보 대조는 보존 원본·확정 대응표를 사용한다. 감사 스크립트와 QA 표는 기존 outputs 비추적 정책 안에서 보존하므로 M7 재현/공유 패키지에서 함께 취급한다.
 
 IQR 후보와 핵심 극값은 점검 표식이며 표본 삭제나 영향점 판정이 아니다. 228개 지역을 모두 유지했다. 단순 상관은 비가중 지역 수준의 통제 전 관계이며 조건부 회귀·인과효과·개인 투표행동을 의미하지 않는다. 새로운 독립 자료를 수집한 것과 같은 원본을 다른 코드로 재대조한 것을 구별한다. 이미지 확인은 별도 실행 기록이며 감사 재실행 후 자동 완료로 간주하지 않는다.
 
@@ -173,4 +187,53 @@ summary에는 모형식·n·후보/제외 수·설계 열·rank·모수 수·잔
 
 실제 추정은 M1~M3 각 228지역, M4·선거인수 가중 WLS·M1_common~M3_common 각 226지역이다. 기본 OLS 4개와 보조 4개를 모두 보존했다. `outputs/hypothesis_results.md`는 계수·HC3 양측 정규근사 CI·p·표본 변화·해석 한계를, `tables/hypothesis_evaluation.csv`는 기본 모형의 H1/H2 평가 7행을 기록한다. 분모·변수·자료·사전 제외 정책은 변경하지 않았다.
 
-`outputs/model_validation.json`은 실제 66개 term의 330개 숫자와 표본 명단 1,824행을 별도 행렬 계산으로 대조한 증거다. `model_contract_checks.json`의 인공 검증과 구별한다. 동일 자료에 대한 독립 산술 구현이며 독립 표본의 실증 재현은 아니다. `outputs/model_audit.py`로 재검사할 수 있고, 본문 검수는 별도로 기록한다. outputs의 비추적 정책은 유지하며 재현/공유 패키지는 M7에서 다룬다. 강건성 검토는 아직 미완료다.
+`outputs/model_validation.json`은 실제 66개 term의 330개 숫자와 표본 명단 1,824행을 별도 행렬 계산으로 대조한 증거다. `model_contract_checks.json`의 인공 검증과 구별한다. 동일 자료에 대한 독립 산술 구현이며 독립 표본의 실증 재현은 아니다. `outputs/model_audit.py`로 재검사할 수 있고, 본문 검수는 별도로 기록한다. outputs의 비추적 정책은 유지하며 재현/공유 패키지는 M7에서 다룬다. 강건성 검토는 G-M5-01~03에서 수행했다(다음 절).
+
+### 강건성·진단·상호작용 출력 (G-M5-01~03)
+
+아래 파일은 `src/`가 아니라 `outputs/`의 감사 스크립트가 만든다. `tables/hypothesis_evaluation.csv`는 `outputs/model_audit.py`, `tables/outlier_candidates.csv`·`extreme_regions.csv`·`source_spot_checks.csv`는 `outputs/exploration_audit.py`가 만든다. 결과 해석은 `outputs/robustness_notes.md`에 있다.
+
+| 게이트 | 스크립트 | 산출물 (`outputs/` 기준) |
+|---|---|---|
+| G-M5-01 | `robustness_audit.py` | `tables/robustness_comparisons.csv`, `robustness_validation.json` |
+| G-M5-02 | `diagnostics_audit.py` | `tables/m4_vif.csv`, `m4_influence.csv`, `m4_cook_exclusions.csv`, `m4_cook_sensitivity.csv`, `m4_province_residuals.csv`, `figures/m4_influence.png`, `diagnostics_validation.json` |
+| G-M5-03 | `interaction_audit.py` | `tables/m4_interaction_coefficients.csv`, `m4_interaction_slopes.csv`, `figures/m4_interaction_slopes.png`, `interaction_validation.json` |
+
+### 보관본과 현재 실행의 경로
+
+| 구분 | 경로 | 내용 |
+|---|---|---|
+| 보관본 | `data/processed/analysis_dataset.csv`, `outputs/data_quality.json`, `outputs/official_reconciliation.csv`, `outputs/tables/`, `outputs/figures/` 등 | 보고서와 재현 검증에 연결된 2026-11-03~06 실행 결과. 수정하지 않는다 |
+| 현재 실행 | `outputs/current/` (`RUN_DIR`로 변경 가능) | `make build`·`make explore`·`make analyze`의 결과 |
+
+보관 인증서는 패치 전 `pipeline.py`의 해시를 담고 있어 현재 코드로는 검증을 통과하지 않는다. 감사 스크립트는 저장소 루트 기준 고정 경로와 보관 인증서를 쓰므로 이 폴더에서는 인증서 검사에서 멈춘다. 다시 실행할 때는 `outputs/reproduction/README.md`의 절차로 별도 체크아웃에서 실행한다. 이 절 위의 명령 중 `make` 후 감사 스크립트를 실행하는 문구는 당시 실행 기록이다. 결정 근거는 ADR-013에 있다.
+
+### 나이 구성 분해 출력 (G-POST-02)
+
+사전 계획 외 탐색 분석이다. 규칙은 ADR-014, 해석은 `docs/SUPPLEMENT_DECOMPOSITION.md`에 있다. `make decompose`는 `make build`가 만든 인증서를 먼저 확인하고, 인구·대응표·공식 ZIP이 인증서에 연결되어 있지 않으면 멈춘다. 표본표의 연령대 합계, 시트 전체 행과 구역 합계, 구역 집합이 어긋나도 멈춘다. 파일은 모두 `outputs/current/` 아래에 생성된다.
+
+| 파일 | 내용 |
+|---|---|
+| `tables/decomposition_regions.csv` | 228개 지역의 분해 값과 보조 표본 지표 |
+| `tables/decomposition_national_rates.csv` | 11개 연령대의 표본 계수, 합계 기준 투표율, 인구 가중 투표율 |
+| `tables/decomposition_coefficients.csv` | 5개 모형 × 실제·나이 구성·같은 나이대 차이의 전체 계수 |
+| `tables/decomposition_sensitivity.csv` | M4 분해의 기준별 비교 |
+| `tables/decomposition_sign_checks.csv` | X2 부호 반전의 경쟁 설명 점검 |
+| `tables/decomposition_provinces.csv` | 시도별 실제·기대·조정·직접 표준화 투표율 |
+| `figures/decomposition_m4.png`, `figures/decomposition_expected_actual.png` | 보충 보고서의 그림 |
+| `decomposition_manifest.json` | 입력·코드·산출물 해시와 격차·분산 요약 |
+| `decomposition_validation.json` | `make audit-decomposition`의 별개 코드 재계산 기록 |
+
+`decomposition_regions.csv`의 주요 열은 다음과 같다.
+
+| 열 | 의미 | 자료 |
+|---|---|---|
+| composition_expected | 지역의 연령 비중 × 전국 연령대 투표율의 합(%) | 전수 인구 + 전국 표본값 |
+| within_age_difference | turnout − composition_expected (%p) | 전수 |
+| sample_electors, sample_voters, sample_turnout, sample_fraction | 표본 계수, 표본 투표율, 실제 선거인수 대비 추출률 | 표본 |
+| rate_80plus, rate_70s, gap_80plus_minus_70s | 지역별 연령대 투표율과 격차(%, %p) | 표본 |
+| gap_se_srs | 단순무작위를 가정한 격차의 표준오차. 군집 표본이므로 실제 오차는 더 클 수 있음 | 표본 |
+| direct_standardized | 지역별 연령대 투표율에 전국 연령 구성을 적용한 값(%). 비교용 | 표본 |
+| sample_share_expected | 연령 비중을 표본 선거인 구성으로 계산한 기대 투표율(%). 감도 분석용 | 표본 |
+
+표본은 투표구를 뽑은 군집 표본이므로 지역별 표본값을 정밀한 추정치로 읽지 않는다.

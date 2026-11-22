@@ -21,6 +21,7 @@ from political_analysis.reconciliation import (
 )
 
 DATASETS = ("election", "population", "fiscal", "migration")
+CERTIFICATE_CODE_FILES = ("pipeline.py", "reconciliation.py", "staging.py")
 CROSSWALK_COLUMNS = (
     "dataset",
     "source_region_code",
@@ -213,9 +214,15 @@ def verify_dataset_certificate(data_path: Path, quality_path: Path) -> dict:
         raise ValueError("입력 계약 또는 공식 선거 합계 검증이 미완료입니다.")
     if hashlib.sha256(data_path.read_bytes()).hexdigest() != quality.get("dataset_sha256"):
         raise ValueError("분석 데이터가 검증된 버전과 다릅니다.")
-    if not quality.get("verified_files"):
+    files = quality.get("verified_files")
+    if not isinstance(files, dict) or not files:
         raise ValueError("입력·원본 파일의 해시 증거가 없습니다.")
-    verify_file_hashes(quality["verified_files"])
+    if files.get(str(data_path.resolve())) != quality["dataset_sha256"]:
+        raise ValueError("현재 분석 데이터 경로의 검증 증거가 없습니다. 인증서를 다시 생성하세요.")
+    code_dir = Path(__file__).resolve().parent
+    if any(str(code_dir / name) not in files for name in CERTIFICATE_CODE_FILES):
+        raise ValueError("현재 실행 코드의 검증 증거가 없습니다. 인증서를 다시 생성하세요.")
+    verify_file_hashes(files)
     return quality
 
 
@@ -412,7 +419,7 @@ def build_dataset(
         lineage[str(official_election_zip.resolve())] = reconciliation["official_zip_sha256"]
         lineage[str(reconciliation_output_path.resolve())] = reconciliation["reconciliation_sha256"]
     if lineage:
-        for name in ["pipeline.py", "reconciliation.py", "staging.py"]:
+        for name in CERTIFICATE_CODE_FILES:
             path = Path(__file__).with_name(name).resolve()
             lineage[str(path)] = hashlib.sha256(path.read_bytes()).hexdigest()
     report = {

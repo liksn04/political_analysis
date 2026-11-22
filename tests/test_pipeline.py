@@ -321,6 +321,7 @@ def test_source_change_invalidates_existing_true_certificate(tmp_path):
     import hashlib
     import json
 
+    from political_analysis import pipeline
     from political_analysis.pipeline import verify_dataset_certificate
 
     source = tmp_path / "raw.txt"
@@ -328,17 +329,38 @@ def test_source_change_invalidates_existing_true_certificate(tmp_path):
     data = tmp_path / "data.csv"
     data.write_text("a,b\n1,2\n")
     quality = tmp_path / "quality.json"
+    code_dir = Path(pipeline.__file__).parent
+    certified_files = [source, data, *(code_dir / name for name in pipeline.CERTIFICATE_CODE_FILES)]
     quality.write_text(
         json.dumps(
             {
                 "input_contract_verified": True,
                 "official_election_totals_verified": True,
                 "dataset_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
-                "verified_files": {str(source): hashlib.sha256(source.read_bytes()).hexdigest()},
+                "verified_files": {
+                    str(path.resolve()): hashlib.sha256(path.read_bytes()).hexdigest()
+                    for path in certified_files
+                },
             }
         )
     )
     verify_dataset_certificate(data, quality)
+    copied = tmp_path / "copy"
+    copied.mkdir()
+    copied_data = copied / data.name
+    copied_report = copied / quality.name
+    copied_data.write_bytes(data.read_bytes())
+    copied_report.write_bytes(quality.read_bytes())
+    with pytest.raises(ValueError, match="경로"):
+        verify_dataset_certificate(copied_data, copied_report)
+
+    unbound_code = json.loads(quality.read_text())
+    current = str(Path(pipeline.__file__).resolve())
+    foreign = str(copied / "pipeline.py")
+    unbound_code["verified_files"][foreign] = unbound_code["verified_files"].pop(current)
+    copied_report.write_text(json.dumps(unbound_code))
+    with pytest.raises(ValueError, match="실행 코드"):
+        verify_dataset_certificate(data, copied_report)
     source.write_text("changed")
     with pytest.raises(ValueError, match="해시"):
         verify_dataset_certificate(data, quality)
