@@ -199,18 +199,14 @@ b{font-weight:800}
 .scatter .ring{fill:none;stroke:var(--ink);stroke-width:4;pointer-events:none}
 .scatter .hl{fill:var(--ink);pointer-events:none}
 .scatter .lab{font-size:30px;font-weight:800;fill:var(--ink);paint-order:stroke;stroke:var(--bg);stroke-width:9px;stroke-linejoin:round;pointer-events:none}
-.scatter .mline{opacity:0;transition:opacity .5s ease .35s;pointer-events:none}
-.slide.at-1 .scatter .mline{opacity:1}
-.scatter .mline line{stroke-width:4;stroke-dasharray:14 8}
-.scatter .mline .la{stroke:var(--pa)} .scatter .mline .lb{stroke:var(--pb)}
-.scatter .mline text{font-size:26px;font-weight:800;paint-order:stroke;stroke:var(--bg);stroke-width:8px;stroke-linejoin:round}
-.scatter .mline .ta{fill:var(--pa)} .scatter .mline .tb{fill:var(--pb)}
 .slide.at-1 .sc-fe .dot{opacity:.13}
-.slide.at-1 .sc-fe .dot.pa{fill:var(--pa);opacity:.95}
-.slide.at-1 .sc-fe .dot.pb{fill:var(--pb);opacity:.95}
+.slide.at-1 .sc-fe .dot.ph{fill:var(--pb);opacity:.95}
 .scatter .ring,.scatter .hl{transition:stroke .5s ease,fill .5s ease}
-.slide.at-1 .sc-fe .ring.pa{stroke:var(--pa)} .slide.at-1 .sc-fe .hl.pa{fill:var(--pa)}
-.slide.at-1 .sc-fe .ring.pb{stroke:var(--pb)} .slide.at-1 .sc-fe .hl.pb{fill:var(--pb)}
+.slide.at-1 .sc-fe .ring.ph{stroke:var(--pb)} .slide.at-1 .sc-fe .hl.ph{fill:var(--pb)}
+.sc-fe .zone{opacity:0;transition:opacity .5s ease .3s;pointer-events:none}
+.slide.at-1 .sc-fe .zone{opacity:1}
+.sc-fe .zone rect{fill:none;stroke:var(--pb);stroke-width:4;stroke-dasharray:14 8}
+.sc-fe .zone text{font-size:30px;font-weight:800;fill:var(--pb);paint-order:stroke;stroke:var(--bg);stroke-width:9px;stroke-linejoin:round}
 
 /* ---------- 5a ---------- */
 .s5a{display:grid;grid-template-columns:1060px 1fr;gap:48px;height:100%}
@@ -292,6 +288,331 @@ b{font-weight:800}
 .msg .thanks{font-size:72px;font-weight:800;margin-top:64px;color:var(--age)}
 .s7 .waffle{width:420px;height:420px}
 
+/* ---------- feedback tag ---------- */
+.ptag{font-size:24px;font-weight:800;color:var(--old-ink);background:var(--old-bg);border-radius:999px;padding:4px 18px;letter-spacing:0}
+
+/* ---------- 3 so what ---------- */
+.bgflow{display:flex;flex-direction:column;gap:18px}
+.bgrow{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px 34px;box-shadow:var(--shadow)}
+.bgl{justify-self:start;font-size:26px;font-weight:800;padding:6px 18px;border-radius:999px;background:var(--bg2);color:var(--ink2)}
+.bgl.now{background:var(--age);color:var(--on-accent)}
+.bgrow p{font-size:36px;font-weight:700;line-height:1.35}
+.bgrow p b{color:var(--age)}
+.bgrow p span{display:block;font-size:28px;font-weight:600;color:var(--ink2);margin-top:6px}
+.sig6{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sg{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px 28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;min-height:300px}
+.sgt{align-self:flex-start;font-size:22px;font-weight:800;padding:4px 14px;border-radius:999px;background:var(--age-bg);color:var(--age)}
+.sg h3{font-size:32px;font-weight:800;line-height:1.3;letter-spacing:-.015em}
+.sg p{font-size:25px;line-height:1.5;color:var(--ink2)}
+.band{margin-top:32px;display:flex;align-items:center;gap:28px;background:var(--old-bg);border-radius:22px;padding:18px 32px}
+.band .bl{font-size:24px;font-weight:800;padding:4px 16px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.band .bt{font-size:32px;font-weight:700;color:var(--ink2)}
+.band .bv{display:flex;align-items:baseline;gap:10px}
+.band .bv b{font-size:52px;font-weight:800}
+.band .bv small{font-size:24px;color:var(--muted);font-weight:700}
+.band .ba{font-size:44px;font-weight:800;color:var(--muted)}
+
+/* ---------- 4 RQ key ---------- */
+.qcard.key{border:3px solid var(--old)}
+.tag.tkey{background:var(--old);color:var(--on-accent);margin-left:10px}
+
+/* ---------- 5 why 80 ---------- */
+#ages{display:block;width:100%;height:auto;overflow:visible}
+.s5 .content{display:flex;flex-direction:column;justify-content:center;padding-bottom:40px}
+#ages .axis{stroke:var(--ink2);stroke-width:3}
+#ages .tk{stroke:var(--ink2);stroke-width:3}
+#ages .tkl{font-size:30px;font-weight:700;fill:var(--ink2);text-anchor:middle}
+#ages .bk{stroke:var(--age);stroke-width:5;fill:none}
+#ages .bkt{font-size:32px;font-weight:800;fill:var(--age)}
+#ages .bks{font-size:24px;font-weight:700;fill:var(--muted)}
+#ages .div{stroke:var(--muted);stroke-width:2;stroke-dasharray:8 8}
+#ages .m80{stroke:var(--old);stroke-width:6}
+#ages .m80c{fill:var(--old)}
+#ages .m80t{font-size:36px;font-weight:800;fill:var(--old-ink);text-anchor:middle}
+#ages .m80s{font-size:25px;font-weight:700;fill:var(--ink2);text-anchor:middle}
+#ages .sens{opacity:0;transition:opacity .45s ease}
+.slide.at-1 #ages .sens{opacity:1}
+#ages .sens line{stroke:var(--old);stroke-width:5;stroke-dasharray:12 8}
+#ages .sens polygon{fill:var(--old)}
+#ages .sens text{font-size:30px;font-weight:800;fill:var(--old-ink);text-anchor:middle}
+.term{display:grid;grid-template-columns:auto auto 1fr;align-items:center;gap:28px;margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px 34px;box-shadow:var(--shadow)}
+.term .tl{display:block;font-size:22px;font-weight:800;color:var(--muted);margin-bottom:4px}
+.term s{font-size:40px;font-weight:800;color:var(--muted);text-decoration-thickness:4px}
+.term .ta{font-size:44px;font-weight:800;color:var(--muted)}
+.term .tg b{font-size:40px;font-weight:800;color:var(--old-ink)}
+.term .tn{grid-column:1 / -1;font-size:26px;color:var(--ink2);border-top:2px solid var(--line);padding-top:14px}
+
+/* ---------- 6 data (merged) ---------- */
+.s6{display:grid;grid-template-rows:auto 1fr;gap:30px;height:100%}
+.s6top{display:grid;grid-template-columns:520px 1fr;gap:40px;align-items:center}
+.s6 .big228 .n{font-size:180px}
+.s6 .big228 .n .u{font-size:52px;letter-spacing:0;margin-left:14px;color:var(--ink)}
+.s6 .big228 .sub{margin-top:14px;font-size:28px}
+.srcrow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.srcrow .src{padding:20px 22px;gap:6px}
+.srcrow .src .ag{font-size:21px}
+.srcrow .src b{font-size:36px}
+.srcrow .src .dt{font-size:21px}
+.s6bot{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.s6bot .panelbox{padding:26px 32px}
+.s6bot .ptitle{font-size:30px;margin-bottom:16px}
+.s6bot .sw-all{padding:14px 24px}
+.s6bot .sw-all b,.s6bot .sw-all span{font-size:34px}
+.s6bot .sw-eq{margin:8px 0;font-size:24px}
+.s6bot .sw-gu div{padding:12px 8px}
+.s6bot .sw-gu b,.s6bot .sw-gu span{font-size:26px}
+.s6bot .dup{margin-top:16px;padding:14px 22px;font-size:28px}
+.s6bot .dup b{font-size:32px}
+.s6bot .flow{gap:14px}
+.s6bot .flow li{font-size:32px}
+.s6bot .flow li i{width:50px;height:50px;font-size:26px}
+.s6bot .out{margin-top:18px;padding:14px 22px;font-size:30px}
+.s6bot .ai{margin-top:12px;font-size:24px}
+
+/* ---------- 7a side ---------- */
+.s5a .side{gap:22px}
+.s5a .stepbox{padding:22px 26px}
+.s5a .stepbox b{font-size:34px}
+.s5a .stepbox p{font-size:27px}
+
+/* ---------- 9 forest ---------- */
+.s9{display:grid;grid-template-columns:1110px 1fr;gap:44px;height:100%;align-items:center}
+#forest{display:block;width:100%;height:auto;overflow:visible}
+#forest .zero{stroke:var(--ink2);stroke-width:3;stroke-dasharray:10 8}
+#forest .gl{stroke:var(--grid);stroke-width:2}
+#forest .tick{font-size:24px;fill:var(--muted);text-anchor:middle;font-weight:700}
+#forest .t0{font-size:28px;fill:var(--ink);font-weight:800}
+#forest .axl{font-size:24px;fill:var(--ink2);font-weight:700;text-anchor:middle}
+#forest .dir{font-size:24px;fill:var(--muted);font-weight:700}
+#forest .rl{font-size:36px;font-weight:800;fill:var(--ink)}
+#forest .rs{font-size:24px;font-weight:700;fill:var(--muted)}
+#forest .rv{font-size:25px;font-weight:700;fill:var(--ink2);font-variant-numeric:tabular-nums}
+#forest .ci{stroke:var(--ink2);stroke-width:8;stroke-linecap:round}
+#forest .est{fill:var(--ink)}
+#forest .main .ci{stroke:var(--old)}
+#forest .main .est{fill:var(--old-ink)}
+#forest .main .rl{fill:var(--old-ink)}
+#forest .mt{font-size:22px;font-weight:800;fill:var(--on-accent)}
+#forest .mtb{fill:var(--old)}
+.concl{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:36px 36px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.concl .ck{font-size:26px;font-weight:800;color:var(--muted)}
+.concl .cm{font-size:40px;font-weight:800;letter-spacing:-.02em}
+.concl .cv{margin-top:14px;font-size:34px;font-weight:800;line-height:1.35;color:var(--old-ink);background:var(--old-bg);border-radius:18px;padding:16px 20px}
+.concl .cs{font-size:28px;font-weight:700;color:var(--ink2)}
+
+/* ---------- 10 limits & next ---------- */
+.s10{display:grid;grid-template-columns:1fr 1fr;gap:56px;height:100%;align-items:start}
+.lcol .lh{font-size:30px;font-weight:800;color:var(--muted);margin-bottom:8px}
+.lcol.nx .lh{color:var(--age)}
+.lcol .li{padding:26px 0;border-top:2px solid var(--line)}
+.lcol .li b{display:block;font-size:50px;font-weight:800;letter-spacing:-.03em}
+.lcol.nx .li b{color:var(--age)}
+.lcol .li p{font-size:30px;line-height:1.45;color:var(--ink2);margin-top:8px}
+
+#forest .rv{paint-order:stroke;stroke:var(--bg);stroke-width:8px;stroke-linejoin:round}
+#ages text{paint-order:stroke;stroke:var(--bg);stroke-width:8px;stroke-linejoin:round}
+
+/* ---------- analogy ---------- */
+.analogy{display:flex;gap:18px;align-items:flex-start;background:var(--age-bg);border-radius:20px;padding:18px 24px}
+.analogy .al{flex:none;font-size:22px;font-weight:800;padding:4px 14px;border-radius:999px;background:var(--age);color:var(--on-accent);margin-top:3px}
+.analogy p{font-size:28px;line-height:1.45;font-weight:600;color:var(--ink)}
+.analogy.sm{padding:14px 18px;margin-top:auto}
+.analogy.sm p{font-size:24px}
+.analogy.wide{grid-column:1 / -1}
+
+/* ---------- python ---------- */
+.py{display:grid;grid-template-columns:1fr 820px;gap:56px;height:100%;align-items:start}
+.pyname{font-size:120px;font-weight:800;letter-spacing:-.04em;color:var(--age);line-height:1}
+.pydef{font-size:38px;font-weight:700;line-height:1.4;margin-top:20px}
+.dots{margin:24px 0 28px;display:flex;flex-direction:column;gap:10px}
+.dots li{font-size:30px;color:var(--ink2);padding-left:30px;position:relative}
+.dots li::before{content:"";position:absolute;left:4px;top:15px;width:12px;height:12px;border-radius:50%;background:var(--age)}
+.pyr{display:flex;flex-direction:column;gap:18px}
+.libh{font-size:28px;font-weight:800;color:var(--muted)}
+.lib{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px 28px;box-shadow:var(--shadow);display:grid;grid-template-columns:270px 1fr;gap:6px 24px;align-items:center}
+.lib .lt{grid-row:1 / 3}
+.lib .lt b{display:block;font-size:38px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:-.02em}
+.lib .lt span{font-size:24px;color:var(--muted);font-weight:700}
+.lib p{font-size:28px;font-weight:700}
+.lib em{font-style:normal;font-size:24px;color:var(--age);font-weight:700}
+
+/* ---------- why python ---------- */
+.why4{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px}
+.wcard{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px 30px;box-shadow:var(--shadow);display:flex;gap:22px;align-items:flex-start}
+.wcard .nb,.node .nb{flex:none;width:56px;height:56px;border-radius:50%;background:var(--age);color:var(--on-accent);font-size:30px;font-weight:800;display:grid;place-items:center}
+.wcard h3{font-size:40px;font-weight:800;letter-spacing:-.02em}
+.wcard p{font-size:28px;line-height:1.45;color:var(--ink2);margin-top:8px}
+.wcard p b{color:var(--ink)}
+.wcard em{display:block;font-style:normal;font-size:25px;font-weight:700;color:var(--age);margin-top:10px}
+.wcard em::before{content:"비유 · ";color:var(--muted)}
+
+/* ---------- pipeline ---------- */
+.pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.node{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;min-height:360px;position:relative}
+.node h3{font-size:42px;font-weight:800}
+.node p{font-size:25px;line-height:1.45;color:var(--ink2)}
+.node em{margin-top:auto;font-style:normal;font-size:26px;font-weight:800;color:var(--old-ink);background:var(--old-bg);border-radius:12px;padding:8px 12px;text-align:center}
+.node em::before{content:"요리로 치면";display:block;font-size:19px;font-weight:700;color:var(--muted)}
+.node:not(:last-child)::after{content:"→";position:absolute;right:-21px;top:36px;font-size:28px;font-weight:800;color:var(--muted)}
+.tools{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;margin-top:26px}
+.tool{grid-column:1 / 5;background:var(--age-bg);border-radius:16px;padding:14px 22px;display:flex;gap:18px;align-items:baseline}
+.tool.t2{grid-column:5 / 7;background:var(--bg2)}
+.tool b{font-size:30px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.tool span{font-size:24px;color:var(--ink2);font-weight:700}
+
+/* ---------- variables ---------- */
+.vtab{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+.vtab th{font-size:22px;color:var(--muted);text-align:left;padding:12px 20px;background:var(--bg2);font-weight:800}
+.vtab th:nth-child(1){width:150px} .vtab th:nth-child(2){width:380px} .vtab th:nth-child(3){width:500px}
+.vtab td{font-size:26px;padding:11px 20px;border-top:1px solid var(--line);color:var(--ink2);line-height:1.3}
+.vtab td b{color:var(--ink);font-size:28px}
+.vtab td b.c-age{color:var(--age)} .vtab td b.c-old{color:var(--old-ink)}
+.vt{display:inline-block;font-size:20px;font-weight:800;padding:3px 12px;border-radius:999px;white-space:nowrap}
+.vt.y{background:var(--ink);color:var(--bg)} .vt.x{background:var(--age);color:var(--on-accent)} .vt.c{background:var(--bg2);color:var(--ink2);border:1px solid var(--line)}
+.vtab + .analogy{margin-top:18px}
+
+/* ---------- regression line ---------- */
+#sc1 .fit{opacity:0;transition:opacity .5s ease}
+.slide.at-1 #sc1 .fit{opacity:1}
+#sc1 .fit line{stroke:var(--age);stroke-width:6;stroke-linecap:round}
+#sc1 .fit text{font-size:28px;font-weight:800;fill:var(--age);paint-order:stroke;stroke:var(--bg);stroke-width:8px;stroke-linejoin:round}
+#sc1 .slope{opacity:0;transition:opacity .5s ease;pointer-events:none}
+.slide.at-2 #sc1 .slope{opacity:1}
+#sc1 .slope line{stroke:var(--old);stroke-width:6;stroke-linecap:round}
+#sc1 .slope text{font-size:30px;font-weight:800;fill:var(--old-ink);paint-order:stroke;stroke:var(--bg);stroke-width:9px;stroke-linejoin:round}
+.s5a.s11,.s5a.s13{grid-template-columns:960px 1fr;gap:44px}
+.s11 .side,.s13 .side{gap:18px;padding-top:0}
+.s11 .analogy p{font-size:27px}
+.s11 .stepbox b,.s13 .stepbox b{font-size:32px}
+.s11 .stepbox p,.s13 .stepbox p{font-size:26px}
+.stepbox .n.pb{background:var(--pb)}
+.s13 .stepbox p.pm{font-size:24px;color:var(--muted);font-weight:700;margin-top:8px}
+.qbox{background:var(--old-bg);border-radius:24px;padding:22px 28px}
+.qbox b{display:block;font-size:32px;line-height:1.3;letter-spacing:-.015em}
+.qbox p{font-size:27px;font-weight:700;color:var(--ink2);margin-top:8px}
+.tagx{flex:none;display:inline-block;font-size:22px;font-weight:800;padding:4px 14px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.tagx.t-age{background:var(--age);color:var(--on-accent)} .tagx.t-pb{background:var(--pb);color:var(--on-accent)}
+
+/* ---------- stairs ---------- */
+.stairs{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.stair{display:grid;grid-template-columns:90px 1fr 440px 100px;align-items:center;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 24px;box-shadow:var(--shadow)}
+.stair.s2{margin-left:80px} .stair.s3{margin-left:160px} .stair.s4{margin-left:240px;border:3px solid var(--age)}
+.stair .mn{font-size:30px;font-weight:800;color:var(--on-accent);background:var(--age);border-radius:12px;text-align:center;padding:6px 0}
+.stair .mf{font-size:32px;font-weight:800}
+.stair .md{font-size:26px;color:var(--ink2)}
+.stair .md b{color:var(--age)}
+.stair .mc{font-size:24px;color:var(--muted);font-weight:700;text-align:right}
+.why2{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+.why2 .analogy p{font-size:28px}
+.why2 .analogy .map{display:block;margin-top:14px;padding-top:12px;border-top:2px dashed var(--line);font-size:24px;font-weight:800;color:var(--age)}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 24px;box-shadow:var(--shadow)}
+.fact .fq{display:flex;gap:14px;align-items:flex-start;font-size:27px;font-weight:700;line-height:1.4}
+.fact .fq .tagx{margin-top:3px}
+.ft{width:100%;border-collapse:collapse;margin-top:10px;font-variant-numeric:tabular-nums}
+.ft th{font-size:21px;color:var(--muted);font-weight:700;text-align:right;padding:2px 10px 6px;border-bottom:2px solid var(--line)}
+.ft td{font-size:27px;font-weight:800;text-align:right;padding:6px 10px}
+.ft th:first-child,.ft td:first-child{text-align:left;padding-left:0}
+.ft td:first-child{font-size:24px;color:var(--ink2)}
+.ft tr.hi td{color:var(--age)}
+.s12 .stairs{margin-top:22px;gap:12px}
+.s12 .stair{padding:12px 24px}
+
+/* ---------- FE detail ---------- */
+.fe3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.fcol{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 30px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;min-height:400px}
+.fcol .fh{font-size:34px;font-weight:800;color:var(--age)}
+.fcol.ok .fh{color:var(--pb)} .fcol.no .fh{color:var(--old-ink)}
+.fcol p,.fcol li{font-size:28px;line-height:1.45;color:var(--ink2)}
+.fcol ul{display:flex;flex-direction:column;gap:8px}
+.fcol li{padding-left:26px;position:relative}
+.fcol li::before{content:"";position:absolute;left:2px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--muted)}
+.fcol .fs{font-size:24px;color:var(--muted)}
+.fcol .fr{margin-top:auto;font-weight:800;color:var(--ink)}
+.band.b2{background:var(--age-bg);flex-wrap:wrap;gap:8px 24px}
+.band .bs{font-size:26px;color:var(--ink2);font-weight:700;flex-basis:100%}
+.band.b2 .bt b{color:var(--ink)}
+.fcol .fan{margin-top:auto;background:var(--age-bg);border-radius:16px;padding:14px 18px;font-size:25px;font-weight:700;color:var(--ink);line-height:1.4}
+.fcol .fan span{display:block;font-size:20px;font-weight:800;color:var(--age);margin-bottom:2px}
+.fcol p b{color:var(--ink)}
+.cmp2{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.cpanel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px 32px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
+.cph{display:flex;align-items:center;gap:14px;font-size:32px;font-weight:800}
+.ctab{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.ctab th{font-size:22px;color:var(--muted);font-weight:700;text-align:right;padding:4px 0 8px 12px;border-bottom:2px solid var(--line)}
+.ctab td{font-size:38px;font-weight:800;text-align:right;padding:12px 0 12px 12px;border-bottom:1px solid var(--line)}
+.ctab .who{text-align:left;padding-left:0}
+.ctab .who b{display:block;font-size:30px}
+.ctab .who small{display:block;font-size:21px;color:var(--muted);font-weight:700}
+.ctab .avg{color:var(--muted)}
+.ctab .dif{color:var(--pb)}
+.cpc{font-size:27px;font-weight:700;color:var(--ink2);line-height:1.45;margin-top:auto}
+.cpc b{color:var(--ink)}
+.cpc small{display:block;font-size:23px;color:var(--muted)}
+
+/* ---------- SE & CI ---------- */
+.se{display:grid;grid-template-columns:1fr 780px;gap:48px;height:100%;align-items:start}
+.sel{display:flex;flex-direction:column;gap:22px}
+.sdef{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 30px;box-shadow:var(--shadow)}
+.sdef b{font-size:38px;font-weight:800}
+.sdef p{font-size:28px;color:var(--ink2);margin-top:8px;line-height:1.4}
+.ser{display:flex;flex-direction:column;gap:24px}
+.cidemo{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 28px;box-shadow:var(--shadow)}
+.cidemo .ch{font-size:24px;font-weight:800;color:var(--muted)}
+.cidemo svg{display:block;width:100%;height:auto}
+.cidemo .z{stroke:var(--ink2);stroke-width:3;stroke-dasharray:8 7}
+.cidemo .zl{font-size:26px;font-weight:800;fill:var(--ink)}
+.cidemo .cil{stroke:var(--old);stroke-width:10;stroke-linecap:round}
+.cidemo .ce{fill:var(--old-ink)}
+.cidemo .cv{font-size:28px;font-weight:800;fill:var(--old-ink)}
+.cidemo .cb{font-size:24px;font-weight:700;fill:var(--ink2)}
+.cidemo .cf{font-size:28px;font-weight:800;color:var(--old-ink)}
+
+/* ---------- HC3 detail ---------- */
+.hc{display:grid;grid-template-columns:1fr 600px;gap:44px;height:100%;align-items:start}
+.hcl{display:flex;flex-direction:column;gap:18px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cmp>div{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 24px}
+.cmp .hcx{background:var(--age-bg);border-color:transparent}
+.cmp .ck{font-size:24px;font-weight:800;color:var(--muted)}
+.cmp .hcx .ck{color:var(--age)}
+.cmp p{font-size:27px;line-height:1.4;margin-top:6px}
+.hctab{width:100%;border-collapse:separate;border-spacing:0 8px}
+.hctab th{font-size:28px;font-weight:800;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;text-align:left;width:110px;padding:10px 18px;background:var(--bg2);border-radius:12px 0 0 12px}
+.hctab td{font-size:26px;padding:10px 18px;background:var(--bg2);border-radius:0 12px 12px 0;color:var(--ink2);line-height:1.35}
+.hctab tr.on th,.hctab tr.on td{background:var(--age-bg);color:var(--ink)}
+.hcr{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 32px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.hcr .hh{font-size:30px;font-weight:800;color:var(--age)}
+.hcr .hp{font-size:27px;line-height:1.45;color:var(--ink2)}
+.setab{width:100%;border-collapse:collapse;font-size:28px}
+.setab th{font-size:22px;color:var(--muted);text-align:right;padding:6px 10px}
+.setab td{padding:10px;border-top:1px solid var(--line);text-align:right}
+.setab td:first-child{text-align:left;font-weight:700}
+
+/* ---------- code ---------- */
+.code{margin:0;background:#141922;color:#E6E9EF;border-radius:24px;padding:26px 36px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:28px;line-height:1.5;white-space:pre;overflow:hidden}
+.code .cm{color:#8A93A6} .code .kw{color:#C792EA} .code .s{color:#C3E88D}
+.code .cy,.legend .cy{color:#FFFFFF;font-weight:800}
+.code .c1,.legend .c1{color:#82AAFF;font-weight:800}
+.code .c2,.legend .c2{color:#F78C6C;font-weight:800}
+.code .cc,.legend .cc{color:#B0B8C8}
+.code .cf,.legend .cf{color:#7FDBCA;font-weight:800}
+.code .ch,.legend .ch{color:#FFCB6B;font-weight:800}
+.code .ch{text-decoration:underline;text-underline-offset:6px}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;margin-top:22px}
+.legend p{font-size:26px;color:var(--ink2);line-height:1.4}
+.legend span{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;padding:2px 10px;border-radius:8px;background:#141922;margin-right:8px}
+
+/* ---------- checks ---------- */
+.chk3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-items:stretch}
+.chk3 .pcard{gap:14px;padding:32px}
+.chk3 .pcard h3{font-size:38px}
+.chk3 .pcard p{font-size:27px}
+.chk3 .pcard h3{font-size:34px;line-height:1.25}
+.chk3 .pcard .mut{display:block;font-size:23px;color:var(--muted);font-weight:700;margin-top:6px}
+.chk3 .pcard .ck{background:var(--bg2);border-radius:14px;padding:12px 18px;font-size:25px;color:var(--ink);line-height:1.4}
+.chk3 .pcard .ck b{display:block;font-size:20px;font-weight:800;color:var(--age);margin-bottom:2px}
+
+
 /* ---------- chrome ---------- */
 #bar{position:fixed;left:0;bottom:0;height:5px;background:var(--age);width:0;transition:width .35s ease;z-index:5;opacity:.85}
 #ctl{position:fixed;right:16px;bottom:16px;display:flex;gap:8px;z-index:6;opacity:0;transition:opacity .3s ease}
@@ -316,7 +637,7 @@ body.mouse #ctl{opacity:1}
 <div id="stage" aria-live="polite">
 
 <!-- 0 · title -->
-<section class="slide s-title" data-steps="0" data-end="0:00" aria-label="표지">
+<section class="slide s-title" data-end="0:09" data-steps="0" aria-label="표지">
   <div>
     <p class="eyebrow">정치분석 · 연구계획 발표</p>
     <h1>지역의 고령화 수준과<br>선거 투표율의 관계</h1>
@@ -331,7 +652,7 @@ body.mouse #ctl{opacity:1}
 </section>
 
 <!-- 1 · intro -->
-<section class="slide s1" data-steps="2" data-end="0:30" aria-label="도입">
+<section class="slide s1" data-end="0:26" data-steps="2" aria-label="도입">
   <header class="hd"><div class="kick"><span>1 · 도입</span></div><h2>연령대별 투표율 · 제21대 대통령선거</h2></header>
   <div class="content">
     <svg id="age" viewBox="0 0 1664 560" aria-label="연령대별 투표율 막대그래프"></svg>
@@ -341,7 +662,7 @@ body.mouse #ctl{opacity:1}
 </section>
 
 <!-- 2 · two regions -->
-<section class="slide s2" data-steps="4" data-end="1:10" aria-label="실제 지역 비교">
+<section class="slide s2" data-end="0:54" data-steps="4" aria-label="실제 지역 비교">
   <header class="hd"><div class="kick"><span>2 · 실제 지역 비교</span><span class="klegend"><span><i class="sw young"></i>18~64세</span><span><i class="sw age"></i>65세 이상</span><span class="st" data-step="1"><i class="sw old"></i>그중 80세 이상</span><span class="muted">점 하나 = 성인 1명</span></span></div><h2>고령화 수준이 거의 같은 두 지역</h2></header>
   <div class="content">
     <div class="pair">
@@ -351,7 +672,7 @@ body.mouse #ctl{opacity:1}
           <svg class="waffle reveal80" data-n65="43" data-n80="11" viewBox="0 0 352 352" aria-label="단양군 성인 100명 중 65세 이상 43명, 그중 80세 이상 11명"></svg>
           <dl class="rstats">
             <div><dt>65세 이상</dt><dd class="c-age">43%</dd></div>
-            <div class="st" data-step="1"><dt>그중 80세 이상</dt><dd class="c-old">26%</dd></div>
+            <div class="st" data-step="1"><dt>고령층 중 80세 이상</dt><dd class="c-old">26%</dd></div>
             <div class="st" data-step="1"><dt>투표율</dt><dd class="turn"><span class="q">?</span><span class="v">79.6%</span></dd></div>
           </dl>
         </div>
@@ -362,7 +683,7 @@ body.mouse #ctl{opacity:1}
           <svg class="waffle reveal80" data-n65="43" data-n80="15" viewBox="0 0 352 352" aria-label="순창군 성인 100명 중 65세 이상 43명, 그중 80세 이상 15명"></svg>
           <dl class="rstats">
             <div><dt>65세 이상</dt><dd class="c-age">43%</dd></div>
-            <div class="st" data-step="1"><dt>그중 80세 이상</dt><dd class="c-old">34%</dd></div>
+            <div class="st" data-step="1"><dt>고령층 중 80세 이상</dt><dd class="c-old">34%</dd></div>
             <div class="st" data-step="1"><dt>투표율</dt><dd class="turn"><span class="q">?</span><span class="v">86.5%</span></dd></div>
           </dl>
         </div>
@@ -380,125 +701,344 @@ body.mouse #ctl{opacity:1}
   <footer class="foot"><span>자료: 행정안전부 주민등록 연령별 인구(2025년 5월), 중앙선거관리위원회 개표결과</span><span class="pg"></span></footer>
 </section>
 
-<!-- 3 · RQ & hypotheses -->
-<section class="slide s3" data-steps="2" data-end="1:45" aria-label="연구질문과 가설">
-  <header class="hd"><div class="kick"><span>3 · 연구질문과 가설</span></div><h2>두 가지 질문, 두 가지 예상</h2></header>
+<!-- 3 · background -->
+<section class="slide" data-end="1:35" data-steps="2" aria-label="연구 배경">
+  <header class="hd"><div class="kick"><span>3 · 연구 배경과 의미</span></div><h2>연구 배경</h2></header>
+  <div class="content">
+    <div class="bgflow">
+      <div class="bgrow"><span class="bgl">기존 연구</span><p>개인의 <b>연령</b>과 투표행동의 관계를 주로 다룸</p></div>
+      <div class="bgrow st" data-step="1"><span class="bgl now">이 연구</span><p>그 관계가 <b>지역 단위</b>에서도 나타나는지 확인<span>지역별 투표율의 차이를 인구구조로 얼마나 설명할 수 있는가</span></p></div>
+      <div class="bgrow st" data-step="2"><span class="bgl">배경</span><p>고령화의 지속 → 정치참여와 민주주의에 갖는 의미</p></div>
+    </div>
+    <div class="band st" data-step="2">
+      <span class="bl">인구 변화</span>
+      <span class="bt">85세 이상 · 총인구 100명 중</span>
+      <span class="bv"><b class="num">1.8명</b><small>2022년</small></span>
+      <span class="ba">→</span>
+      <span class="bv"><b class="num c-old">14.3명</b><small>2072년 전망</small></span>
+    </div>
+  </div>
+  <footer class="foot"><span>인구 전망: 통계청, 장래인구추계(2022~2072년)</span><span class="pg"></span></footer>
+</section>
+
+<!-- 3b · significance -->
+<section class="slide" data-end="3:10" data-steps="1" aria-label="연구의 의미">
+  <header class="hd"><div class="kick"><span>3 · 연구 배경과 의미</span></div><h2>연구의 의미</h2></header>
+  <div class="content">
+    <div class="sig6">
+      <article class="sg"><span class="sgt">정치학적 의미</span><h3>지역별 정치참여 격차의 이해</h3><p>같은 대통령선거에서도 지역마다 다른 투표율을 인구구조의 관점에서 분석</p></article>
+      <article class="sg"><span class="sgt">이론적 의미</span><h3>개인 수준의 이론을<br>지역 수준에서 검토</h3><p>개인의 연령과 투표참여의 관계가 지역 수준에서도 나타나는지 경험적으로 검토</p></article>
+      <article class="sg"><span class="sgt">설명적 의미</span><h3>인구구조의 설명력과 한계</h3><p>다른 조건을 고려한 뒤 고령화가 지역 투표율을 어느 정도 설명하는지, 인구구조 중심 설명의 한계를 확인</p></article>
+      <article class="sg st" data-step="1"><span class="sgt">방법론적 의미</span><h3>지역 단위 통합 자료 구축</h3><p>선관위·행정안전부·통계청 등의 자료를 같은 행정구역 기준으로 결합하고 재현 가능한 분석 절차를 마련</p></article>
+      <article class="sg st" data-step="1"><span class="sgt">사회적 의미</span><h3>인구 고령화와 민주주의</h3><p>고령화를 연금·복지·노동력뿐 아니라 정치참여와 민주적 대표성의 문제로 검토</p></article>
+      <article class="sg st" data-step="1"><span class="sgt">후속 연구의 의미</span><h3>선거별 비교의 기준 마련</h3><p>2017·2022년 대선으로 확대해, 이 관계가 지속적인 현상인지 특정 선거의 현상인지 검토</p></article>
+    </div>
+  </div>
+  <footer class="foot"><span>분석 대상: 2025년 제21대 대통령선거 · 228개 시·군·구</span><span class="pg"></span></footer>
+</section>
+
+<!-- 4 · RQ & hypotheses -->
+<section class="slide s3" data-end="3:48" data-steps="2" aria-label="연구질문과 가설">
+  <header class="hd"><div class="kick"><span>4 · 연구질문과 가설</span></div><h2>질문은 둘, 핵심은 RQ2</h2></header>
   <div class="content">
     <div class="qrow">
-      <div class="qcard"><span class="tag">질문 1</span><p>고령인구가 많은 지역일수록 투표율도 높은가?</p></div>
+      <div class="qcard"><span class="tag">RQ1</span><p>지역의 고령화 수준은 대통령선거 투표율과 어떤 관계가 있는가?</p></div>
       <div class="arrow st" data-step="1">→</div>
-      <div class="hcard h1 st" data-step="1"><span class="tag">가설 1</span><p class="hf" style="margin-top:14px"><span class="c-age">고령화 수준 ↑</span> → 투표율 ↑</p><p class="why">근거 · 오랜 선거 경험과 투표 습관</p></div>
+      <div class="hcard h1 st" data-step="1"><span class="tag">H1</span><p class="hf" style="margin-top:14px"><span class="c-age">고령화 수준 ↑</span> → 투표율 ↑</p><p class="why">근거 · 쌓인 선거 경험과 투표 습관</p></div>
     </div>
     <div class="qrow">
-      <div class="qcard"><span class="tag">질문 2</span><p>고령화 수준이 비슷하더라도 80세 이상 비율에 따라 투표율이 달라지는가?</p></div>
+      <div class="qcard key"><span class="tag">RQ2</span><span class="tag tkey">핵심</span><p>고령화 수준이 같다면, 고령층 중 80세 이상 비중은 투표율과 어떤 관계가 있는가?</p></div>
       <div class="arrow st" data-step="2">→</div>
-      <div class="hcard h2 st" data-step="2"><span class="tag">가설 2</span><p class="pre">고령화 수준이 같다면</p><p class="hf"><span class="c-old">80세 이상 비율 ↑</span> → 투표율 ↓</p><p class="why">근거 · 초고령기의 건강·이동의 어려움</p></div>
+      <div class="hcard h2 st" data-step="2"><span class="tag">H2</span><p class="pre">고령화 수준이 같다면</p><p class="hf"><span class="c-old">80세 이상 비중 ↑</span> → 투표율 ↓</p><p class="why">근거 · 80세 이후 커지는 건강·이동의 어려움</p></div>
     </div>
   </div>
-  <footer class="foot"><span>고령화 수준 = 18세 이상 중 65세 이상 비율 · 80세 이상 비율 = 65세 이상 중 80세 이상 비율</span><span class="pg"></span></footer>
+  <footer class="foot"><span>고령화 수준 = 18세 이상 중 65세 이상 비율 · 고령층 중 80세 이상 비중 = 65세 이상 중 80세 이상 비율</span><span class="pg"></span></footer>
 </section>
 
-<!-- 4a · data -->
-<section class="slide s4a-wrap" data-steps="2" data-end="2:25" aria-label="분석 대상과 자료">
-  <header class="hd"><div class="kick"><span>4 · 자료와 Python 활용</span></div><h2>분석 대상과 자료</h2></header>
+<!-- 5 · why 80 (new) -->
+<section class="slide s5" data-end="4:16" data-steps="1" aria-label="왜 80세인가">
+  <header class="hd"><div class="kick"><span>5 · 왜 80세인가</span></div><h2>노년학의 기준선과 이 연구의 80세</h2></header>
   <div class="content">
-    <div class="s4a">
-      <div class="big228">
-        <p class="n">228</p>
-        <p class="u">개 지역</p>
-        <p class="sub">226개 기초자치단체 + 세종 · 제주</p>
-        <p class="mini">시 75 · 군 82 · 자치구 69 · 세종·제주 2</p>
+    <svg id="ages" viewBox="0 0 1664 400" aria-label="65세부터 90세까지의 눈금선 위에 75세, 80세, 85세 기준선을 표시한 그림"></svg>
+  </div>
+  <footer class="foot"><span>Neugarten (1974) · Suzman·Riley (1985) · 중앙선거관리위원회, 제21대 대통령선거 투표율 분석</span><span class="pg"></span></footer>
+</section>
+
+<!-- N6 · python -->
+<section class="slide" data-end="4:56" data-steps="1" aria-label="Python이란">
+  <header class="hd"><div class="kick"><span>6 · Python과 분석 설계</span></div><h2>Python이란: 컴퓨터에게 주는 레시피</h2></header>
+  <div class="content">
+    <div class="py">
+      <div class="pyl">
+        <p class="pyname">Python</p>
+        <p class="pydef">컴퓨터에게 할 일을 <b>글(코드)로 적어</b> 시키는 프로그래밍 언어</p>
+        <ul class="dots">
+          <li>무료로 공개되어 누구나 사용</li>
+          <li>문법이 영어 문장과 비슷해 비교적 쉬움</li>
+          <li>통계·데이터 분석에서 널리 쓰임</li>
+        </ul>
+        <div class="analogy"><span class="al">비유</span><p>코드는 <b>레시피</b>, 컴퓨터는 레시피에 적힌 대로만 움직이는 <b>요리사</b></p></div>
       </div>
-      <div class="srcgrid">
-        <div class="src st" data-step="1"><span class="ag">중앙선거관리위원회</span><b>투표율</b><span class="dt">제21대 대통령선거 개표결과</span></div>
-        <div class="src st" data-step="1"><span class="ag">행정안전부</span><b>연령별 인구</b><span class="dt">주민등록 인구 · 2025년 5월</span></div>
-        <div class="src st" data-step="2"><span class="ag">지방재정365</span><b>재정자립도</b><span class="dt">지역의 재정 여건</span></div>
-        <div class="src st" data-step="2"><span class="ag">통계청</span><b>인구이동</b><span class="dt">전입·전출로 본 순이동</span></div>
+      <div class="pyr st" data-step="1">
+        <p class="libh">이 연구에서 쓰는 라이브러리 = 주방 도구 세트</p>
+        <div class="lib"><div class="lt"><b>pandas</b><span>표 다루기</span></div><p>자료를 합치고, 거르고, 계산</p><em>칼과 도마 · 재료 손질</em></div>
+        <div class="lib"><div class="lt"><b>statsmodels</b><span>통계 분석</span></div><p>회귀분석, 표준오차·신뢰구간 계산</p><em>저울과 계량컵 · 정확히 재기</em></div>
+        <div class="lib"><div class="lt"><b>matplotlib</b><span>그림</span></div><p>산점도·그래프 그리기</p><em>그릇 · 보기 좋게 담기</em></div>
       </div>
     </div>
   </div>
-  <footer class="foot"><span></span><span class="pg"></span></footer>
+  <footer class="foot"><span>라이브러리: 자주 쓰는 기능을 미리 만들어 둔 도구 묶음</span><span class="pg"></span></footer>
 </section>
 
-<!-- 4b · merging -->
-<section class="slide" data-steps="2" data-end="2:25" aria-label="자료를 같은 기준으로 맞추기">
-  <header class="hd"><div class="kick"><span>4 · 자료와 Python 활용</span></div><h2>기관마다 다른 자료를 같은 기준으로</h2></header>
+<!-- N7 · why python -->
+<section class="slide" data-end="6:01" data-steps="3" aria-label="왜 Python인가">
+  <header class="hd"><div class="kick"><span>6 · Python과 분석 설계</span></div><h2>왜 엑셀이 아니라 Python인가</h2></header>
   <div class="content">
-    <div class="s4b">
-      <div class="panelbox">
-        <p class="ptitle">같은 지역, 다른 단위</p>
-        <div class="sw-all"><b>수원시 전체</b><span>1,191,227명</span></div>
-        <p class="sw-eq">= 같은 사람들 =</p>
-        <div class="sw-gu">
-          <div><b>장안구</b><span>273,033</span></div>
-          <div><b>권선구</b><span>361,518</span></div>
-          <div><b>팔달구</b><span>193,596</span></div>
-          <div><b>영통구</b><span>363,080</span></div>
+    <div class="why4">
+      <div class="wcard"><span class="nb">1</span><div><h3>자료가 많다</h3><p>선관위 개표자료만 투표구 <b>14,295개</b>, 여기에 기관 4곳의 자료를 지역별로 합쳐야 함</p><em>영수증 1만 4천 장을 손으로 옮겨 적는 일</em></div></div>
+      <div class="wcard st" data-step="1"><span class="nb">2</span><div><h3>규칙을 한 번에</h3><p>“일반구는 소속 시로 합친다” 같은 규칙을 한 번 적으면 모든 지역에 똑같이 적용</p><em>도장을 한 번 파 두면 몇 장이든 똑같이 찍힌다</em></div></div>
+      <div class="wcard st" data-step="2"><span class="nb">3</span><div><h3>자동으로 검증</h3><p>계산한 투표자 수를 선관위 공식 통계와 대조 → 전국·17개 시도·228개 지역 <b>모두 일치</b></p><em>정답지로 자동 채점하기</em></div></div>
+      <div class="wcard st" data-step="3"><span class="nb">4</span><div><h3>다시 해도 같은 결과</h3><p>같은 코드를 다시 실행하면 같은 표와 결과 → 처음부터 다시 실행해 <b>같은 결과 확인</b></p><em>레시피대로 만들면 누가 해도 같은 맛</em></div></div>
+    </div>
+  </div>
+  <footer class="foot"><span>엑셀로도 계산은 할 수 있지만, 무엇을 어떤 순서로 했는지 기록하고 다시 확인하기 어렵다</span><span class="pg"></span></footer>
+</section>
+
+<!-- N8 · pipeline -->
+<section class="slide" data-end="6:33" data-steps="2" aria-label="분석 설계 6단계">
+  <header class="hd"><div class="kick"><span>6 · Python과 분석 설계</span></div><h2>분석 설계: 요리처럼 여섯 단계</h2></header>
+  <div class="content">
+    <div class="pipe">
+      <div class="node"><span class="nb">1</span><h3>수집</h3><p>4개 기관 원자료 내려받기</p><em>장보기</em></div>
+      <div class="node"><span class="nb">2</span><h3>정제</h3><p>지역 코드 통일, 일반구 → 소속 시, 중복 제거</p><em>재료 손질</em></div>
+      <div class="node st" data-step="1"><span class="nb">3</span><h3>결합</h3><p>지역 코드로 한 표에 → 228개 지역</p><em>한 냄비에 담기</em></div>
+      <div class="node st" data-step="1"><span class="nb">4</span><h3>검증</h3><p>공식 투표율·인구 합계와 대조</p><em>간 보기</em></div>
+      <div class="node st" data-step="2"><span class="nb">5</span><h3>분석</h3><p>단순회귀 → 다중회귀 → 시도 고정효과</p><em>조리</em></div>
+      <div class="node st" data-step="2"><span class="nb">6</span><h3>점검</h3><p>HC3 신뢰구간, 지표 겹침·가중치·기준선</p><em>맛 평가</em></div>
+    </div>
+    <div class="tools">
+      <div class="tool st" data-step="1"><b>pandas</b><span>표를 만들고 다듬는 단계</span></div>
+      <div class="tool t2 st" data-step="2"><b>statsmodels</b><span>계산하고 확인하는 단계</span></div>
+    </div>
+  </div>
+  <footer class="foot"><span>그림과 그래프는 matplotlib로 그린다</span><span class="pg"></span></footer>
+</section>
+
+<!-- 6 · data & python (merged) -->
+<section class="slide" data-end="7:05" data-steps="2" aria-label="정제의 예">
+  <header class="hd"><div class="kick"><span>6 · Python과 분석 설계</span></div><h2>정제의 예: 같은 사람을 두 번 세지 않기</h2></header>
+  <div class="content">
+    <div class="s6">
+      <div class="s6top">
+        <div class="big228"><p class="n">228<span class="u">개 지역</span></p><p class="sub">226개 기초자치단체 + 세종 · 제주</p></div>
+        <div class="srcrow">
+          <div class="src"><span class="ag">중앙선거관리위원회</span><b>투표율</b><span class="dt">제21대 대선 개표결과</span></div>
+          <div class="src"><span class="ag">행정안전부</span><b>연령별 인구</b><span class="dt">주민등록 · 2025년 5월</span></div>
+          <div class="src"><span class="ag">지방재정365</span><b>재정자립도</b><span class="dt">2025년 당초예산</span></div>
+          <div class="src"><span class="ag">통계청</span><b>인구이동</b><span class="dt">2024년 순이동</span></div>
         </div>
-        <p class="dup st" data-step="1">그대로 합치면 <b>2,382,454명</b> → 같은 사람을 두 번 셈</p>
       </div>
-      <div class="panelbox st" data-step="2">
-        <p class="ptitle">그래서 Python으로</p>
-        <ol class="flow">
-          <li><i>1</i>지역을 같은 기준으로 정리</li>
-          <li><i>2</i>투표율 계산</li>
-          <li><i>3</i>공식 통계와 대조</li>
-        </ol>
-        <p class="out">→ 228개 지역 · 하나의 분석표</p>
-        <p class="ai">분석 프로그램은 AI의 도움을 받아 구축</p>
+      <div class="s6bot">
+        <div class="panelbox st" data-step="1">
+          <p class="ptitle">같은 지역, 다른 단위</p>
+          <div class="sw-all"><b>수원시 전체</b><span>1,191,227명</span></div>
+          <p class="sw-eq">= 같은 사람들 =</p>
+          <div class="sw-gu">
+            <div><b>장안구</b><span>273,033</span></div>
+            <div><b>권선구</b><span>361,518</span></div>
+            <div><b>팔달구</b><span>193,596</span></div>
+            <div><b>영통구</b><span>363,080</span></div>
+          </div>
+          <p class="dup">그대로 합치면 <b>2,382,454명</b> → 같은 사람을 두 번 셈</p>
+        </div>
+        <div class="panelbox st" data-step="2">
+          <p class="ptitle">그래서 Python으로</p>
+          <ol class="flow">
+            <li><i>1</i>지역을 같은 기준으로 정리</li>
+            <li><i>2</i>투표율 계산</li>
+            <li><i>3</i>공식 통계와 대조</li>
+          </ol>
+          <p class="out">→ 228개 지역 · 하나의 분석표</p>
+          <p class="ai">분석 프로그램은 AI의 도움을 받아 구축</p>
+        </div>
       </div>
     </div>
   </div>
   <footer class="foot"><span>인구: 행정안전부 주민등록 연령별 인구(2025년 5월)</span><span class="pg"></span></footer>
 </section>
 
-<!-- 5a · simple comparison -->
-<section class="slide" data-steps="1" data-end="3:45" aria-label="분석 방법: 단순 비교">
-  <header class="hd"><div class="kick"><span>5 · 분석 방법</span><ol class="stepper"><li class="cur">① 단순 비교</li><li>② 다른 조건 고려</li><li>③ 불확실성 확인</li></ol></div><h2>전국 228개 지역을 그래프로</h2></header>
+<!-- N10 · variables -->
+<section class="slide" data-end="7:53" data-steps="1" aria-label="변수 설계">
+  <header class="hd"><div class="kick"><span>6 · Python과 분석 설계</span></div><h2>분석에 쓰는 변수</h2></header>
   <div class="content">
-    <div class="s5a">
-      <svg id="sc1" class="scatter" viewBox="0 0 1060 660" aria-label="228개 지역의 고령화 수준과 투표율 산점도"></svg>
+    <table class="vtab">
+      <thead><tr><th>구분</th><th>변수</th><th>측정</th><th>이렇게 재는 이유</th></tr></thead>
+      <tbody>
+        <tr><td><span class="vt y">종속</span></td><td><b>투표율</b></td><td>투표자 수 ÷ 선거인 수 × 100</td><td>설명하려는 대상 · 선관위 개표결과</td></tr>
+        <tr><td><span class="vt x">독립 X1</span></td><td><b class="c-age">고령화 수준</b></td><td>65세 이상 ÷ 18세 이상 × 100</td><td>투표율의 분모(선거인)와 같은 18세 이상 기준</td></tr>
+        <tr><td><span class="vt x">독립 X2</span></td><td><b class="c-old">고령층 중 80세 이상 비중</b></td><td>80세 이상 ÷ 65세 이상 × 100</td><td>고령층의 크기와 따로, 그 안의 구성을 잼</td></tr>
+        <tr class="st" data-step="1"><td><span class="vt c">통제</span></td><td><b>재정자립도</b></td><td>지방재정365, 2025년 당초예산(%)</td><td>지역의 경제 여건</td></tr>
+        <tr class="st" data-step="1"><td><span class="vt c">통제</span></td><td><b>순이동률</b></td><td>2024년 순이동자 ÷ 연앙인구 × 100</td><td>전입·전출이 많은 지역의 특성</td></tr>
+        <tr class="st" data-step="1"><td><span class="vt c">통제</span></td><td><b>인구규모</b></td><td>주민등록 총인구의 로그</td><td>9천~119만 명의 차이를 ‘몇 배’로 비교</td></tr>
+        <tr class="st" data-step="1"><td><span class="vt c">통제</span></td><td><b>지역유형 · 시도</b></td><td>시·군·자치구 · 시도 고정효과</td><td>행정 유형과 시도 공통의 특성</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <footer class="foot"><span>인구는 선거 직전인 2025년 5월 말 기준 → 선거 뒤의 인구 변화가 섞이지 않음</span><span class="pg"></span></footer>
+</section>
+
+<!-- N11 · regression -->
+<section class="slide" data-end="8:57" data-steps="2" aria-label="회귀분석이란">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li class="cur">① 회귀분석</li><li>② 변수 통제</li><li>③ 불확실성</li><li>④ 점검</li></ol></div><h2>회귀분석: 점들의 ‘대체로’를 선 하나로</h2></header>
+  <div class="content">
+    <div class="s5a s11">
+      <svg id="sc1" class="scatter" viewBox="0 0 1060 660" aria-label="228개 지역의 고령화 수준과 투표율 산점도와 회귀선"></svg>
       <div class="side">
-        <div class="stepbox"><span class="n">1</span><div><b>그래프로 살펴보기</b><p>점 하나 = 지역 하나</p></div></div>
-        <div class="stepbox st" data-step="1"><span class="n">2</span><div><b>고령화 수준만으로 분석</b><p><span class="formula">투표율 ← <span class="c-age">고령화 수준</span></span></p></div></div>
-        <p class="hint">점에 마우스를 올리면 지역 이름이 보입니다</p>
+        <div class="analogy"><span class="al">비유</span><p>공부를 오래 한 학생이 <b>대체로</b> 성적이 높다. 예외도 있지만, 그 ‘대체로’를 선 하나로 나타내는 것이 회귀분석</p></div>
+        <div class="stepbox"><span class="n">1</span><div><b>점 하나 = 지역 하나</b><p>가로 = 고령화 수준 · 세로 = 투표율</p></div></div>
+        <div class="stepbox st" data-step="1"><span class="n">2</span><div><b>선 = 평균선</b><p>고령화 수준이 비슷한 지역들의 평균 투표율을 직선 하나로 나타낸 것</p></div></div>
+        <div class="stepbox st" data-step="2"><span class="n">3</span><div><b>기울기 = 회귀계수</b><p>오른쪽으로 10%p 가면 위로 약 0.5%p<br>선이 평평하면(기울기 0) 관계 없음</p></div></div>
       </div>
     </div>
   </div>
-  <footer class="foot"><span>자료: 행정안전부 주민등록 연령별 인구(2025년 5월), 중앙선거관리위원회 개표결과</span><span class="pg"></span></footer>
+  <footer class="foot"><span>선은 고령화 수준만 넣은 회귀선(228개 지역) · 점에 마우스를 올리면 지역 이름이 보입니다</span><span class="pg"></span></footer>
 </section>
 
-<!-- 5b · controls + FE -->
-<section class="slide" data-steps="2" data-end="3:45" aria-label="분석 방법: 다른 조건 고려">
-  <header class="hd"><div class="kick"><span>5 · 분석 방법</span><ol class="stepper"><li>① 단순 비교</li><li class="cur">② 다른 조건 고려</li><li>③ 불확실성 확인</li></ol></div><h2>다중회귀분석과 시도 고정효과</h2></header>
+<!-- N12 · stairs -->
+<section class="slide s12" data-end="10:03" data-steps="4" aria-label="조건을 하나씩 맞추기">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li>① 회귀분석</li><li class="cur">② 변수 통제</li><li>③ 불확실성</li><li>④ 점검</li></ol></div><h2>다중회귀: 다른 조건이 같다면?</h2></header>
   <div class="content">
-    <div class="s5b">
-      <div class="eq">
-        <p class="lhs">투표율 ←</p>
-        <ul class="terms">
-          <li class="c-age">고령화 수준</li>
-          <li><span class="plus">+</span><span class="c-old">80세 이상 비율</span></li>
-          <li><span class="plus">+</span>재정자립도</li>
-          <li><span class="plus">+</span>인구이동</li>
-          <li><span class="plus">+</span>인구규모</li>
-          <li class="fe st" data-step="1"><span class="plus">+</span><span class="t">시도 고정효과</span></li>
-        </ul>
-        <span class="badge">다중회귀분석</span>
-        <div class="within st" data-step="2">
-          <p><i class="sw pa"></i>단양 ↔ 충북의 다른 지역들</p>
-          <p><i class="sw pb"></i>순창 ↔ 전북의 다른 지역들</p>
-          <p class="note">같은 도 안에서도 지역마다 다른 조건은 남아 있음</p>
+    <div class="why2">
+      <div class="analogy"><span class="al">비유</span><p>공부를 오래 한 학생 중에 3학년이 많다면? 성적이 높은 이유가 <b>공부인지 학년인지</b> 알 수 없다 → 같은 학년끼리 비교<span class="map">공부 시간 = 고령화 수준 · 학년 = 인구·재정 같은 지역 여건</span></p></div>
+      <div class="fact">
+        <p class="fq"><span class="tagx">우리 자료</span>고령화 수준이 높은 지역은 인구가 적고 재정이 약하다</p>
+        <table class="ft">
+          <tr><th>228곳을 셋으로 나누면</th><th>고령화 수준</th><th>인구</th><th>재정자립도</th></tr>
+          <tr><td>고령화 낮은 76곳</td><td>20%</td><td>약 44만 명</td><td>29%</td></tr>
+          <tr class="hi"><td>고령화 높은 76곳</td><td>42%</td><td>약 5만 명</td><td>10%</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="stairs">
+      <div class="stair s1 st" data-step="1"><span class="mn">M1</span><p class="mf">투표율 ← <span class="c-age">고령화 수준</span></p><p class="md">앞의 선 그대로</p><span class="mc">228곳</span></div>
+      <div class="stair s2 st" data-step="2"><span class="mn">M2</span><p class="mf">+ <span class="c-old">80세 이상 비중</span></p><p class="md">두 고령 지표를 함께</p><span class="mc">228곳</span></div>
+      <div class="stair s3 st" data-step="3"><span class="mn">M3</span><p class="mf">+ 재정자립도 · 순이동률 · 인구규모</p><p class="md">지역 여건이 같다면</p><span class="mc">228곳</span></div>
+      <div class="stair s4 st" data-step="4"><span class="mn">M4</span><p class="mf">+ 지역유형 · 시도 고정효과</p><p class="md">같은 시도 안에서 · <b>기본모형</b></p><span class="mc">226곳</span></div>
+    </div>
+  </div>
+  <footer class="foot"><span>다중회귀: 여러 조건을 한 번에 넣어 ‘다른 조건이 같을 때’의 차이를 보는 방법 · 표의 값은 각 76곳의 평균</span><span class="pg"></span></footer>
+</section>
+
+<!-- N13 · why FE -->
+<section class="slide" data-end="10:37" data-steps="2" aria-label="시도 고정효과가 필요한 이유">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li>① 회귀분석</li><li class="cur">② 변수 통제</li><li>③ 불확실성</li><li>④ 점검</li></ol></div><h2>시도 고정효과가 필요한 이유</h2></header>
+  <div class="content">
+    <div class="s5a s13">
+      <svg id="sc2" class="scatter sc-fe" viewBox="0 0 1060 660" aria-label="228개 지역의 고령화 수준과 투표율 산점도, 전라남도와 전북특별자치도 강조"></svg>
+      <div class="side">
+        <div class="stepbox"><span class="n">?</span><div><b>오른쪽 위의 점들은 어디일까</b><p>고령화 수준도 높고 투표율도 높은 지역</p></div></div>
+        <div class="stepbox st" data-step="1"><span class="n pb">!</span><div><b>17곳 모두 전남·전북</b><p>고령화 수준 40% 이상 · 투표율 83% 이상</p><p class="pm">시도 평균 투표율<br>전남 83.9% · 전북 83.1% · 충남 76.5%</p></div></div>
+        <div class="qbox st" data-step="2"><b>고령화 때문일까, 전남·전북이라서일까?</b><p>→ 같은 도 안의 지역끼리 비교해야 구분된다</p></div>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span>시도 평균은 각 시도에 속한 시·군·구 투표율의 단순 평균 · 점에 마우스를 올리면 지역 이름이 보입니다</span><span class="pg"></span></footer>
+</section>
+
+<!-- N14 · FE = compare with own province mean -->
+<section class="slide" data-end="11:32" data-steps="2" aria-label="시도 고정효과">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li>① 회귀분석</li><li class="cur">② 변수 통제</li><li>③ 불확실성</li><li>④ 점검</li></ol></div><h2>시도 고정효과: 자기 도 평균과 비교</h2></header>
+  <div class="content">
+    <div class="cmp2">
+      <div class="cpanel">
+        <p class="cph"><span class="tagx t-age">비유</span>시험 난이도가 다른 두 학교</p>
+        <table class="ctab">
+          <tr><th></th><th>점수</th><th>학교 평균</th><th>평균과의 차이</th></tr>
+          <tr><td class="who"><b>철수</b><small>A학교 · 쉬운 시험</small></td><td>85점</td><td class="avg">80점</td><td class="dif">+5</td></tr>
+          <tr><td class="who"><b>영희</b><small>B학교 · 어려운 시험</small></td><td>75점</td><td class="avg">60점</td><td class="dif">+15</td></tr>
+        </table>
+        <p class="cpc">점수만 보면 철수가 앞서지만,<br><b>자기 학교 평균과 비교하면 영희가 더 잘했다</b></p>
+      </div>
+      <div class="cpanel st" data-step="1">
+        <p class="cph"><span class="tagx t-pb">실제</span>속한 도가 다른 두 지역</p>
+        <table class="ctab">
+          <tr><th></th><th>투표율</th><th>도 평균</th><th>평균과의 차이</th></tr>
+          <tr><td class="who"><b>단양군</b><small>충청북도</small></td><td>79.6%</td><td class="avg">77.5%</td><td class="dif">+2.1%p</td></tr>
+          <tr><td class="who"><b>순창군</b><small>전북특별자치도</small></td><td>86.5%</td><td class="avg">83.1%</td><td class="dif">+3.4%p</td></tr>
+        </table>
+        <p class="cpc">그냥 비교하면 <b>6.9%p</b> 차이<br>→ 자기 도 평균과 비교하면 <b>1.3%p</b> 차이<small>나머지 5.6%p는 두 도의 평균 차이</small></p>
+      </div>
+    </div>
+    <div class="band b2 st" data-step="2">
+      <span class="bl">시도 고정효과</span>
+      <span class="bt">모든 지역의 투표율과 고령화 수준을 <b>‘자기 도 평균보다 얼마나 높은가·낮은가’</b>로 바꿔 비교</span>
+    </div>
+  </div>
+  <footer class="foot"><span>도 평균은 각 도에 속한 시·군·구 투표율의 단순 평균 · 차이는 표시된 값끼리 뺀 값</span><span class="pg"></span></footer>
+</section>
+
+<!-- N15 · FE: method, controlled factors, limits -->
+<section class="slide" data-end="12:22" data-steps="2" aria-label="시도 고정효과의 방법과 한계">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li>① 회귀분석</li><li class="cur">② 변수 통제</li><li>③ 불확실성</li><li>④ 점검</li></ol></div><h2>시도 고정효과의 방법과 한계</h2></header>
+  <div class="content">
+    <div class="fe3">
+      <div class="fcol">
+        <p class="fh">방법</p>
+        <p>각 지역의 <b>소속 시도</b>를 모형에 표시</p>
+        <p class="fs">시도마다 ‘해당 시도면 1, 아니면 0’인 변수 · 15개 시도 → 기준 1개를 뺀 14개</p>
+        <p class="fan"><span>비유</span>학생마다 소속 학교를 표시</p>
+      </div>
+      <div class="fcol ok st" data-step="1">
+        <p class="fh">통제되는 요인</p>
+        <p>같은 시도의 모든 지역에 <b>공통으로</b> 작용하는 요인</p>
+        <ul><li>지역의 정치 성향</li><li>시도 단위의 선거 분위기·동원</li><li>시도의 경제·문화</li></ul>
+        <p class="fs">측정하지 않은 요인도 함께 통제됨</p>
+        <p class="fan"><span>비유</span>학교마다 다른 시험 난이도·학교 분위기</p>
+      </div>
+      <div class="fcol no st" data-step="2">
+        <p class="fh">한계</p>
+        <ul><li>같은 시도 안에서 지역마다 다른 요인은 통제되지 않음</li><li>시도 간 차이는 설명할 수 없음</li><li>세종·제주는 같은 시도 안에 비교할 지역이 없어 제외 → <b>226곳</b></li></ul>
+        <p class="fan"><span>비유</span>학생 개인의 차이는 남고, 학교끼리는 비교할 수 없음</p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span>기본모형에는 시도 고정효과와 함께 지역유형(시·군·자치구)도 포함</span><span class="pg"></span></footer>
+</section>
+
+<!-- N15 · SE & CI -->
+<section class="slide" data-end="13:03" data-steps="2" aria-label="표준오차와 신뢰구간">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li>① 회귀분석</li><li>② 변수 통제</li><li class="cur">③ 불확실성</li><li>④ 점검</li></ol></div><h2>표준오차와 95% 신뢰구간</h2></header>
+  <div class="content">
+    <div class="se">
+      <div class="sel">
+        <div class="sdef"><b>회귀계수</b><p>이번 자료로 얻은 추정값 · 자료가 조금 달랐다면 조금 다른 값</p></div>
+        <div class="sdef"><b>표준오차</b><p>추정값이 흔들릴 수 있는 크기</p></div>
+        <div class="sdef"><b>95% 신뢰구간</b><p>≈ 추정값 ± 1.96 × 표준오차</p></div>
+      </div>
+      <div class="ser">
+        <div class="analogy st" data-step="1"><span class="al">비유</span><p>여론조사의 <b>‘오차범위 ±3%p’</b>. 두 후보의 차이가 오차범위 안이면 ‘접전’이라고 하듯, 신뢰구간이 <b>0을 포함하면</b> 방향을 말하지 않는다</p></div>
+        <div class="cidemo st" data-step="2">
+          <p class="ch">예 · 기본모형의 고령층 중 80세 이상 비중</p>
+          <svg viewBox="0 0 640 190" aria-label="계수 −0.070, 95% 신뢰구간 −0.189에서 +0.049, 0을 포함">
+            <line class="z" x1="380" y1="24" x2="380" y2="140"/>
+            <text class="zl" x="380" y="172" text-anchor="middle">0</text>
+            <line class="cil" x1="153" y1="92" x2="439" y2="92"/>
+            <circle class="ce" cx="296" cy="92" r="13"/>
+            <text class="cv" x="296" y="62" text-anchor="middle">−0.070</text>
+            <text class="cb" x="153" y="132" text-anchor="middle">−0.189</text>
+            <text class="cb" x="439" y="132" text-anchor="middle">+0.049</text>
+          </svg>
+          <p class="cf">0을 포함 → 방향 판단 보류</p>
         </div>
       </div>
-      <svg id="sc2" class="scatter sc-fe" viewBox="0 0 1000 660" aria-label="충청북도와 전북특별자치도 지역을 강조한 산점도"></svg>
     </div>
   </div>
-  <footer class="foot"><span>평균선은 각 도에 속한 지역 투표율의 단순 평균</span><span class="pg"></span></footer>
+  <footer class="foot"><span>226개 지역 · HC3 표준오차 기준</span><span class="pg"></span></footer>
 </section>
 
-<!-- 5c · uncertainty -->
-<section class="slide" data-steps="2" data-end="3:45" aria-label="분석 방법: 불확실성 확인">
-  <header class="hd"><div class="kick"><span>5 · 분석 방법</span><ol class="stepper"><li>① 단순 비교</li><li>② 다른 조건 고려</li><li class="cur">③ 불확실성 확인</li></ol></div><h2>HC3 표준오차와 95% 신뢰구간</h2></header>
+<!-- 7b · uncertainty -->
+<section class="slide" data-end="13:39" data-steps="1" aria-label="HC3 개념">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li>① 회귀분석</li><li>② 변수 통제</li><li class="cur">③ 불확실성</li><li>④ 점검</li></ol></div><h2>HC3: 지역마다 흔들림이 다를 수 있다</h2></header>
   <div class="content">
     <div class="s5c">
       <div class="cpanel">
@@ -526,22 +1066,89 @@ body.mouse #ctl{opacity:1}
         </svg>
         <p class="cap">HC3로 표준오차를 계산해 95% 신뢰구간 제시</p>
       </div>
-      <div class="checks st" data-step="2">
-        <div class="chk"><b>점검 1</b><span>두 고령화 지표가 서로 너무 비슷하게 움직이지 않는가</span></div>
-        <div class="chk"><b>점검 2</b><span>선거인 수가 많은 지역에 더 큰 비중을 주면 결과가 달라지는가</span></div>
-      </div>
+      <div class="analogy wide st" data-step="1"><span class="al">비유</span><p>동전을 10번 던지면 앞면 비율이 크게 흔들리지만 1,000번 던지면 50%에 가깝다 → 선거인 8천여 명인 울릉군과 100만여 명인 수원시도 흔들림의 크기가 다를 수 있다</p></div>
     </div>
   </div>
   <footer class="foot"><span>개념도는 원리를 보여 주기 위한 그림이며 실제 분석값이 아닙니다</span><span class="pg"></span></footer>
 </section>
 
-<!-- 6a · unexpected results -->
-<section class="slide" data-steps="2" data-end="4:35" aria-label="예상과 다른 결과">
-  <header class="hd"><div class="kick"><span>6 · 예상과 다른 결과</span></div><h2>결과가 가설과 다르게 나온다면</h2></header>
+<!-- N17 · HC3 detail -->
+<section class="slide" data-end="14:29" data-steps="2" aria-label="HC3 자세히">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li>① 회귀분석</li><li>② 변수 통제</li><li class="cur">③ 불확실성</li><li>④ 점검</li></ol></div><h2>HC3 자세히</h2></header>
+  <div class="content">
+    <div class="hc">
+      <div class="hcl">
+        <div class="cmp"><div><span class="ck">보통 방식</span><p>모든 지역의 빗나가는 폭이 <b>같다고 가정</b> (등분산)</p></div><div class="hcx"><span class="ck">HC 방식</span><p>지역마다 실제로 빗나간 폭(잔차)으로 계산 · <b>달라도 됨</b></p></div></div>
+        <table class="hctab st" data-step="1">
+          <tr><th>HC0</th><td>잔차를 그대로 사용</td></tr>
+          <tr><th>HC1</th><td>+ 표본 크기 보정</td></tr>
+          <tr><th>HC2</th><td>+ 영향력이 큰 지역 보정</td></tr>
+          <tr class="on"><th>HC3</th><td>영향력이 큰 지역을 더 크게 반영 · 잔차² ÷ (1 − 레버리지)² → <b>가장 보수적</b></td></tr>
+        </table>
+        <div class="analogy st" data-step="1"><span class="al">비유</span><p>영향력(레버리지) = 반에서 혼자 동떨어진 학생이 반 평균선을 끌어당기는 힘</p></div>
+      </div>
+      <div class="hcr st" data-step="2">
+        <p class="hh">왜 HC3?</p>
+        <p class="hp">분석 단위가 250개 이하일 때 권장 (Long &amp; Ervin 2000) → 이 연구는 226~228개</p>
+        <p class="hh">실제 값 · 기본모형 표준오차</p>
+        <table class="setab">
+          <tr><th></th><th>보통</th><th>HC3</th></tr>
+          <tr><td>고령화 수준</td><td class="num">0.034</td><td class="num c-age"><b>0.048</b></td></tr>
+          <tr><td>80세 이상 비중</td><td class="num">0.060</td><td class="num c-age"><b>0.061</b></td></tr>
+        </table>
+        <p class="hp">계수는 그대로, 신뢰구간 폭만 달라짐</p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span>잔차: 실제 투표율과 모형이 예측한 투표율의 차이 · HC: heteroskedasticity-consistent(이분산에 강건한)</span><span class="pg"></span></footer>
+</section>
+
+<!-- N18 · code -->
+<section class="slide" data-end="14:58" data-steps="1" aria-label="코드로 보면">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li>① 회귀분석</li><li class="cur">② 변수 통제</li><li class="cur">③ 불확실성</li><li>④ 점검</li></ol></div><h2>코드로 보면: 기본모형 계산</h2></header>
+  <div class="content">
+<pre class="code"><span class="cm"># statsmodels 불러오기</span>
+<span class="kw">import</span> statsmodels.formula.api <span class="kw">as</span> smf
+
+model = smf.ols(
+    <span class="s">"<span class="cy">turnout</span> ~ <span class="c1">aging_rate</span> + <span class="c2">oldest_share</span>"</span>
+    <span class="s">" + <span class="cc">fiscal_independence + net_migration_rate + log_population</span>"</span>
+    <span class="s">" + <span class="cf">C(region_type) + C(province)</span>"</span>,
+    data=regions,      <span class="cm"># 세종·제주를 뺀 226개 지역</span>
+)
+result = model.fit(<span class="ch">cov_type="HC3"</span>)</pre>
+    <div class="legend st" data-step="1">
+      <p><span class="cy">turnout</span> 투표율 (Y) · <b>~</b> 왼쪽을 오른쪽으로 설명</p>
+      <p><span class="c1">aging_rate</span> 고령화 수준 (X1)</p>
+      <p><span class="c2">oldest_share</span> 고령층 중 80세 이상 비중 (X2)</p>
+      <p><span class="cc">fiscal… · net_migration… · log_population</span> 통제변수</p>
+      <p><span class="cf">C(…)</span> 숫자가 아닌 범주로 → 지역유형 · <b>시도 고정효과</b></p>
+      <p><span class="ch">cov_type="HC3"</span> HC3 표준오차로 계산</p>
+    </div>
+  </div>
+  <footer class="foot"><span>실제 분석 코드(src/political_analysis/models.py)의 핵심만 옮긴 것 · 이 코드로 기본모형의 계수가 그대로 나온다</span><span class="pg"></span></footer>
+</section>
+
+<!-- N19 · checks -->
+<section class="slide" data-end="16:07" data-steps="2" aria-label="세 가지 확인">
+  <header class="hd"><div class="kick"><span>7 · 분석 방법</span><ol class="stepper"><li>① 회귀분석</li><li>② 변수 통제</li><li>③ 불확실성</li><li class="cur">④ 점검</li></ol></div><h2>결과를 한 번 더 확인하는 세 가지 방법</h2></header>
+  <div class="content">
+    <div class="chk3">
+      <div class="pcard"><span class="nb">1</span><h3>두 지표가 너무 닮지 않았나?</h3><p>노인이 많은 지역은 80세 이상 비중도 높은 편<span class="mut">상관 0.83 · 1에 가까울수록 같이 움직임</span></p><p class="ck"><b>확인</b>겹침 점수(VIF) 8.1 · 5.9로 주의 기준 5를 넘음 → 오차범위가 넓게 나올 수 있음</p><div class="analogy sm"><span class="al">비유</span><p>늘 같이 짐을 드는 두 사람은 누가 얼마나 들었는지 알기 어렵다</p></div></div>
+      <div class="pcard st" data-step="1"><span class="nb">2</span><h3>지역 크기를 따져 보면?</h3><p>기본 분석에서는 울릉군(선거인 8천여 명)도 수원시(100만여 명)도 똑같이 한 곳</p><p class="ck"><b>확인</b>선거인이 많은 지역을 더 크게 쳐서 다시 계산</p><div class="analogy sm"><span class="al">비유</span><p>학급 회의에서 반마다 한 표를 줄 때와 학생 수만큼 표를 줄 때 결과가 같은지 보기</p></div></div>
+      <div class="pcard st" data-step="2"><span class="nb">3</span><h3>80세가 아니어도 같을까?</h3><p>80세는 여러 기준 가운데 하나를 고른 것</p><p class="ck"><b>확인</b>75세·85세로 바꿔 같은 분석을 다시 함</p><div class="analogy sm"><span class="al">비유</span><p>합격선을 75점, 80점, 85점으로 바꿔도 결론이 같은지 보기</p></div></div>
+    </div>
+  </div>
+  <footer class="foot"><span>VIF(분산팽창계수): 한 지표가 다른 지표들과 얼마나 겹치는지 나타내는 점수 · 보통 5를 넘으면 주의</span><span class="pg"></span></footer>
+</section>
+
+<!-- 8 · principles -->
+<section class="slide" data-end="16:23" data-steps="2" aria-label="해석 원칙">
+  <header class="hd"><div class="kick"><span>8 · 해석 원칙</span></div><h2>결과를 해석하는 세 가지 원칙</h2></header>
   <div class="content">
     <div class="s6a">
       <div class="pcard"><span class="nb">1</span><h3>가설 유지</h3><p>결과에 맞춰 가설을 바꾸지 않고 그대로 보고합니다</p></div>
-      <div class="pcard st" data-step="1"><span class="nb">2</span><h3>분석조건 비교</h3><p>다른 조건을 고려하기 <b>전</b>과 <b>후</b>를 비교합니다</p><div class="ex">예) 80세 이상 비중이 높은 지역의 투표율이 오히려 높다면 → 정치적·사회경제적 조건을 고려한 뒤에도 그 관계가 유지되는가?</div></div>
+      <div class="pcard st" data-step="1"><span class="nb">2</span><h3>전과 후 비교</h3><p>다른 조건을 고려하기 <b>전</b>과 <b>후</b>를 비교합니다</p></div>
       <div class="pcard st" data-step="2"><span class="nb">3</span><h3>신뢰구간 확인</h3>
         <svg class="mini" viewBox="0 0 448 220" aria-label="0을 넘지 않는 신뢰구간과 0을 포함하는 신뢰구간 비교">
           <line class="zero" x1="140" y1="22" x2="140" y2="176"/>
@@ -557,28 +1164,56 @@ body.mouse #ctl{opacity:1}
   <footer class="foot"><span></span><span class="pg"></span></footer>
 </section>
 
-<!-- 6b · limits -->
-<section class="slide alt" data-steps="1" data-end="4:35" aria-label="해석의 한계">
-  <header class="hd"><div class="kick"><span>6 · 예상과 다른 결과</span></div><h2>해석의 한계</h2></header>
+<!-- 9 · sensitivity result (new) -->
+<section class="slide" data-end="16:45" data-steps="1" aria-label="예비 결과">
+  <header class="hd"><div class="kick"><span>9 · 예비 분석</span><span class="ptag">예비 결과</span></div><h2>기준을 75·80·85세로 바꿔도 결론은 같았다</h2></header>
   <div class="content">
-    <div class="s6b">
-      <div class="lim"><p class="big">지역 <span>≠</span> 개인</p><p class="ex">지역의 투표율이 높다고 그 지역 80세 이상 주민 <b>개개인</b>이 투표를 더 많이 했다고 해석할 수 없습니다</p></div>
-      <div class="lim st" data-step="1"><p class="big">관계 <span>≠</span> 원인</p><p class="ex">지역 간 <b>관계</b>를 관찰할 뿐, 고령화가 투표율 변화의 <b>원인</b>이라고 증명하는 연구는 아닙니다</p></div>
+    <div class="s9">
+      <svg id="forest" viewBox="0 0 1110 560" aria-label="75세, 80세, 85세 기준의 계수와 95% 신뢰구간. 세 기준 모두 계수는 음수이고 신뢰구간은 0을 포함"></svg>
+      <div class="concl st" data-step="1">
+        <p class="ck">세 기준 모두</p>
+        <p class="cm">계수는 <b class="c-old">음수</b></p>
+        <p class="cm">신뢰구간은 <b>0을 포함</b></p>
+        <p class="cv">→ 가설 2의 방향을<br>판단하기 어렵다</p>
+        <p class="cs">기준을 옮겨도 결론은 같음</p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span>기본모형(M4) · 226개 지역 · 같은 모형의 고령화 수준(H1): +0.063 [−0.032, +0.157]</span><span class="pg"></span></footer>
+</section>
+
+<!-- 10 · limits & next (new) -->
+<section class="slide alt" data-end="17:12" data-steps="1" aria-label="한계와 발전 방향">
+  <header class="hd"><div class="kick"><span>10 · 한계와 발전 방향</span></div><h2>이 연구가 말할 수 없는 것과 다음 단계</h2></header>
+  <div class="content">
+    <div class="s10">
+      <div class="lcol">
+        <p class="lh">한계</p>
+        <div class="li"><b>지역 <span class="c-old">≠</span> 개인</b><p>반 평균이 높다고 모든 학생이 잘하는 것은 아니듯, 지역의 결과로 개인의 행동을 말할 수 없음</p></div>
+        <div class="li"><b>관계 <span class="c-old">≠</span> 원인</b><p>지역 간 관계를 볼 뿐, 원인을 증명하지 않음</p></div>
+        <div class="li"><b>선거 한 번</b><p>대통령 파면 뒤의 조기선거 한 번만 분석</p></div>
+      </div>
+      <div class="lcol nx st" data-step="1">
+        <p class="lh">발전 방향</p>
+        <div class="li"><b>세 번의 대선</b><p>2017·2022·2025년 비교 → 같은 지역의 변화, 조기선거의 특수성</p></div>
+        <div class="li"><b>꺾이는 지점</b><p>고령화 수준의 제곱항으로 비선형 관계 확인</p></div>
+        <div class="li"><b>시군구 지도</b><p>80세 이상 비중과 투표율을 지도로 비교</p></div>
+      </div>
     </div>
   </div>
   <footer class="foot"><span></span><span class="pg"></span></footer>
 </section>
 
-<!-- 7 · closing -->
-<section class="slide" data-steps="1" data-end="4:50" aria-label="마무리">
-  <header class="hd"><div class="kick"><span>7 · 마무리</span></div><h2>고령화 수준 + 고령층 내부의 연령구성</h2></header>
+<!-- 11 · closing -->
+<section class="slide" data-end="17:25" data-steps="1" aria-label="마무리">
+  <header class="hd"><div class="kick"><span>11 · 마무리</span></div><h2>고령화 수준 + 고령층 내부의 연령구성</h2></header>
   <div class="content">
     <div class="s7">
       <div class="msg">
-        <p class="kq">이 연구가 확인하려는 것</p>
+        <p class="kq">정리</p>
         <p class="m"><span class="c-age">65세 이상</span>이 얼마나 많은가</p>
         <p class="plus">+</p>
-        <p class="m">그 안에서 <span class="c-old">80세 이상</span>이 차지하는 비율</p>
+        <p class="m">그 안에서 <span class="c-old">80세 이상</span>이 얼마나 되는가</p>
         <p class="thanks st" data-step="1">감사합니다</p>
       </div>
       <svg class="waffle show80" data-n65="43" data-n80="15" viewBox="0 0 352 352" aria-label="성인 100명 중 65세 이상 43명, 그중 80세 이상 15명"></svg>
@@ -603,39 +1238,32 @@ const REGIONS = [["종로구","서울",23.9,27.0,78.8],["중구","서울",24.4,2
 
 /* 발표 원고(사용자 대본) — 슬라이드별, 클릭 단계별 */
 const NOTES = [
-  ['안녕하세요. 김준모입니다.'],
-  ['2025년 대통령선거에서 70대의 투표율은 87.8%였습니다. 그렇다면 80세 이상은 몇 퍼센트였을까요? [잠깐 멈춤, 클릭]',
-   '65.8%였습니다. 70대와 비교하면 22%포인트나 낮습니다.',
-   '그렇다면 노인이 많이 사는 지역은 투표율이 높을까요? 아니면 오히려 낮을까요? 저는 이 질문에서 연구를 시작했습니다.'],
-  ['충북 단양군과 전북 순창군을 보겠습니다. 두 지역 모두 성인 인구 중 약 43%가 65세 이상입니다. 고령화 수준은 거의 같습니다.',
-   '그런데 고령층 중 80세 이상이 차지하는 비율은 단양이 26%, 순창이 34%로 차이가 납니다. 그렇다면 두 지역의 투표율도 차이가 날까요? [클릭]',
-   '단양은 79.6%, 순창은 86.5%였습니다.',
-   '여기서 한 가지 의문이 생깁니다. 이 차이는 고령층의 연령구성 때문일까요? 아니면 두 지역이 가진 다른 특성 때문일까요?',
-   '두 지역의 숫자만으로는 알 수 없습니다. 그래서 이번 연구에서는 전국 지역을 대상으로 다른 조건들을 함께 고려해 보려고 합니다.'],
-  ['연구질문은 두 가지입니다. 첫째, 고령인구가 많은 지역일수록 투표율도 높은가? 둘째, 고령화 수준이 비슷하더라도 80세 이상 인구의 비율에 따라 투표율이 달라지는가?',
-   '첫 번째 가설은 노인이 많은 지역일수록 투표율이 높을 것이라는 예상입니다. 오랜 선거 경험과 투표 습관을 근거로 합니다.',
-   '두 번째 가설은 고령화 수준이 같다면, 80세 이상이 많은 지역의 투표율은 낮을 것이라는 예상입니다. 초고령기에 건강이나 이동의 어려움이 투표참여와 관련될 가능성을 고려한 것입니다.'],
-  ['연구 대상은 전국 228개 지역입니다. 226개 기초자치단체에 세종과 제주를 별도의 분석단위로 포함했습니다.',
-   '선거관리위원회에서 투표율 자료를, 행정안전부에서 연령별 인구자료를 확보합니다.',
-   '여기에 재정자립도와 인구이동 자료도 추가합니다.'],
-  ['문제는 기관마다 자료의 형식과 지역 구분이 다르다는 점입니다. 예를 들어 한 자료에는 수원시 전체가 나오고, 다른 자료에는 수원시의 네 개 구가 따로 나올 수 있습니다.',
-   '이것을 그대로 합치면 인구나 투표수를 중복 계산할 위험이 있습니다.',
-   '그래서 Python을 사용합니다. 분석 프로그램은 AI의 도움을 받아 구축했습니다. 지역을 같은 기준으로 정리하고, 투표율을 계산한 뒤, 공식 통계와 대조하는 절차를 마련했습니다.'],
-  ['분석은 세 단계로 진행합니다. 먼저 전국 지역의 고령화 수준과 투표율을 그래프로 살펴봅니다.',
-   '그다음 고령화 수준만으로 투표율과의 관계를 분석합니다.'],
-  ['마지막으로 80세 이상 인구비율을 추가하고, 재정자립도와 인구이동, 인구규모처럼 투표율과 관련될 수 있는 조건들을 함께 고려합니다. 이를 다중회귀분석이라고 합니다.',
-   '여기서 중요한 방법이 시도 고정효과입니다. 앞서 단양과 순창은 서로 다른 도에 속한다고 말씀드렸습니다. 시도 고정효과는 이런 광역시도 간의 공통적인 차이를 고려하는 방법입니다.',
-   '그러면 단양은 주로 충북의 다른 지역들과, 순창은 전북의 다른 지역들과 비교하는 방식으로 관계를 추정하게 됩니다. 물론 같은 도 안에서도 지역마다 다른 조건은 남아 있습니다.'],
-  ['분석 결과가 얼마나 불확실한지도 확인합니다. 지역마다 회귀모형의 예측이 빗나가는 정도가 다를 수 있기 때문에, [클릭]',
-   'HC3라는 방법으로 표준오차를 계산하고 95% 신뢰구간을 제시합니다. 쉽게 말해, 추정된 관계가 어느 정도의 불확실성을 갖는지 확인하는 절차입니다. HC3는 회귀계수 자체를 바꾸지는 않습니다.',
-   '아울러 두 고령화 지표가 서로 너무 비슷하게 움직이는 문제, 그리고 선거인 수가 많은 지역에 더 큰 비중을 주었을 때 결과가 달라지는지도 점검합니다.'],
-  ['그렇다면 분석 결과가 가설과 다르게 나오면 어떻게 해야 할까요? 우선 가설을 결과에 맞춰 바꾸지 않고 그대로 보고하겠습니다.',
-   '그리고 다른 조건을 고려하기 전과 후에 결과가 어떻게 달라졌는지 비교하겠습니다. 예를 들어 80세 이상 비중이 높은 지역의 투표율이 오히려 높게 나타난다면, 지역의 정치적·사회경제적 조건을 고려한 뒤에도 그런 관계가 유지되는지 확인하는 것입니다.',
-   '이때 신뢰구간에 0이 포함된다면 관계의 방향이 명확하게 확인됐다고 말하지 않겠습니다.'],
-  ['또한 이번 연구는 지역을 분석하는 연구입니다. 어떤 지역의 투표율이 높다고 해서 그 지역에 사는 80세 이상 주민 개개인이 투표를 더 많이 했다고 해석할 수는 없습니다.',
-   '지역 간 관계를 관찰하는 것이지, 고령화가 투표율 변화의 원인이라고 증명하는 연구는 아닙니다.'],
-  ['이번 연구를 통해 확인하고 싶은 것은 고령화와 투표율 사이의 관계입니다. 특히 65세 이상 인구가 얼마나 많은지만 살펴보는 것으로 충분한지, 그 안에서 80세 이상이 차지하는 비율도 고려해야 하는지 알아보고자 합니다.',
-   '이상으로 발표를 마치겠습니다. 감사합니다.']
+  ["안녕하세요. 김준모입니다. 지역의 고령화 수준과 선거 투표율의 관계에 대한 연구계획을 발표하겠습니다."],
+  ["2025년 대통령선거에서 70대의 투표율은 87.8%였습니다. 그렇다면 80세 이상은 몇 퍼센트였을까요? [잠깐 멈춤]", "65.8%였습니다. 70대와 비교하면 22%포인트나 낮습니다.", "그렇다면 노인이 많이 사는 지역은 투표율이 높을까요? 아니면 오히려 낮을까요?"],
+  ["충북 단양군과 전북 순창군은 성인 중 약 43%가 65세 이상으로, 고령화 수준이 거의 같습니다.", "그런데 고령층 중 80세 이상 비중은 단양 26%, 순창 34%입니다. 투표율은 어땠을까요?", "단양 79.6%, 순창 86.5%로, 80세 이상이 더 많은 순창이 오히려 높았습니다.", "이 차이는 연령구성 때문일까요, 두 지역의 다른 특성 때문일까요?", "두 지역만으로는 알 수 없어서, 전국 지역을 다른 조건과 함께 비교합니다."],
+  ["기존의 투표참여 연구에서는 개인의 연령이 투표행동과 어떤 관계가 있는지 많이 다루어 왔습니다.", "저는 이러한 관계가 지역 단위에서도 나타나는지 확인해 보고자 했습니다. 특히 지역별 투표율의 차이를 인구구조로 얼마나 설명할 수 있는지 알아보는 데 의미가 있다고 생각합니다.", "우리나라의 고령화는 계속 진행되고 있습니다. 85세 이상은 2022년 총인구 100명 중 1.8명에서 2072년 14.3명까지 늘어날 전망입니다. 이러한 인구구조의 변화가 앞으로 정치참여와 민주주의에 어떤 의미를 갖는지 살펴볼 필요가 있다고 생각했습니다."],
+  ["이 연구의 의미는 여섯 가지로 정리할 수 있습니다. 첫째, 정치학적 의미입니다. 같은 대통령선거라도 지역마다 투표율이 다릅니다. 이 차이가 인구구조와 얼마나 관련되는지 분석해, 지역별 정치참여 격차를 이해하는 데 기여합니다. 둘째, 이론적 의미입니다. 기존 연구는 개인의 연령, 건강, 교육수준, 소득에 주목해 왔습니다. 개인 수준의 경향이 지역 전체에서도 똑같이 나타나는지는 별개의 문제이고, 이 연구는 그 점을 검토합니다. 셋째, 설명적 의미입니다. 고령화 수준이 높은 지역의 투표율이 높더라도, 실제로는 지역의 정치적 환경이나 사회경제적 특성과 더 관련되어 있을 수 있습니다. 다른 조건을 고려한 뒤 관계가 약해진다면 그것도 의미 있는 결과입니다.", "넷째, 방법론적 의미입니다. 선관위, 행정안전부, 통계청 등의 자료를 같은 행정구역 기준으로 정제하고 결합했습니다. 이 자료와 분석 코드는 다른 선거를 분석하거나 새 변수를 추가할 때 다시 쓸 수 있습니다. 다섯째, 사회적 의미입니다. 고령화는 주로 연금, 복지, 노동력 문제로 논의되지만, 정치참여와 민주적 대표성의 측면에서도 살펴볼 필요가 있습니다. 여섯째, 후속 연구의 의미입니다. 이번에는 2025년 대선 한 번을 분석하지만, 2017년과 2022년 대선으로 넓히면 이 관계가 꾸준히 나타나는지, 특정 선거에서만 나타나는지 검토할 수 있습니다."],
+  ["연구질문은 두 가지입니다. RQ1은 고령화 수준과 투표율의 관계를, RQ2는 고령화 수준이 같을 때 고령층 중 80세 이상 비중과 투표율의 관계를 묻습니다. RQ1은 기존 연구의 확인이고, 이 연구의 핵심은 RQ2입니다.", "가설 1은 고령화 수준이 높은 지역일수록 투표율이 높을 것이라는 예상입니다. 선거 경험과 투표 습관이 쌓이기 때문입니다.", "가설 2는 고령화 수준이 같다면 80세 이상 비중이 높은 지역일수록 투표율이 낮을 것이라는 예상입니다. 80세 이후에는 건강과 이동의 어려움이 커질 수 있기 때문입니다."],
+  ["그렇다면 왜 80세일까요? 노년학에서는 고령층을 나눌 때 주로 75세나 85세를 기준으로 써 왔습니다. Neugarten은 75세까지를 '젊은 노인'으로 묶었고, Suzman과 Riley는 85세 이상을 따로 보았습니다.", "제가 80세를 고른 이유는 자료입니다. 선관위가 투표율을 70대와 80세 이상으로 나눠 공표해서, 전국의 22%포인트 격차와 같은 경계를 썼습니다. 기준이 임의적일 수 있어서 75세와 85세로도 분석합니다."],
+  ["이제 분석을 어떻게 할지 말씀드리겠습니다. 먼저 Python입니다. Python은 컴퓨터에게 할 일을 글, 즉 코드로 적어서 시키는 프로그래밍 언어입니다. 요리에 비유하면 코드는 레시피이고, 컴퓨터는 레시피에 적힌 대로만 움직이는 요리사입니다.", "Python에는 자주 쓰는 기능을 미리 만들어 둔 도구 묶음, 라이브러리가 있습니다. 주방 도구 세트라고 생각하시면 됩니다. pandas는 재료를 손질하는 칼과 도마처럼 표를 합치고 계산합니다. statsmodels는 저울과 계량컵처럼 회귀분석과 오차를 정확히 계산합니다. matplotlib는 결과를 그래프로 보기 좋게 담는 그릇입니다."],
+  ["그렇다면 왜 엑셀이 아니라 Python일까요? 첫째, 자료가 많습니다. 선관위 개표자료만 해도 전국 1만 4천여 개 투표구로 나뉘어 있고, 네 기관의 자료를 지역별로 합쳐야 합니다. 영수증 1만 4천 장을 손으로 옮겨 적는 일과 비슷합니다.", "둘째, 같은 규칙을 모든 지역에 똑같이 적용할 수 있습니다. 도장을 한 번 파 두면 몇 장이든 똑같이 찍히듯이, '일반구는 소속 시로 합친다'는 규칙을 코드로 한 번 적으면 모든 지역에 그대로 적용되어 손으로 옮길 때 생기는 실수를 줄일 수 있습니다.", "셋째, 검증을 자동으로 할 수 있습니다. 정답지로 채점하듯이, 계산한 투표자 수를 선관위 공식 통계와 대조했고 전국, 17개 시도, 228개 지역 모두 일치했습니다.", "넷째, 다시 해도 같은 결과가 나옵니다. 레시피대로 만들면 누가 만들어도 같은 맛이 나듯이, 같은 코드를 다시 실행하면 같은 표와 결과가 나옵니다. 실제로 처음부터 다시 실행해 같은 결과를 확인했습니다."],
+  ["분석 설계는 요리 과정처럼 여섯 단계입니다. 장을 보듯 네 기관의 원자료를 수집하고, 재료를 손질하듯 지역 코드를 통일하고 중복을 없애는 정제를 합니다.", "한 냄비에 담듯 지역 코드로 자료를 한 표로 결합해 228개 지역의 분석표를 만들고, 간을 보듯 공식 통계와 대조해 검증합니다. 여기까지가 pandas로 하는 작업입니다.", "그다음 statsmodels로 회귀분석을 하고, 맛을 평가하듯 결과가 얼마나 믿을 만한지 여러 방법으로 점검합니다."],
+  ["정제가 왜 필요한지 예를 들어 보겠습니다. 분석 대상은 전국 228개 시·군·구 전부이고, 네 기관의 자료를 씁니다.", "그런데 기관마다 지역 단위가 다릅니다. 인구 자료에는 수원시 전체와 수원시의 네 개 구가 함께 들어 있어서, 그대로 더하면 238만 명이 되어 같은 사람을 두 번 셉니다.", "그래서 Python으로 지역을 같은 기준으로 정리하고, 투표율을 계산해 공식 통계와 대조합니다. 분석 프로그램은 AI의 도움을 받아 구축했습니다."],
+  ["변수는 이렇게 설계했습니다. 종속변수, 즉 설명하려는 대상은 투표자 수를 선거인 수로 나눈 투표율입니다. 고령화 수준은 18세 이상 인구 중 65세 이상의 비율인데, 투표율의 분모인 선거인이 18세 이상이라 기준을 맞췄습니다. 고령층 중 80세 이상 비중은 65세 이상 가운데 80세 이상의 비율로, 고령층의 크기와 따로 그 안의 구성을 잽니다.", "통제변수는 투표율에 함께 영향을 줄 수 있는 다른 조건입니다. 지역의 경제 여건인 재정자립도, 전입과 전출을 보여 주는 순이동률, 그리고 인구규모를 넣습니다. 인구는 9천 명부터 119만 명까지 차이가 커서 로그를 씁니다. 몇 명 차이가 아니라 몇 배 차이로 비교한다는 뜻입니다."],
+  ["이제 분석 방법입니다. 회귀분석은 익숙한 예로 먼저 보겠습니다. 반 학생들의 공부 시간과 성적을 점으로 찍으면, 공부를 오래 한 학생이 대체로 점수가 높습니다. 물론 예외도 있습니다. 회귀분석은 이 '대체로'를 선 하나로 나타내는 방법입니다. 이 그림은 학생 대신 지역입니다. 점 하나가 지역 하나이고, 가로는 고령화 수준, 세로는 투표율입니다.", "여기에 평균선을 긋습니다. 고령화 수준이 비슷한 지역끼리 투표율의 평균을 내고, 그 평균을 직선 하나로 나타낸 선입니다. 그래서 점들이 대체로 어느 쪽으로 가는지 보여 줍니다.", "이 선의 기울기를 회귀계수라고 합니다. 선을 따라 오른쪽으로 10%포인트 가면 위로 약 0.5%포인트 올라갑니다. 고령화 수준이 10%포인트 높은 지역은 투표율이 평균 0.5%포인트쯤 높다는 뜻입니다. 선이 평평해서 기울기가 0이면 관계가 없다는 뜻입니다. 뒤에서 '0이 포함되는지'를 묻는 이유가 이것입니다."],
+  ["그런데 선 하나만 보면 다른 조건이 섞입니다. 공부를 오래 한 학생 중에 3학년이 많다고 해 봅시다. 3학년 점수가 원래 더 높다면, 성적이 높은 이유가 공부 때문인지 학년 때문인지 알 수 없습니다. 그래서 같은 학년끼리 비교합니다. 지역도 마찬가지입니다. 고령화 수준이 높은 지역은 인구가 적고 재정도 약한 편입니다. 투표율의 차이가 고령화 때문인지, 이런 여건 때문인지 나눠 봐야 합니다. 이렇게 여러 조건을 한 번에 넣어 '다른 조건이 같다면'을 보는 방법이 다중회귀분석입니다.", "첫 번째 모형은 방금 본 선처럼 고령화 수준 하나만 넣습니다.", "두 번째 모형은 80세 이상 비중을 함께 넣어 두 고령 지표를 동시에 봅니다.", "세 번째 모형은 재정자립도, 순이동률, 인구규모를 더해, 지역 여건이 같다면 어떤지 봅니다.", "네 번째가 기본모형입니다. 지역유형과 시도 고정효과를 더해 같은 시도 안에서 비교합니다. 가설 1과 2는 이 기본모형으로 판단합니다."],
+  ["이제 시도 고정효과입니다. 먼저 왜 필요한지 보겠습니다. 그림의 오른쪽 위, 고령화 수준도 높고 투표율도 높은 지역들은 어디일까요?", "초록색이 전남과 전북입니다. 고령화 수준이 40% 이상이면서 투표율이 83% 이상인 17곳이 모두 전남과 전북입니다. 두 도는 원래 투표율이 높은 지역입니다.", "그러면 이 지역들의 투표율이 높은 것이 고령화 때문인지, 전남·전북이라서인지 구분이 안 됩니다. 이것을 나누려면 같은 도 안의 지역끼리 비교해야 합니다."],
+  ["학교에 비유해 보겠습니다. A학교는 시험이 쉬워서 평균이 80점이고, B학교는 어려워서 평균이 60점입니다. A학교 철수는 85점, B학교 영희는 75점입니다. 점수만 보면 철수가 높지만, 자기 학교 평균과 비교하면 철수는 5점, 영희는 15점 높습니다. 영희가 더 잘한 셈입니다.", "지역에 그대로 적용하면 학교가 도입니다. 앞에서 본 단양과 순창은 투표율이 6.9%포인트 차이 났습니다. 그런데 충북 평균은 77.5%, 전북 평균은 83.1%입니다. 자기 도 평균과 비교하면 단양은 2.1%포인트, 순창은 3.4%포인트 높아서, 차이가 1.3%포인트로 줄어듭니다. 나머지 5.6%포인트는 두 도의 평균 차이였던 셈입니다.", "시도 고정효과는 이 작업을 모든 지역에 합니다. 투표율과 고령화 수준을 모두 '자기 도 평균보다 얼마나 높은가, 낮은가'로 바꿔서 비교하는 것입니다."],
+  ["방법은 간단합니다. 각 지역이 어느 시도에 속하는지를 모형에 표시합니다. 학생마다 소속 학교를 적어 두는 것과 같습니다.", "이렇게 하면 같은 시도의 모든 지역에 공통으로 작용하는 요인이 통제됩니다. 지역의 정치 성향이나 시도 단위의 선거 분위기처럼, 제가 측정하지 않은 요인도 함께 통제됩니다. 학교에 비유하면 학교마다 다른 시험 난이도와 분위기에 해당합니다.", "한계도 있습니다. 같은 시도 안에서 지역마다 다른 요인은 통제되지 않고, 시도 간 차이는 설명할 수 없습니다. 학생 개인의 차이는 남고, 학교끼리는 비교할 수 없는 것과 같습니다. 또 세종과 제주는 같은 시도 안에 비교할 지역이 없어서 제외되고, 226개 지역을 분석합니다."],
+  ["다음은 결과를 얼마나 믿을 수 있는지입니다. 회귀계수는 이번 자료로 얻은 추정값이라, 자료가 조금만 달라도 흔들릴 수 있습니다. 그 흔들림의 크기가 표준오차이고, 95% 신뢰구간은 대략 추정값에서 표준오차의 두 배쯤을 빼고 더한 범위입니다.", "여론조사의 '오차범위 플러스마이너스 3%포인트'와 같은 개념입니다. 두 후보의 차이가 오차범위 안이면 '접전'이라고 하듯이, 신뢰구간이 0을 포함하면 관계의 방향을 말하지 않습니다.", "예를 들어 기본모형에서 80세 이상 비중의 계수는 −0.070이고, 신뢰구간은 −0.189에서 +0.049까지라 0을 포함합니다."],
+  ["그런데 표준오차를 계산하는 보통 방식은 모든 지역에서 예측이 빗나가는 폭이 같다고 가정합니다. 이 자료에서는 그 가정을 믿기 어렵습니다.", "동전을 10번 던지면 앞면 비율이 크게 흔들리지만 1,000번 던지면 거의 50%에 가깝습니다. 선거인 8천여 명인 울릉군과 100만여 명인 수원시도 흔들림의 크기가 다를 수 있습니다. 그래서 HC3라는 방법으로, 지역마다 흔들림이 다를 수 있다고 보고 표준오차를 계산합니다. 점, 즉 추정값은 그대로이고 막대, 즉 신뢰구간만 다시 계산됩니다."],
+  ["조금 더 자세히 보겠습니다. 모든 지역의 빗나가는 폭이 같다는 가정을 등분산 가정이라고 합니다. HC 방식은 이 가정 없이, 지역마다 실제로 빗나간 폭인 잔차를 써서 표준오차를 계산합니다.", "HC0부터 HC3까지 같은 계열입니다. HC0은 잔차를 그대로 쓰고, HC1은 표본 크기를 보정합니다. HC2와 HC3는 영향력이 큰 지역을 더 크게 반영합니다. 영향력은 반에서 혼자 동떨어진 학생이 반 평균선을 끌어당기는 힘과 비슷합니다. 그중 HC3가 가장 보수적입니다.", "분석 단위가 250개 이하일 때 HC3를 권한 연구가 있어서, 228개 지역인 이 연구는 HC3를 골랐습니다. 실제로 기본모형에서 고령화 수준의 표준오차는 보통 방식으로 0.034, HC3로 0.048이었습니다. 계수는 같고, 신뢰구간만 1.4배쯤 넓어졌습니다."],
+  ["지금까지의 설계를 코드로 옮기면 이 정도입니다. 물결표 왼쪽이 설명하려는 투표율이고, 오른쪽이 설명하는 변수들입니다.", "고령화 수준과 80세 이상 비중, 통제변수를 넣고, C 괄호로 지역유형과 시도를 넣으면 고정효과가 됩니다. 마지막 줄에서 HC3를 지정하면 HC3 표준오차로 계산됩니다. 실제 분석 코드의 핵심만 옮긴 것이고, 이 코드로 기본모형의 계수가 그대로 나옵니다."],
+  ["끝으로 결과를 한 번 더 확인하는 방법 세 가지입니다. 첫째, 두 고령 지표가 너무 닮지 않았는지 봅니다. 노인이 많은 지역은 80세 이상 비중도 높은 편이라, 두 지표의 상관이 0.83입니다. 1에 가까울수록 같이 움직인다는 뜻입니다. 늘 같이 짐을 드는 두 사람은 누가 얼마나 들었는지 알기 어렵듯이, 두 지표도 각자의 몫을 가르기 어렵습니다. 겹친 정도를 나타내는 VIF라는 점수가 8.1과 5.9로, 주의 기준인 5를 넘었습니다. 그래서 오차범위가 넓게 나올 수 있습니다.", "둘째, 지역 크기를 따져 봅니다. 기본 분석에서는 선거인이 8천여 명인 울릉군도, 100만여 명인 수원시도 똑같이 한 곳으로 셉니다. 그래서 선거인이 많은 지역을 더 크게 쳐서 한 번 더 계산합니다. 학급 회의에서 반마다 한 표를 줄 때와 학생 수만큼 표를 줄 때 결과가 같은지 보는 것과 같습니다.", "셋째, 80세라는 기준을 바꿔 봅니다. 75세와 85세로 바꿔 같은 분석을 다시 합니다. 시험 합격선을 75점, 80점, 85점으로 바꿔 봐도 결론이 같은지 보는 것입니다."],
+  ["결과를 해석하는 원칙은 세 가지입니다. 첫째, 결과에 맞춰 가설을 바꾸지 않습니다.", "둘째, 다른 조건을 고려하기 전과 후를 비교합니다.", "셋째, 신뢰구간에 0이 포함되면 방향이 확인됐다고 말하지 않습니다."],
+  ["이 설계를 실제로 돌려 본 예비 결과입니다. 고령층 내부의 기준을 75세, 80세, 85세로 바꿔 같은 기본모형으로 분석했습니다.", "세 기준 모두 계수는 음수였지만, 신뢰구간이 모두 0을 포함했습니다. 그래서 가설 2가 확인됐다고도, 반대라고도 말하지 않습니다. 기준을 옮겨도 이 결론은 같았습니다."],
+  ["한계도 있습니다. 반 평균이 높다고 모든 학생이 공부를 잘하는 것은 아니듯이, 지역의 결과로 개인의 행동을 말할 수는 없습니다. 관계를 볼 뿐 원인을 증명하지는 않고, 조기선거 한 번만 분석한다는 점도 한계입니다.", "그래서 앞으로 2017년부터 세 번의 대선을 함께 분석하고, 관계가 꺾이는 지점과 지역별 분포를 지도로도 확인하려고 합니다."],
+  ["정리하겠습니다. 65세 이상이 얼마나 많은지만으로는 부족합니다. 그 안에서 80세 이상이 얼마나 되는지까지 함께 봐야 합니다.", "이상으로 발표를 마치겠습니다. 감사합니다."]
 ];
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -702,21 +1330,16 @@ function buildScatter(svg, W, H, fe){
   });
   txt(el('text', {x: W - m.r, y: H - 8, class: 'axl', 'text-anchor': 'end'}, svg), '고령화 수준 (18세 이상 중 65세 이상 비율) →');
   txt(el('text', {x: 0, y: 0, class: 'axl', 'text-anchor': 'middle', transform: `translate(26 ${(m.t + H - m.b)/2}) rotate(-90)`}, svg), '투표율 →');
-  const pc = r => r[1] === '충북' ? ' pa' : r[1] === '전북' ? ' pb' : '';
+  const pc = r => fe && (r[1] === '전남' || r[1] === '전북') ? ' ph' : '';
   const dots = el('g', {}, svg);
   REGIONS.forEach((r, i) => {
     const c = el('circle', {cx: X(r[2]), cy: Y(r[4]), r: 7.5, class: 'dot' + pc(r), 'data-i': i}, dots);
     c.style.setProperty('--d', (i*53) % 450);
   });
   if (fe){
-    const ml = el('g', {class: 'mline'}, svg);
-    [['충북', 'a'], ['전북', 'b']].forEach(([p, s]) => {
-      const rs = REGIONS.filter(r => r[1] === p);
-      const xs = rs.map(r => r[2]), mean = rs.reduce((a, r) => a + r[4], 0)/rs.length;
-      const x1 = X(Math.min(...xs)), x2 = X(Math.max(...xs)), y = Y(mean);
-      el('line', {x1, y1: y, x2, y2: y, class: 'l' + s}, ml);
-      txt(el('text', {x: x1, y: y - 16, class: 't' + s}, ml), `${p} 평균 ${mean.toFixed(1)}% · ${rs.length}곳`);
-    });
+    const z = el('g', {class: 'zone'}, svg);
+    el('rect', {x: X(40), y: Y(88) + 2, width: X(55) - X(40) - 2, height: Y(83) - Y(88) - 2, rx: 12}, z);
+    txt(el('text', {x: X(55) - 16, y: Y(88) + 42, 'text-anchor': 'end'}, z), '17곳');
   }
   ['단양군', '순창군'].forEach(n => {
     const r = REGIONS.find(q => q[0] === n);
@@ -726,7 +1349,29 @@ function buildScatter(svg, W, H, fe){
   });
 }
 buildScatter(document.getElementById('sc1'), 1060, 660, false);
-buildScatter(document.getElementById('sc2'), 1000, 660, true);
+buildScatter(document.getElementById('sc2'), 1060, 660, true);
+
+/* ---------- regression line (slide 11) ---------- */
+(function(){
+  const svg = document.getElementById('sc1');
+  if (!svg) return;
+  const W = 1060, H = 660, m = {l: 110, r: 24, t: 20, b: 84}, xa = 10, xb = 55, ya = 72, yb = 88;
+  const X = v => m.l + (v - xa)/(xb - xa)*(W - m.l - m.r);
+  const Y = v => H - m.b - (v - ya)/(yb - ya)*(H - m.t - m.b);
+  const n = REGIONS.length;
+  const mx = REGIONS.reduce((a, r) => a + r[2], 0)/n, my = REGIONS.reduce((a, r) => a + r[4], 0)/n;
+  let sxy = 0, sxx = 0;
+  REGIONS.forEach(r => { sxy += (r[2] - mx)*(r[4] - my); sxx += (r[2] - mx)**2; });
+  const b = sxy/sxx, a = my - b*mx;
+  const g = el('g', {class: 'fit'}, svg);
+  el('line', {x1: X(12), y1: Y(a + b*12), x2: X(53), y2: Y(a + b*53)}, g);
+  txt(el('text', {x: X(53), y: Y(a + b*53) - 20, 'text-anchor': 'end'}, g), '평균선');
+  const s = el('g', {class: 'slope'}, svg), u = 16, v = 26;
+  el('line', {x1: X(u), y1: Y(a + b*u), x2: X(v), y2: Y(a + b*u)}, s);
+  el('line', {x1: X(v), y1: Y(a + b*u), x2: X(v), y2: Y(a + b*v)}, s);
+  txt(el('text', {x: (X(u) + X(v))/2, y: Y(a + b*u) + 42, 'text-anchor': 'middle'}, s), '오른쪽으로 10%p');
+  txt(el('text', {x: X(v) + 16, y: Y(a + b*v) - 14}, s), '위로 약 ' + (b*10).toFixed(1) + '%p');
+})();
 
 /* ---------- funnel (concept) ---------- */
 (function(){
@@ -750,6 +1395,65 @@ buildScatter(document.getElementById('sc2'), 1000, 660, true);
   txt(el('text', {x: 484, y: 42, class: 'lg'}, svg), '실제 지역');
   txt(el('text', {x: 60, y: 314}, svg), '빗나감 작음');
   txt(el('text', {x: 740, y: 314, 'text-anchor': 'end'}, svg), '빗나감 큼');
+})();
+
+/* ---------- age thresholds (slide 5) ---------- */
+(function(){
+  const svg = document.getElementById('ages');
+  const X = a => 100 + (a - 60)*45.75;
+  const AY = 270;
+  el('line', {x1: X(60), y1: AY, x2: X(92), y2: AY, class: 'axis'}, svg);
+  [65,70,75,80,85,90].forEach(a => {
+    el('line', {x1: X(a), y1: AY - 10, x2: X(a), y2: AY + 10, class: 'tk'}, svg);
+    txt(el('text', {x: X(a), y: AY + 48, class: 'tkl num'}, svg), a + '세');
+  });
+  const br = (x1, x2, t, s) => {
+    el('path', {d: `M${x1},214 V200 H${x2} V214`, class: 'bk'}, svg);
+    const cx = (x1 + x2)/2;
+    txt(el('text', {x: cx, y: 140, class: 'bkt', 'text-anchor': 'middle'}, svg), t);
+    txt(el('text', {x: cx, y: 174, class: 'bks', 'text-anchor': 'middle'}, svg), s);
+  };
+  br(X(60), X(75), 'young-old · 55~75세', 'Neugarten (1974)');
+  br(X(85), X(92), 'oldest-old · 85세 이상', 'Suzman·Riley (1985)');
+  [75, 85].forEach(a => el('line', {x1: X(a), y1: 214, x2: X(a), y2: AY, class: 'div'}, svg));
+  el('line', {x1: X(80), y1: 100, x2: X(80), y2: AY, class: 'm80'}, svg);
+  el('circle', {cx: X(80), cy: AY, r: 14, class: 'm80c'}, svg);
+  txt(el('text', {x: X(80), y: 40, class: 'm80t'}, svg), '이 연구 · 80세');
+  txt(el('text', {x: X(80), y: 80, class: 'm80s'}, svg), '선관위 공표 구간: 70대 | 80세 이상');
+  const g = el('g', {class: 'sens'}, svg);
+  const y = 240;
+  el('line', {x1: X(80) - 20, y1: y, x2: X(75) + 26, y2: y}, g);
+  el('polygon', {points: `${X(75)+8},${y} ${X(75)+30},${y-12} ${X(75)+30},${y+12}`}, g);
+  el('line', {x1: X(80) + 20, y1: y, x2: X(85) - 26, y2: y}, g);
+  el('polygon', {points: `${X(85)-8},${y} ${X(85)-30},${y-12} ${X(85)-30},${y+12}`}, g);
+  txt(el('text', {x: X(80), y: 380}, g), '75세 · 85세 기준으로도 같은 모형 분석 (민감도)');
+})();
+
+/* ---------- sensitivity forest (slide 9) ---------- */
+(function(){
+  const svg = document.getElementById('forest');
+  const ROWS = [
+    ['75세 이상', '65세 이상 중 비중', -0.11208035, -0.22702369, 0.00286298, false],
+    ['80세 이상', '65세 이상 중 비중 · 주분석', -0.07007216, -0.18874664, 0.04860232, true],
+    ['85세 이상', '65세 이상 중 비중', -0.01140101, -0.18462452, 0.16182249, false]
+  ];
+  const X = v => 360 + (v + 0.25)*(700/0.45);
+  const f = v => (v < 0 ? '−' : '+') + Math.abs(v).toFixed(3);
+  [-0.2, -0.1, 0.1, 0.2].forEach(v => el('line', {x1: X(v), y1: 80, x2: X(v), y2: 460, class: 'gl'}, svg));
+  el('line', {x1: X(0), y1: 80, x2: X(0), y2: 460, class: 'zero'}, svg);
+  [-0.2, -0.1, 0, 0.1, 0.2].forEach(v => txt(el('text', {x: X(v), y: 500, class: v === 0 ? 'tick t0' : 'tick'}, svg), v === 0 ? '0' : f(v).replace('00', '').replace(/0$/, '')));
+  txt(el('text', {x: X(0), y: 545, class: 'axl'}, svg), '비중 1%p당 투표율 차이(%p) · HC3 95% 신뢰구간');
+  txt(el('text', {x: X(0) - 18, y: 60, class: 'dir', 'text-anchor': 'end'}, svg), '← 투표율 낮음');
+  txt(el('text', {x: X(0) + 18, y: 60, class: 'dir'}, svg), '투표율 높음 →');
+  ROWS.forEach(([lab, sub, est, lo, hi, main], i) => {
+    const y = 150 + i*130;
+    const g = el('g', {class: main ? 'row main' : 'row'}, svg);
+    txt(el('text', {x: 0, y: y + 4, class: 'rl'}, g), lab);
+    txt(el('text', {x: 0, y: y + 38, class: 'rs'}, g), sub);
+    el('line', {x1: X(lo), y1: y, x2: X(hi), y2: y, class: 'ci'}, g);
+    el('circle', {cx: X(est), cy: y, r: 14, class: 'est'}, g);
+    txt(el('text', {x: X(est), y: y - 26, class: 'rv', 'text-anchor': 'middle'}, g), `${f(est)} [${f(lo)}, ${f(hi)}]`);
+  });
 })();
 
 /* ---------- tooltip ---------- */
@@ -819,7 +1523,7 @@ function nextCue(){
   return '마지막 화면입니다.';
 }
 function posText(){ return `슬라이드 ${cur} / ${N - 1} · 단계 ${step + 1} / ${maxStep(cur) + 1} · ${slides[cur].getAttribute('aria-label')}`; }
-function timeText(){ const e = slides[cur].dataset.end; return `경과 ${fmt(elapsed())}` + (cur > 0 ? ` · 이 구간 목표 ~${e}` : '') + ' · 목표 5:00'; }
+function timeText(){ const e = slides[cur].dataset.end; return `경과 ${fmt(elapsed())}` + (cur > 0 ? ` · 이 구간 목표 ~${e}` : '') + ' · 목표 17:25'; }
 function updateNotes(){
   const nt = document.getElementById('notes');
   if (!nt.hidden){
@@ -866,7 +1570,7 @@ function updatePresenter(){
   try {
     const d = pw.document;
     d.getElementById('pPos').textContent = posText();
-    d.getElementById('pGoal').textContent = cur > 0 ? '이 구간 목표 ~' + slides[cur].dataset.end + ' · 전체 목표 5:00' : '첫 화면에서 넘어가면 타이머가 시작됩니다';
+    d.getElementById('pGoal').textContent = cur > 0 ? '이 구간 목표 ~' + slides[cur].dataset.end + ' · 전체 목표 17:25' : '첫 화면에서 넘어가면 타이머가 시작됩니다';
     d.getElementById('pNow').textContent = NOTES[cur][step];
     d.getElementById('pNext').textContent = nextCue();
     d.getElementById('pTime').textContent = fmt(elapsed());
